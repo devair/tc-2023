@@ -11,9 +11,7 @@ describe('Customers tests',()=>{
     })
 
     it('Should be able to create a new customer', async ()=>{
-        const customer = new Customer()
-        
-        Object.assign(customer, { name: 'Fulano', cpf: '35712606607', phone: '4799999999', email: 'fulano@silva.com.br'})
+        const customer = { name: 'Fulano', cpf: '35712606607', phone: '4799999999', email: 'fulano@silva.com.br'}
 
         await customersRepository.create(customer)
 
