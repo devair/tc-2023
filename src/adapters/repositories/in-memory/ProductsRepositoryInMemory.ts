@@ -1,4 +1,5 @@
 import { Product } from "../../../domain/Product";
+import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
 
 
@@ -10,9 +11,15 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         this.products = []
     }
 
-    async create(product: Product): Promise<void> {
+    async create({code, name, description, category, price, image }: ICreateProductDTO ): Promise<Product> {
+        
+        const product = new Product()
+
+        Object.assign(product, {code, name, description, category, price, image })
 
         this.products.push(product)
+
+        return product
     }
 
     async list(): Promise<Product[]> {

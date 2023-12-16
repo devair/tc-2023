@@ -1,9 +1,10 @@
 import { Category } from "../../../domain/Category";
+import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 
 class CategoriesRepositoryPostgres implements ICategoriesRepository{
     
-    async create(category: Category): Promise<Category> {
+    async create({ name, description }: ICreateCategoryDTO ): Promise<Category> {
         throw new Error("Method not implemented.");
     }
     

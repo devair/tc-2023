@@ -1,6 +1,7 @@
 import { Customer } from "../../../domain/Customer";
 import { Order } from "../../../domain/Order";
 import { OrderItem } from "../../../domain/OrderItem";
+import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 import { ICustomersService } from "../../customer/ICustomersService";
 import { IProductsService } from "../../product/IProductsService";
@@ -15,7 +16,7 @@ class OrdersService implements IOrdersService {
 
     }
 
-    async create({ customer, orderItems }): Promise<Order> {
+    async create({ customer, orderItems }: ICreateOrderDTO ): Promise<Order> {
         
         const order = new Order()
 
