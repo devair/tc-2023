@@ -1,8 +1,9 @@
 import { Category } from '../../domain/Category'
+import { ICreateCategoryDTO } from '../../domain/dtos/ICreateCategoryDTO'
 
 interface ICategoriesRepository{
 
-    create( category: Category): Promise<Category>
+    create( { name, description }: ICreateCategoryDTO ): Promise<Category>
     
     list(): Promise<Category[]>
 

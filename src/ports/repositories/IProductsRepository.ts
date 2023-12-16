@@ -1,8 +1,9 @@
 import { Product } from '../../domain/Product'
+import { ICreateProductDTO } from '../../domain/dtos/ICreateProductDTO'
 
 interface IProductsRepository{
 
-    create( product : Product): Promise<void>
+    create( {code, name, description, category, price, image }: ICreateProductDTO ): Promise<Product>
     
     list(): Promise<Product[]>   
 

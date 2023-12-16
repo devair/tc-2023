@@ -1,4 +1,5 @@
 import { Category } from "../../../domain/Category";
+import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { ICategoriesService } from "../ICategoriesService";
 
@@ -7,7 +8,7 @@ class CategoriesService implements ICategoriesService{
 
     constructor(private categoriesRepository: ICategoriesRepository){}
 
-    async create({ name  }): Promise<Category>{
+    async create( { name, description }: ICreateCategoryDTO ): Promise<Category>{
 
         const categoryFound = this.categoriesRepository.findByName(name)
 

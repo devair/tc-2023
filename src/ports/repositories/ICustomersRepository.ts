@@ -1,8 +1,9 @@
 import { Customer } from '../../domain/Customer'
+import { ICreateCustomerDTO } from '../../domain/dtos/ICreateCustomerDTO'
 
 interface ICustomersRepository {
 
-    create(customer: Customer): Promise<Customer>
+    create({ name, email, cpf, phone }: ICreateCustomerDTO ): Promise<Customer>
 
     list(): Promise<Customer[]>
 

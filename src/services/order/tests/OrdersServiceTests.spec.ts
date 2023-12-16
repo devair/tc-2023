@@ -34,15 +34,15 @@ describe('Orders tests', () => {
         ordersService = new OrdersService(new OrdersRepositoryInMemory(), customersService, productsService)
 
         // creating a category
-        const category = { name: 'Bebida' }
+        const category = { name: 'Bebida', description: 'Bebida gelada' }
         const categoryCreated = await categoriesService.create(category)
 
 
         // creating a product    
-        const product = {
-            code: '1', name: 'produto1', description: 'xis tudo', category: 'Bebida', price: 35, image: ''            
-        }
-        const productCreated = await productsService.create(product)
+        const product = await productsService.create({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, category: categoryCreated, image: ''
+        })
 
 
         // creating a customer

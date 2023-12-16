@@ -1,4 +1,5 @@
 import { Order } from '../../domain/Order'
+import { ICreateOrderDTO } from '../../domain/dtos/ICreateOrderDTO'
 
 interface IOrdersRepository {
 

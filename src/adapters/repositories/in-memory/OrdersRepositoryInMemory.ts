@@ -1,4 +1,5 @@
 import { Order } from "../../../domain/Order";
+import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 
 class OrdersRepositoryInMemory implements IOrdersRepository{
@@ -10,6 +11,7 @@ class OrdersRepositoryInMemory implements IOrdersRepository{
     }
 
     async create( order: Order ): Promise<Order> {
+        
         this.orders.push(order)
         return order
     }

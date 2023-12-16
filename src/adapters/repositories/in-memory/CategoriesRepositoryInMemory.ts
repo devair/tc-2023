@@ -1,19 +1,23 @@
 import { Category } from "../../../domain/Category";
+import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 
 
-class CategoriesRepositoryInMemory implements ICategoriesRepository{
+class CategoriesRepositoryInMemory implements ICategoriesRepository {
 
     private categories: Category[]
 
-    constructor(){
+    constructor() {
         this.categories = []
     }
 
-    async create(category: Category): Promise<Category> {
-        
+    async create({ name, description }: ICreateCategoryDTO): Promise<Category> {
+        const category = new Category()
+
+        Object.assign(category, { name, description })
+
         this.categories.push(category)
-        
+
         return category
     }
 
@@ -27,7 +31,7 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository{
 
         return category
     }
-    
+
 }
 
 export { CategoriesRepositoryInMemory }

@@ -1,4 +1,5 @@
 import { Customer } from "../../../domain/Customer";
+import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
 
 class CustomersRepositoryInMemory implements ICustomersRepository{
@@ -9,8 +10,10 @@ class CustomersRepositoryInMemory implements ICustomersRepository{
         this.customers = []
     }
 
-    async create(customer: Customer): Promise<Customer>  {
-        
+    async create({ name, email, cpf, phone }: ICreateCustomerDTO ): Promise<Customer>  {
+        const customer = new Customer()
+
+        Object.assign(customer, { name, email, cpf, phone } )
         this.customers.push(customer)
 
         return customer
