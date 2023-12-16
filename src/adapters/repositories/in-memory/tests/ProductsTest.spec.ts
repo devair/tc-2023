@@ -1,4 +1,4 @@
-import { ProductsInMemoryRepository } from "../ProductsRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Product } from "../../../../domain/Product"
 import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository"
 
@@ -6,7 +6,7 @@ let productsRepository : IProductsRepository
 
 describe('Product tests',()=>{
     beforeAll(()=>{
-        productsRepository = new ProductsInMemoryRepository()
+        productsRepository = new ProductsRepositoryInMemory()
     })
 
     it('Should be able to create a new product', async ()=>{

@@ -1,7 +1,7 @@
-import { CategoriesInMemoryRepository } from "../CategoriesRepositoryInMemory"
-import { CustomersInMemoryRepository } from "../CustomersRepositoryInMemory"
-import { OrdersInMemoryRepository } from "../OrdersRepositoryInMemory"
-import { ProductsInMemoryRepository } from "../ProductsRepositoryInMemory"
+import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
+import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
+import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Category } from "../../../../domain/Category"
 import { Customer } from "../../../../domain/Customer"
 import { Order } from "../../../../domain/Order"
@@ -20,11 +20,11 @@ let categoriesRepository: ICategoriesRepository
 describe('Orders tests', () => {
     beforeAll( async () => {
 
-        customersRepository = new CustomersInMemoryRepository()
-        productsRepository = new ProductsInMemoryRepository()
-        categoriesRepository = new CategoriesInMemoryRepository()
+        customersRepository = new CustomersRepositoryInMemory()
+        productsRepository = new ProductsRepositoryInMemory()
+        categoriesRepository = new CategoriesRepositoryInMemory()
 
-        ordersRepository = new OrdersInMemoryRepository()
+        ordersRepository = new OrdersRepositoryInMemory()
 
         // creating a category
         const category = new Category()
