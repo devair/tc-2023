@@ -6,7 +6,7 @@ export class Payment {
     order: Order    
     amount: number
     paymentDate: Date
-    paymentUniqueNumber: Date
+    paymentUniqueNumber: string
     created_at: Date
 
     constructor(){

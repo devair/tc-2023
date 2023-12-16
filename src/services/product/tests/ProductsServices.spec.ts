@@ -8,7 +8,7 @@ import { ProductsService } from "../impl/ProductsService"
 let categoriesService: ICategoriesService
 let productsService: IProductsService
 
-describe('Product tests', () => {
+describe('Products Service tests', () => {
     beforeAll(() => {
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)

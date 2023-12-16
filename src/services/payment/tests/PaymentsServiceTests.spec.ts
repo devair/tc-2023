@@ -1,0 +1,92 @@
+import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
+import { OrdersRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrdersRepositoryInMemory"
+import { PaymentsRepositoryInMemory } from "../../../adapters/repositories/in-memory/PaymentsRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
+import { OrderStatus } from "../../../domain/Order"
+import { ICategoriesService } from "../../category/ICategoriesService"
+import { CategoriesService } from "../../category/impl/CategoriesService"
+import { ICustomersService } from "../../customer/ICustomersService"
+import { IOrdersService } from "../../order/IOrdersService"
+import { OrdersService } from "../../order/impl/OrdersService"
+import { IProductsService } from "../../product/IProductsService"
+import { ProductsService } from "../../product/impl/ProductsService"
+import { IPaymentsService } from "../IPaymentsService"
+import { PaymentsService } from "../impl/PaymentsService"
+
+let ordersService: IOrdersService
+let customersService: ICustomersService
+let productsService: IProductsService
+let categoriesService: ICategoriesService
+let paymentsService: IPaymentsService
+
+describe('Payments tests', () => {
+    beforeAll(async ()=>{
+        
+        customersService = new CustomersRepositoryInMemory()
+        categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
+        productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
+        ordersService = new OrdersService(new OrdersRepositoryInMemory(),customersService,productsService)
+        paymentsService = new PaymentsService(new PaymentsRepositoryInMemory())
+
+        // creating a category
+        const category = { name: 'Bebida', description: 'Bebida gelada' }
+        await categoriesService.create(category)
+        const categoryCreated = await categoriesService.findByName(category.name)
+
+        // creating a product    
+        const product = {
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, category: categoryCreated, image: ''
+        }
+        productsService.create(product)
+
+        // creating a customer
+        const customer = { name: 'Fulano', cpf: '35712606607', phone: '4799999999', email: 'fulano@silva.com.br' }
+
+        await customersService.create(customer)
+    })
+
+    it('Should be able to create a new payment for an order', async () => {
+        const product = await productsService.findByCode('1')
+        const customer = await customersService.findByCpf('35712606607')
+        const orderItems = []
+
+        orderItems.push( {
+            product: product,
+            quantity: 2,
+            unitPrice: 45.0
+        })
+                
+        const orderCreated = await ordersService.create({ customer, orderItems})    
+        expect(orderCreated).toHaveProperty('id')
+
+        let payment = {
+            order: orderCreated,
+            orderCreated,
+            paymentUniqueNumber: 'UNQ-1',
+            paymentDate: new Date(),
+            amount: orderCreated.amount()
+        }
+
+        const paymentCreated = await paymentsService.create(payment)
+        
+        expect(paymentCreated).toHaveProperty('id')
+
+        orderCreated.status = OrderStatus.RECEIVED
+
+        const orderUpdatedStatus = await ordersService.updateStatus(orderCreated)
+
+        expect(orderUpdatedStatus.status).toBe(OrderStatus.RECEIVED)
+
+        const payments = await paymentsService.list()
+
+        expect(payments.length).toBeGreaterThanOrEqual(1)
+
+        const paymentFound = await paymentsService.findById(paymentCreated.id)
+
+        expect(paymentFound).toHaveProperty('id')
+
+
+    })
+})
