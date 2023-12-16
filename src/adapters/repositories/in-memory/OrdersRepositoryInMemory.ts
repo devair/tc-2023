@@ -1,7 +1,7 @@
-import { Order, OrderStatus } from "../../../domain/Order";
+import { Order } from "../../../domain/Order";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 
-class OrdersInMemoryRepository implements IOrdersRepository{
+class OrdersRepositoryInMemory implements IOrdersRepository{
 
     private orders: Order[]
 
@@ -35,4 +35,4 @@ class OrdersInMemoryRepository implements IOrdersRepository{
 
 }
 
-export { OrdersInMemoryRepository }
+export { OrdersRepositoryInMemory }

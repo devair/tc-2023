@@ -1,4 +1,4 @@
-import { CustomersInMemoryRepository } from "../CustomersInMemoryRepository"
+import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
 import { Customer } from "../../../../domain/Customer"
 import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository"
 
@@ -7,7 +7,7 @@ let customersRepository: ICustomersRepository
 describe('Customers tests',()=>{
 
     beforeAll(()=>{
-        customersRepository = new CustomersInMemoryRepository()
+        customersRepository = new CustomersRepositoryInMemory()
     })
 
     it('Should be able to create a new customer', async ()=>{

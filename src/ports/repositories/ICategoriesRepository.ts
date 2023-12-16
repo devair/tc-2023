@@ -2,7 +2,7 @@ import { Category } from '../../domain/Category'
 
 interface ICategoriesRepository{
 
-    create( category: Category): Promise<void>
+    create( category: Category): Promise<Category>
     
     list(): Promise<Category[]>
 

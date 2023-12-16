@@ -1,4 +1,4 @@
-import { CategoriesInMemoryRepository } from "../CategoriesInMemoryRepository"
+import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 import { Category } from "../../../../domain/Category"
 import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
 
@@ -7,7 +7,7 @@ let categoriesRepository : ICategoriesRepository
 describe('Category testes', ()=>{
 
     beforeEach(()=>{
-        categoriesRepository = new CategoriesInMemoryRepository()
+        categoriesRepository = new CategoriesRepositoryInMemory()
     })
 
     it('Should be able to create a new category', async()=>{

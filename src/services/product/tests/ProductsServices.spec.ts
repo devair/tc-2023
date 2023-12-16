@@ -1,5 +1,5 @@
-import { CategoriesInMemoryRepository } from "../../../adapters/repositories/in-memory/CategoriesInMemoryRepository"
-import { ProductsInMemoryRepository } from "../../../adapters/repositories/in-memory/ProductsInMemoryRepository"
+import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
 import { Category } from "../../../domain/Category"
 import { Product } from "../../../domain/Product"
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository"
@@ -16,8 +16,8 @@ let productsService: IProductsService
 
 describe('Product tests',()=>{
     beforeAll(()=>{
-        productsRepository = new ProductsInMemoryRepository()
-        categoriesRepository = new CategoriesInMemoryRepository()
+        productsRepository = new ProductsRepositoryInMemory()
+        categoriesRepository = new CategoriesRepositoryInMemory()
         categoriesService = new CategoriesService(categoriesRepository)
         productsService = new ProductsService(productsRepository, categoriesService)
     })

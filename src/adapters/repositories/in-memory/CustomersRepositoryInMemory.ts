@@ -1,7 +1,7 @@
 import { Customer } from "../../../domain/Customer";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
 
-class CustomersInMemoryRepository implements ICustomersRepository{
+class CustomersRepositoryInMemory implements ICustomersRepository{
 
     private customers: Customer[]
 
@@ -28,4 +28,4 @@ class CustomersInMemoryRepository implements ICustomersRepository{
 
 }
 
-export { CustomersInMemoryRepository }
+export { CustomersRepositoryInMemory }

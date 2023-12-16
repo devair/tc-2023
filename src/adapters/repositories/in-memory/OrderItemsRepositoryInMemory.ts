@@ -2,7 +2,7 @@ import { OrderItem } from "../../../domain/OrderItem"
 import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository"
 
 
-class OrdemItemsInMemoryRepository implements IOrderItemsRepository {
+class OrderItemsRepositoryInMemory implements IOrderItemsRepository {
     private orderItems: OrderItem[]
 
     constructor() {
@@ -26,4 +26,4 @@ class OrdemItemsInMemoryRepository implements IOrderItemsRepository {
     }
 }
 
-export { OrdemItemsInMemoryRepository }
+export { OrderItemsRepositoryInMemory }

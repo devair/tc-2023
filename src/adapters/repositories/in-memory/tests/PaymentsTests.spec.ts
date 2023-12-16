@@ -1,8 +1,8 @@
-import { CategoriesInMemoryRepository } from "../CategoriesInMemoryRepository"
-import { CustomersInMemoryRepository } from "../CustomersInMemoryRepository"
-import { OrdersInMemoryRepository } from "../OrdersInMemoryRepository"
-import { PaymentsInMemoryRepository } from "../PaymentsInMemoryRepository"
-import { ProductsInMemoryRepository } from "../ProductsInMemoryRepository"
+import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
+import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
+import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
+import { PaymentsRepositoryInMemory } from "../PaymentsRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Category } from "../../../../domain/Category"
 import { Customer } from "../../../../domain/Customer"
 import { Order, OrderStatus } from "../../../../domain/Order"
@@ -24,11 +24,11 @@ let paymentsRepository: IPaymentsRepository
 describe('Payments tests', () => {
     beforeAll(async ()=>{
         
-        customersRepository = new CustomersInMemoryRepository()
-        productsRepository = new ProductsInMemoryRepository()
-        categoriesRepository = new CategoriesInMemoryRepository()
-        ordersRepository = new OrdersInMemoryRepository()
-        paymentsRepository = new PaymentsInMemoryRepository()
+        customersRepository = new CustomersRepositoryInMemory()
+        productsRepository = new ProductsRepositoryInMemory()
+        categoriesRepository = new CategoriesRepositoryInMemory()
+        ordersRepository = new OrdersRepositoryInMemory()
+        paymentsRepository = new PaymentsRepositoryInMemory()
 
         // creating a category
         const category = new Category()

@@ -1,4 +1,4 @@
-import { CategoriesInMemoryRepository } from "../../../adapters/repositories/in-memory/CategoriesInMemoryRepository"
+import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
 import { Category } from "../../../domain/Category"
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository"
 import { ICategoriesService } from "../ICategoriesService"
@@ -8,10 +8,10 @@ import { CategoriesService } from "../impl/CategoriesService"
 let categoriesRepository: ICategoriesRepository
 let categoriesService: ICategoriesService
 
-describe('Categories tests', ()=>{
+describe('Categories Service tests', ()=>{
 
     beforeAll(()=>{
-        categoriesRepository = new CategoriesInMemoryRepository()
+        categoriesRepository = new CategoriesRepositoryInMemory()
         categoriesService = new CategoriesService(categoriesRepository)
 
     })
