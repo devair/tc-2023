@@ -4,6 +4,7 @@ import { OrdersRepositoryInMemory } from "../../../adapters/repositories/in-memo
 import { PaymentsRepositoryInMemory } from "../../../adapters/repositories/in-memory/PaymentsRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
 import { OrderStatus } from "../../../domain/Order"
+import { Payment } from "../../../domain/Payment"
 import { ICategoriesService } from "../../category/ICategoriesService"
 import { CategoriesService } from "../../category/impl/CategoriesService"
 import { ICustomersService } from "../../customer/ICustomersService"
@@ -79,14 +80,28 @@ describe('Payments tests', () => {
 
         expect(orderUpdatedStatus.status).toBe(OrderStatus.RECEIVED)
 
+        
+        const paymentFound = await paymentsService.findById(paymentCreated.id)
+
+        expect(paymentFound).not.toBeUndefined()
+
+
+    })
+
+    it('Should not be able to find a payment', async ()=>{
+
+        expect(async ()=>{    
+            
+            await paymentsService.findById('123')
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should be able to list payments', async () => {
+
         const payments = await paymentsService.list()
 
         expect(payments.length).toBeGreaterThanOrEqual(1)
-
-        const paymentFound = await paymentsService.findById(paymentCreated.id)
-
-        expect(paymentFound).toHaveProperty('id')
-
-
     })
 })

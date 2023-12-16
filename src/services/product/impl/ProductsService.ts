@@ -16,13 +16,9 @@ class ProductsService implements IProductsService{
 
         if(productAlreadyExists){
             throw new Error(`Product ${code} already exists`);
-        }
+        }        
 
         const categoryFound = await this.categoriesService.findByName(category.name )
-
-        if(!categoryFound){
-            throw new Error(`Category ${category} not found`);
-        }
 
         const product = await this.productsRepository.create({
             code, name, description, category: categoryFound, price, image
