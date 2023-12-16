@@ -10,11 +10,11 @@ class CategoriesService implements ICategoriesService{
 
     async create( { name, description }: ICreateCategoryDTO ): Promise<Category>{
 
-        const categoryFound = this.categoriesRepository.findByName(name)
+        const categoryAlreadExists = await this.categoriesRepository.findByName(name)
 
-        if(!categoryFound){
-            throw new Error(`Category ${name} not found`);
-        }
+        if(categoryAlreadExists){
+            throw new Error(`Category ${name} already exists`);
+        }     
 
         const category = new Category()
 

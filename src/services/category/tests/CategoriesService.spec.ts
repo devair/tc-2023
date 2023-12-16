@@ -28,17 +28,31 @@ describe('Categories Service tests', ()=>{
         expect(categoryCreated).toHaveProperty('id')
     })
 
-    it('Should be able to list categories', async()=>{
-        
-        const category = new Category()
-        
-        Object.assign(category,  {name: 'Bebida'})
-
-        await categoriesService.create( category )
+    it('Should be able to list categories', async()=>{               
         
         const categories = await categoriesService.list()
         
         expect(categories.length).toBeGreaterThanOrEqual(1)
     }) 
+
+    it('Should not be able to duplicated a category', async ()=>{
+
+        expect(async ()=>{    
+            
+            const category =  {name: 'Bebida', description: ''}
+    
+            await categoriesService.create( category )
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should not be able to find a category', async ()=>{
+
+        expect(async ()=>{               
+            await categoriesService.findByName('Nao existe')         
+        }).rejects.toBeInstanceOf(Error)
+
+    })
 
 })

@@ -27,4 +27,16 @@ describe('Customers Service tests',()=>{
         
         expect(customers).toHaveLength(1)
     }) 
+
+    it('Should not be able to duplicated a customer', async ()=>{
+
+        expect(async ()=>{            
+            const customer = { name: 'Fulano', cpf: '35712606607', phone: '4799999999', email: 'fulano@silva.com.br'}
+
+            await customersService.create(customer)    
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
 })

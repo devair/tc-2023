@@ -1,5 +1,6 @@
 import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
+import { Category } from "../../../domain/Category"
 import { ICategoriesService } from "../../category/ICategoriesService"
 import { CategoriesService } from "../../category/impl/CategoriesService"
 import { IProductsService } from "../IProductsService"
@@ -45,6 +46,28 @@ describe('Products Service tests', () => {
         expect(products.length).toBeGreaterThanOrEqual(1)
     })
 
+    it('Should not be able to find a product', async ()=>{
+
+        expect(async ()=>{    
+            await productsService.findByCode('2222')
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should not be able to duplicated a product', async ()=>{
+
+        expect(async ()=>{    
+            
+            const categoryCreated = await categoriesService.findByName('Bebida')
+
+            await productsService.create({
+                name: 'produto1', code: '1', description: 'teste',
+                price: 1, category: categoryCreated, image: ''
+            })
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
 
 
 })
