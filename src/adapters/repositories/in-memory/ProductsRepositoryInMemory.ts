@@ -2,7 +2,7 @@ import { Product } from "../../../domain/Product";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
 
 
-class ProductsInMemoryRepository implements IProductsRepository {
+class ProductsRepositoryInMemory implements IProductsRepository {
 
     private products: Product[]
 
@@ -35,4 +35,4 @@ class ProductsInMemoryRepository implements IProductsRepository {
 
 }
 
-export { ProductsInMemoryRepository }
+export { ProductsRepositoryInMemory }

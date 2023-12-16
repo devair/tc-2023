@@ -2,7 +2,7 @@ import { Category } from "../../../domain/Category";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 
 
-class CategoriesInMemoryRepository implements ICategoriesRepository{
+class CategoriesRepositoryInMemory implements ICategoriesRepository{
 
     private categories: Category[]
 
@@ -10,10 +10,11 @@ class CategoriesInMemoryRepository implements ICategoriesRepository{
         this.categories = []
     }
 
-    async create(category: Category): Promise<void> {
+    async create(category: Category): Promise<Category> {
         
         this.categories.push(category)
         
+        return category
     }
 
     async list(): Promise<Category[]> {
@@ -29,4 +30,4 @@ class CategoriesInMemoryRepository implements ICategoriesRepository{
     
 }
 
-export { CategoriesInMemoryRepository }
+export { CategoriesRepositoryInMemory }

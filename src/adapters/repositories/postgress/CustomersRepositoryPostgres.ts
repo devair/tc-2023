@@ -1,0 +1,6 @@
+
+class CustomersRepositoryPostgres {
+
+}
+
+export { CustomersRepositoryPostgres }

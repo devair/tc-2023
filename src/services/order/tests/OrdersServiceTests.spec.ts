@@ -1,7 +1,7 @@
-import { CategoriesInMemoryRepository } from "../../../adapters/repositories/in-memory/CategoriesInMemoryRepository"
-import { CustomersInMemoryRepository } from "../../../adapters/repositories/in-memory/CustomersInMemoryRepository"
-import { OrdersInMemoryRepository } from "../../../adapters/repositories/in-memory/OrdersInMemoryRepository"
-import { ProductsInMemoryRepository } from "../../../adapters/repositories/in-memory/ProductsInMemoryRepository"
+import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
+import { OrdersRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrdersRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
 import { Category } from "../../../domain/Category"
 import { Customer } from "../../../domain/Customer"
 import { Order } from "../../../domain/Order"
@@ -28,10 +28,10 @@ let categoriesService: ICategoriesService
 describe('Orders tests', () => {
     beforeAll(async () => {
 
-        categoriesService = new CategoriesService(new CategoriesInMemoryRepository())
-        customersService = new CustomersService(new CustomersInMemoryRepository())
-        productsService = new ProductsService(new ProductsInMemoryRepository(), categoriesService)
-        ordersService = new OrdersService(new OrdersInMemoryRepository(), customersService, productsService)
+        categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
+        customersService = new CustomersService(new CustomersRepositoryInMemory())
+        productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
+        ordersService = new OrdersService(new OrdersRepositoryInMemory(), customersService, productsService)
 
         // creating a category
         const category = { name: 'Bebida' }

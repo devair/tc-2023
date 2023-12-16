@@ -1,0 +1,6 @@
+
+class ProductsRepositoryPostgres {
+
+}
+
+export { ProductsRepositoryPostgres }

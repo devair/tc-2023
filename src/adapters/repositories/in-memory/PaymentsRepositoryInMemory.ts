@@ -1,7 +1,7 @@
 import { Payment } from "../../../domain/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
 
-class PaymentsInMemoryRepository implements IPaymentsRepository{
+class PaymentsRepositoryInMemory implements IPaymentsRepository{
 
     private payments: Payment[]
 
@@ -24,4 +24,4 @@ class PaymentsInMemoryRepository implements IPaymentsRepository{
     }    
 }
 
-export { PaymentsInMemoryRepository }
+export { PaymentsRepositoryInMemory }

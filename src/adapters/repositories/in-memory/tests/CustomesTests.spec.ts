@@ -1,4 +1,4 @@
-import { CustomersInMemoryRepository } from "../CustomersInMemoryRepository"
+import { CustomersInMemoryRepository } from "../CustomersRepositoryInMemory"
 import { Customer } from "../../../../domain/Customer"
 import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository"
 

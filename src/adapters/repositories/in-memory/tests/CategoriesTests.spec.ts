@@ -1,4 +1,4 @@
-import { CategoriesInMemoryRepository } from "../CategoriesInMemoryRepository"
+import { CategoriesInMemoryRepository } from "../CategoriesRepositoryInMemory"
 import { Category } from "../../../../domain/Category"
 import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
 
