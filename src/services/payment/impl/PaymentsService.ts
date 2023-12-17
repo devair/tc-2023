@@ -1,3 +1,4 @@
+import { inject } from "tsyringe";
 import { ICreatePaymentDTO } from "../../../domain/dtos/ICreatePaymentDTO";
 import { Payment } from "../../../domain/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
@@ -5,7 +6,9 @@ import { IPaymentsService } from "../IPaymentsService";
 
 class PaymentsService implements IPaymentsService {
 
-    constructor(private repository: IPaymentsRepository) { }
+    constructor(
+        @inject('PaymentsRepository')
+        private repository: IPaymentsRepository) { }
 
     async create({ order, amount, paymentDate, paymentUniqueNumber }: ICreatePaymentDTO): Promise<Payment> {
 

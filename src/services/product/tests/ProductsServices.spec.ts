@@ -1,6 +1,6 @@
+import "reflect-metadata"
 import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
-import { Category } from "../../../domain/Category"
 import { ICategoriesService } from "../../category/ICategoriesService"
 import { CategoriesService } from "../../category/impl/CategoriesService"
 import { IProductsService } from "../IProductsService"
@@ -10,7 +10,7 @@ let categoriesService: ICategoriesService
 let productsService: IProductsService
 
 describe('Products Service tests', () => {
-    beforeAll(() => {
+    beforeAll(() => {        
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
     })

@@ -1,3 +1,4 @@
+import { inject } from "tsyringe";
 import { Customer } from "../../../domain/Customer";
 import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
@@ -5,7 +6,9 @@ import { ICustomersService } from "../ICustomersService";
 
 class CustomersService implements ICustomersService {
 
-    constructor(private repository: ICustomersRepository) { }
+    constructor(
+        @inject('CustomersRepository')
+        private repository: ICustomersRepository) { }
 
     async create({ name, email, cpf, phone }: ICreateCustomerDTO): Promise<Customer> {
 

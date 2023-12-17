@@ -1,4 +1,4 @@
-import { Customer } from "../../../domain/Customer";
+import { inject } from "tsyringe";
 import { Order } from "../../../domain/Order";
 import { OrderItem } from "../../../domain/OrderItem";
 import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
@@ -10,8 +10,12 @@ import { IOrdersService } from "../IOrdersService";
 
 class OrdersService implements IOrdersService {
 
-    constructor(private repository: IOrdersRepository, 
+    constructor(
+        @inject('OrdersRepository')
+        private repository: IOrdersRepository, 
+        @inject('CustomersService')
         private customerService: ICustomersService,
+        @inject('ProductsService')
         private productsService: IProductsService ) {
 
     }

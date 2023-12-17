@@ -1,3 +1,4 @@
+import { inject } from "tsyringe";
 import { Product } from "../../../domain/Product";
 import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
@@ -7,7 +8,10 @@ import { IProductsService } from "../IProductsService";
 
 class ProductsService implements IProductsService{
 
-    constructor(private productsRepository: IProductsRepository, 
+    constructor(
+        @inject('ProductsRepository')
+        private productsRepository: IProductsRepository,
+        @inject('CategoriesService') 
         private categoriesService: ICategoriesService){}
 
     async create({code, name, description, category, price, image }: ICreateProductDTO): Promise<Product>{
