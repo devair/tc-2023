@@ -26,8 +26,24 @@ class CustomersService implements ICustomersService {
     }
 
     async findByCpf(cpf: string): Promise<Customer> {
+        const customer = await this.repository.findByCpf(cpf)
 
-        return await this.repository.findByCpf(cpf)
+        if(!customer){
+            throw new Error(`Customer's ${cpf} not found`)
+        }
+
+        return customer
+    }
+
+    async findById(id: number): Promise<Customer> {
+
+        const customer = await this.repository.findById(id)
+
+        if(!customer){
+            throw new Error(`Customer ${id} not found`)
+        }
+
+        return customer
     }
 
 }

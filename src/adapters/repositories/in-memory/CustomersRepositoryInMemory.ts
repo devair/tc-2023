@@ -1,6 +1,7 @@
 import { Customer } from "../../../domain/Customer";
 import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
+import { genId } from "./Util";
 
 class CustomersRepositoryInMemory implements ICustomersRepository{
 
@@ -13,7 +14,9 @@ class CustomersRepositoryInMemory implements ICustomersRepository{
     async create({ name, email, cpf, phone }: ICreateCustomerDTO ): Promise<Customer>  {
         const customer = new Customer()
 
-        Object.assign(customer, { name, email, cpf, phone } )
+        const id = genId(this.customers)
+
+        Object.assign(customer, { id, name, email, cpf, phone } )
         this.customers.push(customer)
 
         return customer
@@ -29,6 +32,12 @@ class CustomersRepositoryInMemory implements ICustomersRepository{
         return customer
     }
 
+    async findById(id: number): Promise<Customer> {
+        const customer = this.customers.find((customer)=> customer.id === id)
+        
+        return customer
+
+    }
 }
 
 export { CustomersRepositoryInMemory }

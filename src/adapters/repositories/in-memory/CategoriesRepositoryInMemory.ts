@@ -1,6 +1,7 @@
 import { Category } from "../../../domain/Category";
 import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
+import { genId } from "./Util";
 
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
@@ -14,7 +15,9 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
     async create({ name, description }: ICreateCategoryDTO): Promise<Category> {
         const category = new Category()
 
-        Object.assign(category, { name, description })
+        const id = genId(this.categories)
+
+        Object.assign(category, { id, name, description })
 
         this.categories.push(category)
 
@@ -32,6 +35,12 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
         return category
     }
 
+    async findById(id: number): Promise<Category> {
+        const category = this.categories.find((category)=> category.id === id)
+        
+        return category
+
+    }
 }
 
 export { CategoriesRepositoryInMemory }

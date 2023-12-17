@@ -8,6 +8,8 @@ interface IProductsService {
     list(): Promise<Product[]>
 
     findByCode(code: string): Promise<Product>
+
+    findById(id: number): Promise<Product>
 }
 
 export { IProductsService }

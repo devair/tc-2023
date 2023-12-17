@@ -8,6 +8,8 @@ interface ICustomersRepository {
     list(): Promise<Customer[]>
 
     findByCpf(cpf: string): Promise<Customer>
+    
+    findById(id: number): Promise<Customer>    
 
 }
 

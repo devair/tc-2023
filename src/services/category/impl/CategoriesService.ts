@@ -18,7 +18,7 @@ class CategoriesService implements ICategoriesService{
 
         const category = new Category()
 
-        Object.assign(category, { name })
+        Object.assign(category, { name, description })
         
         await this.categoriesRepository.create(category)
 
@@ -36,6 +36,16 @@ class CategoriesService implements ICategoriesService{
 
         if(!category){
             throw new Error(`Category ${name} not found`)
+        }
+
+        return category
+    }
+
+    async findById(id: number): Promise<Category>{
+        const category = await this.categoriesRepository.findById(id)
+
+        if(!category){
+            throw new Error(`Category ${id} not found`)
         }
 
         return category

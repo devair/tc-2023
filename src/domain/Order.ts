@@ -1,11 +1,9 @@
-import { v4 as uuidV4 } from 'uuid'
 import { Customer } from './Customer'
 import { OrderItem } from './OrderItem'
 import { Payment } from './Payment'
 
-
 class Order {
-    id?:string    
+    id?:number    
     customer?: Customer
     orderItems: OrderItem[]
     payments?: Payment[]
@@ -13,8 +11,7 @@ class Order {
     status: string 
     
     constructor(){
-        if(!this.id){
-            this.id = uuidV4()
+        if(!this.id){            
             this.created_at = new Date()
             this.orderItems = []
             this.payments = []  

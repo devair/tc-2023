@@ -1,8 +1,7 @@
-import { v4 as uuidV4 } from 'uuid'
 import { Category } from './Category'
 
-export class Product {
-    id?: string
+class Product {
+    id?: number
     code: string
     name: string
     description: string
@@ -12,10 +11,10 @@ export class Product {
     created_at?: Date    
 
     constructor(){
-        if(!this.id){
-            this.id = uuidV4()
+        if(!this.id){            
             this.created_at = new Date()
         }
     }
 }
 
+export { Product }

@@ -39,6 +39,14 @@ describe('Products Service tests', () => {
 
     })
 
+    it('Should be able to find by id', async () => {
+
+        const product = await productsService.findById(1)
+
+        expect(product).not.toBeUndefined()
+
+    })
+
     it('Should be able to list products', async () => {
 
         const products = await productsService.list()
@@ -46,10 +54,18 @@ describe('Products Service tests', () => {
         expect(products.length).toBeGreaterThanOrEqual(1)
     })
 
-    it('Should not be able to find a product', async ()=>{
+    it('Should not be able to find a product by code', async ()=>{
 
         expect(async ()=>{    
             await productsService.findByCode('2222')
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should not be able to find a product by id', async ()=>{
+
+        expect(async ()=>{    
+            await productsService.findById(99)
         }).rejects.toBeInstanceOf(Error)
 
     })

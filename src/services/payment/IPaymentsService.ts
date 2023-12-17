@@ -7,7 +7,7 @@ interface IPaymentsService {
     
     list(): Promise<Payment[]>
 
-    findById(id: string): Promise<Payment>
+    findById(id: number): Promise<Payment>
 }
 
 export { IPaymentsService }

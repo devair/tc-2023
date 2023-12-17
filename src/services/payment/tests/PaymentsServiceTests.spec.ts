@@ -92,7 +92,7 @@ describe('Payments tests', () => {
 
         expect(async ()=>{    
             
-            await paymentsService.findById('123')
+            await paymentsService.findById(123)
 
         }).rejects.toBeInstanceOf(Error)
 

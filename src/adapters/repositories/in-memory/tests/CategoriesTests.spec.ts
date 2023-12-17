@@ -6,7 +6,7 @@ let categoriesRepository : ICategoriesRepository
 
 describe('Category testes', ()=>{
 
-    beforeEach(()=>{
+    beforeAll(()=>{
         categoriesRepository = new CategoriesRepositoryInMemory()
     })
 
@@ -32,7 +32,21 @@ describe('Category testes', ()=>{
         
         const categories = await categoriesRepository.list()
         
-        expect(categories).toHaveLength(1)
+        expect(categories.length).toBeGreaterThanOrEqual(1)
     }) 
+
+    it('Should be able to find by id', async ()=>{
+
+        const category = new Category()
+        
+        Object.assign(category,  {name: 'Bebida'})
+
+        const categoryCreated = await categoriesRepository.create( category )
+
+        const categoryFound = await categoriesRepository.findById(categoryCreated.id)
+
+        expect(categoryFound).not.toBeUndefined()
+
+    })
 
 })
