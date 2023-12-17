@@ -1,8 +1,5 @@
 import { Router } from 'express'
 import { CategoriesController } from '../adapters/driver/controllers/CategoriesController'
-import { CategoriesService } from '../services/category/impl/CategoriesService'
-import { CategoriesRepositoryInMemory } from '../adapters/repositories/in-memory/CategoriesRepositoryInMemory'
-import { container } from 'tsyringe'
 
 const categoriesRouter = Router()
 

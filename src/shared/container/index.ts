@@ -9,6 +9,8 @@ import { OrdersRepositoryInMemory } from '../../adapters/repositories/in-memory/
 import { IPaymentsRepository } from '../../ports/repositories/IPaymentsRepository';
 import { PaymentsRepositoryInMemory } from '../../adapters/repositories/in-memory/PaymentsRepositoryInMemory';
 import { CategoriesRepositoryInMemory } from '../../adapters/repositories/in-memory/CategoriesRepositoryInMemory';
+import { ICategoriesService } from '../../services/category/ICategoriesService';
+import { CategoriesService } from '../../services/category/impl/CategoriesService';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -30,3 +32,7 @@ container.registerSingleton<IOrdersRepository>(
 container.registerSingleton<IPaymentsRepository>(
     'PaymentsRepository', PaymentsRepositoryInMemory
 );
+
+container.registerSingleton<ICategoriesService>(
+    'CategoriesService', CategoriesService
+)

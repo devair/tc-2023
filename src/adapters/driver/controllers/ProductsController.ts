@@ -1,12 +1,29 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { CategoriesService } from "../../../services/category/impl/CategoriesService";
+import { ProductsService } from "../../../services/product/impl/ProductsService";
 
-class CategoriesController {
+
+class ProductsController {
+
+    async create(request: Request, response: Response): Promise<Response> {
+
+        const { code, name, description, category, price, image } = request.body;
+
+        const serviceInstance = container.resolve(ProductsService)
+
+        try {
+            await serviceInstance.create({ code, name, description, 
+                category, price, image });
+        }
+        catch (ex) {
+            return response.status(400).json({ error: ex.message });
+        }
+        return response.status(201).send();
+    }
 
     async list(request: Request, response: Response): Promise<Response> {
 
-        const serviceInstance = container.resolve(CategoriesService)
+        const serviceInstance = container.resolve(ProductsService)
         let all = []
 
         try{
@@ -18,25 +35,11 @@ class CategoriesController {
         return response.status(200).json(all)
     }
 
-    async create(request: Request, response: Response): Promise<Response> {
-        const { name, description } = request.body;
-        
-        const serviceInstance = container.resolve(CategoriesService)
-
-        try {
-            await serviceInstance.create({ name, description });
-        }
-        catch (ex) {
-            return response.status(400).json({ error: ex.message });
-        }
-        return response.status(201).send();
-    }
-
     async findById(request: Request, response: Response): Promise<Response>{
         
         const { id } = request.params
 
-        const serviceInstance = container.resolve(CategoriesService)
+        const serviceInstance = container.resolve(ProductsService)
         let category;
 
         try{
@@ -47,7 +50,6 @@ class CategoriesController {
         }
         return response.status(200).json(category)
     }
-
 }
 
-export { CategoriesController }
+export { ProductsController }

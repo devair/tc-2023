@@ -1,11 +1,11 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 import { Product } from "../../../domain/Product";
 import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
 import { ICategoriesService } from "../../category/ICategoriesService";
 import { IProductsService } from "../IProductsService";
 
-
+@injectable()
 class ProductsService implements IProductsService{
 
     constructor(
