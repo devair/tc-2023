@@ -11,6 +11,10 @@ import { PaymentsRepositoryInMemory } from '../../adapters/repositories/in-memor
 import { CategoriesRepositoryInMemory } from '../../adapters/repositories/in-memory/CategoriesRepositoryInMemory';
 import { ICategoriesService } from '../../services/category/ICategoriesService';
 import { CategoriesService } from '../../services/category/impl/CategoriesService';
+import { IProductsService } from '../../services/product/IProductsService';
+import { ProductsService } from '../../services/product/impl/ProductsService';
+import { ICustomersService } from '../../services/customer/ICustomersService';
+import { CustomersService } from '../../services/customer/impl/CustomersService';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -35,4 +39,12 @@ container.registerSingleton<IPaymentsRepository>(
 
 container.registerSingleton<ICategoriesService>(
     'CategoriesService', CategoriesService
+)
+
+container.registerSingleton<IProductsService>(
+    'ProductsService', ProductsService
+)
+
+container.registerSingleton<ICustomersService>(
+    'CustomersService', CustomersService
 )
