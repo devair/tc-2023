@@ -39,4 +39,29 @@ describe('Customers Service tests',()=>{
 
     })
 
+    
+    it('Should be able to find a customer by id', async ()=>{
+        
+        const customer = await customersService.findById(1)
+
+        expect(customer).toHaveProperty('id')
+
+    })
+
+    it('Should not be able to find a customer by cpf', async ()=>{
+
+        expect(async ()=>{            
+            await customersService.findByCpf('40016112016')
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should not be able to find a customer by id', async ()=>{
+
+        expect(async ()=>{            
+            await customersService.findById(99)
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
 })

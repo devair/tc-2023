@@ -47,10 +47,25 @@ describe('Categories Service tests', ()=>{
 
     })
 
-    it('Should not be able to find a category', async ()=>{
+    it('Should not be able to find a category by name', async ()=>{
 
         expect(async ()=>{               
             await categoriesService.findByName('Nao existe')         
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should be able to find a category by id', async()=>{
+        
+        const categoryCreated = await categoriesService.findById(1)
+
+        expect(categoryCreated).toHaveProperty('id')
+    })
+
+    it('Should not be able to find a category by id', async ()=>{
+
+        expect(async ()=>{               
+            await categoriesService.findById(99)         
         }).rejects.toBeInstanceOf(Error)
 
     })

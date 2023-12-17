@@ -1,5 +1,6 @@
 import { Payment } from "../../../domain/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
+import { genId } from "./Util";
 
 class PaymentsRepositoryInMemory implements IPaymentsRepository{
 
@@ -10,6 +11,7 @@ class PaymentsRepositoryInMemory implements IPaymentsRepository{
     }
 
     async create(payment: Payment): Promise<Payment> {
+        payment.id = genId(this.payments)
         this.payments.push(payment)
         return payment
     }
@@ -17,7 +19,7 @@ class PaymentsRepositoryInMemory implements IPaymentsRepository{
         return this.payments
     }
     
-    async findById(id: string): Promise<Payment> {
+    async findById(id: number): Promise<Payment> {
         const payment = this.payments.find((payment)=> payment.id === id)
 
         return payment

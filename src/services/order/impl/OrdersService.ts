@@ -52,7 +52,7 @@ class OrdersService implements IOrdersService {
         return await this.repository.list()
     }
 
-    async findById(id: string): Promise<Order> {
+    async findById(id: number): Promise<Order> {
         const orderFound = await this.repository.findById(id);
 
         if (!orderFound) {

@@ -6,7 +6,7 @@ interface IOrderItemsRepository {
 
     list(): Promise<OrderItem[]>
 
-    findById(id: string): Promise<OrderItem>
+    findById(id: number): Promise<OrderItem>
 }
 
 export { IOrderItemsRepository }

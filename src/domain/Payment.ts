@@ -1,8 +1,7 @@
-import { v4 as uuidV4 } from 'uuid'
 import { Order } from './Order'
 
-export class Payment {
-    id?: string
+class Payment {
+    id?: number
     order: Order    
     amount: number
     paymentDate: Date
@@ -10,10 +9,10 @@ export class Payment {
     created_at: Date
 
     constructor(){
-        if(!this.id){
-            this.id = uuidV4()
+        if(!this.id){            
             this.created_at = new Date()
             this.amount = 0                  
         }
     }
 }
+export { Payment }

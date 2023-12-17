@@ -7,7 +7,7 @@ interface IProductsRepository{
     
     list(): Promise<Product[]>   
 
-    findById(id: string): Promise<Product> 
+    findById(id: number): Promise<Product> 
     
     findByCode(code: string): Promise<Product> 
 

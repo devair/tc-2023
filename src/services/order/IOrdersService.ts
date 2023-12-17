@@ -7,7 +7,7 @@ interface IOrdersService {
 
     list(): Promise<Order[]>
         
-    findById(id: string): Promise<Order>
+    findById(id: number): Promise<Order>
 
     updateStatus(order: Order ): Promise<Order>
 }

@@ -1,6 +1,7 @@
 import { Product } from "../../../domain/Product";
 import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
+import { genId } from "./Util";
 
 
 class ProductsRepositoryInMemory implements IProductsRepository {
@@ -15,7 +16,9 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         
         const product = new Product()
 
-        Object.assign(product, {code, name, description, category, price, image })
+        const id = genId(this.products)
+
+        Object.assign(product, {id, code, name, description, category, price, image })
 
         this.products.push(product)
 
@@ -26,7 +29,7 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         return this.products
     }
 
-    async findById(id: string): Promise<Product> {
+    async findById(id: number): Promise<Product> {
         const product = this.products.find((product)=> product.id === id)
         
         return product
@@ -39,7 +42,6 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         return product
 
     }
-
 }
 
 export { ProductsRepositoryInMemory }

@@ -1,7 +1,5 @@
-import { v4 as uuidV4 } from 'uuid'
-
-export class Customer {
-    id?: string
+class Customer {
+    id?: number
     name: string    
     cpf: string
     email?: string
@@ -9,10 +7,10 @@ export class Customer {
     created_at?: Date    
 
     constructor(){
-        if(!this.id){
-            this.id = uuidV4()
+        if(!this.id){            
             this.created_at = new Date()
         }
     }
 }
 
+export { Customer }

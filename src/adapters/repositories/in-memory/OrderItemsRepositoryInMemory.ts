@@ -15,8 +15,7 @@ class OrderItemsRepositoryInMemory implements IOrderItemsRepository {
         return orderItem
     }
 
-
-    async findById(id: string): Promise<OrderItem> {
+    async findById(id: number): Promise<OrderItem> {
         const orderItem = this.orderItems.find((orderItem) => orderItem.id === id)
         return orderItem
     }

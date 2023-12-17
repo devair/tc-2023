@@ -24,7 +24,7 @@ class PaymentsService implements IPaymentsService {
         return await this.repository.list()
     }
 
-    async findById(id: string): Promise<Payment> {
+    async findById(id: number): Promise<Payment> {
         const payment = await this.repository.findById(id)
 
         if(!payment){

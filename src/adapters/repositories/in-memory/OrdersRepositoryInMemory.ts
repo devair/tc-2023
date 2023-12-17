@@ -1,6 +1,7 @@
 import { Order } from "../../../domain/Order";
 import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
+import { genId } from "./Util";
 
 class OrdersRepositoryInMemory implements IOrdersRepository{
 
@@ -10,8 +11,8 @@ class OrdersRepositoryInMemory implements IOrdersRepository{
         this.orders = []
     }
 
-    async create( order: Order ): Promise<Order> {
-        
+    async create( order: Order ): Promise<Order> {        
+        order.id = genId(this.orders)
         this.orders.push(order)
         return order
     }
@@ -20,7 +21,7 @@ class OrdersRepositoryInMemory implements IOrdersRepository{
         return this.orders
     }
     
-    async findById(id: string): Promise<Order> {
+    async findById(id: number): Promise<Order> {
         const order = this.orders.find((order) => order.id === id)
 
         return order 

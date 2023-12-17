@@ -1,10 +1,8 @@
-import { v4 as uuidV4 } from 'uuid'
 import { Order } from './Order'
 import { Product } from './Product'
 
-
 class OrderItem {
-    id?: string
+    id?: number
     order: Order
     product: Product
     quantity: number
@@ -12,8 +10,7 @@ class OrderItem {
     created_at: Date
 
     constructor(){
-        if(!this.id){
-            this.id = uuidV4()
+        if(!this.id){            
             this.created_at = new Date()
             this.quantity = 0
             this.unitPrice = 0            

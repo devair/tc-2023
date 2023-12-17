@@ -42,6 +42,16 @@ class ProductsService implements IProductsService{
 
         return product
     }
+
+    async findById(id: number): Promise<Product>{
+        const product = await this.productsRepository.findById(id)
+
+        if(!product){
+            throw new Error(`Product ${id} not found`)
+        }
+
+        return product
+    }
 }
 
 export { ProductsService }
