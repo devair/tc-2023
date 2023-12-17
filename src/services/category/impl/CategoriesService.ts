@@ -1,12 +1,16 @@
+import { inject, injectable,  } from "tsyringe";
 import { Category } from "../../../domain/Category";
 import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { ICategoriesService } from "../ICategoriesService";
 
-
+@injectable()
 class CategoriesService implements ICategoriesService{
-
-    constructor(private categoriesRepository: ICategoriesRepository){}
+    
+    constructor(
+        @inject('CategoriesRepository')
+        private categoriesRepository: ICategoriesRepository
+    ){}    
 
     async create( { name, description }: ICreateCategoryDTO ): Promise<Category>{
 

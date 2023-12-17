@@ -1,3 +1,4 @@
+import "reflect-metadata"
 import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
 import { ICustomersService } from "../ICustomersService"
 import { CustomersService } from "../impl/CustomersService"

@@ -1,3 +1,4 @@
+import "reflect-metadata"
 import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
 import { Category } from "../../../domain/Category"
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository"

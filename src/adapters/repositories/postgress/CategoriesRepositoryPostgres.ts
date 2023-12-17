@@ -4,6 +4,10 @@ import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRe
 
 class CategoriesRepositoryPostgres implements ICategoriesRepository{
     
+    async findById(id: number): Promise<Category> {
+        throw new Error("Method not implemented.");
+    }
+    
     async create({ name, description }: ICreateCategoryDTO ): Promise<Category> {
         throw new Error("Method not implemented.");
     }
