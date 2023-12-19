@@ -1,0 +1,27 @@
+
+## identificação
+[x] api cadastrar um cliente
+
+# categorias
+[x] api cadastrar categorias
+[ ] api alterar uma categoria
+[ ] api consultar uma categoria
+[x] api lista categorias de produtos
+
+# produtos
+[x] api cadastro de produtos
+[ ] api alterar um produto
+[ ] api consultar um produto
+[x] api listagem de produtos
+
+
+## pedidos
+[x] api incluir um pedido
+[x] api listar pedidos
+[ ] api consultar um pedido
+
+## pagamento
+[x] api incluir pagamento
+[x] api listar pagamentos
+[ ] api consultar um pagamento
+[ ] api checkout mock
