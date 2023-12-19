@@ -1,3 +1,4 @@
+import "reflect-metadata"
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
 import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
