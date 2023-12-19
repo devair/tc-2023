@@ -10,5 +10,7 @@ ordersRouter.post('/', ordersController.create.bind(ordersController))
 
 ordersRouter.get('/', ordersController.list.bind(ordersController))
 
+ordersRouter.get('/:id', ordersController.findById.bind(ordersController))
+
 
 export { ordersRouter }
