@@ -1,24 +1,28 @@
 
 ## identificação
 [x] api cadastrar um cliente
+[ ] api consultar um cliente pelo codigo
+[ ] api consultar um cliente pelo nome
 
 # categorias
 [x] api cadastrar categorias
 [ ] api alterar uma categoria
-[ ] api consultar uma categoria
+[ ] api consultar uma categoria pelo codigo
+[ ] api consultar uma categoria pelo nome
 [x] api lista categorias de produtos
 
 # produtos
 [x] api cadastro de produtos
 [ ] api alterar um produto
-[ ] api consultar um produto
+[ ] api consultar um produto pelo codigo
+[ ] api consultar um produto pelo nome
 [x] api listagem de produtos
 
 
 ## pedidos
 [x] api incluir um pedido
 [x] api listar pedidos
-[ ] api consultar um pedido
+[x] api consultar um pedido
 
 ## pagamento
 [x] api incluir pagamento
