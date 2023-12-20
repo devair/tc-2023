@@ -12,6 +12,7 @@ import { IProductsService } from "../../product/IProductsService"
 import { ProductsService } from "../../product/impl/ProductsService"
 import { IOrdersService } from "../IOrdersService"
 import { OrdersService } from "../impl/OrdersService"
+import { Customer } from "../../../domain/Customer"
 
 let customersService: ICustomersService
 let productsService: IProductsService
@@ -49,13 +50,13 @@ describe('Orders tests', () => {
         const customer = await customersService.findByCpf('35712606607')
         const orderItems = []
 
-        orderItems.push( {
+        orderItems.push({
             product: product,
             quantity: 2,
             unitPrice: 45.0
         })
-        
-        const orderCreated = await ordersService.create({ customer, orderItems})
+
+        const orderCreated = await ordersService.create({ customer, orderItems })
 
         expect(orderCreated.amount()).toBe(90)
 
@@ -66,20 +67,40 @@ describe('Orders tests', () => {
 
     })
 
-    it('Should be able to list orders', async()=>{
+    it('Should not be able to create a new order. Product not found', async () => {
+
+        expect(async () => {
+            const customer = new Customer()
+            customer.cpf = '35712606607'
+
+            const orderItems = []
+
+            orderItems.push({
+                product: { code: '21' },
+                quantity: 2,
+                unitPrice: 45.0
+            })
+
         
+            await ordersService.create({ customer, orderItems })
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
+    it('Should be able to list orders', async () => {
+
         const orders = await ordersService.list()
-               
+
         expect(orders.length).toBeGreaterThanOrEqual(1)
-    }) 
+    })
 
-    it('Should not be able to find a order', async ()=>{
+    it('Should not be able to find a order', async () => {
 
-        expect(async ()=>{    
+        expect(async () => {
             const order = new Order()
 
             await ordersService.findById(order.id)
-            
+
         }).rejects.toBeInstanceOf(Error)
 
     })

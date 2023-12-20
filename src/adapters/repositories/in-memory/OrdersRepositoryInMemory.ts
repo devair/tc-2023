@@ -1,8 +1,9 @@
+import { injectable } from "tsyringe";
 import { Order } from "../../../domain/Order";
-import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 import { genId } from "./Util";
 
+@injectable()
 class OrdersRepositoryInMemory implements IOrdersRepository{
 
     private orders: Order[]

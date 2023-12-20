@@ -15,6 +15,8 @@ import { IProductsService } from '../../services/product/IProductsService';
 import { ProductsService } from '../../services/product/impl/ProductsService';
 import { ICustomersService } from '../../services/customer/ICustomersService';
 import { CustomersService } from '../../services/customer/impl/CustomersService';
+import { IOrdersService } from '../../services/order/IOrdersService';
+import { OrdersService } from '../../services/order/impl/OrdersService';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -47,4 +49,8 @@ container.registerSingleton<IProductsService>(
 
 container.registerSingleton<ICustomersService>(
     'CustomersService', CustomersService
+)
+
+container.registerSingleton<IOrdersService>(
+    'OrdersService', OrdersService
 )

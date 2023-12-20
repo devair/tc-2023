@@ -1,4 +1,4 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 import { Order } from "../../../domain/Order";
 import { OrderItem } from "../../../domain/OrderItem";
 import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
@@ -7,7 +7,7 @@ import { ICustomersService } from "../../customer/ICustomersService";
 import { IProductsService } from "../../product/IProductsService";
 import { IOrdersService } from "../IOrdersService";
 
-
+@injectable()
 class OrdersService implements IOrdersService {
 
     constructor(
@@ -31,10 +31,9 @@ class OrdersService implements IOrdersService {
             order.customer = customerFound
         }
         
-        orderItems.forEach(item => {
 
-            const productFound = this.productsService.findByCode(item.product.code )
-
+        const promiseArray = orderItems.map(async(item)=>{
+            const productFound = await this.productsService.findByCode(item.product.code )
             const orderItem = new OrderItem()
 
             Object.assign(orderItem, {
@@ -43,14 +42,17 @@ class OrdersService implements IOrdersService {
                 unitPrice: item.unitPrice
             })
 
-            order.orderItems.push(orderItem)
-            
-        });
+            order.orderItems.push(orderItem)            
+        })
 
+        await Promise.all(promiseArray)
+            
         const orderCreated = await this.repository.create(order)
 
         return orderCreated
     }
+
+
 
     async list(): Promise<Order[]> {
         return await this.repository.list()
