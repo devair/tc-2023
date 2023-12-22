@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { OrdersService } from "../../../services/order/impl/OrdersService";
+import { Order } from "../../../domain/Order";
 
 class OrdersController {
 
@@ -8,7 +9,7 @@ class OrdersController {
 
         const { customer, orderItems } =  request.body;        
         const serviceInstance = container.resolve(OrdersService)
-        let orderCreated
+        let orderCreated: Order
         try {
             orderCreated = await serviceInstance.create({ customer, orderItems })
         }
@@ -37,10 +38,29 @@ class OrdersController {
         const { id } = request.params
 
         const serviceInstance = container.resolve(OrdersService)
-        let order;
+        let order: Order;
 
         try{
             order = await serviceInstance.findById( parseInt(id) )
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+        return response.status(200).json(order)
+    }
+
+    async updateStatus(request: Request, response: Response): Promise<Response> {
+
+        const { id } = request.params
+        const { status } = request.body
+
+        const orderToUpdate = { id: parseInt(id), status }
+
+        const serviceInstance = container.resolve(OrdersService)
+        let order: Order;
+
+        try{
+            order = await serviceInstance.updateStatus( orderToUpdate )
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })

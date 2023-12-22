@@ -6,6 +6,7 @@ import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository
 import { ICustomersService } from "../../customer/ICustomersService";
 import { IProductsService } from "../../product/IProductsService";
 import { IOrdersService } from "../IOrdersService";
+import { IUpdateOrderStatusDTO } from "../../../domain/dtos/IUpdateOrderStatusDTO";
 
 @injectable()
 class OrdersService implements IOrdersService {
@@ -69,17 +70,20 @@ class OrdersService implements IOrdersService {
 
     }
 
-    async updateStatus(order: Order): Promise<Order> {
-        const orderFound = await this.findById(order.id)
+    async updateStatus({ id, status }: IUpdateOrderStatusDTO ): Promise<Order> {
+        const orderFound = await this.findById(id)
 
         let orderUpdate = new Order();
 
         Object.assign(orderUpdate, {
             id: orderFound.id,
-            status: order.status
+            status: status
         })
 
         orderUpdate = await this.repository.updateStatus(orderUpdate)
+        
+        const orderReturn = new Order()
+        orderReturn.status = status
 
         return orderUpdate
     }
