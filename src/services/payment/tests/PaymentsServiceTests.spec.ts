@@ -76,7 +76,7 @@ describe('Payments tests', () => {
 
         orderCreated.status = OrderStatus.RECEIVED
 
-        const orderUpdatedStatus = await ordersService.updateStatus(orderCreated)
+        const orderUpdatedStatus = await ordersService.updateStatus({id: orderCreated.id, status: OrderStatus.RECEIVED})
 
         expect(orderUpdatedStatus.status).toBe(OrderStatus.RECEIVED)
 

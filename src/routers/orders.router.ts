@@ -12,5 +12,6 @@ ordersRouter.get('/', ordersController.list.bind(ordersController))
 
 ordersRouter.get('/:id', ordersController.findById.bind(ordersController))
 
+ordersRouter.patch('/:id', ordersController.updateStatus.bind(ordersController))
 
 export { ordersRouter }

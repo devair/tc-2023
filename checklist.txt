@@ -23,6 +23,7 @@
 [x] api incluir um pedido
 [x] api listar pedidos
 [x] api consultar um pedido
+[x] api atualizar status do pedido
 
 ## pagamento
 [x] api incluir pagamento

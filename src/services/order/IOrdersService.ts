@@ -1,5 +1,6 @@
 import { Order } from "../../domain/Order"
 import { ICreateOrderDTO } from "../../domain/dtos/ICreateOrderDTO"
+import { IUpdateOrderStatusDTO } from "../../domain/dtos/IUpdateOrderStatusDTO"
 
 interface IOrdersService {
 
@@ -9,7 +10,7 @@ interface IOrdersService {
         
     findById(id: number): Promise<Order>
 
-    updateStatus(order: Order ): Promise<Order>
+    updateStatus({ id, status }: IUpdateOrderStatusDTO ): Promise<Order>
 }
 
 export { IOrdersService }
