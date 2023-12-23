@@ -26,6 +26,7 @@
 [x] api atualizar status do pedido
 [] api adicionar um item
 
+
 ## pagamento
 [x] api incluir pagamento
 [x] api listar pagamentos

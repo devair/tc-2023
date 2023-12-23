@@ -71,10 +71,9 @@ class OrdersService implements IOrdersService {
     }
 
     async updateStatus({ id, status }: IUpdateOrderStatusDTO ): Promise<Order> {
+
         await this.findById(id)
-
         let orderUpdate = new Order();
-
         const orderStatus : OrderStatus | string = status   
 
         if (!((Object.values(OrderStatus) as string[]).includes(orderStatus))) {

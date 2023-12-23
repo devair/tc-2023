@@ -57,6 +57,7 @@ class OrdersController {
         const orderToUpdate = { id: parseInt(id), status }
 
         const serviceInstance = container.resolve(OrdersService)
+
         let order: Order
         try{
             order =  await serviceInstance.updateStatus( orderToUpdate )            
