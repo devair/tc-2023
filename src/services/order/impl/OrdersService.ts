@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { Order } from "../../../domain/Order";
+import { Order, OrderStatus } from "../../../domain/Order";
 import { OrderItem } from "../../../domain/OrderItem";
 import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
@@ -71,13 +71,19 @@ class OrdersService implements IOrdersService {
     }
 
     async updateStatus({ id, status }: IUpdateOrderStatusDTO ): Promise<Order> {
-        const orderFound = await this.findById(id)
+        await this.findById(id)
 
         let orderUpdate = new Order();
 
+        const orderStatus : OrderStatus | string = status   
+
+        if (!((Object.values(OrderStatus) as string[]).includes(orderStatus))) {
+            throw new Error(`Order Status ${status} does not exist`)
+        }
+
         Object.assign(orderUpdate, {
-            id: orderFound.id,
-            status: status
+            id: id,
+            status: orderStatus
         })
 
         orderUpdate = await this.repository.updateStatus(orderUpdate)

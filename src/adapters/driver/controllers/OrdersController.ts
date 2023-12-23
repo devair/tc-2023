@@ -51,21 +51,20 @@ class OrdersController {
 
     async updateStatus(request: Request, response: Response): Promise<Response> {
 
-        const { id } = request.params
-        const { status } = request.body
+        let { id } = request.params
+        let { status } = request.body
 
         const orderToUpdate = { id: parseInt(id), status }
 
         const serviceInstance = container.resolve(OrdersService)
-        let order: Order;
-
+        let order: Order
         try{
-            order = await serviceInstance.updateStatus( orderToUpdate )
+            order =  await serviceInstance.updateStatus( orderToUpdate )            
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(order)
+        return response.status(200).json({ id: order.id, status: order.status })
     }
 }
 
