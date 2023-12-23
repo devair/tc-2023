@@ -32,7 +32,7 @@ class OrdersRepositoryInMemory implements IOrdersRepository{
     async updateStatus(orderUpdate: Order ): Promise<Order>{
         let order = this.findById(orderUpdate.id)
         
-        Object.assign(order, orderUpdate)
+        ;(await order).status = orderUpdate.status
         
         return order
     }

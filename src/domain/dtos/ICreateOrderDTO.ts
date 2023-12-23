@@ -1,9 +1,8 @@
-import { Customer } from "../Customer"
-import { OrderItem } from "../OrderItem"
+import { ICreateOrderItemDTO } from "./ICreateOrderItemDTO"
 
 interface ICreateOrderDTO {
-    customer: Customer
-    orderItems: OrderItem[]
+    customer: { cpf: string }
+    orderItems: ICreateOrderItemDTO[]
 }
 
 export { ICreateOrderDTO }

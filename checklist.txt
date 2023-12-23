@@ -7,14 +7,14 @@
 # categorias
 [x] api cadastrar categorias
 [ ] api alterar uma categoria
-[ ] api consultar uma categoria pelo codigo
+[x] api consultar uma categoria pelo id
 [ ] api consultar uma categoria pelo nome
 [x] api lista categorias de produtos
 
 # produtos
 [x] api cadastro de produtos
 [ ] api alterar um produto
-[ ] api consultar um produto pelo codigo
+[x] api consultar um produto pelo id
 [ ] api consultar um produto pelo nome
 [x] api listagem de produtos
 
@@ -24,6 +24,8 @@
 [x] api listar pedidos
 [x] api consultar um pedido
 [x] api atualizar status do pedido
+[] api adicionar um item
+
 
 ## pagamento
 [x] api incluir pagamento
