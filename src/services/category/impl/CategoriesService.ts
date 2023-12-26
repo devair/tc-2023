@@ -3,7 +3,6 @@ import { Category } from "../../../domain/Category";
 import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { ICategoriesService } from "../ICategoriesService";
-import { IUpdateCategoryDTO } from "../../../domain/dtos/IUpdateCategoryDTO";
 
 @injectable()
 class CategoriesService implements ICategoriesService{
