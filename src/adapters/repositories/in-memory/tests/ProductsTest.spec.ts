@@ -1,19 +1,33 @@
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Product } from "../../../../domain/Product"
 import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository"
+import { Category } from "../../../../domain/Category"
+import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
+import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 
 let productsRepository : IProductsRepository
+let categoriesRepository : ICategoriesRepository
 
 describe('Product tests',()=>{
     beforeAll(()=>{
         productsRepository = new ProductsRepositoryInMemory()
+        categoriesRepository = new CategoriesRepositoryInMemory()
     })
 
     it('Should be able to create a new product', async ()=>{
+
+        const category = new Category()
+        
+        Object.assign(category,  {name: 'Bebida'})
+
+        await categoriesRepository.create( category )
+
+        const categoryCreated = await categoriesRepository.findByName(category.name)
+        
         const product = new Product()
         
         Object.assign(product, {name:'produto1', code:'1', description:'teste', 
-            preco: 1 , category:'', imagem:''})
+            preco: 1 , category: categoryCreated , imagem:''})
 
         productsRepository.create(product)
 

@@ -3,7 +3,7 @@ import { ICreateProductDTO } from "../../domain/dtos/ICreateProductDTO"
 
 interface IProductsService {
 
-    create({code, name, description, category, price, image }: ICreateProductDTO): Promise<Product>
+    create({code, name, description, category_id, price, image }: ICreateProductDTO): Promise<Product>
 
     list(): Promise<Product[]>
 

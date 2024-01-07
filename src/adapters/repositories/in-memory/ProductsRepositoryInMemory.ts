@@ -12,13 +12,13 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         this.products = []
     }
 
-    async create({code, name, description, category, price, image }: ICreateProductDTO ): Promise<Product> {
+    async create({code, name, description, category_id, price, image }: ICreateProductDTO ): Promise<Product> {
         
         const product = new Product()
 
         const id = genId(this.products)
 
-        Object.assign(product, {id, code, name, description, category, price, image })
+        Object.assign(product, {id, code, name, description, category_id, price, image })
 
         this.products.push(product)
 
@@ -38,6 +38,13 @@ class ProductsRepositoryInMemory implements IProductsRepository {
     
     async findByCode(code: string): Promise<Product> {
         const product = this.products.find((product)=> product.code === code)
+        
+        return product
+
+    }
+
+    async findByName(name: string): Promise<Product> {
+        const product = this.products.find((product)=> product.name === name)
         
         return product
 
