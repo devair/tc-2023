@@ -15,7 +15,7 @@ class Product {
     @Column()
     description: string
 
-    @ManyToOne(()=> Category)
+    @ManyToOne(()=> Category, (category)=> category.products)
     @JoinColumn({name: 'category_id'})
     category: Category
 
