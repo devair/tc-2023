@@ -32,12 +32,12 @@ class CategoriesRepositoryPostgres implements ICategoriesRepository{
     }
     
     async list(): Promise<Category[]> {
-        const all = this.repository.find()
+        const all = await this.repository.find()
         return all
     }
 
     async findByName(name: string): Promise<Category> {
-        const category = this.repository.findOne({ name })
+        const category = await this.repository.findOne({ name })
         return category
     }
 

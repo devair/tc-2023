@@ -68,6 +68,22 @@ class CategoriesController {
         }
         return response.status(204).send()
     }
+
+    async search (request: Request, response: Response): Promise<Response>{
+        
+        const { name }  = request.query
+        
+        const serviceInstance = container.resolve(CategoriesService)
+        let category;
+
+        try{
+            category = await serviceInstance.findByName( name.toString())
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+        return response.status(200).json(category)
+    }
 }
 
 export { CategoriesController }

@@ -3,7 +3,6 @@ import { ICategoriesRepository } from '../../ports/repositories/ICategoriesRepos
 import { IProductsRepository } from '../../ports/repositories/IProductsRepository';
 import { ProductsRepositoryInMemory } from '../../adapters/repositories/in-memory/ProductsRepositoryInMemory';
 import { ICustomersRepository } from '../../ports/repositories/ICustomersRepository';
-import { CustomersRepositoryInMemory } from '../../adapters/repositories/in-memory/CustomersRepositoryInMemory';
 import { IOrdersRepository } from '../../ports/repositories/IOrdersRepository';
 import { OrdersRepositoryInMemory } from '../../adapters/repositories/in-memory/OrdersRepositoryInMemory';
 import { IPaymentsRepository } from '../../ports/repositories/IPaymentsRepository';
@@ -17,6 +16,7 @@ import { CustomersService } from '../../services/customer/impl/CustomersService'
 import { IOrdersService } from '../../services/order/IOrdersService';
 import { OrdersService } from '../../services/order/impl/OrdersService';
 import { CategoriesRepositoryPostgres } from '../../adapters/repositories/postgress/CategoriesRepositoryPostgres';
+import { CustomersRepositoryPostgres } from '../../adapters/repositories/postgress/CustomersRepositoryPostgres';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -28,7 +28,7 @@ container.registerSingleton<IProductsRepository>(
 );
 
 container.registerSingleton<ICustomersRepository>(
-    'CustomersRepository', CustomersRepositoryInMemory
+    'CustomersRepository', CustomersRepositoryPostgres
 );
 
 container.registerSingleton<IOrdersRepository>(
