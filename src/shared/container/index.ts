@@ -17,6 +17,7 @@ import { IOrdersService } from '../../services/order/IOrdersService';
 import { OrdersService } from '../../services/order/impl/OrdersService';
 import { CategoriesRepositoryPostgres } from '../../adapters/repositories/postgress/CategoriesRepositoryPostgres';
 import { CustomersRepositoryPostgres } from '../../adapters/repositories/postgress/CustomersRepositoryPostgres';
+import { ProductsRepositoryPostgres } from '../../adapters/repositories/postgress/ProductsRepositoryPostgres';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -24,7 +25,7 @@ container.registerSingleton<ICategoriesRepository>(
 );
  
 container.registerSingleton<IProductsRepository>(
-    'ProductsRepository', ProductsRepositoryInMemory
+    'ProductsRepository', ProductsRepositoryPostgres
 );
 
 container.registerSingleton<ICustomersRepository>(

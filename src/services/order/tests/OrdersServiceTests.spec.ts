@@ -35,7 +35,7 @@ describe('Orders tests', () => {
         // creating a product    
         const product = await productsService.create({
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, category: categoryCreated, image: ''
+            price: 1, category_id: categoryCreated.id, image: ''
         })
 
 

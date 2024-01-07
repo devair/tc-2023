@@ -1,13 +1,34 @@
-import { Category } from './Category'
+import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, JoinColumn, ManyToOne} from 'typeorm';
+import { Category } from './Category';
 
+@Entity('products')
 class Product {
-    id?: number
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column()
     code: string
+
+    @Column()
     name: string
+
+    @Column()
     description: string
+
+    @ManyToOne(()=> Category)
+    @JoinColumn({name: 'category_id'})
     category: Category
+
+    @Column()
+    category_id: number
+
+    @Column()
     price: number
+
+    @Column()
     image: string
+
+    @CreateDateColumn()
     created_at?: Date    
 
     constructor(){

@@ -7,13 +7,13 @@ class ProductsController {
 
     async create(request: Request, response: Response): Promise<Response> {
 
-        const { code, name, description, category, price, image } = request.body;
+        const { code, name, description, category, category_id, price, image } = request.body;
 
         const serviceInstance = container.resolve(ProductsService)
 
         try {
             await serviceInstance.create({ code, name, description, 
-                category, price, image });
+                category_id, price, image });
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
@@ -49,6 +49,22 @@ class ProductsController {
             return response.status(400).json({ message: ex.message })
         }
         return response.status(200).json(category)
+    }
+
+    async search (request: Request, response: Response): Promise<Response>{
+        
+        const { name }  = request.query
+        
+        const serviceInstance = container.resolve(ProductsService)
+        let product;
+
+        try{
+            product = await serviceInstance.findByName( name.toString())
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+        return response.status(200).json(product)
     }
 }
 
