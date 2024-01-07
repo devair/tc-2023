@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  database_pedidos:
+    image: postgres
+    container_name: database_pedidos
+    restart: always
+    ports:
+      - 5432:5432
+    environment: 
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=pedidos
+    volumes:
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: pedidos_app    
+    ports:
+      - 3333:3333
+      - 9229:9229 #porta para debug
+    volumes:
+      - .:/usr/app
+
+    links:
+      - database_pedidos
+
+    depends_on:
+      - database_pedidos  
+
+volumes:
+  pgdata:
+    driver: local
+    
