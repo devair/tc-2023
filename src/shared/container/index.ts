@@ -8,7 +8,6 @@ import { IOrdersRepository } from '../../ports/repositories/IOrdersRepository';
 import { OrdersRepositoryInMemory } from '../../adapters/repositories/in-memory/OrdersRepositoryInMemory';
 import { IPaymentsRepository } from '../../ports/repositories/IPaymentsRepository';
 import { PaymentsRepositoryInMemory } from '../../adapters/repositories/in-memory/PaymentsRepositoryInMemory';
-import { CategoriesRepositoryInMemory } from '../../adapters/repositories/in-memory/CategoriesRepositoryInMemory';
 import { ICategoriesService } from '../../services/category/ICategoriesService';
 import { CategoriesService } from '../../services/category/impl/CategoriesService';
 import { IProductsService } from '../../services/product/IProductsService';
@@ -17,10 +16,11 @@ import { ICustomersService } from '../../services/customer/ICustomersService';
 import { CustomersService } from '../../services/customer/impl/CustomersService';
 import { IOrdersService } from '../../services/order/IOrdersService';
 import { OrdersService } from '../../services/order/impl/OrdersService';
+import { CategoriesRepositoryPostgres } from '../../adapters/repositories/postgress/CategoriesRepositoryPostgres';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
-    'CategoriesRepository', CategoriesRepositoryInMemory
+    'CategoriesRepository', CategoriesRepositoryPostgres
 );
  
 container.registerSingleton<IProductsRepository>(

@@ -1,7 +1,18 @@
+import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, PrimaryColumn} from 'typeorm';
+
+@Entity('categories')
 class Category {
-    id?: number
+        
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column()
     name: string    
+
+    @Column()
     description: string
+
+    @CreateDateColumn()
     created_at?: Date    
 
     constructor(){

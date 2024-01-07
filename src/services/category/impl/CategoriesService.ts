@@ -20,12 +20,8 @@ class CategoriesService implements ICategoriesService{
         if(categoryAlreadExists){
             throw new Error(`Category ${name} already exists`);
         }     
-
-        const category = new Category()
-
-        Object.assign(category, { name, description })
         
-        await this.categoriesRepository.create(category)
+        const category = await this.categoriesRepository.create({ name, description })
 
         return category
     }
@@ -56,9 +52,13 @@ class CategoriesService implements ICategoriesService{
         return category
     }
 
-    async update({id, name, description }: IUpdateCategoryDTO): Promise<void> {
-        await this.findById(id)
+    async update({id, name, description }: IUpdateCategoryDTO): Promise<void> {        
+        const category = await this.categoriesRepository.findById(id)
         
+        if(!category){
+            throw new Error(`Category ${id} not found`)
+        }
+
         await this.categoriesRepository.update( {id,  name, description } );
 
     }
