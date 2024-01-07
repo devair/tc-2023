@@ -11,5 +11,7 @@ categoriesRouter.post('/', categoriesController.create.bind(categoriesController
 
 categoriesRouter.get('/:id', categoriesController.findById.bind(categoriesController))
 
+categoriesRouter.put('/:id', categoriesController.update.bind(categoriesController))
+
 
 export { categoriesRouter }

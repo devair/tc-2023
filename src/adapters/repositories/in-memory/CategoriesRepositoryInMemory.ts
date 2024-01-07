@@ -1,8 +1,8 @@
-import { injectable, singleton } from "tsyringe";
 import { Category } from "../../../domain/Category";
 import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { genId } from "./Util";
+import { IUpdateCategoryDTO } from "../../../domain/dtos/IUpdateCategoryDTO";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
 
@@ -40,6 +40,13 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
         
         return category
 
+    }
+
+    async update({id, name, description }: IUpdateCategoryDTO): Promise<void> {        
+        const category = await this.findById( id )
+        
+        Object.assign(category, { name, description })
+        
     }
 }
 

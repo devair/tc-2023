@@ -48,6 +48,26 @@ class CategoriesController {
         return response.status(200).json(category)
     }
 
+    async update(request: Request, response: Response): Promise<Response>{
+        const { id } = request.params
+        const { name, description } = request.body
+
+        const serviceInstance = container.resolve(CategoriesService)
+        
+        const object = { 
+            id: parseInt(id),
+            name,
+            description
+        }
+
+        try{
+            await serviceInstance.update(object)            
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+        return response.status(204).send()
+    }
 }
 
 export { CategoriesController }
