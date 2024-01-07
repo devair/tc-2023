@@ -10,7 +10,7 @@ services:
     environment: 
       - POSTGRES_USER=docker
       - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=pedidos
+      - POSTGRES_DB=pedidos_db
     volumes:
       - pgdata:/data/postgres
   app:
