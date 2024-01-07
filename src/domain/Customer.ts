@@ -1,9 +1,23 @@
+import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, PrimaryColumn} from 'typeorm';
+
+@Entity('customers')
 class Customer {
-    id?: number
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column()
     name: string    
+
+    @Column()
     cpf: string
+
+    @Column()
     email?: string
+
+    @Column()
     phone?: string
+
+    @CreateDateColumn()
     created_at?: Date    
 
     constructor(){
