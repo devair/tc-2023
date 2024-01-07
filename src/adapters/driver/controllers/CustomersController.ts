@@ -37,17 +37,32 @@ class CustomersController {
         const { id } = request.params
 
         const serviceInstance = container.resolve(CustomersService)
-        let category;
+        let customer;
 
         try{
-            category = await serviceInstance.findById( parseInt(id) )
+            customer = await serviceInstance.findById( parseInt(id) )
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(category)
+        return response.status(200).json(customer)
     }
 
+    async search (request: Request, response: Response): Promise<Response>{
+        
+        const { cpf }  = request.query
+        
+        const serviceInstance = container.resolve(CustomersService)
+        let customer;
+
+        try{
+            customer = await serviceInstance.findByCpf( cpf.toString())
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+        return response.status(200).json(customer)
+    }
 }
 
 export { CustomersController }
