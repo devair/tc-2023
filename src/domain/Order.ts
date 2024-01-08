@@ -16,7 +16,9 @@ class Order {
     @Column()
     customer_id?: number
 
-    @OneToMany(() => OrderItem, (orderItems) => orderItems.order)    
+    @OneToMany(() => OrderItem, (orderItems) => orderItems.order, {
+        cascade: true
+    })    
     orderItems: OrderItem[]
 
     @OneToMany(() => Payment, (payment) => payment.order)    
