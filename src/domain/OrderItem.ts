@@ -1,13 +1,31 @@
+import {Entity, PrimaryGeneratedColumn, JoinColumn, ManyToOne, Column, CreateDateColumn} from 'typeorm';
 import { Order } from './Order'
 import { Product } from './Product'
 
+@Entity('order_items')
 class OrderItem {
-    id?: number
+
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @ManyToOne(()=> Order, (order) => order.orderItems)
+    @JoinColumn({name: 'order_id'})
     order: Order
+
+    @ManyToOne(()=> Product, (product) => product.orderItems)
+    @JoinColumn({name: 'product_id'})
     product: Product
+
+    @Column()
     quantity: number
+
+    @Column({
+        name: 'unit_price'
+    })
     unitPrice: number
-    created_at: Date
+    
+    @CreateDateColumn()
+    created_at?: Date
 
     constructor(){
         if(!this.id){            

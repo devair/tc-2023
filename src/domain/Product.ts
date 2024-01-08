@@ -1,5 +1,6 @@
-import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, JoinColumn, ManyToOne} from 'typeorm';
+import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, JoinColumn, ManyToOne, OneToMany} from 'typeorm';
 import { Category } from './Category';
+import { OrderItem } from './OrderItem';
 
 @Entity('products')
 class Product {
@@ -18,6 +19,9 @@ class Product {
     @ManyToOne(()=> Category, (category)=> category.products)
     @JoinColumn({name: 'category_id'})
     category: Category
+
+    @OneToMany(()=> OrderItem, (orderItem)=> orderItem.product)    
+    orderItems: OrderItem[]
 
     @Column()
     category_id: number
