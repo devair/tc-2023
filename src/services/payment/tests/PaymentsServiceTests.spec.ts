@@ -28,7 +28,7 @@ describe('Payments tests', () => {
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
         ordersService = new OrdersService(new OrdersRepositoryInMemory(),customersService,productsService)
-        paymentsService = new PaymentsService(new PaymentsRepositoryInMemory())
+        paymentsService = new PaymentsService(new PaymentsRepositoryInMemory(), ordersService)
 
         // creating a category
         const category = { name: 'Bebida', description: 'Bebida gelada' }
@@ -64,7 +64,7 @@ describe('Payments tests', () => {
 
         let payment = {
             order: orderCreated,
-            orderCreated,
+            order_id: orderCreated.id,
             paymentUniqueNumber: 'UNQ-1',
             paymentDate: new Date(),
             amount: orderCreated.amount()
