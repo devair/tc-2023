@@ -32,6 +32,9 @@ class OrdersService implements IOrdersService {
             order.customer = customerFound
         }
         
+        order.orderItems = []
+        order.payments = []
+
 
         const promiseArray = orderItems.map(async(item)=>{
             const productFound = await this.productsService.findByCode(item.product.code )

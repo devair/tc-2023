@@ -1,10 +1,8 @@
 import { container } from  'tsyringe';
 import { ICategoriesRepository } from '../../ports/repositories/ICategoriesRepository';
 import { IProductsRepository } from '../../ports/repositories/IProductsRepository';
-import { ProductsRepositoryInMemory } from '../../adapters/repositories/in-memory/ProductsRepositoryInMemory';
 import { ICustomersRepository } from '../../ports/repositories/ICustomersRepository';
 import { IOrdersRepository } from '../../ports/repositories/IOrdersRepository';
-import { OrdersRepositoryInMemory } from '../../adapters/repositories/in-memory/OrdersRepositoryInMemory';
 import { IPaymentsRepository } from '../../ports/repositories/IPaymentsRepository';
 import { PaymentsRepositoryInMemory } from '../../adapters/repositories/in-memory/PaymentsRepositoryInMemory';
 import { ICategoriesService } from '../../services/category/ICategoriesService';
@@ -18,6 +16,7 @@ import { OrdersService } from '../../services/order/impl/OrdersService';
 import { CategoriesRepositoryPostgres } from '../../adapters/repositories/postgress/CategoriesRepositoryPostgres';
 import { CustomersRepositoryPostgres } from '../../adapters/repositories/postgress/CustomersRepositoryPostgres';
 import { ProductsRepositoryPostgres } from '../../adapters/repositories/postgress/ProductsRepositoryPostgres';
+import { OrdersRepositoryPostgres } from '../../adapters/repositories/postgress/OrdersRepositoryPostgres';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -33,7 +32,7 @@ container.registerSingleton<ICustomersRepository>(
 );
 
 container.registerSingleton<IOrdersRepository>(
-    'OrdersRepository', OrdersRepositoryInMemory
+    'OrdersRepository', OrdersRepositoryPostgres
 );
 
 container.registerSingleton<IPaymentsRepository>(

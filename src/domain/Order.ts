@@ -1,20 +1,38 @@
+import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, JoinColumn, ManyToOne, OneToMany} from 'typeorm';
 import { Customer } from './Customer'
 import { OrderItem } from './OrderItem'
 import { Payment } from './Payment'
 
+@Entity('orders')
 class Order {
-    id?:number    
+
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @ManyToOne(()=> Customer, (customer)=> customer.orders)
+    @JoinColumn({name: 'customer_id'})
     customer?: Customer
+
+    @Column()
+    customer_id?: number
+
+    @OneToMany(() => OrderItem, (orderItems) => orderItems.order, {
+        cascade: true
+    })    
     orderItems: OrderItem[]
+
+    @OneToMany(() => Payment, (payment) => payment.order)    
     payments?: Payment[]
-    created_at: Date   
-    status: string 
     
+    @CreateDateColumn()
+    created_at: Date   
+    
+    @Column()
+    status: string 
+   
     constructor(){
         if(!this.id){            
-            this.created_at = new Date()
-            this.orderItems = []
-            this.payments = []  
+            this.created_at = new Date()            
             this.status = OrderStatus.WAIT_PAYMENT             
         }
     }

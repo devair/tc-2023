@@ -1,4 +1,5 @@
-import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn} from 'typeorm';
+import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
+import { Order } from './Order';
 
 @Entity('customers')
 class Customer {
@@ -16,6 +17,9 @@ class Customer {
 
     @Column()
     phone?: string
+
+    @OneToMany(()=> Order, (order)=> order.customer)
+    orders: Order[]
 
     @CreateDateColumn()
     created_at?: Date    
