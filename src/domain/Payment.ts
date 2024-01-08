@@ -10,8 +10,10 @@ class Payment {
     @JoinColumn({name: 'order_id'})
     order: Order    
 
-    @Column()
-    order_id: number
+    @Column({
+        name: "order_id"
+    })
+    orderId: number
     
     @Column()
     amount: number

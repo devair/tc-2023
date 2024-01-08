@@ -1,4 +1,4 @@
-import { Repository, getRepository } from "typeorm"
+import { Repository, UpdateResult, getRepository } from "typeorm"
 import { Order } from "../../../domain/Order"
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository"
 
@@ -26,7 +26,9 @@ class OrdersRepositoryPostgres implements IOrdersRepository{
     }
 
     async updateStatus(order: Order): Promise<Order> {
-        throw new Error("Method not implemented.")
+        const { id, status } = order
+        await this.repository.update(id, { status })
+        return order       
     }       
 }
 

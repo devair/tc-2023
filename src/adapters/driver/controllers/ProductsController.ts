@@ -7,13 +7,13 @@ class ProductsController {
 
     async create(request: Request, response: Response): Promise<Response> {
 
-        const { code, name, description, category, category_id, price, image } = request.body;
+        const { code, name, description, categoryId, price, image } = request.body;
 
         const serviceInstance = container.resolve(ProductsService)
 
         try {
             await serviceInstance.create({ code, name, description, 
-                category_id, price, image });
+                categoryId, price, image });
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });

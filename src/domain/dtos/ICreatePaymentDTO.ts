@@ -1,7 +1,7 @@
 import { Order } from "../Order"
 
 interface ICreatePaymentDTO {    
-    order_id: number
+    orderId: number
     amount: number
     paymentDate: Date
     paymentUniqueNumber: string

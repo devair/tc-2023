@@ -12,9 +12,19 @@ class OrderItem {
     @JoinColumn({name: 'order_id'})
     order: Order
 
+    @Column({
+        name: "order_id"
+    })
+    orderId: number
+
     @ManyToOne(()=> Product, (product) => product.orderItems)
     @JoinColumn({name: 'product_id'})
     product: Product
+
+    @Column({
+        name: "product_id"
+    })
+    productId: number
 
     @Column()
     quantity: number

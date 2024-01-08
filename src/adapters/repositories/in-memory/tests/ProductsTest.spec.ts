@@ -24,10 +24,8 @@ describe('Product tests',()=>{
 
         const categoryCreated = await categoriesRepository.findByName(category.name)
         
-        const product = new Product()
-        
-        Object.assign(product, {name:'produto1', code:'1', description:'teste', 
-            preco: 1 , category: categoryCreated , imagem:''})
+        const product = {name:'produto1', code:'1', description:'teste', 
+            price: 1 , categoryId: categoryCreated.id , image:''}
 
         productsRepository.create(product)
 

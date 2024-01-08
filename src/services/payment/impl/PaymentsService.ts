@@ -14,15 +14,15 @@ class PaymentsService implements IPaymentsService {
         @inject('OrdersService')
         private ordersService: IOrdersService) { }
 
-    async create({ order_id, amount, paymentDate, paymentUniqueNumber }: ICreatePaymentDTO): Promise<Payment> {
+    async create({ orderId, amount, paymentDate, paymentUniqueNumber }: ICreatePaymentDTO): Promise<Payment> {
 
-        const orderFound = await this.ordersService.findById(order_id)
+        const orderFound = await this.ordersService.findById(orderId)
 
         const payment = new Payment()
 
         Object.assign(payment, {
                 order: orderFound,
-                order_id: orderFound.id,                
+                orderId: orderFound.id,                
                 amount,
                 paymentDate,
                 paymentUniqueNumber

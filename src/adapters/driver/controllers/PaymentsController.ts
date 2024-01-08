@@ -6,12 +6,12 @@ class PaymentsController {
 
     async create(request: Request, response: Response): Promise<Response> {
 
-        const { order_id, amount, paymentDate, paymentUniqueNumber } = request.body;
+        const { orderId, amount, paymentDate, paymentUniqueNumber } = request.body;
 
         const serviceInstance = container.resolve(PaymentsService)
 
         try {
-            await serviceInstance.create({ order_id, amount, paymentDate, paymentUniqueNumber });
+            await serviceInstance.create({ orderId, amount, paymentDate, paymentUniqueNumber });
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });

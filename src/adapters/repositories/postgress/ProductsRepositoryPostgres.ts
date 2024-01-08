@@ -12,9 +12,9 @@ class ProductsRepositoryPostgres implements IProductsRepository {
     }
 
 
-    async create({ code, name, description, category_id, price, image }: ICreateProductDTO): Promise<Product> {
+    async create({ code, name, description, categoryId, price, image }: ICreateProductDTO): Promise<Product> {
         const product = this.repository.create({ name, code, description, 
-            category_id, price, image })
+            categoryId, price, image })
 
         const productCreated = await this.repository.save(product)
 
