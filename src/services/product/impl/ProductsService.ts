@@ -66,6 +66,10 @@ class ProductsService implements IProductsService{
 
         return product
     }
+
+    async delete(id: number): Promise<void> {
+        await this.productsRepository.delete(id)
+    }
 }
 
 export { ProductsService }

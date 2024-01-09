@@ -40,15 +40,15 @@ class ProductsController {
         const { id } = request.params
 
         const serviceInstance = container.resolve(ProductsService)
-        let category;
+        let product;
 
         try{
-            category = await serviceInstance.findById( parseInt(id) )
+            product = await serviceInstance.findById( parseInt(id) )
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(category)
+        return response.status(200).json(product)
     }
 
     async search (request: Request, response: Response): Promise<Response>{
@@ -65,6 +65,21 @@ class ProductsController {
             return response.status(400).json({ message: ex.message })
         }
         return response.status(200).json(product)
+    }
+
+    async delete(request: Request, response: Response): Promise<Response>{
+        const { id } = request.params
+        
+        const serviceInstance = container.resolve(ProductsService)
+        
+        try{
+            await serviceInstance.delete( parseInt(id) )
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+
+        return response.status(204).send()
     }
 }
 

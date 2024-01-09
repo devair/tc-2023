@@ -41,6 +41,10 @@ class ProductsRepositoryPostgres implements IProductsRepository {
         const product = await this.repository.findOne( { name })
         return product
     }
+
+    async delete(id: number): Promise<void> {
+        await this.repository.delete(id)
+    }
 }
 
 export { ProductsRepositoryPostgres }
