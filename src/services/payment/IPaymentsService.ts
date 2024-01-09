@@ -3,7 +3,7 @@ import { ICreatePaymentDTO } from "../../domain/dtos/ICreatePaymentDTO";
 
 interface IPaymentsService {
     
-    create ({  order, amount, paymentDate, paymentUniqueNumber}: ICreatePaymentDTO): Promise<Payment>
+    create ({ orderId, amount, paymentDate, paymentUniqueNumber}: ICreatePaymentDTO): Promise<Payment>
     
     list(): Promise<Payment[]>
 

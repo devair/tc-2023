@@ -23,8 +23,10 @@ class Product {
     @OneToMany(()=> OrderItem, (orderItem)=> orderItem.product)    
     orderItems: OrderItem[]
 
-    @Column()
-    category_id: number
+    @Column({
+        name: 'category_id'
+    })
+    categoryId: number
 
     @Column()
     price: number

@@ -7,13 +7,13 @@ class ProductsController {
 
     async create(request: Request, response: Response): Promise<Response> {
 
-        const { code, name, description, category, category_id, price, image } = request.body;
+        const { code, name, description, categoryId, price, image } = request.body;
 
         const serviceInstance = container.resolve(ProductsService)
 
         try {
             await serviceInstance.create({ code, name, description, 
-                category_id, price, image });
+                categoryId, price, image });
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
@@ -40,15 +40,15 @@ class ProductsController {
         const { id } = request.params
 
         const serviceInstance = container.resolve(ProductsService)
-        let category;
+        let product;
 
         try{
-            category = await serviceInstance.findById( parseInt(id) )
+            product = await serviceInstance.findById( parseInt(id) )
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(category)
+        return response.status(200).json(product)
     }
 
     async search (request: Request, response: Response): Promise<Response>{
@@ -65,6 +65,21 @@ class ProductsController {
             return response.status(400).json({ message: ex.message })
         }
         return response.status(200).json(product)
+    }
+
+    async delete(request: Request, response: Response): Promise<Response>{
+        const { id } = request.params
+        
+        const serviceInstance = container.resolve(ProductsService)
+        
+        try{
+            await serviceInstance.delete( parseInt(id) )
+        }
+        catch( ex ) {
+            return response.status(400).json({ message: ex.message })
+        }
+
+        return response.status(204).send()
     }
 }
 

@@ -12,13 +12,13 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         this.products = []
     }
 
-    async create({code, name, description, category_id, price, image }: ICreateProductDTO ): Promise<Product> {
+    async create({code, name, description, categoryId, price, image }: ICreateProductDTO ): Promise<Product> {
         
         const product = new Product()
 
         const id = genId(this.products)
 
-        Object.assign(product, {id, code, name, description, category_id, price, image })
+        Object.assign(product, {id, code, name, description, categoryId, price, image })
 
         this.products.push(product)
 
@@ -48,6 +48,10 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         
         return product
 
+    }
+
+    async delete(id: number): Promise<void> {
+        
     }
 }
 

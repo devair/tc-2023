@@ -9,14 +9,23 @@ class Payment {
     @ManyToOne(()=> Order, (order)=> order.payments)
     @JoinColumn({name: 'order_id'})
     order: Order    
+
+    @Column({
+        name: "order_id"
+    })
+    orderId: number
     
     @Column()
     amount: number
     
-    @CreateDateColumn()
+    @CreateDateColumn({
+        name: 'payment_date'
+    })
     paymentDate: Date
     
-    @Column()
+    @Column({
+        name: 'payment_unique_number'
+    })
     paymentUniqueNumber: string
     
     @CreateDateColumn()

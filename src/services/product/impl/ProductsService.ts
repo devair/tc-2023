@@ -14,7 +14,7 @@ class ProductsService implements IProductsService{
         @inject('CategoriesService') 
         private categoriesService: ICategoriesService){}
 
-    async create({code, name, description, category_id, price, image }: ICreateProductDTO): Promise<Product>{
+    async create({code, name, description, categoryId, price, image }: ICreateProductDTO): Promise<Product>{
 
         const productAlreadyExists = await this.productsRepository.findByCode(code);
 
@@ -22,10 +22,10 @@ class ProductsService implements IProductsService{
             throw new Error(`Product ${code} already exists`);
         }        
 
-        const categoryFound = await this.categoriesService.findById(category_id)
+        const categoryFound = await this.categoriesService.findById(categoryId)
 
         const product = await this.productsRepository.create({
-            code, name, description, category_id: categoryFound.id, price, image
+            code, name, description, categoryId: categoryFound.id, price, image
         })
 
         return product
@@ -65,6 +65,10 @@ class ProductsService implements IProductsService{
         }
 
         return product
+    }
+
+    async delete(id: number): Promise<void> {
+        await this.productsRepository.delete(id)
     }
 }
 

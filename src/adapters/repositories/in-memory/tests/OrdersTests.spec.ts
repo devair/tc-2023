@@ -33,7 +33,7 @@ describe('Orders tests', () => {
         // creating a product    
         const product = {
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, category_id: categoryCreated.id, image: ''
+            price: 1, categoryId: categoryCreated.id, image: ''
         }
 
         productsRepository.create(product)

@@ -1,7 +1,7 @@
 import { Order } from "../Order"
 
-interface ICreatePaymentDTO {
-    order: Order    
+interface ICreatePaymentDTO {    
+    orderId: number
     amount: number
     paymentDate: Date
     paymentUniqueNumber: string

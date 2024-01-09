@@ -24,7 +24,7 @@ describe('Products Service tests', () => {
 
         const product = await productsService.create({
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, category_id: categoryCreated.id, image: ''
+            price: 1, categoryId: categoryCreated.id, image: ''
         })
         const productCreated = await productsService.findByCode(product.code)
         expect(productCreated).toHaveProperty('id')
@@ -78,7 +78,7 @@ describe('Products Service tests', () => {
 
             await productsService.create({
                 name: 'produto1', code: '1', description: 'teste',
-                price: 1, category_id: categoryCreated.id, image: ''
+                price: 1, categoryId: categoryCreated.id, image: ''
             })
 
         }).rejects.toBeInstanceOf(Error)
