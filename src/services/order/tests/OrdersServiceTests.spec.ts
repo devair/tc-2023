@@ -13,6 +13,7 @@ import { ProductsService } from "../../product/impl/ProductsService"
 import { IOrdersService } from "../IOrdersService"
 import { OrdersService } from "../impl/OrdersService"
 import { Customer } from "../../../domain/Customer"
+import { OrderItemsRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrderItemsRepositoryInMemory"
 
 let customersService: ICustomersService
 let productsService: IProductsService
@@ -25,7 +26,8 @@ describe('Orders tests', () => {
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
         customersService = new CustomersService(new CustomersRepositoryInMemory())
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
-        ordersService = new OrdersService(new OrdersRepositoryInMemory(), customersService, productsService)
+        ordersService = new OrdersService(new OrdersRepositoryInMemory(), 
+                customersService, productsService, new OrderItemsRepositoryInMemory())
 
         // creating a category
         const category = { name: 'Bebida', description: 'Bebida gelada' }
@@ -58,7 +60,7 @@ describe('Orders tests', () => {
 
         const orderCreated = await ordersService.create({ customer, orderItems })
 
-        expect(orderCreated.amount()).toBe(90)
+        expect(orderCreated.amount).toBe(90)
 
 
         const orderFound = await ordersService.findById(orderCreated.id)

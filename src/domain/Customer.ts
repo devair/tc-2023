@@ -1,27 +1,16 @@
 import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
 import { Order } from './Order';
 
-@Entity('customers')
 class Customer {
-    @PrimaryGeneratedColumn()
+    
     id: number
-
-    @Column()
     name: string    
-
-    @Column()
     cpf: string
-
-    @Column()
-    email?: string
-
-    @Column()
+    email?: string    
     phone?: string
 
-    @OneToMany(()=> Order, (order)=> order.customer)
+    //@OneToMany(()=> Order, (order)=> order.customer)
     orders: Order[]
-
-    @CreateDateColumn()
     created_at?: Date    
 
     constructor(){

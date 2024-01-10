@@ -8,6 +8,11 @@ class OrderItemsRepositoryInMemory implements IOrderItemsRepository {
     constructor() {
         this.orderItems = []
     }
+    
+    async createAll(orderItems: OrderItem[]): Promise<OrderItem[]> {
+        this.orderItems= [ ... orderItems]
+        return orderItems
+    }
 
     async create(orderItem: OrderItem): Promise<OrderItem> {
         this.orderItems.push(orderItem)

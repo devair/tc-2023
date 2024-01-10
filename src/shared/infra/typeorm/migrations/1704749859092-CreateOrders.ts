@@ -30,7 +30,7 @@ export class CreateOrders1704749859092 implements MigrationInterface {
                     },
                     {
                         name: 'amount',
-                        type: 'numeric',
+                        type: 'decimal',
                         isNullable: true
                     },
                 ],

@@ -14,6 +14,7 @@ import { IProductsService } from "../../product/IProductsService"
 import { ProductsService } from "../../product/impl/ProductsService"
 import { IPaymentsService } from "../IPaymentsService"
 import { PaymentsService } from "../impl/PaymentsService"
+import { OrderItemsRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrderItemsRepositoryInMemory"
 
 let ordersService: IOrdersService
 let customersService: ICustomersService
@@ -27,7 +28,8 @@ describe('Payments tests', () => {
         customersService = new CustomersRepositoryInMemory()
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
-        ordersService = new OrdersService(new OrdersRepositoryInMemory(),customersService,productsService)
+        ordersService = new OrdersService(new OrdersRepositoryInMemory(),
+            customersService,productsService, new OrderItemsRepositoryInMemory())
         paymentsService = new PaymentsService(new PaymentsRepositoryInMemory(), ordersService)
 
         // creating a category
@@ -67,7 +69,7 @@ describe('Payments tests', () => {
             orderId: orderCreated.id,
             paymentUniqueNumber: 'UNQ-1',
             paymentDate: new Date(),
-            amount: orderCreated.amount()
+            amount: orderCreated.amount
         }
 
         const paymentCreated = await paymentsService.create(payment)

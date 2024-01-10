@@ -35,7 +35,8 @@ export class CreateProducts1704661958382 implements MigrationInterface {
                     },
                     {
                         name: 'price',
-                        type: 'numeric'
+                        type: 'decimal',
+                        default: 0
                     },
                     {
                         name: 'image',

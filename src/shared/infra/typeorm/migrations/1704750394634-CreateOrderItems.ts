@@ -23,7 +23,7 @@ export class CreateOrderItems1704750394634 implements MigrationInterface {
                     },
                     {
                         name: 'unit_price',
-                        type: 'numeric'
+                        type: 'decimal'
                     },
                     {
                         name: 'quantity',

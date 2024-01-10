@@ -1,16 +1,17 @@
 import { Repository, UpdateResult, getRepository } from "typeorm"
 import { Order } from "../../../domain/Order"
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository"
+import { OrderEntity } from "../../../shared/infra/typeorm/entities/OrderEntity"
 
 class OrdersRepositoryPostgres implements IOrdersRepository{
     
     private repository: Repository<Order>
 
     constructor(){
-        this.repository = getRepository(Order)
+        this.repository = getRepository(OrderEntity)
     }
 
-    async create(order: Order): Promise<Order> {
+    async create(order: Order): Promise<Order> {        
         const orderCreated = await this.repository.save(order)
         return orderCreated
     }

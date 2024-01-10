@@ -12,13 +12,15 @@ import { ICustomersService } from '../../services/customer/ICustomersService';
 import { CustomersService } from '../../services/customer/impl/CustomersService';
 import { IOrdersService } from '../../services/order/IOrdersService';
 import { OrdersService } from '../../services/order/impl/OrdersService';
-import { CategoriesRepositoryPostgres } from '../../adapters/repositories/postgress/CategoriesRepositoryPostgres';
-import { CustomersRepositoryPostgres } from '../../adapters/repositories/postgress/CustomersRepositoryPostgres';
-import { ProductsRepositoryPostgres } from '../../adapters/repositories/postgress/ProductsRepositoryPostgres';
-import { OrdersRepositoryPostgres } from '../../adapters/repositories/postgress/OrdersRepositoryPostgres';
-import { PaymentsRepositoryPostgres } from '../../adapters/repositories/postgress/PaymentsRepositoryPostgres';
+import { CategoriesRepositoryPostgres } from '../../adapters/repositories/postgres/CategoriesRepositoryPostgres';
+import { CustomersRepositoryPostgres } from '../../adapters/repositories/postgres/CustomersRepositoryPostgres';
+import { ProductsRepositoryPostgres } from '../../adapters/repositories/postgres/ProductsRepositoryPostgres';
+import { OrdersRepositoryPostgres } from '../../adapters/repositories/postgres/OrdersRepositoryPostgres';
+import { PaymentsRepositoryPostgres } from '../../adapters/repositories/postgres/PaymentsRepositoryPostgres';
 import { IPaymentsService } from '../../services/payment/IPaymentsService';
 import { PaymentsService } from '../../services/payment/impl/PaymentsService';
+import { IOrderItemsRepository } from '../../ports/repositories/IOrderItemsRepository';
+import { OrderItemsRepositoryPostgres } from '../../adapters/repositories/postgres/OrderItemsRepositoryPostgres';
 
 //TODO: to use a real database implementation
 container.registerSingleton<ICategoriesRepository>(
@@ -39,6 +41,10 @@ container.registerSingleton<IOrdersRepository>(
 
 container.registerSingleton<IPaymentsRepository>(
     'PaymentsRepository', PaymentsRepositoryPostgres
+);
+
+container.registerSingleton<IOrderItemsRepository>(
+    'OrderItemsRepository', OrderItemsRepositoryPostgres
 );
 
 container.registerSingleton<ICategoriesService>(

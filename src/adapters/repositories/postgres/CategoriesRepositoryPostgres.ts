@@ -3,13 +3,13 @@ import { Category } from "../../../domain/Category";
 import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { IUpdateCategoryDTO } from "../../../domain/dtos/IUpdateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
-
+import { CategoryEntity } from "../../../shared/infra/typeorm/entities/CategoryEntity";
 class CategoriesRepositoryPostgres implements ICategoriesRepository{
    
     private repository: Repository<Category>
 
     constructor(){
-        this.repository = getRepository(Category)
+        this.repository = getRepository(CategoryEntity)
     }
 
     async update({ id, name, description }: IUpdateCategoryDTO): Promise<void> {              

@@ -76,7 +76,7 @@ describe('Payments tests', () => {
             order,
             paymentUniqueNumber: 'UNQ-1',
             paymentDate: new Date(),
-            amount: order.amount()
+            amount: 90
         })
 
         const paymentCreated = await paymentsRepository.create(payment)

@@ -1,14 +1,14 @@
 import { Repository, getRepository } from "typeorm";
 import { Payment } from "../../../domain/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
-
+import { PaymentEntity } from "../../../shared/infra/typeorm/entities/PaymentEntity";
 
 class PaymentsRepositoryPostgres implements IPaymentsRepository{
     
     private repository: Repository<Payment>
 
     constructor(){
-        this.repository = getRepository(Payment)
+        this.repository = getRepository(PaymentEntity)
     }
 
     async create(payment: Payment): Promise<Payment> {

@@ -9,9 +9,13 @@
         "./src/shared/infra/typeorm/migrations/*.ts"
     ],
     "entities": [
-        "./src/domain/*.ts"
+        "./src/domain/*.ts",
+        "./src/shared/infra/typeorm/entities/*.ts"
     ],
     "cli": {
+        "entitiesDir": "./src/shared/infra/typeorm/entities",
         "migrationsDir": "./src/shared/infra/typeorm/migrations"
-    }
+    },
+    "synchronize": true,
+    "autoLoadEntities": true
 }

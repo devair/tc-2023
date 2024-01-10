@@ -20,7 +20,7 @@ export class CreatePayments1704752626021 implements MigrationInterface {
                     },
                     {
                         name: 'amount',
-                        type: 'numeric'
+                        type: 'decimal'
                     },
                     {
                         name: 'payment_unique_number',
