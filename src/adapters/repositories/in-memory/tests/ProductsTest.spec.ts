@@ -1,9 +1,9 @@
-import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
-import { Product } from "../../../../domain/Product"
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository"
-import { Category } from "../../../../domain/Category"
-import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
-import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "@repositories/in-memory/ProductsRepositoryInMemory"
+import { Product } from "@domain/Product"
+import { IProductsRepository } from "@ports/repositories/IProductsRepository"
+import { Category } from "@domain/Category"
+import { ICategoriesRepository } from "@ports/repositories/ICategoriesRepository"
+import { CategoriesRepositoryInMemory } from "@repositories/in-memory/CategoriesRepositoryInMemory"
 
 let productsRepository : IProductsRepository
 let categoriesRepository : ICategoriesRepository

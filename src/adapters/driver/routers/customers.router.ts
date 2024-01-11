@@ -1,6 +1,6 @@
 
 import { Router } from 'express'
-import { CustomersController } from '../adapters/driver/controllers/CustomersController'
+import { CustomersController } from '@driver/controllers/CustomersController'
 
 const customersRouter = Router()
 

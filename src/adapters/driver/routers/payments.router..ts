@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { PaymentsController } from '../adapters/driver/controllers/PaymentsController'
+import { PaymentsController } from '@driver/controllers/PaymentsController'
 
 
 const paymentsRouter = Router()

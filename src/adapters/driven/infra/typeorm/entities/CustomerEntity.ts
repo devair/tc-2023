@@ -1,10 +1,10 @@
-import { EntitySchema } from "typeorm";
-import { BaseColumnSchemaPart } from "./BaseColumnSchemaPart ";
-import { Customer } from "../../../../domain/Customer";
+import { EntitySchema } from 'typeorm';
+import { BaseColumnSchemaPart } from './BaseColumnSchemaPart ';
+import { Customer } from '@domain/Customer';
 
 
 export const CustomerEntity = new EntitySchema<Customer>({
-    name: "customers",
+    name: 'customers',
     columns: {
         ...BaseColumnSchemaPart,
         name: {

@@ -1,6 +1,6 @@
-import { OrderItem } from "../../../domain/OrderItem"
-import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository"
-
+import { OrderItem } from "@domain/OrderItem"
+import { IOrderItemsRepository } from "@ports/repositories/IOrderItemsRepository"
+import { genId } from "@repositories/in-memory/Util";
 
 class OrderItemsRepositoryInMemory implements IOrderItemsRepository {
     private orderItems: OrderItem[]
@@ -15,6 +15,7 @@ class OrderItemsRepositoryInMemory implements IOrderItemsRepository {
     }
 
     async create(orderItem: OrderItem): Promise<OrderItem> {
+        orderItem.id = genId(this.orderItems)
         this.orderItems.push(orderItem)
 
         return orderItem

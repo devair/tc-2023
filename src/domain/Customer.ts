@@ -1,4 +1,4 @@
-import { Order } from './Order';
+import { Order } from '@domain/Order';
 
 class Customer {
 

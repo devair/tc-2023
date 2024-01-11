@@ -1,7 +1,7 @@
-import { Customer } from './Customer'
-import { OrderItem } from './OrderItem'
-import { Payment } from './Payment'
-import { Product } from './Product'
+import { Customer } from '@domain/Customer'
+import { OrderItem } from '@domain/OrderItem'
+import { Payment } from '@domain/Payment'
+import { Product } from '@domain/Product'
 
 class Order {
 

@@ -1,9 +1,9 @@
 import "reflect-metadata"
-import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
-import { Category } from "../../../domain/Category"
-import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository"
-import { ICategoriesService } from "../ICategoriesService"
-import { CategoriesService } from "../impl/CategoriesService"
+import { CategoriesRepositoryInMemory } from "@repositories/in-memory/CategoriesRepositoryInMemory"
+import { Category } from "@domain/Category"
+import { ICategoriesRepository } from "@ports/repositories/ICategoriesRepository"
+import { ICategoriesService } from "@services/category/ICategoriesService"
+import { CategoriesService } from "@services/category/impl/CategoriesService"
 
 
 let categoriesRepository: ICategoriesRepository

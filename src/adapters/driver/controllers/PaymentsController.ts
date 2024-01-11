@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { PaymentsService } from "../../../services/payment/impl/PaymentsService";
+import { PaymentsService } from "@services/payment/impl/PaymentsService";
 
 class PaymentsController {
 

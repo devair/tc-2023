@@ -1,6 +1,6 @@
 import { EntitySchema } from 'typeorm';
 import { BaseColumnSchemaPart } from './BaseColumnSchemaPart ';
-import { OrderItem } from '../../../../domain/OrderItem';
+import { OrderItem } from '@domain/OrderItem';
 
 
 export const OrderItemEntity = new EntitySchema<OrderItem>({

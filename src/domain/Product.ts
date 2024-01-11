@@ -1,6 +1,6 @@
-import { Category } from './Category';
-import { Order } from './Order';
-import { OrderItem } from './OrderItem';
+import { Category } from '@domain/Category';
+import { Order } from '@domain/Order';
+import { OrderItem } from '@domain/OrderItem';
 class Product {
     
     id: number

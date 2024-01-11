@@ -1,6 +1,5 @@
-import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
-import { Customer } from "../../../../domain/Customer"
-import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository"
+import { CustomersRepositoryInMemory } from "@repositories/in-memory/CustomersRepositoryInMemory"
+import { ICustomersRepository } from "@ports/repositories/ICustomersRepository"
 
 let customersRepository: ICustomersRepository
 

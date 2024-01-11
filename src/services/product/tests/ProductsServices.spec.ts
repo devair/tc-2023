@@ -1,10 +1,10 @@
 import "reflect-metadata"
-import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
-import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
-import { ICategoriesService } from "../../category/ICategoriesService"
-import { CategoriesService } from "../../category/impl/CategoriesService"
-import { IProductsService } from "../IProductsService"
-import { ProductsService } from "../impl/ProductsService"
+import { CategoriesRepositoryInMemory } from "@repositories/in-memory/CategoriesRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "@repositories/in-memory/ProductsRepositoryInMemory"
+import { ICategoriesService } from "@services/category/ICategoriesService"
+import { CategoriesService } from "@services/category/impl/CategoriesService"
+import { IProductsService } from "@services/product/IProductsService"
+import { ProductsService } from "@services/product/impl/ProductsService"
 
 let categoriesService: ICategoriesService
 let productsService: IProductsService

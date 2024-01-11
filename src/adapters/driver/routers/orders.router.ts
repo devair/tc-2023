@@ -1,6 +1,5 @@
 import { Router } from "express"
-import { OrdersController } from "../adapters/driver/controllers/OrdersController"
-
+import { OrdersController } from "@driver/controllers/OrdersController"
 
 const ordersRouter = Router()
 

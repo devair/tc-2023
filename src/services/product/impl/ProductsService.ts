@@ -1,9 +1,9 @@
 import { inject, injectable } from "tsyringe";
-import { Product } from "../../../domain/Product";
-import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
-import { ICategoriesService } from "../../category/ICategoriesService";
-import { IProductsService } from "../IProductsService";
+import { Product } from "@domain/Product";
+import { ICreateProductDTO } from "@domain/dtos/ICreateProductDTO";
+import { IProductsRepository } from "@ports/repositories/IProductsRepository";
+import { ICategoriesService } from "@services/category/ICategoriesService";
+import { IProductsService } from "@services/product/IProductsService";
 
 @injectable()
 class ProductsService implements IProductsService{

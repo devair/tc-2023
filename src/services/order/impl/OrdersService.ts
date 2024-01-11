@@ -1,13 +1,13 @@
 import { inject, injectable } from "tsyringe";
-import { Order, OrderStatus } from "../../../domain/Order";
-import { OrderItem } from "../../../domain/OrderItem";
-import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
-import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
-import { ICustomersService } from "../../customer/ICustomersService";
-import { IProductsService } from "../../product/IProductsService";
-import { IOrdersService } from "../IOrdersService";
-import { IUpdateOrderStatusDTO } from "../../../domain/dtos/IUpdateOrderStatusDTO";
-import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository";
+import { Order, OrderStatus } from "@domain/Order";
+import { OrderItem } from "@domain/OrderItem";
+import { ICreateOrderDTO } from "@domain/dtos/ICreateOrderDTO";
+import { IOrdersRepository } from "@ports/repositories/IOrdersRepository";
+import { ICustomersService } from "@services/customer/ICustomersService";
+import { IProductsService } from "@services/product/IProductsService";
+import { IOrdersService } from "@services/order/IOrdersService";
+import { IUpdateOrderStatusDTO } from "@domain/dtos/IUpdateOrderStatusDTO";
+import { IOrderItemsRepository } from "@ports/repositories/IOrderItemsRepository";
 
 @injectable()
 class OrdersService implements IOrdersService {

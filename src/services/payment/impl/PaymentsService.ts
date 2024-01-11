@@ -1,9 +1,9 @@
 import { inject, injectable } from "tsyringe";
-import { ICreatePaymentDTO } from "../../../domain/dtos/ICreatePaymentDTO";
-import { Payment } from "../../../domain/Payment";
-import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
-import { IPaymentsService } from "../IPaymentsService";
-import { IOrdersService } from "../../order/IOrdersService";
+import { ICreatePaymentDTO } from "@domain/dtos/ICreatePaymentDTO";
+import { Payment } from "@domain/Payment";
+import { IPaymentsRepository } from "@ports/repositories/IPaymentsRepository";
+import { IPaymentsService } from "@services/payment/IPaymentsService";
+import { IOrdersService } from "@services/order/IOrdersService";
 
 @injectable()
 class PaymentsService implements IPaymentsService {

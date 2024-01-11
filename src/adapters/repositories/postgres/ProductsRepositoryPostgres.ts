@@ -1,8 +1,8 @@
 import { Repository, getRepository } from "typeorm";
-import { Product } from "../../../domain/Product";
-import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
-import { ProductEntity } from "../../../shared/infra/typeorm/entities/ProductEntity";
+import { Product } from "@domain/Product";
+import { ICreateProductDTO } from "@domain/dtos/ICreateProductDTO";
+import { IProductsRepository } from "@ports/repositories/IProductsRepository";
+import { ProductEntity } from "@driven/infra/typeorm/entities/ProductEntity";
 
 class ProductsRepositoryPostgres implements IProductsRepository {
 

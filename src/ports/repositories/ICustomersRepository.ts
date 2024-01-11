@@ -1,5 +1,5 @@
-import { Customer } from '../../domain/Customer'
-import { ICreateCustomerDTO } from '../../domain/dtos/ICreateCustomerDTO'
+import { Customer } from '@domain/Customer'
+import { ICreateCustomerDTO } from '@domain/dtos/ICreateCustomerDTO'
 
 interface ICustomersRepository {
 

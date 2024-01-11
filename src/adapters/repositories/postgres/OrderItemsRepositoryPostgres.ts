@@ -1,8 +1,8 @@
 import { injectable } from "tsyringe";
 import { Repository, getRepository } from "typeorm";
-import { OrderItem } from "../../../domain/OrderItem";
-import { OrderItemEntity } from "../../../shared/infra/typeorm/entities/OrderItemEntity";
-import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository";
+import { OrderItem } from "@domain/OrderItem";
+import { OrderItemEntity } from "@driven/infra/typeorm/entities/OrderItemEntity";
+import { IOrderItemsRepository } from "@ports/repositories/IOrderItemsRepository";
 
 @injectable()
 class OrderItemsRepositoryPostgres implements IOrderItemsRepository{

@@ -1,6 +1,6 @@
-import { Payment } from "../../../domain/Payment";
-import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
-import { genId } from "./Util";
+import { Payment } from "@domain/Payment";
+import { IPaymentsRepository } from "@ports/repositories/IPaymentsRepository";
+import { genId } from "@repositories/in-memory//Util";
 
 class PaymentsRepositoryInMemory implements IPaymentsRepository{
 
