@@ -1,28 +1,11 @@
-import {Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, PrimaryColumn, OneToMany} from 'typeorm';
-import { Product } from './Product';
+import { Product } from "./Product"
 
-@Entity('categories')
 class Category {
-        
-    @PrimaryGeneratedColumn()
+    
     id: number
-
-    @Column()
-    name: string    
-
-    @Column()
+    name: string
     description: string
-
-    @OneToMany(()=> Product, (product)=> product.category)
     products: Product[]
-
-    @CreateDateColumn()
-    created_at?: Date    
-
-    constructor(){
-        if(!this.id){            
-            this.created_at = new Date()
-        }
-    }
+    createdAt: Date
 }
 export { Category }

@@ -7,6 +7,7 @@ import { ICustomersService } from "../../customer/ICustomersService";
 import { IProductsService } from "../../product/IProductsService";
 import { IOrdersService } from "../IOrdersService";
 import { IUpdateOrderStatusDTO } from "../../../domain/dtos/IUpdateOrderStatusDTO";
+import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository";
 
 @injectable()
 class OrdersService implements IOrdersService {
@@ -17,7 +18,9 @@ class OrdersService implements IOrdersService {
         @inject('CustomersService')
         private customerService: ICustomersService,
         @inject('ProductsService')
-        private productsService: IProductsService ) {
+        private productsService: IProductsService,
+        @inject('OrderItemsRepository')
+        private orderItemsRepository: IOrderItemsRepository ) {
 
     }
 
@@ -26,32 +29,37 @@ class OrdersService implements IOrdersService {
         const order = new Order()
 
         if(customer){
-
-            const customerFound = await this.customerService.findByCpf( customer.cpf )            
-                        
+            const customerFound = await this.customerService.findByCpf( customer.cpf )                                    
             order.customer = customerFound
-        }
-        
+        }        
+        order.products = []
         order.orderItems = []
         order.payments = []
-
-
+        
+        let orderAmount = 0
         const promiseArray = orderItems.map(async(item)=>{
             const productFound = await this.productsService.findByCode(item.product.code )
             const orderItem = new OrderItem()
 
             Object.assign(orderItem, {
-                product: productFound,
+                order: order,
+                product: productFound,                
                 quantity: item.quantity,
                 unitPrice: item.unitPrice
             })
+            orderAmount += item.quantity * item.unitPrice
 
             order.orderItems.push(orderItem)            
         })
 
         await Promise.all(promiseArray)
-            
+        
+        order.amount = orderAmount
+        order.status = OrderStatus.WAIT_PAYMENT
+
         const orderCreated = await this.repository.create(order)
+
+        await this.orderItemsRepository.createAll(order.orderItems)
 
         return orderCreated
     }

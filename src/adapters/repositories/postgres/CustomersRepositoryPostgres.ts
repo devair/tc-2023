@@ -2,13 +2,14 @@ import { Repository, getRepository } from "typeorm";
 import { Customer } from "../../../domain/Customer";
 import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
+import { CustomerEntity } from "../../../shared/infra/typeorm/entities/CustomerEntity";
 
 class CustomersRepositoryPostgres implements ICustomersRepository {
 
     private repository: Repository<Customer>
     
     constructor(){
-        this.repository = getRepository(Customer)
+        this.repository = getRepository(CustomerEntity)
     }
 
     async create({ name, email, cpf, phone }: ICreateCustomerDTO): Promise<Customer> {
