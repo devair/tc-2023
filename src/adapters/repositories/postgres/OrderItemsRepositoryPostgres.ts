@@ -23,12 +23,14 @@ class OrderItemsRepositoryPostgres implements IOrderItemsRepository{
         return orderItemsCreated        
     }
     
-    list(): Promise<OrderItem[]> {
-        throw new Error("Method not implemented.");
+    async list(): Promise<OrderItem[]> {
+        const all = await this.repository.find()
+        return all
     }
     
-    findById(id: number): Promise<OrderItem> {
-        throw new Error("Method not implemented.");
+    async findById(id: number): Promise<OrderItem> {
+        const orderItemFound = await this.repository.findOne( { id })
+        return orderItemFound
     }
 
 

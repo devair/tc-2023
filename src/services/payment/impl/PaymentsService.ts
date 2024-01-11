@@ -4,6 +4,7 @@ import { Payment } from "../../../domain/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
 import { IPaymentsService } from "../IPaymentsService";
 import { IOrdersService } from "../../order/IOrdersService";
+import { OrderStatus } from "../../../domain/Order";
 
 @injectable()
 class PaymentsService implements IPaymentsService {
@@ -21,14 +22,17 @@ class PaymentsService implements IPaymentsService {
         const payment = new Payment()
 
         Object.assign(payment, {
-                order: orderFound,
-                orderId: orderFound.id,                
+                order: orderFound,                              
                 amount,
                 paymentDate,
                 paymentUniqueNumber
             })
 
         const paymentCreated = await this.repository.create(payment)
+        
+        if(paymentCreated){
+            await this.ordersService.updateStatus({ id: orderFound.id, status: OrderStatus.RECEIVED })
+        }
 
         return paymentCreated
     }
