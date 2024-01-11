@@ -1,4 +1,4 @@
-import { Order } from '@domain/Order'
+import { Order } from './Order'
 
 class Payment {
     

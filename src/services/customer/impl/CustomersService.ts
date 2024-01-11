@@ -1,8 +1,8 @@
 import { inject, injectable } from "tsyringe";
-import { Customer } from "@domain/Customer";
-import { ICreateCustomerDTO } from "@domain/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "@ports/repositories/ICustomersRepository";
-import { ICustomersService } from "@services/customer/ICustomersService";
+import { Customer } from "../../../domain/Customer";
+import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
+import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
+import { ICustomersService } from "../ICustomersService";
 
 @injectable()
 class CustomersService implements ICustomersService {

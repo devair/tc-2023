@@ -1,6 +1,6 @@
-import { Order } from "@domain/Order"
-import { ICreateOrderDTO } from "@domain/dtos/ICreateOrderDTO"
-import { IUpdateOrderStatusDTO } from "@domain/dtos/IUpdateOrderStatusDTO"
+import { Order } from "../../domain/Order"
+import { ICreateOrderDTO } from "../../domain/dtos/ICreateOrderDTO"
+import { IUpdateOrderStatusDTO } from "../../domain/dtos/IUpdateOrderStatusDTO"
 
 interface IOrdersService {
 

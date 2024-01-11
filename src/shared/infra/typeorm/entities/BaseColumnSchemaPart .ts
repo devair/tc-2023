@@ -1,4 +1,4 @@
-import { EntitySchemaColumnOptions } from 'typeorm';
+import { EntitySchemaColumnOptions } from "typeorm";
 
 export const BaseColumnSchemaPart = {
     id: {
@@ -7,8 +7,8 @@ export const BaseColumnSchemaPart = {
         generated: true,
     } as EntitySchemaColumnOptions,
     createdAt: {
-        name: 'created_at',
-        type: 'timestamp with time zone',
+        name: "created_at",
+        type: "timestamp with time zone",
         createDate: true,
     } as EntitySchemaColumnOptions,
     

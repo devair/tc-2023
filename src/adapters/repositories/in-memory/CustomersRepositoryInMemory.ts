@@ -1,7 +1,7 @@
-import { Customer } from "@domain/Customer";
-import { ICreateCustomerDTO } from "@domain/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "@ports/repositories/ICustomersRepository";
-import { genId } from "@repositories/in-memory/Util";
+import { Customer } from "../../../domain/Customer";
+import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
+import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
+import { genId } from "./Util";
 
 class CustomersRepositoryInMemory implements ICustomersRepository{
 

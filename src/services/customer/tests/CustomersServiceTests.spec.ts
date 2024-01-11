@@ -1,7 +1,7 @@
 import "reflect-metadata"
-import { CustomersRepositoryInMemory } from "@repositories/in-memory/CustomersRepositoryInMemory"
-import { ICustomersService } from "@services/customer/ICustomersService"
-import { CustomersService } from "@services/customer/impl/CustomersService"
+import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
+import { ICustomersService } from "../ICustomersService"
+import { CustomersService } from "../impl/CustomersService"
 
 let customersService: ICustomersService
 

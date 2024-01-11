@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { CategoriesController } from '@driver/controllers/CategoriesController'
+import { CategoriesController } from '../adapters/driver/controllers/CategoriesController'
 
 const categoriesRouter = Router()
 

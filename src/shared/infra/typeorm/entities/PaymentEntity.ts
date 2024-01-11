@@ -1,6 +1,6 @@
 import { EntitySchema } from 'typeorm';
 import { BaseColumnSchemaPart } from './BaseColumnSchemaPart ';
-import { Payment } from '@domain/Payment';
+import { Payment } from '../../../../domain/Payment';
 
 
 export const PaymentEntity = new EntitySchema<Payment>({

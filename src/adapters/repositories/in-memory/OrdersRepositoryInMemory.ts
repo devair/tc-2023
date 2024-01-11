@@ -1,7 +1,7 @@
 import { injectable } from "tsyringe";
-import { Order } from "@domain/Order";
-import { IOrdersRepository } from "@ports/repositories/IOrdersRepository";
-import { genId } from "@repositories/in-memory/Util";
+import { Order } from "../../../domain/Order";
+import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
+import { genId } from "./Util";
 
 @injectable()
 class OrdersRepositoryInMemory implements IOrdersRepository{

@@ -1,7 +1,7 @@
-import { Product } from "@domain/Product";
-import { ICreateProductDTO } from "@domain/dtos/ICreateProductDTO";
-import { IProductsRepository } from "@ports/repositories/IProductsRepository";
-import { genId } from "@repositories/in-memory/Util";
+import { Product } from "../../../domain/Product";
+import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
+import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
+import { genId } from "./Util";
 
 
 class ProductsRepositoryInMemory implements IProductsRepository {

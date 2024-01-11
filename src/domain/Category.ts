@@ -1,4 +1,4 @@
-import { Product } from "@domain/Product"
+import { Product } from "./Product"
 
 class Category {
     

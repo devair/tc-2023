@@ -1,5 +1,5 @@
-import { Product } from '@domain/Product'
-import { ICreateProductDTO } from '@domain/dtos/ICreateProductDTO'
+import { Product } from '../../domain/Product'
+import { ICreateProductDTO } from '../../domain/dtos/ICreateProductDTO'
 
 interface IProductsRepository{
 

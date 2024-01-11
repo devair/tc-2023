@@ -1,4 +1,4 @@
-import { OrderItem } from "@domain/OrderItem"
+import { OrderItem } from "../../domain/OrderItem"
 
 interface IOrderItemsRepository {
 

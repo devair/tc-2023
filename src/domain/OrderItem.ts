@@ -1,5 +1,5 @@
-import { Order } from '@domain/Order'
-import { Product } from '@domain/Product'
+import { Order } from './Order'
+import { Product } from './Product'
 
 class OrderItem {
 

@@ -1,9 +1,9 @@
 import { Repository, getRepository } from "typeorm";
-import { Category } from "@domain/Category";
-import { ICreateCategoryDTO } from "@domain/dtos/ICreateCategoryDTO";
-import { IUpdateCategoryDTO } from "@domain/dtos/IUpdateCategoryDTO";
-import { ICategoriesRepository } from "@ports/repositories/ICategoriesRepository";
-import { CategoryEntity } from "@driven/infra/typeorm/entities/CategoryEntity";
+import { Category } from "../../../domain/Category";
+import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
+import { IUpdateCategoryDTO } from "../../../domain/dtos/IUpdateCategoryDTO";
+import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
+import { CategoryEntity } from "../../../shared/infra/typeorm/entities/CategoryEntity";
 class CategoriesRepositoryPostgres implements ICategoriesRepository{
    
     private repository: Repository<Category>

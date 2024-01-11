@@ -1,5 +1,5 @@
-import { Payment } from "@domain/Payment";
-import { ICreatePaymentDTO } from "@domain/dtos/ICreatePaymentDTO";
+import { Payment } from "../../domain/Payment";
+import { ICreatePaymentDTO } from "../../domain/dtos/ICreatePaymentDTO";
 
 interface IPaymentsService {
     

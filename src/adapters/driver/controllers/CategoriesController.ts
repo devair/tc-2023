@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { CategoriesService } from "@services/category/impl/CategoriesService";
+import { CategoriesService } from "../../../services/category/impl/CategoriesService";
 
 class CategoriesController {
 

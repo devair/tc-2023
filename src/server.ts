@@ -3,10 +3,10 @@ import express, { Router } from 'express'
 
 import "express-async-errors";
 
-import { router } from '@driver/routers'
+import { router } from './routers'
 
-import '@shared/container';
-import '@driven/infra/typeorm';
+import './shared/container';
+import './shared/infra/typeorm';
 
 
 const app = express()

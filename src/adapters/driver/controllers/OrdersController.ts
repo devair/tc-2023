@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { OrdersService } from "@services/order/impl/OrdersService";
-import { Order } from "@domain/Order";
+import { OrdersService } from "../../../services/order/impl/OrdersService";
+import { Order } from "../../../domain/Order";
 
 class OrdersController {
 

@@ -1,4 +1,4 @@
-import { Payment } from "@domain/Payment"
+import { Payment } from "../../domain/Payment"
 
 
 interface IPaymentsRepository {
