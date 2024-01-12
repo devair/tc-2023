@@ -15,6 +15,6 @@ productsRouter.get('/', productsController.list.bind(productsController))
 
 productsRouter.post('/', productsController.create.bind(productsController))
 
-
+productsRouter.put('/:id', productsController.update.bind(productsController))
 
 export { productsRouter }

@@ -46,6 +46,10 @@ class ProductsRepositoryPostgres implements IProductsRepository {
     async delete(id: number): Promise<void> {
         await this.repository.delete(id)
     }
+
+    async update(product: Product): Promise<Product> {
+        return await this.repository.save(product)
+    }
 }
 
 export { ProductsRepositoryPostgres }

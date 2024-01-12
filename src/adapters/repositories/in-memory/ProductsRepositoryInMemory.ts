@@ -53,6 +53,10 @@ class ProductsRepositoryInMemory implements IProductsRepository {
     async delete(id: number): Promise<void> {
         
     }
+
+    async update(product: Product): Promise<Product> {
+        return product
+    }
 }
 
 export { ProductsRepositoryInMemory }
