@@ -11,6 +11,7 @@ interface ICustomersRepository {
     
     findById(id: number): Promise<Customer>    
 
+    findByName(name: string): Promise<Customer[]>
 }
 
 export { ICustomersRepository }

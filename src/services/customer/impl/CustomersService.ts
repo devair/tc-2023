@@ -50,6 +50,16 @@ class CustomersService implements ICustomersService {
         return customer
     }
 
+    async findByName(name: string): Promise<Customer[]>{
+        const customers = await this.repository.findByName(name)
+
+        if(!customers){
+            throw new Error(`Customer ${name} not found`)
+        }
+
+        return customers
+    }
+
 }
 
 export { CustomersService }

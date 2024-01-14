@@ -10,6 +10,8 @@ interface ICustomersService {
     findByCpf(cpf: string): Promise<Customer>
 
     findById(id: number): Promise<Customer>
+
+    findByName(name: string): Promise<Customer[]>
 }
 
 export { ICustomersService }
