@@ -38,13 +38,33 @@ class ProductsRepositoryPostgres implements IProductsRepository {
         return product
     }
 
-    async findByName(name: string): Promise<Product> {
-        const product = await this.repository.findOne( { name })
-        return product
+    async findByName(name: string): Promise<Product[]> {
+        const products = await this.repository
+        .createQueryBuilder('product')
+        .where('LOWER(name) LIKE :pattern', { pattern: `%${ name.toLowerCase() }%` })                                    
+        .getMany()
+
+        return products
     }
 
     async delete(id: number): Promise<void> {
         await this.repository.delete(id)
+    }
+
+    async update(product: Product): Promise<Product> {
+        return await this.repository.save(product)
+    }
+
+    async findByCategory(name: string): Promise<Product[]> {
+        const products = await this.repository
+        .createQueryBuilder('product')        
+        .innerJoinAndSelect('product.category', 'category', 'LOWER(category.name) LIKE :pattern', 
+        {
+            pattern : `%${ name.toLowerCase() }%`
+        })        
+        .getMany()
+
+        return products
     }
 }
 

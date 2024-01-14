@@ -38,6 +38,14 @@ class CustomersRepositoryPostgres implements ICustomersRepository {
         return customer
     }
 
+    async findByName(name: string): Promise<Customer[]> {
+        const customers = await this.repository
+        .createQueryBuilder('customer')
+        .where('LOWER(name) LIKE :pattern', { pattern: `%${ name.toLowerCase() }%` })                                    
+        .getMany()
+
+        return customers
+    }
 }
 
 export { CustomersRepositoryPostgres }

@@ -85,5 +85,29 @@ describe('Products Service tests', () => {
 
     })
 
+    it('Should be able to edit an product', async () => {
+
+        const category = { name: 'Bebida2', description: 'Bebida2' }
+        await categoriesService.create(category)
+        const categoryCreated = await categoriesService.findByName(category.name)
+        expect(categoryCreated).toHaveProperty('id')
+
+        const product = await productsService.create({
+            name: 'produto333', code: '333', description: 'teste',
+            price: 1, categoryId: categoryCreated.id, image: ''
+        })
+        const productCreated = await productsService.findByCode(product.code)
+        
+        expect(productCreated).toHaveProperty('id')
+
+        productCreated.description = 'New description'
+
+        const { id, code, name, description, categoryId, price, image } = productCreated
+
+        const productChanged = await productsService.update({ id, code, name, description, categoryId, price, image })
+
+        expect(productChanged.description).toBe(productCreated.description)
+
+    })
 
 })

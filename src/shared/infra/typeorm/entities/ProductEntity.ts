@@ -12,8 +12,7 @@ export const ProductEntity = new EntitySchema<Product>({
             unique: true
         },
         name: {
-            type: 'varchar',
-            unique: true
+            type: 'varchar',            
         },
         description: {
             type: 'varchar',

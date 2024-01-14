@@ -38,6 +38,18 @@ class CustomersRepositoryInMemory implements ICustomersRepository{
         return customer
 
     }
+
+    async findByName(name: string): Promise<Customer[]> {
+        let customersFounded : Customer[] = []
+
+        this.customers.forEach((customer) => {
+            if(customer.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())){
+                customersFounded.push(customer)
+            }
+        })            
+
+        return customersFounded
+    }
 }
 
 export { CustomersRepositoryInMemory }

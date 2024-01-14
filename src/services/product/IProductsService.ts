@@ -1,5 +1,6 @@
 import { Product } from "../../domain/Product"
 import { ICreateProductDTO } from "../../domain/dtos/ICreateProductDTO"
+import { IUpdateProductDTO } from "../../domain/dtos/IUpdateProductDTO"
 
 interface IProductsService {
 
@@ -12,6 +13,8 @@ interface IProductsService {
     findById(id: number): Promise<Product>
 
     delete(id: number): Promise<void>
+
+    update( {id, code, name, description, categoryId, price, image }: IUpdateProductDTO): Promise<Product>
 }
 
 export { IProductsService }

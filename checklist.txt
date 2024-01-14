@@ -1,8 +1,8 @@
 
 ## identificação
 [x] api cadastrar um cliente
-[ ] api consultar um cliente pelo codigo
-[ ] api consultar um cliente pelo nome
+[x] api consultar um cliente pelo codigo
+[x] api consultar um cliente pelo nome
 
 # categorias
 [x] api cadastrar categorias

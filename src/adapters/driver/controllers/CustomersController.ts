@@ -50,18 +50,28 @@ class CustomersController {
 
     async search (request: Request, response: Response): Promise<Response>{
         
-        const { cpf }  = request.query
+        const { cpf, name }  = request.query
         
         const serviceInstance = container.resolve(CustomersService)
-        let customer;
-
+        let customers;
+        
         try{
-            customer = await serviceInstance.findByCpf( cpf.toString())
+
+            if(cpf){
+                let customer = await serviceInstance.findByCpf( cpf.toString())
+
+                if(customer) {
+                    customers.push(customer)
+                }
+            }
+            else if( name){
+                customers = await serviceInstance.findByName( name.toString())
+            }
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(customer)
+        return response.status(200).json(customers)
     }
 }
 
