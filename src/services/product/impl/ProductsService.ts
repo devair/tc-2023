@@ -58,7 +58,7 @@ class ProductsService implements IProductsService{
         return product
     }
 
-    async findByName(name: string): Promise<Product>{
+    async findByName(name: string): Promise<Product[]>{
         const product = await this.productsRepository.findByName(name)
 
         if(!product){
@@ -85,6 +85,16 @@ class ProductsService implements IProductsService{
         product.category = categoryFound
         
         return await this.productsRepository.update(product)        
+    }
+
+    async findByCategory(name: string): Promise<Product[]>{
+        const product = await this.productsRepository.findByCategory(name)
+
+        if(!product){
+            throw new Error(`Product ${name} not found`)
+        }
+
+        return product
     }
 }
 

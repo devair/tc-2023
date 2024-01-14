@@ -7,6 +7,8 @@ const productsController = new ProductsController()
 
 productsRouter.get('/search',productsController.search.bind(productsController))
 
+productsRouter.get('/category',productsController.findByCategory.bind(productsController))
+
 productsRouter.get('/:id', productsController.findById.bind(productsController))
 
 productsRouter.delete('/:id', productsController.delete.bind(productsController))

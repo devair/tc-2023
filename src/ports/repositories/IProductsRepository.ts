@@ -11,11 +11,13 @@ interface IProductsRepository{
     
     findByCode(code: string): Promise<Product> 
     
-    findByName(name: string): Promise<Product>
+    findByName(name: string): Promise<Product[]>
     
     delete( id: number): Promise<void>
     
     update(product: Product): Promise<Product>
+
+    findByCategory(name: string): Promise<Product[]>
 }
 
 export { IProductsRepository }

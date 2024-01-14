@@ -11,7 +11,7 @@ class ProductsRepositoryInMemory implements IProductsRepository {
     constructor() {
         this.products = []
     }
-
+ 
     async create({code, name, description, categoryId, price, image }: ICreateProductDTO ): Promise<Product> {
         
         const product = new Product()
@@ -43,19 +43,28 @@ class ProductsRepositoryInMemory implements IProductsRepository {
 
     }
 
-    async findByName(name: string): Promise<Product> {
-        const product = this.products.find((product)=> product.name === name)
-        
-        return product
+    async findByName(name: string): Promise<Product[]> {
+        let productsFounded : Product[] = []
 
+        this.products.forEach((product) => {
+            if(product.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())){
+                productsFounded.push(product)
+            }
+        })            
+
+        return productsFounded
     }
-
+    
     async delete(id: number): Promise<void> {
         
     }
 
     async update(product: Product): Promise<Product> {
         return product
+    }
+
+    async findByCategory(name: string): Promise<Product[]> {
+        throw new Error("Method not implemented.");
     }
 }
 

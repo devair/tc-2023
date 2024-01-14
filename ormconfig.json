@@ -17,5 +17,6 @@
         "migrationsDir": "./src/shared/infra/typeorm/migrations"
     },
     "synchronize": true,
-    "autoLoadEntities": true
+    "autoLoadEntities": true,
+    "logging": true
 }
