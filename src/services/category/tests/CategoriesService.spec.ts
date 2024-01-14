@@ -11,25 +11,20 @@ let categoriesService: ICategoriesService
 
 describe('Categories Service tests', ()=>{
 
-    beforeAll(()=>{
+    beforeEach(()=>{
         categoriesRepository = new CategoriesRepositoryInMemory()
         categoriesService = new CategoriesService(categoriesRepository)
 
     })
 
     it('Should be able to create a new category', async()=>{
-        const category = new Category()
-        
-        Object.assign(category,  {name: 'Bebida'})
+        const category = await categoriesService.create( {name: 'Bebida', description: 'Bebidas'} )
 
-        await categoriesService.create( category )
-
-        const categoryCreated = await categoriesService.findByName(category.name)
-
-        expect(categoryCreated).toHaveProperty('id')
+        expect(category).toHaveProperty('id')
     })
 
-    it('Should be able to list categories', async()=>{               
+    it('Should be able to list categories', async()=>{         
+        await categoriesService.create( {name: 'Bebida', description: 'Bebidas'} )      
         
         const categories = await categoriesService.list()
         
@@ -40,9 +35,9 @@ describe('Categories Service tests', ()=>{
 
         expect(async ()=>{    
             
-            const category =  {name: 'Bebida', description: ''}
-    
-            await categoriesService.create( category )
+           await categoriesService.create( {name: 'Bebida', description: 'Bebidas'} ) 
+
+           await categoriesService.create( {name: 'Bebida', description: 'Bebidas'} ) 
 
         }).rejects.toBeInstanceOf(Error)
 
@@ -50,15 +45,17 @@ describe('Categories Service tests', ()=>{
 
     it('Should not be able to find a category by name', async ()=>{
 
-        expect(async ()=>{               
-            await categoriesService.findByName('Nao existe')         
-        }).rejects.toBeInstanceOf(Error)
+        const categories = await categoriesService.findByName('Nao exite')
+        
+        expect(categories.length).toBe(0)
 
     })
 
     it('Should be able to find a category by id', async()=>{
         
-        const categoryCreated = await categoriesService.findById(1)
+        const category = await categoriesService.create( {name: 'Bebida', description: 'Bebidas'} ) 
+
+        const categoryCreated = await categoriesService.findById(category.id)
 
         expect(categoryCreated).toHaveProperty('id')
     })

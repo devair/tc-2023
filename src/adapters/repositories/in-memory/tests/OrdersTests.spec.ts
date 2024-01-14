@@ -24,16 +24,12 @@ describe('Orders tests', () => {
         ordersRepository = new OrdersRepositoryInMemory()
 
         // creating a category
-        const category = { name: 'Bebida' , description: 'Bebida gelada'}
-
-        await categoriesRepository.create(category)
-
-        const categoryCreated = await categoriesRepository.findByName(category.name)
+        const category = await categoriesRepository.create({ name: 'Bebida' , description: 'Bebida gelada'})
 
         // creating a product    
         const product = {
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: categoryCreated.id, image: ''
+            price: 1, categoryId: category.id, image: ''
         }
 
         productsRepository.create(product)
@@ -76,5 +72,12 @@ describe('Orders tests', () => {
         expect(orderFound).toHaveProperty('id')
 
     })
+
+    it('Should be able to list orders', async()=>{
+        
+        const orders = await ordersRepository.list()
+               
+        expect(orders.length).toBeGreaterThanOrEqual(1)
+    }) 
 
 })

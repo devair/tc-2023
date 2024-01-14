@@ -17,7 +17,7 @@ class CategoriesService implements ICategoriesService{
 
         const categoryAlreadExists = await this.categoriesRepository.findByName(name)
 
-        if(categoryAlreadExists){
+        if(categoryAlreadExists.length>0){
             throw new Error(`Category ${name} already exists`);
         }     
         

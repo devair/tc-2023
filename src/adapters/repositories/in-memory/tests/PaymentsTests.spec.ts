@@ -29,16 +29,12 @@ describe('Payments tests', () => {
         paymentsRepository = new PaymentsRepositoryInMemory()
 
         // creating a category
-        const category = { name: 'Bebida', description: 'Bebida gelada' }
-
-        await categoriesRepository.create(category)
-
-        const categoryCreated = await categoriesRepository.findByName(category.name)
+        const category = await categoriesRepository.create({ name: 'Bebida', description: 'Bebida gelada' })       
 
         // creating a product    
         const product = {
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: categoryCreated.id, image: ''
+            price: 1, categoryId: category.id, image: ''
         }
 
         productsRepository.create(product)

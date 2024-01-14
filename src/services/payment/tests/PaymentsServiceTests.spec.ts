@@ -33,14 +33,12 @@ describe('Payments tests', () => {
         paymentsService = new PaymentsService(new PaymentsRepositoryInMemory(), ordersService)
 
         // creating a category
-        const category = { name: 'Bebida', description: 'Bebida gelada' }
-        await categoriesService.create(category)
-        const categoryCreated = await categoriesService.findByName(category.name)
-
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
         // creating a product    
         const product = {
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: categoryCreated.id, image: ''
+            price: 1, categoryId: category.id, image: ''
         }
         productsService.create(product)
 
@@ -64,8 +62,7 @@ describe('Payments tests', () => {
         const orderCreated = await ordersService.create({ customer, orderItems})    
         expect(orderCreated).toHaveProperty('id')
 
-        let payment = {
-            order: orderCreated,
+        let payment = {            
             orderId: orderCreated.id,
             paymentUniqueNumber: 'UNQ-1',
             paymentDate: new Date(),
