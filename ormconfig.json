@@ -6,11 +6,10 @@
     "password": "docker",
     "database": "pedidos_db",
     "migrations": [
-        "./src/shared/infra/typeorm/migrations/*.ts"
+        "./dist/shared/infra/typeorm/migrations/*.js"
     ],
-    "entities": [
-        "./src/domain/*.ts",
-        "./src/shared/infra/typeorm/entities/*.ts"
+    "entities": [        
+        "./dist/shared/infra/typeorm/entities/*.js"
     ],
     "cli": {
         "entitiesDir": "./src/shared/infra/typeorm/entities",
