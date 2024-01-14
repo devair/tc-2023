@@ -8,7 +8,7 @@ interface ICategoriesRepository{
     
     list(): Promise<Category[]>
 
-    findByName(name: string): Promise<Category>
+    findByName(name: string): Promise<Category[]>
     
     findById(id: number): Promise<Category>
 

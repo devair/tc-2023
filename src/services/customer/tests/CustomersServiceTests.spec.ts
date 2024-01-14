@@ -49,6 +49,14 @@ describe('Customers Service tests',()=>{
 
     })
 
+    it('Should be able to find a customer by name', async ()=>{
+        
+        const customers = await customersService.findByName('Fulano')
+
+        expect(customers.length).toBeGreaterThanOrEqual(1)
+
+    })
+
     it('Should not be able to find a customer by cpf', async ()=>{
 
         expect(async ()=>{            
@@ -63,6 +71,13 @@ describe('Customers Service tests',()=>{
             await customersService.findById(99)
         }).rejects.toBeInstanceOf(Error)
 
+    })
+
+    it('Should not be able to find a customer by id', async ()=>{
+
+        const customers = await customersService.findByName('PPP')
+
+        expect(customers.length).toBe(0)
     })
 
 })

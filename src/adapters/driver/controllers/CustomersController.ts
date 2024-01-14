@@ -53,7 +53,7 @@ class CustomersController {
         const { cpf, name }  = request.query
         
         const serviceInstance = container.resolve(CustomersService)
-        let customers;
+        let customers = [];
         
         try{
 

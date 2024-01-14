@@ -36,9 +36,13 @@ class CategoriesRepositoryPostgres implements ICategoriesRepository{
         return all
     }
 
-    async findByName(name: string): Promise<Category> {
-        const category = await this.repository.findOne({ name })
-        return category
+    async findByName(name: string): Promise<Category[]> {
+        const categories = await this.repository
+        .createQueryBuilder('category')
+        .where('LOWER(name) LIKE :pattern', { pattern: `%${ name.toLowerCase() }%` })                                    
+        .getMany()
+
+        return categories
     }
 
 }

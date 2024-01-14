@@ -59,13 +59,8 @@ class ProductsService implements IProductsService{
     }
 
     async findByName(name: string): Promise<Product[]>{
-        const product = await this.productsRepository.findByName(name)
-
-        if(!product){
-            throw new Error(`Product ${name} not found`)
-        }
-
-        return product
+        const products = await this.productsRepository.findByName(name)
+        return products
     }
 
     async delete(id: number): Promise<void> {
@@ -88,13 +83,8 @@ class ProductsService implements IProductsService{
     }
 
     async findByCategory(name: string): Promise<Product[]>{
-        const product = await this.productsRepository.findByCategory(name)
-
-        if(!product){
-            throw new Error(`Product ${name} not found`)
-        }
-
-        return product
+        const products = await this.productsRepository.findByCategory(name)
+        return products
     }
 }
 

@@ -32,14 +32,9 @@ class CategoriesService implements ICategoriesService{
         return categories
     }
 
-    async findByName(name: string): Promise<Category>{
-        const category = await this.categoriesRepository.findByName(name)
-
-        if(!category){
-            throw new Error(`Category ${name} not found`)
-        }
-
-        return category
+    async findByName(name: string): Promise<Category[]>{
+        const categories = await this.categoriesRepository.findByName(name)
+        return categories
     }
 
     async findById(id: number): Promise<Category>{
