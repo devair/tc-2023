@@ -52,11 +52,6 @@ class CustomersService implements ICustomersService {
 
     async findByName(name: string): Promise<Customer[]>{
         const customers = await this.repository.findByName(name)
-
-        if(!customers){
-            throw new Error(`Customer ${name} not found`)
-        }
-
         return customers
     }
 

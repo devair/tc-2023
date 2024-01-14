@@ -9,23 +9,17 @@ let productsRepository : IProductsRepository
 let categoriesRepository : ICategoriesRepository
 
 describe('Product tests',()=>{
-    beforeAll(()=>{
+    beforeEach(()=>{
         productsRepository = new ProductsRepositoryInMemory()
         categoriesRepository = new CategoriesRepositoryInMemory()
     })
 
     it('Should be able to create a new product', async ()=>{
 
-        const category = new Category()
-        
-        Object.assign(category,  {name: 'Bebida'})
+        const category = await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
 
-        await categoriesRepository.create( category )
-
-        const categoryCreated = await categoriesRepository.findByName(category.name)
-        
         const product = {name:'produto1', code:'1', description:'teste', 
-            price: 1 , categoryId: categoryCreated.id , image:''}
+            price: 1 , categoryId: category.id , image:''}
 
         productsRepository.create(product)
 
@@ -40,15 +34,28 @@ describe('Product tests',()=>{
     })
 
     it('Should be able to find by code', async ()=>{
+        const category = await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
 
-        const product = await productsRepository.findByCode('1')
+        const product = {name:'produto1', code:'1', description:'teste', 
+            price: 1 , categoryId: category.id , image:''}
 
-        expect(product).not.toBeUndefined()
+        productsRepository.create(product)
+
+        const productCreated = await productsRepository.findByCode(product.code)
+
+        expect(productCreated).not.toBeUndefined()
 
     })
 
     it('Should be able to list products', async()=>{
         
+        const category = await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
+
+        const product = {name:'produto1', code:'1', description:'teste', 
+            price: 1 , categoryId: category.id , image:''}
+
+        productsRepository.create(product)
+
         const products = await productsRepository.list()
                
         expect(products.length).toBeGreaterThanOrEqual(1)

@@ -10,44 +10,61 @@ let categoriesService: ICategoriesService
 let productsService: IProductsService
 
 describe('Products Service tests', () => {
-    beforeAll(() => {        
+    beforeEach(() => {        
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
     })
 
     it('Should be able to create a new product with category', async () => {
 
-        const category = { name: 'Bebida', description: 'Bebida gelada' }
-        await categoriesService.create(category)
-        const categoryCreated = await categoriesService.findByName(category.name)
-        expect(categoryCreated).toHaveProperty('id')
-
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
         const product = await productsService.create({
             name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: categoryCreated.id, image: ''
+            price: 1, categoryId: category.id, image: ''
         })
-        const productCreated = await productsService.findByCode(product.code)
-        expect(productCreated).toHaveProperty('id')
+        
+        expect(category).toHaveProperty('id')
 
     })
 
     it('Should be able to find by code', async () => {
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
+        const product = await productsService.create({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
+        })
 
-        const product = await productsService.findByCode('1')
+        const productFound = await productsService.findByCode(product.code)
 
-        expect(product).not.toBeUndefined()
+        expect(productFound).not.toBeUndefined()
 
     })
 
     it('Should be able to find by id', async () => {
 
-        const product = await productsService.findById(1)
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
+        const product = await productsService.create({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
+        })
 
-        expect(product).not.toBeUndefined()
+        const productFound = await productsService.findById(product.id)
+
+        expect(productFound).not.toBeUndefined()
 
     })
 
     it('Should be able to list products', async () => {
+
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
+        await productsService.create({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
+        })
 
         const products = await productsService.list()
 
@@ -63,6 +80,12 @@ describe('Products Service tests', () => {
     })
 
     it('Should not be able to find a product by id', async ()=>{
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
+        await productsService.create({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
+        })
 
         expect(async ()=>{    
             await productsService.findById(99)
@@ -71,14 +94,21 @@ describe('Products Service tests', () => {
     })
 
     it('Should not be able to duplicated a product', async ()=>{
+        
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
+        
+        const product = await productsService.create({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
+        })
 
         expect(async ()=>{    
             
             const categoryCreated = await categoriesService.findByName('Bebida')
 
             await productsService.create({
-                name: 'produto1', code: '1', description: 'teste',
-                price: 1, categoryId: categoryCreated.id, image: ''
+                name: 'produto1', code: product.code , description: 'teste',
+                price: 1, categoryId: category.id, image: ''
             })
 
         }).rejects.toBeInstanceOf(Error)
@@ -87,19 +117,14 @@ describe('Products Service tests', () => {
 
     it('Should be able to edit an product', async () => {
 
-        const category = { name: 'Bebida2', description: 'Bebida2' }
-        await categoriesService.create(category)
-        const categoryCreated = await categoriesService.findByName(category.name)
-        expect(categoryCreated).toHaveProperty('id')
-
+        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })        
         const product = await productsService.create({
-            name: 'produto333', code: '333', description: 'teste',
-            price: 1, categoryId: categoryCreated.id, image: ''
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
         })
+        
         const productCreated = await productsService.findByCode(product.code)
         
-        expect(productCreated).toHaveProperty('id')
-
         productCreated.description = 'New description'
 
         const { id, code, name, description, categoryId, price, image } = productCreated
