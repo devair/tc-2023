@@ -50,21 +50,26 @@ class ProductsController {
         }
         return response.status(200).json(product)
     }
-
+    
     async search (request: Request, response: Response): Promise<Response>{
         
-        const { name }  = request.query
+        const { name, categoryName }  = request.query
         
         const serviceInstance = container.resolve(ProductsService)
-        let product;
+        let products = [];
 
         try{
-            product = await serviceInstance.findByName( name.toString())
+            if(name){
+                products = await serviceInstance.findByName( name.toString())
+            }
+            else if (categoryName){
+                products = await serviceInstance.findByCategory( categoryName.toString())
+            }
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(product)
+        return response.status(200).json(products)
     }
 
     async delete(request: Request, response: Response): Promise<Response>{
@@ -101,24 +106,6 @@ class ProductsController {
         }
         return response.status(200).json(product)
     }    
-
-    async findByCategory (request: Request, response: Response): Promise<Response>{
-        
-        const { name }  = request.query
-        
-        const serviceInstance = container.resolve(ProductsService)
-        let products;
-
-        console.log( JSON.stringify(request.query))
-
-        try{
-            products = await serviceInstance.findByCategory( name.toString())
-        }
-        catch( ex ) {
-            return response.status(400).json({ message: ex.message })
-        }
-        return response.status(200).json(products)
-    }
 }
 
 export { ProductsController }

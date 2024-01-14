@@ -6,29 +6,20 @@ let categoriesRepository : ICategoriesRepository
 
 describe('Category testes', ()=>{
 
-    beforeAll(()=>{
+    beforeEach(()=>{
         categoriesRepository = new CategoriesRepositoryInMemory()
     })
 
     it('Should be able to create a new category', async()=>{
-        const category = new Category()
         
-        Object.assign(category,  {name: 'Bebida'})
+        const category = await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
 
-        await categoriesRepository.create( category )
-
-        const categoryCreated = await categoriesRepository.findByName(category.name)
-
-        expect(categoryCreated).toHaveProperty('id')
+        expect(category).toHaveProperty('id')
     })
 
     it('Should be able to list categories', async()=>{
         
-        const category = new Category()
-        
-        Object.assign(category,  {name: 'Bebida'})
-
-        await categoriesRepository.create( category )
+        await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
         
         const categories = await categoriesRepository.list()
         
@@ -37,13 +28,9 @@ describe('Category testes', ()=>{
 
     it('Should be able to find by id', async ()=>{
 
-        const category = new Category()
-        
-        Object.assign(category,  {name: 'Bebida'})
+        const category = await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
 
-        const categoryCreated = await categoriesRepository.create( category )
-
-        const categoryFound = await categoriesRepository.findById(categoryCreated.id)
+        const categoryFound = await categoriesRepository.findById(category.id)
 
         expect(categoryFound).not.toBeUndefined()
 

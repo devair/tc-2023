@@ -28,11 +28,17 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
         return this.categories
     }
 
-    async findByName(name: string): Promise<Category> {
+    async findByName(name: string): Promise<Category[]> {
 
-        const category = this.categories.find((category) => category.name === name)
+        let categoriesFounded : Category[] = []
 
-        return category
+        this.categories.forEach((category) => {
+            if(category.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())){
+                categoriesFounded.push(category)
+            }
+        })            
+
+        return categoriesFounded
     }
 
     async findById(id: number): Promise<Category> {
