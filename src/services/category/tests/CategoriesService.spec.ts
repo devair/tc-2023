@@ -68,4 +68,19 @@ describe('Categories Service tests', ()=>{
 
     })
 
+    it('Should not be able to update a category', async ()=>{
+
+        expect(async ()=>{    
+            
+           const categoryBebida = await categoriesService.create( {name: 'Bebida', description: 'Bebidas'} ) 
+
+           const categoryLanche = await categoriesService.create( {name: 'Lanche', description: 'Lanche'} ) 
+
+           await categoriesService.update({ id: categoryLanche.id, name: categoryBebida.name , description: categoryLanche.description })
+
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
 })
