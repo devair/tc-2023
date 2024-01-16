@@ -26,37 +26,21 @@ class OrdersService implements IOrdersService {
 
     async create({ customer, orderItems }: ICreateOrderDTO ): Promise<Order> {
         
-        const order = new Order()
-
-        if(customer){
-            const customerFound = await this.customerService.findByCpf( customer.cpf )                                    
-            order.customer = customerFound
-        }        
-        order.products = []
-        order.orderItems = []
-        order.payments = []
+        let customerFound
         
-        let orderAmount = 0
+        if(customer){
+           customerFound = await this.customerService.findByCpf( customer.cpf )                                                
+        }        
+        
+        const order = Order.place(customerFound)        
         const promiseArray = orderItems.map(async(item)=>{
             const productFound = await this.productsService.findByCode(item.product.code )
-            const orderItem = new OrderItem()
-
-            Object.assign(orderItem, {
-                order: order,
-                product: productFound,                
-                quantity: item.quantity,
-                unitPrice: item.unitPrice
-            })
-            orderAmount += item.quantity * item.unitPrice
-
-            order.orderItems.push(orderItem)            
+            order.addItem( { product: productFound, quantity: item.quantity, unitPrice: item.unitPrice })
+            
         })
-
         await Promise.all(promiseArray)
         
-        order.amount = orderAmount
-        order.status = OrderStatus.WAIT_PAYMENT
-
+        
         const orderCreated = await this.repository.create(order)
 
         await this.orderItemsRepository.createAll(order.orderItems)

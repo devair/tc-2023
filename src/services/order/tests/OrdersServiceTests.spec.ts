@@ -98,11 +98,8 @@ describe('Orders tests', () => {
 
     it('Should not be able to find a order', async () => {
 
-        expect(async () => {
-            const order = new Order()
-
-            await ordersService.findById(order.id)
-
+        expect(async () => {            
+            await ordersService.findById(999)
         }).rejects.toBeInstanceOf(Error)
 
     })
