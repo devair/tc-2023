@@ -13,7 +13,26 @@ class Order {
     payments?: Payment[]
     status: string 
     amount: number
-    createdAt: Date   
+    createdAt: Date  
+
+    constructor(customer?: Customer)
+    {
+        this.customer = customer
+        this.orderItems = []
+        this.payments = []
+        this.amount = 0
+        this.status = OrderStatus.WAIT_PAYMENT
+    }
+
+    static place(customer : Customer){
+        return new Order(customer)
+    }
+
+    addItem({ product, quantity, unitPrice}){
+        this.orderItems.push( new OrderItem( product, quantity, unitPrice ))
+        this.amount += quantity * unitPrice
+    }
+
 }
 
 enum OrderStatus {

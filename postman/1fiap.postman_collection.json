@@ -1,0 +1,2471 @@
+{
+	"info": {
+		"_postman_id": "389eca37-61bb-43fe-bf2a-465c3a5676f1",
+		"name": "1fiap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8049841"
+	},
+	"item": [
+		{
+			"name": "FIAP - Pedidos",
+			"item": [
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bebida\",\r\n    \"description\": \"Bebidas\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/categories",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"categories"
+									]
+								},
+								"description": "Cria uma nova categoria"
+							},
+							"response": [
+								{
+									"name": "lanche - 201",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Lanche\",\r\n    \"description\": \"Lanche\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/categories",
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "error 400",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Bebida\",\r\n    \"description\": \"Bebida\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/categories",
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Category Lanches already exists\"\n}"
+								},
+								{
+									"name": "bebidas - 201",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Bebida\",\r\n    \"description\": \"Bebidas\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/categories",
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 14 Jan 2024 14:40:32 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bebida\",\r\n    \"description\": \"Bebidas\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/categories/1",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"categories",
+										"1"
+									]
+								},
+								"description": "Atualiza uma categoria"
+							},
+							"response": [
+								{
+									"name": "success 204",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Bebida\",\r\n    \"description\": \"Bebidas\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/categories/1",
+											"path": [
+												"categories",
+												"1"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Jan 2024 21:38:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "error 400",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Bebidas\",\r\n    \"description\": \"Bebidas\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/categories/6",
+											"path": [
+												"categories",
+												"6"
+											]
+										}
+									},
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Category Lanches already exists\"\n}"
+								}
+							]
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/categories",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"categories"
+									]
+								},
+								"description": "Lista todas as categorias de produto cadastradas"
+							},
+							"response": [
+								{
+									"name": "success 200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/categories",
+											"path": [
+												"categories"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "[\r\n    {\r\n        \"created_at\": \"2023-12-20T00:43:32.663Z\",\r\n        \"id\": 1,\r\n        \"name\": \"Lanches\",\r\n        \"description\": \"Lanches\"\r\n    }\r\n]"
+								}
+							]
+						},
+						{
+							"name": "find by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Xis Linguiça\",\r\n    \"preco\": 35,\r\n    \"descricao\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/categories/5",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"categories",
+										"5"
+									]
+								},
+								"description": "Pesquisa uma categoria pelo seu id"
+							},
+							"response": [
+								{
+									"name": "success 200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/categories/1",
+											"path": [
+												"categories",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"createdAt\": \"2024-01-15T23:10:29.510Z\",\n    \"name\": \"Bebida\",\n    \"description\": \"Bebidas\"\n}"
+								},
+								{
+									"name": "error 400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/categories/5",
+											"path": [
+												"categories",
+												"5"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"22-LurvDGhVNkh1xhgv9bpSHenY65w\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Jan 2024 23:14:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Category 5 not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/categories/search?name=bebida",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"categories",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "bebida",
+											"description": "Nome da categoria"
+										}
+									]
+								},
+								"description": "Pesquisa categoria pelo nome ou parte do nome"
+							},
+							"response": [
+								{
+									"name": "success 200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/categories/search?name=beb",
+											"path": [
+												"categories",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "beb",
+													"description": "Nome da categoria"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"59-ZzMCVVnPiFvHz+EuFnE+ylP19uI\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Jan 2024 23:15:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"createdAt\": \"2024-01-15T23:10:29.510Z\",\n        \"name\": \"Bebida\",\n        \"description\": \"Bebidas\"\n    }\n]"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/categories/search?name=Lanches",
+											"path": [
+												"categories",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Lanches",
+													"description": "Nome da categoria"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "40"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"28-o7hNcsrLA89+ZgKHrVqPwAJjLmw\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 14 Jan 2024 15:40:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Category Lanches not found\"\n}"
+								}
+							]
+						}
+					],
+					"description": "API para categoria de produtos"
+				},
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Suco de laranja\",\r\n    \"code\": \"BEB-1\",   \r\n    \"categoryId\": 2,\r\n    \"image\": \"img\",\r\n    \"price\": 8,\r\n    \"description\": \"Suco de laranja natural\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/products",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"products"
+									]
+								},
+								"description": "Cria um produto"
+							},
+							"response": [
+								{
+									"name": "create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Xis Linguiça 2\",\r\n    \"code\": \"XIS-1\",\r\n    \"category\": { \"name\" :  \"Lanches\"} ,\r\n    \"image\": \"img\",\r\n    \"price\": 37,\r\n    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/products",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Xis Linguiça 2\",\r\n    \"code\": \"XIS-1\",\r\n    \"category\": { \"name\" :  \"Lanches\"} ,\r\n    \"image\": \"img\",\r\n    \"price\": 37,\r\n    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/products",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Product XIS-1 already exists\"\n}"
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/products/1",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								},
+								"description": "Exclui um produto"
+							},
+							"response": [
+								{
+									"name": "204",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "/products/5",
+											"path": [
+												"products",
+												"5"
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Jan 2024 23:51:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"XIS-2\",\r\n    \"name\": \"Xis Bacon2\",\r\n    \"description\": \"descricao curta\",\r\n    \"price\": \"37\",\r\n    \"image\": \"img\",\r\n    \"categoryId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/products/1",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								},
+								"description": "Atualiza um produto"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {                \r\n        \"code\": \"XIS-2\",\r\n        \"name\": \"Xis Bacon2\",\r\n        \"description\": \"descricao curta\",\r\n        \"price\": \"37\",\r\n        \"image\": \"img\",\r\n        \"categoryId\": 1\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/products/1",
+											"path": [
+												"products",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "156"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"9c-XrWuz3cgnnlg+N/u1xgM6X03HY0\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 12 Jan 2024 00:17:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"createdAt\": \"2024-01-11T23:18:11.327Z\",\n    \"code\": \"XIS-2\",\n    \"name\": \"Xis Bacon2\",\n    \"description\": \"descricao curta\",\n    \"price\": \"37\",\n    \"image\": \"img\",\n    \"categoryId\": 1\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "    {                \r\n        \"code\": \"XIS-2\",\r\n        \"name\": \"Xis Bacon2\",\r\n        \"description\": \"descricao curta\",\r\n        \"price\": \"37\",\r\n        \"image\": \"img\",\r\n        \"categoryId\": 1\r\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/products/4",
+											"path": [
+												"products",
+												"4"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21-tT9ee9F8tEf1f8fzPfa8CeBn2w8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 12 Jan 2024 00:18:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product 4 not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/products/search?name=Suc&categoryName=beb",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"products",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Suc",
+											"description": "product's name"
+										},
+										{
+											"key": "categoryName",
+											"value": "beb",
+											"description": "category's name"
+										}
+									]
+								},
+								"description": "Pequisa um produto pelo seu nome ou por categoria"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/products/search?name=Suc&categoryName=beb",
+											"path": [
+												"products",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Suc"
+												},
+												{
+													"key": "categoryName",
+													"value": "beb"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "126"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7e-dDFiJu2IhFnZR9kCzkUsn7pD70Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:04:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:03:42.800Z\",\n    \"id\": 1,\n    \"name\": \"Cliente 1\",\n    \"email\": \"zezinho@silva.com\",\n    \"cpf\": \"1\",\n    \"phone\": \"9999999999\"\n}"
+								},
+								{
+									"name": "empty",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/products/search",
+											"path": [
+												"products",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "Suc",
+													"disabled": true
+												},
+												{
+													"key": "categoryName",
+													"value": "beb",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 16 Jan 2024 22:51:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[]"
+								}
+							]
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/products",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"products"
+									]
+								},
+								"description": "Lista todos os produtos"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/products",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "300"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12c-VpwmH9zTgkSev17YaSzymNdTUsc\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:02:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"created_at\": \"2023-12-20T01:00:46.991Z\",\n        \"id\": 1,\n        \"code\": \"XIS-1\",\n        \"name\": \"Xis Bacon\",\n        \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n        \"category\": {\n            \"created_at\": \"2023-12-20T00:43:32.663Z\",\n            \"id\": 1,\n            \"name\": \"Lanches\",\n            \"description\": \"Lanches\"\n        },\n        \"price\": 37,\n        \"image\": \"img\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/products/1",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								},
+								"description": "Pesquisa um produto por seu ID"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/products/1",
+											"path": [
+												"products",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "298"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12a-Yep37ihkAY7pCDhPvULf0EFGTTs\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:02:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:00:46.991Z\",\n    \"id\": 1,\n    \"code\": \"XIS-1\",\n    \"name\": \"Xis Bacon\",\n    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n    \"category\": {\n        \"created_at\": \"2023-12-20T00:43:32.663Z\",\n        \"id\": 1,\n        \"name\": \"Lanches\",\n        \"description\": \"Lanches\"\n    },\n    \"price\": 37,\n    \"image\": \"img\"\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}/products/2",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"products",
+												"2"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21-Iwi5ZYn5VygZr+XtGPJIcg1tAV0\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:03:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product 2 not found\"\n}"
+								}
+							]
+						}
+					],
+					"description": "API para produtos"
+				},
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Cliente 1\",\r\n    \"email\": \"zezinho@silva.com\",\r\n    \"phone\": \"9999999999\",\r\n    \"cpf\": \"789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/customers",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"customers"
+									]
+								},
+								"description": "Cria um cliente"
+							},
+							"response": [
+								{
+									"name": "201",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Cliente 1\",\r\n    \"email\": \"zezinho@silva.com\",\r\n    \"phone\": \"9999999999\",\r\n    \"cpf\": \"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/customers",
+											"path": [
+												"customers"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:03:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Content-Length",
+											"value": "0"
+										}
+									],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Cliente 1\",\r\n    \"email\": \"zezinho@silva.com\",\r\n    \"phone\": \"9999999999\",\r\n    \"cpf\": \"1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/customers",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"customers"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "43"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2b-0VAAOnpU06nsov67heUz8TQnD/M\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:03:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Customer's cpf 1 already exists\"\n}"
+								}
+							]
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/customers",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"customers"
+									]
+								},
+								"description": "Lista os clientes cadastrados"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/customers",
+											"path": [
+												"customers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "128"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"80-lLOm1+BiDT+weuvCQ1socu6YZ0o\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:04:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"created_at\": \"2023-12-20T01:03:42.800Z\",\n        \"id\": 1,\n        \"name\": \"Cliente 1\",\n        \"email\": \"zezinho@silva.com\",\n        \"cpf\": \"1\",\n        \"phone\": \"9999999999\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/customers/1",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"customers",
+										"1"
+									]
+								},
+								"description": "Pesquisa o cliente por seu ID"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/customers/1",
+											"path": [
+												"customers",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "126"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7e-dDFiJu2IhFnZR9kCzkUsn7pD70Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:04:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:03:42.800Z\",\n    \"id\": 1,\n    \"name\": \"Cliente 1\",\n    \"email\": \"zezinho@silva.com\",\n    \"cpf\": \"1\",\n    \"phone\": \"9999999999\"\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}/customers/2",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"customers",
+												"2"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"22-kfXEgg4SV2lHmJPwXC5Oglmnys4\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:04:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Customer 2 not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "search",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/customers/search",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"customers",
+										"search"
+									],
+									"query": [
+										{
+											"key": "cpf",
+											"value": "789",
+											"description": "customer's cpf",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "1",
+											"description": "customer's name",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Pesquisa um cliente por seu nome ou CPF"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/customers/1",
+											"path": [
+												"customers",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "126"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7e-dDFiJu2IhFnZR9kCzkUsn7pD70Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:04:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:03:42.800Z\",\n    \"id\": 1,\n    \"name\": \"Cliente 1\",\n    \"email\": \"zezinho@silva.com\",\n    \"cpf\": \"1\",\n    \"phone\": \"9999999999\"\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}/customers/2",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"customers",
+												"2"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"22-kfXEgg4SV2lHmJPwXC5Oglmnys4\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:04:53 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Customer 2 not found\"\n}"
+								}
+							]
+						}
+					],
+					"description": "API para clientes"
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer\": {\r\n        \"cpf\": \"789\"\r\n    },\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"code\": \"BEB-1\"\r\n            },\r\n            \"quantity\": 2,\r\n            \"unitPrice\": 10\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/orders",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"orders"
+									]
+								},
+								"description": "Cria um pedido"
+							},
+							"response": [
+								{
+									"name": "201",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customer\": {\r\n        \"cpf\": \"789\"\r\n    },\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"code\": \"BEB-1\"\r\n            },\r\n            \"quantity\": 2,\r\n            \"unitPrice\": 10\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/orders",
+											"path": [
+												"orders"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "11"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"b-NX9WZ4KdurZndZIxizrJrdeJysY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 16 Jan 2024 22:35:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"order\": 1\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"code\": \"XIS-12\"\r\n            },\r\n            \"quantity\": 2,\r\n            \"unitPrice\": 38.00\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/orders",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"orders"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "36"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24-m7x8zMmRCqDuUjAobktF8D+WvpQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:05:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Product XIS-12 not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/orders",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"orders"
+									]
+								},
+								"description": "Lista todos os pedidos"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/orders",
+											"path": [
+												"orders"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "490"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ea-pv4hjYRneOc3szvi8Y1CRaOH3Xc\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:06:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"created_at\": \"2023-12-20T01:05:37.667Z\",\n        \"orderItems\": [\n            {\n                \"created_at\": \"2023-12-20T01:05:37.670Z\",\n                \"quantity\": 2,\n                \"unitPrice\": 38,\n                \"product\": {\n                    \"created_at\": \"2023-12-20T01:00:46.991Z\",\n                    \"id\": 1,\n                    \"code\": \"XIS-1\",\n                    \"name\": \"Xis Bacon\",\n                    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n                    \"category\": {\n                        \"created_at\": \"2023-12-20T00:43:32.663Z\",\n                        \"id\": 1,\n                        \"name\": \"Lanches\",\n                        \"description\": \"Lanches\"\n                    },\n                    \"price\": 37,\n                    \"image\": \"img\"\n                }\n            }\n        ],\n        \"payments\": [],\n        \"status\": \"Aguardando pagamento\",\n        \"id\": 1\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "find by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Xis Linguiça\",\r\n    \"preco\": 35,\r\n    \"descricao\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/orders/1",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"orders",
+										"1"
+									]
+								},
+								"description": "Pesquisa um pedido por seu ID"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/orders/1",
+											"path": [
+												"orders",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "488"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e8-JLcH5WcS1WKaZ/HqbjTywsFMTSc\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:06:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:05:37.667Z\",\n    \"orderItems\": [\n        {\n            \"created_at\": \"2023-12-20T01:05:37.670Z\",\n            \"quantity\": 2,\n            \"unitPrice\": 38,\n            \"product\": {\n                \"created_at\": \"2023-12-20T01:00:46.991Z\",\n                \"id\": 1,\n                \"code\": \"XIS-1\",\n                \"name\": \"Xis Bacon\",\n                \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n                \"category\": {\n                    \"created_at\": \"2023-12-20T00:43:32.663Z\",\n                    \"id\": 1,\n                    \"name\": \"Lanches\",\n                    \"description\": \"Lanches\"\n                },\n                \"price\": 37,\n                \"image\": \"img\"\n            }\n        }\n    ],\n    \"payments\": [],\n    \"status\": \"Aguardando pagamento\",\n    \"id\": 1\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}/orders/2",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"orders",
+												"2"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "31"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1f-Xs5j0lJ+iw0eD7vH5cQrZg/mCIw\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:06:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Order 2 not found\"\n}"
+								}
+							]
+						},
+						{
+							"name": "update status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Finalizado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/orders/1/status",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"orders",
+										"1",
+										"status"
+									]
+								},
+								"description": "Atualiza o status de um pedido"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/orders/1",
+											"path": [
+												"orders",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "488"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e8-JLcH5WcS1WKaZ/HqbjTywsFMTSc\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:06:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:05:37.667Z\",\n    \"orderItems\": [\n        {\n            \"created_at\": \"2023-12-20T01:05:37.670Z\",\n            \"quantity\": 2,\n            \"unitPrice\": 38,\n            \"product\": {\n                \"created_at\": \"2023-12-20T01:00:46.991Z\",\n                \"id\": 1,\n                \"code\": \"XIS-1\",\n                \"name\": \"Xis Bacon\",\n                \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n                \"category\": {\n                    \"created_at\": \"2023-12-20T00:43:32.663Z\",\n                    \"id\": 1,\n                    \"name\": \"Lanches\",\n                    \"description\": \"Lanches\"\n                },\n                \"price\": 37,\n                \"image\": \"img\"\n            }\n        }\n    ],\n    \"payments\": [],\n    \"status\": \"Aguardando pagamento\",\n    \"id\": 1\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}/orders/2",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"orders",
+												"2"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "31"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1f-Xs5j0lJ+iw0eD7vH5cQrZg/mCIw\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:06:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Order 2 not found\"\n}"
+								}
+							]
+						}
+					],
+					"description": "API para pedidos"
+				},
+				{
+					"name": "payments",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"orderId\": 2,\r\n    \"amount\": 100,\r\n    \"paymentDate\": \"2024-08-01T07:56:00.000-03:00\",\r\n    \"paymentUniqueNumber\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base-url}}/payments",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"payments"
+									]
+								},
+								"description": "Cria um pagamento para um pedido"
+							},
+							"response": [
+								{
+									"name": "create",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Xis Linguiça 2\",\r\n    \"code\": \"XIS-1\",\r\n    \"category\": { \"name\" :  \"Lanches\"} ,\r\n    \"image\": \"img\",\r\n    \"price\": 37,\r\n    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/products",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Xis Linguiça 2\",\r\n    \"code\": \"XIS-1\",\r\n    \"category\": { \"name\" :  \"Lanches\"} ,\r\n    \"image\": \"img\",\r\n    \"price\": 37,\r\n    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base-url}}/products",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"name": "Content-Type",
+											"description": "",
+											"type": "text"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": \"Product XIS-1 already exists\"\n}"
+								}
+							]
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/payments",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"payments"
+									]
+								},
+								"description": "Lista os pagamentos existentes"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/products",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "300"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12c-VpwmH9zTgkSev17YaSzymNdTUsc\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:02:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"created_at\": \"2023-12-20T01:00:46.991Z\",\n        \"id\": 1,\n        \"code\": \"XIS-1\",\n        \"name\": \"Xis Bacon\",\n        \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n        \"category\": {\n            \"created_at\": \"2023-12-20T00:43:32.663Z\",\n            \"id\": 1,\n            \"name\": \"Lanches\",\n            \"description\": \"Lanches\"\n        },\n        \"price\": 37,\n        \"image\": \"img\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "find by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base-url}}/payments/2",
+									"host": [
+										"{{base-url}}"
+									],
+									"path": [
+										"payments",
+										"2"
+									]
+								},
+								"description": "Pesquisa um pagamento por seu id"
+							},
+							"response": [
+								{
+									"name": "200",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "/products/1",
+											"path": [
+												"products",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "298"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12a-Yep37ihkAY7pCDhPvULf0EFGTTs\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:02:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"created_at\": \"2023-12-20T01:00:46.991Z\",\n    \"id\": 1,\n    \"code\": \"XIS-1\",\n    \"name\": \"Xis Bacon\",\n    \"description\": \"2 Hamburgers, alface, queijo, molho especial, pickles, pão com gergelim \",\n    \"category\": {\n        \"created_at\": \"2023-12-20T00:43:32.663Z\",\n        \"id\": 1,\n        \"name\": \"Lanches\",\n        \"description\": \"Lanches\"\n    },\n    \"price\": 37,\n    \"image\": \"img\"\n}"
+								},
+								{
+									"name": "400",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base-url}}/products/2",
+											"host": [
+												"{{base-url}}"
+											],
+											"path": [
+												"products",
+												"2"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "33"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21-Iwi5ZYn5VygZr+XtGPJIcg1tAV0\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 20 Dec 2023 01:03:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product 2 not found\"\n}"
+								}
+							]
+						}
+					],
+					"description": "API para pagamentos"
+				}
+			],
+			"description": "Coleção de APIs para aplicação de pedidos de uma lanchonete\n\nAutor: Devair Fanchiotti Tonon"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

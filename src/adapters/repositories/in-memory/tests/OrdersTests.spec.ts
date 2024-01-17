@@ -43,31 +43,20 @@ describe('Orders tests', () => {
     })
 
     it('Should be able to create a new order', async () => {
-        const product = productsRepository.findByCode('1')
-        const customer = customersRepository.findByCpf('35712606607')
-
-        const orderItem1 = new OrderItem()
-        Object.assign(orderItem1, {
+        const product = await productsRepository.findByCode('1')
+        const customer = await customersRepository.findByCpf('35712606607')
+        const order = Order.place(customer) 
+        order.addItem({
             product: product,
             quantity: 2,
             unitPrice: 45.0
-        })
-
-        const order = new Order()
-        Object.assign(order, {
-            customer: customer,
-            orderItems: [orderItem1]
-        })
+        })   
 
         const orderCreated = await ordersRepository.create(order)
 
-        expect(orderCreated).toHaveProperty('id')
+        expect(orderCreated.amount).toBe(90)
 
-        const orders = await ordersRepository.list()
-        
-        expect(orders.length).toBeGreaterThanOrEqual(1)
-
-        const orderFound = await ordersRepository.findById(order.id)
+        const orderFound = await ordersRepository.findById(orderCreated.id)
 
         expect(orderFound).toHaveProperty('id')
 

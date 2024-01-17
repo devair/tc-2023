@@ -46,25 +46,23 @@ describe('Payments tests', () => {
     })
 
     it('Should be able to create a new payment for an order', async () => {
-        const product = productsRepository.findByCode('1')
-        const customer = customersRepository.findByCpf('35712606607')
+        const product = await productsRepository.findByCode('1')
+        const customer = await customersRepository.findByCpf('35712606607')
 
-        const orderItem1 = new OrderItem()
-        Object.assign(orderItem1, {
+        const order = Order.place(customer) 
+        order.addItem({
             product: product,
             quantity: 2,
             unitPrice: 45.0
-        })
-
-        const order = new Order()
-        Object.assign(order, {
-            customer: customer,
-            orderItems: [orderItem1]
-        })
+        })   
 
         const orderCreated = await ordersRepository.create(order)
 
-        expect(orderCreated).toHaveProperty('id')
+        expect(orderCreated.amount).toBe(90)
+
+        const orderFound = await ordersRepository.findById(orderCreated.id)
+
+        
 
         let payment = new Payment()
 
