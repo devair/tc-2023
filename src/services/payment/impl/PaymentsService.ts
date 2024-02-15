@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { ICreatePaymentDTO } from "../../../domain/dtos/ICreatePaymentDTO";
+import { ICreatePaymentDTO } from "../../../clean/core/entity/dtos/ICreatePaymentDTO";
 import { Payment } from "../../../clean/core/entity/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
 import { IPaymentsService } from "../IPaymentsService";

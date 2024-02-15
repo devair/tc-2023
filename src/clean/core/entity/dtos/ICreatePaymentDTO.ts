@@ -1,4 +1,4 @@
-import { Order } from "../../clean/core/entity/Order"
+import { Order } from "../Order"
 
 interface ICreatePaymentDTO {    
     orderId: number

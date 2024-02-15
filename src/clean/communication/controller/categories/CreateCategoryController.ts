@@ -1,4 +1,4 @@
-import { ICreateCategoryDTO } from "../../../../domain/dtos/ICreateCategoryDTO";
+import { ICreateCategoryDTO } from "../../../core/entity/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository";
 import { CreateCategoryUseCase } from "../../../core/useCase/categories/createCategory/CreateCategoryUseCase";
 

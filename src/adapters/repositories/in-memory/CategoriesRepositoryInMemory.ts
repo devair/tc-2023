@@ -1,8 +1,8 @@
 import { Category } from "../../../clean/core/entity/Category";
-import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
+import { ICreateCategoryDTO } from "../../../clean/core/entity/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { genId } from "./Util";
-import { IUpdateCategoryDTO } from "../../../domain/dtos/IUpdateCategoryDTO";
+import { IUpdateCategoryDTO } from "../../../clean/core/entity/dtos/IUpdateCategoryDTO";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
 

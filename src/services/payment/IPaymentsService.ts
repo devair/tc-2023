@@ -1,5 +1,5 @@
 import { Payment } from "../../clean/core/entity/Payment";
-import { ICreatePaymentDTO } from "../../domain/dtos/ICreatePaymentDTO";
+import { ICreatePaymentDTO } from "../../clean/core/entity/dtos/ICreatePaymentDTO";
 
 interface IPaymentsService {
     

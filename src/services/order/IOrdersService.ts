@@ -1,6 +1,6 @@
 import { Order } from "../../clean/core/entity/Order"
-import { ICreateOrderDTO } from "../../domain/dtos/ICreateOrderDTO"
-import { IUpdateOrderStatusDTO } from "../../domain/dtos/IUpdateOrderStatusDTO"
+import { ICreateOrderDTO } from "../../clean/core/entity/dtos/ICreateOrderDTO"
+import { IUpdateOrderStatusDTO } from "../../clean/core/entity/dtos/IUpdateOrderStatusDTO"
 
 interface IOrdersService {
 

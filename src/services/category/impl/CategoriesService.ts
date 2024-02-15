@@ -1,9 +1,9 @@
 import { inject, injectable, } from "tsyringe";
 import { Category } from "../../../clean/core/entity/Category";
-import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
+import { ICreateCategoryDTO } from "../../../clean/core/entity/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { ICategoriesService } from "../ICategoriesService";
-import { IUpdateCategoryDTO } from "../../../domain/dtos/IUpdateCategoryDTO";
+import { IUpdateCategoryDTO } from "../../../clean/core/entity/dtos/IUpdateCategoryDTO";
 
 @injectable()
 class CategoriesService implements ICategoriesService {

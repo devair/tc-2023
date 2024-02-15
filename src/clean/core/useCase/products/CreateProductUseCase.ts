@@ -1,4 +1,4 @@
-import { ICreateProductDTO } from "../../../../domain/dtos/ICreateProductDTO";
+import { ICreateProductDTO } from "../../entity/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
 import { Product } from "../../entity/Product";
 import { FindByIdCategoryUseCase } from "../categories/findByIdCategory/FindByIdCategoryUseCase";

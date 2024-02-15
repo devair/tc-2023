@@ -1,5 +1,5 @@
 import { Product } from '../../clean/core/entity/Product'
-import { ICreateProductDTO } from '../../domain/dtos/ICreateProductDTO'
+import { ICreateProductDTO } from '../../clean/core/entity/dtos/ICreateProductDTO'
 
 interface IProductsRepository{
     

@@ -1,6 +1,6 @@
 import { Repository, getRepository } from "typeorm";
 import { Customer } from "../../../clean/core/entity/Customer";
-import { ICreateCustomerDTO } from "../../../domain/dtos/ICreateCustomerDTO";
+import { ICreateCustomerDTO } from "../../../clean/core/entity/dtos/ICreateCustomerDTO";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
 import { CustomerEntity } from "../../../shared/infra/typeorm/entities/CustomerEntity";
 

@@ -1,4 +1,4 @@
-import { IUpdateCategoryDTO } from "../../../../../domain/dtos/IUpdateCategoryDTO"
+import { IUpdateCategoryDTO } from "../../../entity/dtos/IUpdateCategoryDTO"
 import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository"
 
 class UpdateCategoryUseCase {

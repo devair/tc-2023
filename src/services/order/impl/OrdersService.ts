@@ -1,12 +1,12 @@
 import { inject, injectable } from "tsyringe";
 import { Order, OrderStatus } from "../../../clean/core/entity/Order";
 import { OrderItem } from "../../../clean/core/entity/OrderItem";
-import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
+import { ICreateOrderDTO } from "../../../clean/core/entity/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 import { ICustomersService } from "../../customer/ICustomersService";
 import { IProductsService } from "../../product/IProductsService";
 import { IOrdersService } from "../IOrdersService";
-import { IUpdateOrderStatusDTO } from "../../../domain/dtos/IUpdateOrderStatusDTO";
+import { IUpdateOrderStatusDTO } from "../../../clean/core/entity/dtos/IUpdateOrderStatusDTO";
 import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository";
 
 @injectable()

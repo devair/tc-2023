@@ -1,4 +1,4 @@
-import { ICreateCategoryDTO } from "../../../../../domain/dtos/ICreateCategoryDTO";
+import { ICreateCategoryDTO } from "../../../entity/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository";
 import { Category } from "../../../entity/Category";
 
