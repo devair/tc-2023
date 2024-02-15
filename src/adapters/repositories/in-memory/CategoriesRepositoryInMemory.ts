@@ -1,4 +1,4 @@
-import { Category } from "../../../domain/Category";
+import { Category } from "../../../clean/core/entity/Category";
 import { ICreateCategoryDTO } from "../../../domain/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { genId } from "./Util";
@@ -13,11 +13,9 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
     }
 
     async create({ name, description }: ICreateCategoryDTO): Promise<Category> {
-        const category = new Category()
-
         const id = genId(this.categories)
 
-        Object.assign(category, { id, name, description })
+        const category = new Category(id , name, description )
 
         this.categories.push(category)
 

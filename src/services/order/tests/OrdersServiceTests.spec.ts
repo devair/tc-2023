@@ -3,7 +3,7 @@ import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-
 import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
 import { OrdersRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrdersRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
-import { Order } from "../../../domain/Order"
+import { Order } from "../../../clean/core/entity/Order"
 import { ICategoriesService } from "../../category/ICategoriesService"
 import { CategoriesService } from "../../category/impl/CategoriesService"
 import { ICustomersService } from "../../customer/ICustomersService"
@@ -12,7 +12,7 @@ import { IProductsService } from "../../product/IProductsService"
 import { ProductsService } from "../../product/impl/ProductsService"
 import { IOrdersService } from "../IOrdersService"
 import { OrdersService } from "../impl/OrdersService"
-import { Customer } from "../../../domain/Customer"
+import { Customer } from "../../../clean/core/entity/Customer"
 import { OrderItemsRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrderItemsRepositoryInMemory"
 
 let customersService: ICustomersService

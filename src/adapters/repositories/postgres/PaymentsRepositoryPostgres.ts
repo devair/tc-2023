@@ -1,5 +1,5 @@
 import { Repository, getRepository } from "typeorm";
-import { Payment } from "../../../domain/Payment";
+import { Payment } from "../../../clean/core/entity/Payment";
 import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
 import { PaymentEntity } from "../../../shared/infra/typeorm/entities/PaymentEntity";
 

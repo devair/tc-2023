@@ -1,4 +1,4 @@
-import { Product } from "../../domain/Product"
+import { Product } from "../../clean/core/entity/Product"
 import { ICreateProductDTO } from "../../domain/dtos/ICreateProductDTO"
 import { IUpdateProductDTO } from "../../domain/dtos/IUpdateProductDTO"
 

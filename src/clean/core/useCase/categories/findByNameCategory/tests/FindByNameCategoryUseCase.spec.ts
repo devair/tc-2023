@@ -1,0 +1,26 @@
+import { CategoriesRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+import { CreateCategoryUseCase } from "../../createCategory/CreateCategoryUseCase"
+import { FindByNameCategoryUseCase } from "../FindByNameCategoryUseCase"
+
+let createCategoryeUse : CreateCategoryUseCase
+let findByNameCategoryUseCase : FindByNameCategoryUseCase
+
+describe('Categories Service tests', ()=>{
+
+    beforeEach(()=>{
+        const categoriesRepository = new CategoriesRepositoryInMemory()
+        createCategoryeUse = new CreateCategoryUseCase(categoriesRepository) 
+        findByNameCategoryUseCase = new FindByNameCategoryUseCase(categoriesRepository)                    
+    })
+
+    it('Should be able to find a category by name', async()=>{
+        const category = await createCategoryeUse.execute( {name: 'Bebida', description: 'Bebidas'})
+
+        expect(category).toHaveProperty('id')
+        
+        const categories = await findByNameCategoryUseCase.execute('Bebida')
+        
+        expect(categories.length).toBe(1)
+
+    })    
+})

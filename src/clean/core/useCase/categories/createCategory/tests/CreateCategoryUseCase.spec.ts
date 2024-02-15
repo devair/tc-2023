@@ -1,0 +1,19 @@
+import { CreateCategoryUseCase } from "../CreateCategoryUseCase"
+import { CategoriesRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+
+let createCategoryeUse : CreateCategoryUseCase
+
+describe('Categories Service tests', ()=>{
+
+    beforeEach(()=>{
+        const categoriesRepository = new CategoriesRepositoryInMemory()
+        createCategoryeUse = new CreateCategoryUseCase(categoriesRepository)             
+    })
+
+    it('Should be able to create a new category', async()=>{
+        const category = await createCategoryeUse.execute( {name: 'Bebida', description: 'Bebidas'})
+
+        expect(category).toHaveProperty('id')
+    })    
+
+})

@@ -4,7 +4,7 @@ import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-m
 import { OrdersRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrdersRepositoryInMemory"
 import { PaymentsRepositoryInMemory } from "../../../adapters/repositories/in-memory/PaymentsRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
-import { OrderStatus } from "../../../domain/Order"
+import { OrderStatus } from "../../../clean/core/entity/Order"
 import { ICategoriesService } from "../../category/ICategoriesService"
 import { CategoriesService } from "../../category/impl/CategoriesService"
 import { ICustomersService } from "../../customer/ICustomersService"

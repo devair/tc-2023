@@ -1,4 +1,4 @@
-import { Order } from "../../domain/Order"
+import { Order } from "../../clean/core/entity/Order"
 import { ICreateOrderDTO } from "../../domain/dtos/ICreateOrderDTO"
 import { IUpdateOrderStatusDTO } from "../../domain/dtos/IUpdateOrderStatusDTO"
 

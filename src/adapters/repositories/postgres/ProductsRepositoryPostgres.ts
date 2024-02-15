@@ -1,5 +1,5 @@
 import { Repository, getRepository } from "typeorm";
-import { Product } from "../../../domain/Product";
+import { Product } from "../../../clean/core/entity/Product";
 import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
 import { ProductEntity } from "../../../shared/infra/typeorm/entities/ProductEntity";

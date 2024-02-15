@@ -1,4 +1,4 @@
-import { OrderItem } from "../../../domain/OrderItem"
+import { OrderItem } from "../../../clean/core/entity/OrderItem"
 import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository"
 
 

@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
-import { Order, OrderStatus } from "../../../domain/Order";
-import { OrderItem } from "../../../domain/OrderItem";
+import { Order, OrderStatus } from "../../../clean/core/entity/Order";
+import { OrderItem } from "../../../clean/core/entity/OrderItem";
 import { ICreateOrderDTO } from "../../../domain/dtos/ICreateOrderDTO";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 import { ICustomersService } from "../../customer/ICustomersService";

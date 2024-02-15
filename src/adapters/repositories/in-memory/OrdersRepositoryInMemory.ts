@@ -1,5 +1,5 @@
 import { injectable } from "tsyringe";
-import { Order } from "../../../domain/Order";
+import { Order } from "../../../clean/core/entity/Order";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 import { genId } from "./Util";
 

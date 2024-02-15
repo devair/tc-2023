@@ -1,5 +1,5 @@
 import { inject, injectable } from "tsyringe";
-import { Product } from "../../../domain/Product";
+import { Product } from "../../../clean/core/entity/Product";
 import { ICreateProductDTO } from "../../../domain/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
 import { ICategoriesService } from "../../category/ICategoriesService";

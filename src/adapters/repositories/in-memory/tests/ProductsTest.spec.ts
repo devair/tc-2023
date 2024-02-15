@@ -1,7 +1,7 @@
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
-import { Product } from "../../../../domain/Product"
+import { Product } from "../../../../clean/core/entity/Product"
 import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository"
-import { Category } from "../../../../domain/Category"
+import { Category } from "../../../../clean/core/entity/Category"
 import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 

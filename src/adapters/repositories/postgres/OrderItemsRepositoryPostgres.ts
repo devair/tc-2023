@@ -1,6 +1,6 @@
 import { injectable } from "tsyringe";
 import { Repository, getRepository } from "typeorm";
-import { OrderItem } from "../../../domain/OrderItem";
+import { OrderItem } from "../../../clean/core/entity/OrderItem";
 import { OrderItemEntity } from "../../../shared/infra/typeorm/entities/OrderItemEntity";
 import { IOrderItemsRepository } from "../../../ports/repositories/IOrderItemsRepository";
 

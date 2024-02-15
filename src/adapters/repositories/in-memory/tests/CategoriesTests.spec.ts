@@ -1,5 +1,4 @@
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
-import { Category } from "../../../../domain/Category"
 import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
 
 let categoriesRepository : ICategoriesRepository
