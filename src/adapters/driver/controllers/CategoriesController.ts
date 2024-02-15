@@ -1,16 +1,23 @@
 import { Request, Response } from "express";
-import { container } from "tsyringe";
-import { CategoriesService } from "../../../services/category/impl/CategoriesService";
+import { CategoriesRepositoryPostgres } from "../../repositories/postgres/CategoriesRepositoryPostgres";
+import { ListCategoriesUseCase } from "../../../clean/core/useCase/categories/listCategories/ListCategoriesUseCase";
+import { CreateCategoryUseCase } from "../../../clean/core/useCase/categories/createCategory/CreateCategoryUseCase";
+import { FindByIdCategoryUseCase } from "../../../clean/core/useCase/categories/findByIdCategory/FindByIdCategoryUseCase";
+import { UpdateCategoryUseCase } from "../../../clean/core/useCase/categories/editCategory/UpdateCategoryUseCase";
+import { FindByNameCategoryUseCase } from "../../../clean/core/useCase/categories/findByNameCategory/FindByNameCategoryUseCase";
 
 class CategoriesController {
 
     async list(request: Request, response: Response): Promise<Response> {
 
-        const serviceInstance = container.resolve(CategoriesService)
+        const categoriesRepository = new CategoriesRepositoryPostgres()
+        const listCategoriesUseCase = new ListCategoriesUseCase(categoriesRepository)
+
+
         let all = []
 
         try{
-            all = await serviceInstance.list()
+            all = await listCategoriesUseCase.execute()
         } catch (ex) {
             return response.status(400).json({ error: ex.message });
         }
@@ -21,10 +28,11 @@ class CategoriesController {
     async create(request: Request, response: Response): Promise<Response> {
         const { name, description } = request.body;
         
-        const serviceInstance = container.resolve(CategoriesService)
+        const categoriesRepository = new CategoriesRepositoryPostgres()
+        const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository)
 
         try {
-            await serviceInstance.create({ name, description });
+            await createCategoryUseCase.execute({ name, description });
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
@@ -35,12 +43,13 @@ class CategoriesController {
     async findById(request: Request, response: Response): Promise<Response>{
         
         const { id } = request.params
+        const categoriesRepository = new CategoriesRepositoryPostgres()
+        const findByIdCategoryUseCase = new FindByIdCategoryUseCase(categoriesRepository)
 
-        const serviceInstance = container.resolve(CategoriesService)
         let category;
 
         try{
-            category = await serviceInstance.findById( parseInt(id) )
+            category = await findByIdCategoryUseCase.execute( parseInt(id) )
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
@@ -52,7 +61,8 @@ class CategoriesController {
         const { id } = request.params
         const { name, description } = request.body
 
-        const serviceInstance = container.resolve(CategoriesService)
+        const categoriesRepository = new CategoriesRepositoryPostgres()
+        const updateCategoryUseCase = new UpdateCategoryUseCase(categoriesRepository)
         
         const object = { 
             id: parseInt(id),
@@ -61,7 +71,7 @@ class CategoriesController {
         }
 
         try{
-            await serviceInstance.update(object)            
+            await updateCategoryUseCase.execute(object)            
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
@@ -72,13 +82,14 @@ class CategoriesController {
     async search (request: Request, response: Response): Promise<Response>{
         
         const { name }  = request.query
+        const categoriesRepository = new CategoriesRepositoryPostgres()
+        const findByNameCategoryUseCase = new FindByNameCategoryUseCase(categoriesRepository)
         
-        const serviceInstance = container.resolve(CategoriesService)
         let categories = [];
 
         try{
             if(name){
-                categories = await serviceInstance.findByName( name.toString())
+                categories = await findByNameCategoryUseCase.execute( name.toString())
             }
         }
         catch( ex ) {
