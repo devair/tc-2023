@@ -22,4 +22,12 @@ describe('Categories Service tests', ()=>{
         expect(categoryCreated).toHaveProperty('id')
     })
 
+    it('Should not be able to find a category by id', async ()=>{
+
+        expect(async ()=>{               
+            await findByIdCategoryUseCase.execute(99)         
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
 })

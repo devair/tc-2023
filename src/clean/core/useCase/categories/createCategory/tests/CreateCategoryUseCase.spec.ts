@@ -16,4 +16,16 @@ describe('Categories Service tests', ()=>{
         expect(category).toHaveProperty('id')
     })    
 
+    it('Should not be able to duplicated a category', async ()=>{
+
+        expect(async ()=>{    
+            
+           await createCategoryeUse.execute( {name: 'Bebida', description: 'Bebidas'} ) 
+
+           await createCategoryeUse.execute( {name: 'Bebida', description: 'Bebidas'} ) 
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
+
 })
