@@ -23,4 +23,13 @@ describe('Categories Service tests', ()=>{
         expect(categories.length).toBe(1)
 
     })    
+
+    it('Should not be able to find a category by name', async ()=>{
+
+        const categories = await findByNameCategoryUseCase.execute('Nao exite')
+        
+        expect(categories.length).toBe(0)
+
+    })
+
 })

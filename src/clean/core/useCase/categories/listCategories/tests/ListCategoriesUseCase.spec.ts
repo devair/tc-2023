@@ -13,14 +13,12 @@ describe('Categories Service tests', ()=>{
         listCategoriesUseCase = new ListCategoriesUseCase(categoriesRepository)             
     })
 
-    it('Should be able to create a new category', async()=>{
-        const category = await createCategoryeUse.execute( {name: 'Bebida', description: 'Bebidas'})
-
-        expect(category).toHaveProperty('id')
-
+    it('Should be able to list categories', async()=>{         
+        await createCategoryeUse.execute( {name: 'Bebida', description: 'Bebidas'} )      
+        
         const categories = await listCategoriesUseCase.execute()
         
-        expect(categories.length).toBe(1)
-    })    
+        expect(categories.length).toBeGreaterThanOrEqual(1)
+    })  
 
 })

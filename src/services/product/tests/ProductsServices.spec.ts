@@ -15,19 +15,6 @@ describe('Products Service tests', () => {
         productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
     })
 
-    it('Should be able to create a new product with category', async () => {
-
-        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
-        
-        const product = await productsService.create({
-            name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: category.id, image: ''
-        })
-        
-        expect(category).toHaveProperty('id')
-
-    })
-
     it('Should be able to find by code', async () => {
         const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
         
@@ -93,27 +80,7 @@ describe('Products Service tests', () => {
 
     })
 
-    it('Should not be able to duplicated a product', async ()=>{
-        
-        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
-        
-        const product = await productsService.create({
-            name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: category.id, image: ''
-        })
 
-        expect(async ()=>{    
-            
-            const categoryCreated = await categoriesService.findByName('Bebida')
-
-            await productsService.create({
-                name: 'produto1', code: product.code , description: 'teste',
-                price: 1, categoryId: category.id, image: ''
-            })
-
-        }).rejects.toBeInstanceOf(Error)
-
-    })
 
     it('Should be able to edit an product', async () => {
 

@@ -31,4 +31,26 @@ describe('Categories Service tests', ()=>{
         expect(category).toHaveProperty('id')
 
     })
+
+    it('Should not be able to duplicated a product', async ()=>{
+        
+        const category = await createCategoryeUse.execute({ name: 'Bebida', description: 'Bebida gelada' })
+        
+        const product = await createProducteUse.execute({
+            name: 'produto1', code: '1', description: 'teste',
+            price: 1, categoryId: category.id, image: ''
+        })
+
+        expect(async ()=>{    
+            
+            const categoryCreated = await findByIdCategoryUseCase.execute(category.id)
+
+            await createProducteUse.execute({
+                name: 'produto1', code: product.code , description: 'teste',
+                price: 1, categoryId: category.id, image: ''
+            })
+
+        }).rejects.toBeInstanceOf(Error)
+
+    })
 })
