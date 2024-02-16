@@ -8,7 +8,7 @@ let createCategoryeUse : CreateCategoryUseCase
 let createProducteUse : CreateProductUseCase
 let findByIdCategoryUseCase: FindByIdCategoryUseCase
 
-describe('Categories Service tests', ()=>{
+describe('Products Use Case tests', ()=>{
 
     beforeEach(()=>{
         const categoriesRepository = new CategoriesRepositoryInMemory()

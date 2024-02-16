@@ -21,7 +21,7 @@ describe('Products Use Case tests', ()=>{
         findByIdProductUseCase = new FindByIdProductUseCase(productsRepository)                    
     })
 
-    it('Should be able to find a Product by id', async()=>{
+    it('Should be able to find a product by id', async()=>{
         
         const category = await createCategoryeUseCase.execute({ name: 'Bebida', description: 'Bebida gelada' })
         
@@ -30,6 +30,11 @@ describe('Products Use Case tests', ()=>{
             price: 1, categoryId: category.id, image: ''
         })
         expect(product).toHaveProperty('id')
+
+        const productFound = await findByIdProductUseCase.execute(product.id)
+
+        expect(productFound).not.toBeUndefined()
+
     })
 
     it('Should not be able to find a Product by id', async ()=>{

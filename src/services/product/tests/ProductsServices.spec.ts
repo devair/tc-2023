@@ -29,35 +29,6 @@ describe('Products Service tests', () => {
 
     })
 
-    it('Should be able to find by id', async () => {
-
-        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
-        
-        const product = await productsService.create({
-            name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: category.id, image: ''
-        })
-
-        const productFound = await productsService.findById(product.id)
-
-        expect(productFound).not.toBeUndefined()
-
-    })
-
-    it('Should be able to list products', async () => {
-
-        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
-        
-        await productsService.create({
-            name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: category.id, image: ''
-        })
-
-        const products = await productsService.list()
-
-        expect(products.length).toBeGreaterThanOrEqual(1)
-    })
-
     it('Should not be able to find a product by code', async ()=>{
 
         expect(async ()=>{    
@@ -65,22 +36,6 @@ describe('Products Service tests', () => {
         }).rejects.toBeInstanceOf(Error)
 
     })
-
-    it('Should not be able to find a product by id', async ()=>{
-        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
-        
-        await productsService.create({
-            name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: category.id, image: ''
-        })
-
-        expect(async ()=>{    
-            await productsService.findById(99)
-        }).rejects.toBeInstanceOf(Error)
-
-    })
-
-
 
     it('Should be able to edit an product', async () => {
 
