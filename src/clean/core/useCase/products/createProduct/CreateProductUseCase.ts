@@ -1,7 +1,7 @@
-import { ICreateProductDTO } from "../../entity/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
-import { Product } from "../../entity/Product";
-import { FindByIdCategoryUseCase } from "../categories/findByIdCategory/FindByIdCategoryUseCase";
+import { ICreateProductDTO } from "../../../entity/dtos/ICreateProductDTO";
+import { IProductsRepository } from "../../../../../ports/repositories/IProductsRepository";
+import { Product } from "../../../entity/Product";
+import { FindByIdCategoryUseCase } from "../../categories/findByIdCategory/FindByIdCategoryUseCase";
 
 class CreateProductUseCase {
 

@@ -1,7 +1,7 @@
-import { CategoriesRepositoryInMemory } from "../../../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
-import { ProductsRepositoryInMemory } from "../../../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
-import { CreateCategoryUseCase } from "../../categories/createCategory/CreateCategoryUseCase"
-import { FindByIdCategoryUseCase } from "../../categories/findByIdCategory/FindByIdCategoryUseCase"
+import { CategoriesRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
+import { CreateCategoryUseCase } from "../../../categories/createCategory/CreateCategoryUseCase"
+import { FindByIdCategoryUseCase } from "../../../categories/findByIdCategory/FindByIdCategoryUseCase"
 import { CreateProductUseCase } from "../CreateProductUseCase"
 
 let createCategoryeUse : CreateCategoryUseCase
