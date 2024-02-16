@@ -5,7 +5,7 @@ import { ListCategoriesUseCase } from "../ListCategoriesUseCase"
 let createCategoryeUse : CreateCategoryUseCase
 let listCategoriesUseCase: ListCategoriesUseCase
 
-describe('Categories Service tests', ()=>{
+describe('Categories Use Case tests', ()=>{
 
     beforeEach(()=>{
         const categoriesRepository = new CategoriesRepositoryInMemory()
