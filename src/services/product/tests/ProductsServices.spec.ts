@@ -11,31 +11,10 @@ let productsService: IProductsService
 
 describe('Products Service tests', () => {
     beforeEach(() => {        
+        const categoriesRepository = new CategoriesRepositoryInMemory()
         categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
-        productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
-    })
-
-    it('Should be able to find by code', async () => {
-        const category = await categoriesService.create({ name: 'Bebida', description: 'Bebida gelada' })
-        
-        const product = await productsService.create({
-            name: 'produto1', code: '1', description: 'teste',
-            price: 1, categoryId: category.id, image: ''
-        })
-
-        const productFound = await productsService.findByCode(product.code)
-
-        expect(productFound).not.toBeUndefined()
-
-    })
-
-    it('Should not be able to find a product by code', async ()=>{
-
-        expect(async ()=>{    
-            await productsService.findByCode('2222')
-        }).rejects.toBeInstanceOf(Error)
-
-    })
+        productsService = new ProductsService(new ProductsRepositoryInMemory(categoriesRepository), categoriesService)
+    })  
 
     it('Should be able to edit an product', async () => {
 

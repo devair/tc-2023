@@ -12,7 +12,7 @@ describe('Products Use Case tests', ()=>{
 
     beforeEach(()=>{
         const categoriesRepository = new CategoriesRepositoryInMemory()
-        const productsRepository = new ProductsRepositoryInMemory()
+        const productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
                
         createCategoryeUse = new CreateCategoryUseCase(categoriesRepository)             
         findByIdCategoryUseCase = new FindByIdCategoryUseCase(categoriesRepository)

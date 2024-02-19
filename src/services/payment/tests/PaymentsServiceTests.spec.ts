@@ -25,9 +25,11 @@ let paymentsService: IPaymentsService
 describe('Payments tests', () => {
     beforeAll(async ()=>{
         
+        const categoriesRepository = new CategoriesRepositoryInMemory()
+
         customersService = new CustomersRepositoryInMemory()
-        categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
-        productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
+        categoriesService = new CategoriesService(categoriesRepository)
+        productsService = new ProductsService(new ProductsRepositoryInMemory(categoriesRepository), categoriesService)
         ordersService = new OrdersService(new OrdersRepositoryInMemory(),
             customersService,productsService, new OrderItemsRepositoryInMemory())
         paymentsService = new PaymentsService(new PaymentsRepositoryInMemory(), ordersService)

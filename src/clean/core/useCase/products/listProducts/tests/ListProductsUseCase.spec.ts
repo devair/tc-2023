@@ -2,7 +2,6 @@ import { CategoriesRepositoryInMemory } from "../../../../../../adapters/reposit
 import { ProductsRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
 import { CreateCategoryUseCase } from "../../../categories/createCategory/CreateCategoryUseCase"
 import { FindByIdCategoryUseCase } from "../../../categories/findByIdCategory/FindByIdCategoryUseCase"
-import { ListCategoriesUseCase } from "../../../categories/listCategories/ListCategoriesUseCase"
 import { CreateProductUseCase } from "../../createProduct/CreateProductUseCase"
 import { ListProductsUseCase } from "../ListProductsUseCase"
 
@@ -18,7 +17,7 @@ describe('Products Use Case tests', ()=>{
         findByIdCategoryUseCase = new FindByIdCategoryUseCase(categoriesRepository)       
         createCategoryeUseCase = new CreateCategoryUseCase(categoriesRepository)  
 
-        const productsRepository = new ProductsRepositoryInMemory()
+        const productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
         createProductUseCase = new CreateProductUseCase(productsRepository,findByIdCategoryUseCase)             
         listProductsUseCase = new ListProductsUseCase(productsRepository)             
     })

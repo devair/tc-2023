@@ -1,5 +1,6 @@
 import { Product } from "../../../clean/core/entity/Product";
 import { ICreateProductDTO } from "../../../clean/core/entity/dtos/ICreateProductDTO";
+import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
 import { genId } from "./Util";
 
@@ -7,18 +8,20 @@ import { genId } from "./Util";
 class ProductsRepositoryInMemory implements IProductsRepository {
 
     private products: Product[]
-
-    constructor() {
+    
+    constructor(private categoriesRepository: ICategoriesRepository) {
         this.products = []
     }
  
     async create({code, name, description, categoryId, price, image }: ICreateProductDTO ): Promise<Product> {
         
         const product = new Product()
-
+        
         const id = genId(this.products)
+        
+        const categoryFound = await this.categoriesRepository.findById(categoryId)
 
-        Object.assign(product, {id, code, name, description, categoryId, price, image })
+        Object.assign(product, {id, code, name, description, categoryId, price, image, category: categoryFound })
 
         this.products.push(product)
 
@@ -64,7 +67,15 @@ class ProductsRepositoryInMemory implements IProductsRepository {
     }
 
     async findByCategory(name: string): Promise<Product[]> {
-        throw new Error("Method not implemented.");
+        let productsFounded : Product[] = []
+
+        this.products.forEach((product) => {
+            if(product.category.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())){
+                productsFounded.push(product)
+            }
+        })            
+
+        return productsFounded
     }
 }
 

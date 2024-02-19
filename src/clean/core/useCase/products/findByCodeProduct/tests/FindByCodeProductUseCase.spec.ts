@@ -3,11 +3,11 @@ import { ProductsRepositoryInMemory } from "../../../../../../adapters/repositor
 import { CreateCategoryUseCase } from "../../../categories/createCategory/CreateCategoryUseCase"
 import { FindByIdCategoryUseCase } from "../../../categories/findByIdCategory/FindByIdCategoryUseCase"
 import { CreateProductUseCase } from "../../createProduct/CreateProductUseCase"
-import { FindByIdProductUseCase } from "../FindByIdProductUseCase"
+import { FindByCodeProductUseCase } from "../FindByCodeProductUseCase"
 
 let createProducteUse : CreateProductUseCase
 let createCategoryeUseCase : CreateCategoryUseCase
-let findByIdProductUseCase : FindByIdProductUseCase
+let findByCodeProductUseCase : FindByCodeProductUseCase
 let findByIdCategoryUseCase: FindByIdCategoryUseCase
 describe('Products Use Case tests', ()=>{
 
@@ -18,10 +18,10 @@ describe('Products Use Case tests', ()=>{
 
         const productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
         createProducteUse = new CreateProductUseCase(productsRepository, findByIdCategoryUseCase) 
-        findByIdProductUseCase = new FindByIdProductUseCase(productsRepository)                    
+        findByCodeProductUseCase = new FindByCodeProductUseCase(productsRepository)                    
     })
 
-    it('Should be able to find a product by id', async()=>{
+    it('Should be able to find a product by name', async()=>{
         
         const category = await createCategoryeUseCase.execute({ name: 'Bebida', description: 'Bebida gelada' })
         
@@ -29,18 +29,16 @@ describe('Products Use Case tests', ()=>{
             name: 'produto1', code: '1', description: 'teste',
             price: 1, categoryId: category.id, image: ''
         })
-        expect(product).toHaveProperty('id')
 
-        const productFound = await findByIdProductUseCase.execute(product.id)
+        const productFound = await findByCodeProductUseCase.execute(product.code)
 
         expect(productFound).not.toBeUndefined()
-
     })
 
-    it('Should not be able to find a Product by id', async ()=>{
+    it('Should not be able to find a product by code', async ()=>{
 
-        expect(async ()=>{               
-            await findByIdProductUseCase.execute(99)         
+        expect(async ()=>{    
+            await findByCodeProductUseCase.execute('2222')
         }).rejects.toBeInstanceOf(Error)
 
     })

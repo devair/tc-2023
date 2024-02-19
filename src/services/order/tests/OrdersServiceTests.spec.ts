@@ -23,9 +23,11 @@ let categoriesService: ICategoriesService
 describe('Orders tests', () => {
     beforeAll(async () => {
 
-        categoriesService = new CategoriesService(new CategoriesRepositoryInMemory())
+        const categoriesRepository = new CategoriesRepositoryInMemory()
+
+        categoriesService = new CategoriesService(categoriesRepository)
         customersService = new CustomersService(new CustomersRepositoryInMemory())
-        productsService = new ProductsService(new ProductsRepositoryInMemory(), categoriesService)
+        productsService = new ProductsService(new ProductsRepositoryInMemory(categoriesRepository) , categoriesService)
         ordersService = new OrdersService(new OrdersRepositoryInMemory(), 
                 customersService, productsService, new OrderItemsRepositoryInMemory())
 
