@@ -21,7 +21,7 @@ describe('Products Use Case tests', ()=>{
         findByCodeProductUseCase = new FindByCodeProductUseCase(productsRepository)                    
     })
 
-    it('Should be able to find a product by name', async()=>{
+    it('Should be able to find a product by code', async()=>{
         
         const category = await createCategoryeUseCase.execute({ name: 'Bebida', description: 'Bebida gelada' })
         

@@ -5,9 +5,15 @@ class FindByCodeProductUseCase {
 
     constructor(private productsRepository: IProductsRepository){}
 
-    async execute(name: string): Promise<Product[]> {
-        const products = await this.productsRepository.findByCategory(name)
-        return products
+    async execute(code: string): Promise<Product> {
+
+        const product = await this.productsRepository.findByCode(code)
+
+        if(!product){
+            throw new Error(`Product ${code} not found`)
+        }
+
+        return product
     }
 }
 
