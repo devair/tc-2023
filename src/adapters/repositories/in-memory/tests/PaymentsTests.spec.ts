@@ -23,8 +23,8 @@ describe('Payments tests', () => {
     beforeAll(async ()=>{
         
         customersRepository = new CustomersRepositoryInMemory()
-        productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
         categoriesRepository = new CategoriesRepositoryInMemory()
+        productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
         ordersRepository = new OrdersRepositoryInMemory()
         paymentsRepository = new PaymentsRepositoryInMemory()
 

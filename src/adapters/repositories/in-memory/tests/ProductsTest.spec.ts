@@ -39,7 +39,7 @@ describe('Product tests',()=>{
         const product = {name:'produto1', code:'1', description:'teste', 
             price: 1 , categoryId: category.id , image:''}
 
-        productsRepository.create(product)
+        await productsRepository.create(product)
 
         const productCreated = await productsRepository.findByCode(product.code)
 
@@ -54,7 +54,7 @@ describe('Product tests',()=>{
         const product = {name:'produto1', code:'1', description:'teste', 
             price: 1 , categoryId: category.id , image:''}
 
-        productsRepository.create(product)
+        await productsRepository.create(product)
 
         const products = await productsRepository.list()
                

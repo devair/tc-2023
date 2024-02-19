@@ -19,8 +19,8 @@ describe('Orders tests', () => {
     beforeAll( async () => {
 
         customersRepository = new CustomersRepositoryInMemory()
-        productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
         categoriesRepository = new CategoriesRepositoryInMemory()
+        productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
         ordersRepository = new OrdersRepositoryInMemory()
 
         // creating a category
@@ -32,7 +32,7 @@ describe('Orders tests', () => {
             price: 1, categoryId: category.id, image: ''
         }
 
-        productsRepository.create(product)
+        await productsRepository.create(product)
 
 
         // creating a customer
