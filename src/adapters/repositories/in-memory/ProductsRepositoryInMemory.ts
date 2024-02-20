@@ -58,8 +58,14 @@ class ProductsRepositoryInMemory implements IProductsRepository {
         return productsFounded
     }
     
-    async delete(id: number): Promise<void> {
-        
+    async delete(id: number): Promise<boolean> {
+        const index = this.products.findIndex((item) => item.id === id )
+
+        if (index !== -1) {
+            this.products.splice(index, 1);
+            return true;
+        }
+        return false;
     }
 
     async update(product: Product): Promise<Product> {

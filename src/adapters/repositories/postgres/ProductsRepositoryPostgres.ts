@@ -47,8 +47,14 @@ class ProductsRepositoryPostgres implements IProductsRepository {
         return products
     }
 
-    async delete(id: number): Promise<void> {
-        await this.repository.delete(id)
+    async delete(id: number): Promise<Boolean> {
+        const deleteResult = await this.repository.delete(id)
+
+        if (deleteResult.affected > 0){
+            return true;
+        }
+
+        return false;
     }
 
     async update(product: Product): Promise<Product> {

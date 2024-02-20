@@ -13,7 +13,7 @@ interface IProductsRepository{
     
     findByName(name: string): Promise<Product[]>
     
-    delete( id: number): Promise<void>
+    delete( id: number): Promise<Boolean>
     
     update(product: Product): Promise<Product>
 
