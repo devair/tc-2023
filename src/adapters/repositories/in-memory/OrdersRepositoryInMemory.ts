@@ -1,9 +1,7 @@
-import { injectable } from "tsyringe";
 import { Order } from "../../../clean/core/entity/Order";
 import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
 import { genId } from "./Util";
 
-@injectable()
 class OrdersRepositoryInMemory implements IOrdersRepository{
 
     private orders: Order[]

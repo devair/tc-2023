@@ -1,5 +1,4 @@
 import { Order } from '../../clean/core/entity/Order'
-import { ICreateOrderDTO } from '../../clean/core/entity/dtos/ICreateOrderDTO'
 
 interface IOrdersRepository {
 
