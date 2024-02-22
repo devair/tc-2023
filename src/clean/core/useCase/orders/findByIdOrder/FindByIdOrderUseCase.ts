@@ -7,7 +7,13 @@ class FindByIdOrderUseCase {
     
     async execute(id: number): Promise<Order> {
 
-        return null
+        const orderFound = await this.ordersRepository.findById(id);
+
+        if (!orderFound) {
+            throw new Error(`Order ${id} not found`)
+        }
+
+        return orderFound
     }
 }
 export { FindByIdOrderUseCase }
