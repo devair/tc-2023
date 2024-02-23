@@ -1,17 +1,17 @@
 import { CategoriesRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
 import { CreateCategoryUseCase } from "../../createCategory/CreateCategoryUseCase"
-import { UpdateCategoryUseCase } from "../UpdateCategoryUseCase"
+import { EditCategoryUseCase } from "../EditCategoryUseCase"
 
 
 let createCategoryUseCase: CreateCategoryUseCase
-let updateCategoryUseCase: UpdateCategoryUseCase
+let updateCategoryUseCase: EditCategoryUseCase
 
 describe('Categories Service tests', ()=>{
 
     beforeEach(()=>{
         const categoriesRepository = new CategoriesRepositoryInMemory()
         createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository)
-        updateCategoryUseCase = new UpdateCategoryUseCase(categoriesRepository)
+        updateCategoryUseCase = new EditCategoryUseCase(categoriesRepository)
 
     })
 

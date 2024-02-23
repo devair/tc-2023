@@ -1,7 +1,7 @@
 import { IUpdateCategoryDTO } from "../../../entity/dtos/IUpdateCategoryDTO"
 import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository"
 
-class UpdateCategoryUseCase {
+class EditCategoryUseCase {
 
     constructor(private categoriesRepository: ICategoriesRepository) { }
 
@@ -28,4 +28,4 @@ class UpdateCategoryUseCase {
     }
 }
 
-export { UpdateCategoryUseCase }
+export { EditCategoryUseCase }

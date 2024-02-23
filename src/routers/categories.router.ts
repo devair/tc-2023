@@ -1,19 +1,36 @@
 import { Router } from 'express'
-import { CategoriesController } from '../adapters/driver/controllers/CategoriesController'
+import { CreateCategoryController } from '../clean/communication/controller/categories/CreateCategoryController'
+import { CategoriesRepositoryPostgres } from '../adapters/repositories/postgres/CategoriesRepositoryPostgres'
+import { FindByIdCategoryController } from '../clean/communication/controller/categories/FindByIdCategoryController'
+import { ListCategoriesController } from '../clean/communication/controller/categories/ListCategoriesController'
+import { EditCategoryController } from '../clean/communication/controller/categories/EditCategoryController'
+import { FindByNameCategoryController } from '../clean/communication/controller/categories/FindByNameCategoryController'
 
 const categoriesRouter = Router()
 
-const categoriesController = new CategoriesController()
+const categoriesRepository = new CategoriesRepositoryPostgres()
 
-categoriesRouter.get('/search',categoriesController.search.bind(categoriesController))
+const createCategoryController = new CreateCategoryController(categoriesRepository)
 
-categoriesRouter.get('/:id', categoriesController.findById.bind(categoriesController))
+const findByCategoryController = new FindByIdCategoryController(categoriesRepository)
 
-categoriesRouter.get('/', categoriesController.list.bind(categoriesController))
+const listCategoriesController = new ListCategoriesController(categoriesRepository)
 
-categoriesRouter.post('/', categoriesController.create.bind(categoriesController))
+const editCategoryController = new EditCategoryController(categoriesRepository)
 
-categoriesRouter.put('/:id', categoriesController.update.bind(categoriesController))
+const findByNameCategoryController = new FindByNameCategoryController(categoriesRepository)
+
+categoriesRouter.post('/', createCategoryController.handler.bind(createCategoryController))
+
+categoriesRouter.put('/:id', editCategoryController.handler.bind(editCategoryController))
+
+categoriesRouter.get('/search', findByNameCategoryController.handler.bind(findByNameCategoryController))
+
+categoriesRouter.get('/:id', findByCategoryController.handler.bind(findByCategoryController))
+
+categoriesRouter.get('/', listCategoriesController.handler.bind(listCategoriesController))
+
+
 
 
 export { categoriesRouter }
