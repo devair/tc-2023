@@ -1,19 +1,17 @@
 import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
 import { Product } from "../../../core/entity/Product";
+import { FindByCodeProductUseCase } from "../../../core/useCase/products/findByCodeProduct/FindByCodeProductUseCase";
 
-class FindByCodeProduct {
+class FindByCodeProductController {
 
     constructor(private productsRepository: IProductsRepository){}
 
     async handler(code: string): Promise<Product>{
-        const product = await this.productsRepository.findByCode(code)
 
-        if(!product){
-            throw new Error(`Product ${code} not found`)
-        }
+        const findByCodeProductUseCase = new FindByCodeProductUseCase(this.productsRepository)        
+        return await findByCodeProductUseCase.execute(code) 
 
-        return product
     }
 }
 
-export { FindByCodeProduct }
+export { FindByCodeProductController }
