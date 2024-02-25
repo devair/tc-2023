@@ -7,7 +7,7 @@ class SearchCustomersController {
 
     constructor(private customersRepository: ICustomersRepository){}
 
-    async handler( cpf?: string , name?: string ) : Promise<Customer[]>{
+    async handler( cpf: string , name: string ) : Promise<Customer[]>{
         
         const findByCpfCustomerUseCase = new FindByCpfCustomerUseCase(this.customersRepository)
         const findByNameCustomerUseCase = new FindByNameCustomerUseCase(this.customersRepository)
@@ -15,14 +15,14 @@ class SearchCustomersController {
         let customers = []
 
         if(cpf){
-            let customer = await findByCpfCustomerUseCase.execute( cpf.toString())
+            let customer = await findByCpfCustomerUseCase.execute( cpf )
 
             if(customer) {
                 customers.push(customer)
             }
         }
         else if( name){
-            customers = await findByNameCustomerUseCase.execute( name.toString())
+            customers = await findByNameCustomerUseCase.execute( name )
         }
 
         return customers

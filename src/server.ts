@@ -3,9 +3,9 @@ import express, { Router } from 'express'
 
 import "express-async-errors";
 
-import { router } from './routers'
+import { router } from './clean/external/routers'
 
-import './shared/container';
+//import './shared/container';
 import './shared/infra/typeorm';
 
 
