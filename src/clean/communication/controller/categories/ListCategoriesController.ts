@@ -6,7 +6,7 @@ class ListCategoriesController {
     
     constructor(private categoriesRepository: ICategoriesRepository){}
 
-    async handler(id: number): Promise<Category[]> {
+    async handler(): Promise<Category[]> {
 
         const listCategoriesUseCase = new ListCategoriesUseCase(this.categoriesRepository)        
 
