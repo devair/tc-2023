@@ -8,7 +8,7 @@ class SearchProductsController {
 
     constructor(private productsRepository: IProductsRepository){}
 
-    async handler (name? : string, categoryName?: string, code?: string): Promise<Product[]>{
+    async handler (name : string, categoryName: string, code: string): Promise<Product[]>{
         
         const findByNameProductUseCase = new FindByNameProductUseCase(this.productsRepository)
         const findProductByCategoryNameUseCase = new FindProductByCategoryNameUseCase(this.productsRepository)

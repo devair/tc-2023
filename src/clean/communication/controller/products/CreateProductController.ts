@@ -1,16 +1,16 @@
 import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
 import { CreateProductUseCase } from "../../../core/useCase/products/createProduct/CreateProductUseCase";
-import { FindByIdCategoryUseCase } from "../../../core/useCase/categories/findByIdCategory/FindByIdCategoryUseCase";
 import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
+import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository";
 
 class CreateProductController {
     
     constructor(private productsRepository: IProductsRepository,
-        private findByIdCategory: FindByIdCategoryUseCase){}
+        private categoriesRepository: ICategoriesRepository){}
 
     async handler(createProduct: ICreateProductDTO){
 
-        const categoryUseCase = new CreateProductUseCase(this.productsRepository, this.findByIdCategory )
+        const categoryUseCase = new CreateProductUseCase(this.productsRepository, this.categoriesRepository )
         
         await categoryUseCase.execute(createProduct);
        

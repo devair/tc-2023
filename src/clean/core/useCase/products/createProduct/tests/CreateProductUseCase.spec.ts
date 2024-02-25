@@ -16,7 +16,7 @@ describe('Products Use Case tests', ()=>{
                
         createCategoryeUse = new CreateCategoryUseCase(categoriesRepository)             
         findByIdCategoryUseCase = new FindByIdCategoryUseCase(categoriesRepository)
-        createProducteUse = new CreateProductUseCase(productsRepository, findByIdCategoryUseCase)
+        createProducteUse = new CreateProductUseCase(productsRepository, categoriesRepository)
     })
 
     it('Should be able to create a new product with category', async () => {
