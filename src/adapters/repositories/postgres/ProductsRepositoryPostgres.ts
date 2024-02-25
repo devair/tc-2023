@@ -1,4 +1,5 @@
-import { Repository, getRepository } from "typeorm";
+import { Repository } from "typeorm";
+import { AppDataSource } from "../../../shared/infra/typeorm/index";
 import { Product } from "../../../clean/core/entity/Product";
 import { ICreateProductDTO } from "../../../clean/core/entity/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
@@ -9,7 +10,7 @@ class ProductsRepositoryPostgres implements IProductsRepository {
     private repository: Repository<Product>
 
     constructor(){
-        this.repository = getRepository(ProductEntity)
+        this.repository = AppDataSource.getRepository(ProductEntity)
     }
 
 
@@ -29,12 +30,12 @@ class ProductsRepositoryPostgres implements IProductsRepository {
     }
 
     async findById(id: number): Promise<Product> {
-        const product = await this.repository.findOne( { id })
+        const product = await this.repository.findOneBy( { id })
         return product
     }
 
     async findByCode(code: string): Promise<Product> {
-        const product = await this.repository.findOne( { code })
+        const product = await this.repository.findOneBy( { code })
         return product
     }
 

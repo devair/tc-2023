@@ -22,7 +22,7 @@ class PaymentsRepositoryPostgres implements IPaymentsRepository{
     }
     
     async findById(id: number): Promise<Payment> {
-        const payment = this.repository.findOne({ id })
+        const payment = this.repository.findOneBy({ id })
         return payment
     }
 }

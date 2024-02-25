@@ -1,4 +1,6 @@
-import { Repository, getRepository } from "typeorm";
+import { Repository } from "typeorm";
+import { AppDataSource } from "../../../shared/infra/typeorm/index";
+
 import { Category } from "../../../clean/core/entity/Category";
 import { ICreateCategoryDTO } from "../../../clean/core/entity/dtos/ICreateCategoryDTO";
 import { IUpdateCategoryDTO } from "../../../clean/core/entity/dtos/IUpdateCategoryDTO";
@@ -9,7 +11,7 @@ class CategoriesRepositoryPostgres implements ICategoriesRepository{
     private repository: Repository<Category>
 
     constructor(){
-        this.repository = getRepository(CategoryEntity)
+        this.repository = AppDataSource.getRepository(CategoryEntity)
     }
 
     async update({ id, name, description }: IUpdateCategoryDTO): Promise<void> {              
@@ -17,7 +19,7 @@ class CategoriesRepositoryPostgres implements ICategoriesRepository{
     }
     
     async findById(id: number): Promise<Category> {
-        const category = this.repository.findOne({ id })
+        const category = this.repository.findOneBy({ id })
         return category
     }
     

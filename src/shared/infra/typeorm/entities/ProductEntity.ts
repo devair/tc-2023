@@ -38,14 +38,6 @@ export const ProductEntity = new EntitySchema<Product>({
             joinColumn: {
                 name: 'category_id'
             }
-        },
-
-        orders: {
-            type: 'many-to-many',            
-            target: 'orders',            
-            joinColumn: {
-                name: 'product_id'
-            },                                
         }
     },
 })

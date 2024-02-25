@@ -1,4 +1,5 @@
-import { Repository, getRepository } from "typeorm";
+import { Repository } from "typeorm";
+import { AppDataSource } from "../../../shared/infra/typeorm/index";
 import { Customer } from "../../../clean/core/entity/Customer";
 import { ICreateCustomerDTO } from "../../../clean/core/entity/dtos/ICreateCustomerDTO";
 import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
@@ -9,7 +10,7 @@ class CustomersRepositoryPostgres implements ICustomersRepository {
     private repository: Repository<Customer>
     
     constructor(){
-        this.repository = getRepository(CustomerEntity)
+        this.repository = AppDataSource.getRepository(CustomerEntity)
     }
 
     async create({ name, email, cpf, phone }: ICreateCustomerDTO): Promise<Customer> {
@@ -29,12 +30,12 @@ class CustomersRepositoryPostgres implements ICustomersRepository {
     }
 
     async findByCpf(cpf: string): Promise<Customer> {
-        const customer = await this.repository.findOne( { cpf })
+        const customer = await this.repository.findOneBy( { cpf })
         return customer
     }
     
     async findById(id: number): Promise<Customer> {
-        const customer = await this.repository.findOne( { id })
+        const customer = await this.repository.findOneBy( { id })
         return customer
     }
 

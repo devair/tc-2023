@@ -29,7 +29,7 @@ class OrderItemsRepositoryPostgres implements IOrderItemsRepository{
     }
     
     async findById(id: number): Promise<OrderItem> {
-        const orderItemFound = await this.repository.findOne( { id })
+        const orderItemFound = await this.repository.findOneBy( { id })
         return orderItemFound
     }
 

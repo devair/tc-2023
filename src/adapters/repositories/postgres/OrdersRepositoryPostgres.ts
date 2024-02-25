@@ -22,7 +22,7 @@ class OrdersRepositoryPostgres implements IOrdersRepository{
     }
 
     async findById(id: number): Promise<Order> {
-        const order = this.repository.findOne( { id })
+        const order = this.repository.findOneBy( { id })
         return order
     }
 

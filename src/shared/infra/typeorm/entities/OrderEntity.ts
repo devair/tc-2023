@@ -30,14 +30,6 @@ export const OrderEntity = new EntitySchema<Order>({
             joinColumn: {
                 name: 'customer_id'
             }
-        },
-        products: {
-            type: 'many-to-many',            
-            target: 'products',  
-            cascade: true,
-            joinColumn: {
-                name: 'order_id'
-            },                                
         }
     },
 })
