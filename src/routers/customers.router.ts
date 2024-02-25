@@ -1,17 +1,21 @@
 
 import { Router } from 'express'
-import { CustomersController } from '../adapters/driver/controllers/CustomersController'
+import { CustomersRepositoryPostgres } from '../adapters/repositories/postgres/CustomersRepositoryPostgres'
+import { CreateCustomerController } from '../clean/communication/controller/customers/CreateCustomerController'
+import { FindByIdCustomerController } from '../clean/communication/controller/customers/FindByIdCustomerController'
+import { ListCustomersController } from '../clean/communication/controller/customers/ListCustomersController'
+import { SearchCustomersController } from '../clean/communication/controller/customers/SearchCustomersController'
 
 const customersRouter = Router()
+const customersRespository = new CustomersRepositoryPostgres()
+const createCustomerController = new CreateCustomerController(customersRespository)
+const findByIdCustomersController = new FindByIdCustomerController(customersRespository)
+const listCustomersController = new ListCustomersController(customersRespository)
+const searchCustomersController = new SearchCustomersController(customersRespository)
 
-const customersController = new CustomersController()
-
-customersRouter.get('/search',customersController.search.bind(customersController))
-
-customersRouter.get('/:id', customersController.findById.bind(customersController))
-
-customersRouter.get('/', customersController.list.bind(customersController))
-
-customersRouter.post('/', customersController.create.bind(customersController))
+customersRouter.get('/search',searchCustomersController.handler.bind(searchCustomersController))
+customersRouter.get('/:id', findByIdCustomersController.handler.bind(findByIdCustomersController))
+customersRouter.get('/', listCustomersController.handler.bind(listCustomersController))
+customersRouter.post('/', createCustomerController.handler.bind(createCustomerController))
 
 export { customersRouter }

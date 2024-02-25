@@ -8,13 +8,9 @@ import { paymentsRouter } from "./payments.router.";
 const router = Router()
 
 router.use('/categories', categoriesRouter)
-
 router.use('/products', productsRouter)
-
 router.use('/customers', customersRouter)
-
 router.use('/orders', ordersRouter)
-
 router.use('/payments', paymentsRouter)
 
 export { router }
