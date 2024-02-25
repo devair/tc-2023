@@ -2,11 +2,12 @@ import { ICreateProductDTO } from "../../../entity/dtos/ICreateProductDTO";
 import { IProductsRepository } from "../../../../../ports/repositories/IProductsRepository";
 import { Product } from "../../../entity/Product";
 import { FindByIdCategoryUseCase } from "../../categories/findByIdCategory/FindByIdCategoryUseCase";
+import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository";
 
 class CreateProductUseCase {
 
     constructor(private productsRepository: IProductsRepository,
-        private findByIdCategory: FindByIdCategoryUseCase){}
+        private categoriesRepository: ICategoriesRepository){}
 
     async execute ({code, name, description, categoryId, price, image }: ICreateProductDTO): Promise<Product>{
 
@@ -16,7 +17,11 @@ class CreateProductUseCase {
             throw new Error(`Product ${code} already exists`);
         }        
 
-        const categoryFound = await this.findByIdCategory.execute(categoryId)
+        const categoryFound = await this.categoriesRepository.findById(categoryId)
+        
+        if (!categoryFound) {
+            throw new Error(`Category ${categoryId} not found`)
+        }
 
         const product = await this.productsRepository.create({
             code, name, description, categoryId: categoryFound.id, price, image

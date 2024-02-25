@@ -36,7 +36,7 @@ describe('Orders tests', () => {
         
         createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository)
         createCustomerUseCase = new CreateCustomerUseCase(customersRepository)
-        createProductUseCase = new CreateProductUseCase(productsRepository, findByIdCategoryUseCase)
+        createProductUseCase = new CreateProductUseCase(productsRepository, categoriesRepository)
 
         createOrderUseCase = new CreateOrderUseCase(ordersRepository,orderItemsRepository, 
             findByCpfCustomerUseCase,findByCodeProductUseCase )

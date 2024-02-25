@@ -17,7 +17,7 @@ describe('Products Use Case tests', ()=>{
         findByIdCategoryUseCase = new FindByIdCategoryUseCase(categoriesRepository)
 
         const productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
-        createProducteUse = new CreateProductUseCase(productsRepository, findByIdCategoryUseCase) 
+        createProducteUse = new CreateProductUseCase(productsRepository, categoriesRepository) 
         findByCodeProductUseCase = new FindByCodeProductUseCase(productsRepository)                    
     })
 

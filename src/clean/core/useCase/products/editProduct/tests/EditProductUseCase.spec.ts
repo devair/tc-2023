@@ -19,9 +19,9 @@ describe('Products Service tests', () => {
         findByIdCategoryUseCase = new FindByIdCategoryUseCase(categoriesRepository)
 
         const productsRepository = new ProductsRepositoryInMemory(categoriesRepository)
-        createProducteUse = new CreateProductUseCase(productsRepository, findByIdCategoryUseCase) 
+        createProducteUse = new CreateProductUseCase(productsRepository, categoriesRepository) 
         findByIdProductUseCase = new FindByIdProductUseCase(productsRepository)    
-        editProductUseCase = new EditProductUseCase(productsRepository,findByIdProductUseCase,findByIdCategoryUseCase)
+        editProductUseCase = new EditProductUseCase(productsRepository,categoriesRepository)
     })  
 
     it('Should be able to edit an product', async () => {
