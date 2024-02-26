@@ -19,14 +19,7 @@ class PaymentsService implements IPaymentsService {
 
         const orderFound = await this.ordersService.findById(orderId)
 
-        const payment = new Payment()
-
-        Object.assign(payment, {
-                order: orderFound,                              
-                amount,
-                paymentDate,
-                paymentUniqueNumber
-            })
+        const payment = new Payment(orderFound,amount,paymentDate,paymentUniqueNumber)
 
         const paymentCreated = await this.repository.create(payment)
         
