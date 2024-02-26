@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { Customer } from "../../../clean/core/entity/Customer";
 import { ICreateCustomerDTO } from "../../../clean/core/entity/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "../../../ports/repositories/ICustomersRepository";
+import { ICustomersRepository } from "../../../clean/communication/gateway/repositories/ICustomersRepository";
 import { ICustomersService } from "../ICustomersService";
 
 @injectable()

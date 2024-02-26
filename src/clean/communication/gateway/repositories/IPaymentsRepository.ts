@@ -1,4 +1,4 @@
-import { Payment } from "../../clean/core/entity/Payment"
+import { Payment } from "../../../core/entity/Payment"
 
 
 interface IPaymentsRepository {

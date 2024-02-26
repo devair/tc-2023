@@ -1,5 +1,5 @@
 import { Order } from "../../../clean/core/entity/Order";
-import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository";
+import { IOrdersRepository } from "../../../clean/communication/gateway/repositories/IOrdersRepository";
 import { genId } from "./Util";
 
 class OrdersRepositoryInMemory implements IOrdersRepository{

@@ -1,4 +1,4 @@
-import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository"
+import { ICustomersRepository } from "../../gateway/repositories/ICustomersRepository"
 import { Customer } from "../../../core/entity/Customer"
 import { FindByCpfCustomerUseCase } from "../../../core/useCase/customers/findByCpfCustomer/FindByCpfCustomerUseCase"
 import { FindByNameCustomerUseCase } from "../../../core/useCase/customers/findByNameCustomer/FindByNameCustomerUseCase"

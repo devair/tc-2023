@@ -1,5 +1,5 @@
-import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository";
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
+import { ICategoriesRepository } from "../../gateway/repositories/ICategoriesRepository";
+import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
 import { IUpdateProductDTO } from "../../../core/entity/dtos/IUpdateProductDTO";
 import { EditProductUseCase } from "../../../core/useCase/products/editProduct/EditProductUseCase";
 

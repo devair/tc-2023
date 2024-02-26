@@ -1,5 +1,5 @@
-import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository";
-import { IOrdersRepository } from "../../../../ports/repositories/IOrdersRepository";
+import { ICustomersRepository } from "../../gateway/repositories/ICustomersRepository";
+import { IOrdersRepository } from "../../gateway/repositories/IOrdersRepository";
 import { Customer } from "../../../core/entity/Customer";
 import { Order } from "../../../core/entity/Order";
 import { ListCustomersUseCase } from "../../../core/useCase/customers/listCustomers/ListCustomersUseCase";

@@ -1,5 +1,5 @@
 import { ICreateCategoryDTO } from "../../../entity/dtos/ICreateCategoryDTO";
-import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository";
 import { Category } from "../../../entity/Category";
 
 class CreateCategoryUseCase {

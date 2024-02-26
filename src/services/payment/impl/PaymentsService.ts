@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 import { ICreatePaymentDTO } from "../../../clean/core/entity/dtos/ICreatePaymentDTO";
 import { Payment } from "../../../clean/core/entity/Payment";
-import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
+import { IPaymentsRepository } from "../../../clean/communication/gateway/repositories/IPaymentsRepository";
 import { IPaymentsService } from "../IPaymentsService";
 import { IOrdersService } from "../../order/IOrdersService";
 import { OrderStatus } from "../../../clean/core/entity/Order";

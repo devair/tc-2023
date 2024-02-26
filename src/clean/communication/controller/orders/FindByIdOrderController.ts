@@ -1,4 +1,4 @@
-import { IOrdersRepository } from "../../../../ports/repositories/IOrdersRepository";
+import { IOrdersRepository } from "../../gateway/repositories/IOrdersRepository";
 import { Order } from "../../../core/entity/Order";
 import { FindByIdOrderUseCase } from "../../../core/useCase/orders/findByIdOrder/FindByIdOrderUseCase";
 

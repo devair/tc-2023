@@ -1,8 +1,8 @@
 import { ICreateProductDTO } from "../../../entity/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../../../../../ports/repositories/IProductsRepository";
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository";
 import { Product } from "../../../entity/Product";
 import { FindByIdCategoryUseCase } from "../../categories/findByIdCategory/FindByIdCategoryUseCase";
-import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository";
 
 class CreateProductUseCase {
 

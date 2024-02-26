@@ -1,5 +1,5 @@
 import { IUpdateCategoryDTO } from "../../../entity/dtos/IUpdateCategoryDTO"
-import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository"
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
 
 class EditCategoryUseCase {
 

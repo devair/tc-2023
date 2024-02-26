@@ -1,4 +1,4 @@
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
+import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
 import { DeleteProductUseCase } from "../../../core/useCase/products/deleteProduct/DeleteProductUseCase";
 
 class DeleteProductController {

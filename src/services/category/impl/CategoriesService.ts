@@ -1,7 +1,7 @@
 import { inject, injectable, } from "tsyringe";
 import { Category } from "../../../clean/core/entity/Category";
 import { ICreateCategoryDTO } from "../../../clean/core/entity/dtos/ICreateCategoryDTO";
-import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "../../../clean/communication/gateway/repositories/ICategoriesRepository";
 import { ICategoriesService } from "../ICategoriesService";
 import { IUpdateCategoryDTO } from "../../../clean/core/entity/dtos/IUpdateCategoryDTO";
 

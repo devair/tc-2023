@@ -1,4 +1,4 @@
-import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository";
+import { ICategoriesRepository } from "../../gateway/repositories/ICategoriesRepository";
 import { IUpdateCategoryDTO } from "../../../core/entity/dtos/IUpdateCategoryDTO";
 import { EditCategoryUseCase } from "../../../core/useCase/categories/editCategory/EditCategoryUseCase";
 

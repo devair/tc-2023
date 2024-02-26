@@ -1,4 +1,4 @@
-import { IOrdersRepository } from "../../../../ports/repositories/IOrdersRepository";
+import { IOrdersRepository } from "../../gateway/repositories/IOrdersRepository";
 import { IUpdateOrderStatusDTO } from "../../../core/entity/dtos/IUpdateOrderStatusDTO";
 import { Order } from "../../../core/entity/Order";
 import { UpdateOrderStatusUseCase } from "../../../core/useCase/orders/updateStatus/UpdateOrderStatusUseCase";

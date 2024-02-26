@@ -7,11 +7,11 @@ import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Order, OrderStatus } from "../../../../clean/core/entity/Order"
 import { OrderItem } from "../../../../clean/core/entity/OrderItem"
 import { Payment } from "../../../../clean/core/entity/Payment"
-import { IOrdersRepository } from "../../../../ports/repositories/IOrdersRepository"
-import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
-import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository"
-import { IPaymentsRepository } from "../../../../ports/repositories/IPaymentsRepository"
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository"
+import { IOrdersRepository } from "../../../../clean/communication/gateway/repositories/IOrdersRepository"
+import { ICategoriesRepository } from "../../../../clean/communication/gateway/repositories/ICategoriesRepository"
+import { ICustomersRepository } from "../../../../clean/communication/gateway/repositories/ICustomersRepository"
+import { IPaymentsRepository } from "../../../../clean/communication/gateway/repositories/IPaymentsRepository"
+import { IProductsRepository } from "../../../../clean/communication/gateway/repositories/IProductsRepository"
 
 let ordersRepository: IOrdersRepository
 let customersRepository: ICustomersRepository

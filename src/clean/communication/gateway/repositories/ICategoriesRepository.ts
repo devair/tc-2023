@@ -1,6 +1,6 @@
-import { Category } from '../../clean/core/entity/Category'
-import { ICreateCategoryDTO } from '../../clean/core/entity/dtos/ICreateCategoryDTO'
-import { IUpdateCategoryDTO } from '../../clean/core/entity/dtos/IUpdateCategoryDTO'
+import { Category } from '../../../core/entity/Category'
+import { ICreateCategoryDTO } from '../../../core/entity/dtos/ICreateCategoryDTO'
+import { IUpdateCategoryDTO } from '../../../core/entity/dtos/IUpdateCategoryDTO'
 
 interface ICategoriesRepository{
 

@@ -1,6 +1,6 @@
 import { Repository, getRepository } from "typeorm";
 import { Payment } from "../../../clean/core/entity/Payment";
-import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
+import { IPaymentsRepository } from "../../../clean/communication/gateway/repositories/IPaymentsRepository";
 import { PaymentEntity } from "../../../shared/infra/typeorm/entities/PaymentEntity";
 
 class PaymentsRepositoryPostgres implements IPaymentsRepository{

@@ -1,4 +1,4 @@
-import { IOrdersRepository } from "../../../../../ports/repositories/IOrdersRepository";
+import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository";
 import { Order } from "../../../entity/Order";
 
 class ListOrdersUseCase {

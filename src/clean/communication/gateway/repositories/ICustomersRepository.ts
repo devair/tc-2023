@@ -1,5 +1,5 @@
-import { Customer } from '../../clean/core/entity/Customer'
-import { ICreateCustomerDTO } from '../../clean/core/entity/dtos/ICreateCustomerDTO'
+import { Customer } from '../../../core/entity/Customer'
+import { ICreateCustomerDTO } from '../../../core/entity/dtos/ICreateCustomerDTO'
 
 interface ICustomersRepository {
 

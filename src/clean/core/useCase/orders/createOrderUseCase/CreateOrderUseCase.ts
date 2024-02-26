@@ -1,7 +1,7 @@
-import { ICustomersRepository } from "../../../../../ports/repositories/ICustomersRepository";
-import { IOrderItemsRepository } from "../../../../../ports/repositories/IOrderItemsRepository";
-import { IOrdersRepository } from "../../../../../ports/repositories/IOrdersRepository";
-import { IProductsRepository } from "../../../../../ports/repositories/IProductsRepository";
+import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository";
+import { IOrderItemsRepository } from "../../../../communication/gateway/repositories/IOrderItemsRepository";
+import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository";
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository";
 import { Order } from "../../../entity/Order";
 import { ICreateOrderDTO } from "../../../entity/dtos/ICreateOrderDTO";
 

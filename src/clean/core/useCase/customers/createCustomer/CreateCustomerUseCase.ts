@@ -1,4 +1,4 @@
-import { ICustomersRepository } from "../../../../../ports/repositories/ICustomersRepository";
+import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository";
 import { Customer } from "../../../entity/Customer";
 import { ICreateCustomerDTO } from "../../../entity/dtos/ICreateCustomerDTO";
 

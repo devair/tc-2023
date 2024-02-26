@@ -1,4 +1,4 @@
-import { OrderItem } from "../../clean/core/entity/OrderItem"
+import { OrderItem } from "../../../core/entity/OrderItem"
 
 interface IOrderItemsRepository {
 

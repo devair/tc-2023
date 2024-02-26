@@ -1,7 +1,7 @@
 import { Product } from "../../../clean/core/entity/Product";
 import { ICreateProductDTO } from "../../../clean/core/entity/dtos/ICreateProductDTO";
-import { ICategoriesRepository } from "../../../ports/repositories/ICategoriesRepository";
-import { IProductsRepository } from "../../../ports/repositories/IProductsRepository";
+import { ICategoriesRepository } from "../../../clean/communication/gateway/repositories/ICategoriesRepository";
+import { IProductsRepository } from "../../../clean/communication/gateway/repositories/IProductsRepository";
 import { genId } from "./Util";
 
 

@@ -1,4 +1,4 @@
-import { IProductsRepository } from "../../../../../ports/repositories/IProductsRepository"
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
 import { Product } from "../../../entity/Product"
 
 class FindByCodeProductUseCase {

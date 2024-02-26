@@ -1,9 +1,9 @@
 import { container } from  'tsyringe';
-import { ICategoriesRepository } from '../../ports/repositories/ICategoriesRepository';
-import { IProductsRepository } from '../../ports/repositories/IProductsRepository';
-import { ICustomersRepository } from '../../ports/repositories/ICustomersRepository';
-import { IOrdersRepository } from '../../ports/repositories/IOrdersRepository';
-import { IPaymentsRepository } from '../../ports/repositories/IPaymentsRepository';
+import { ICategoriesRepository } from '../../clean/communication/gateway/repositories/ICategoriesRepository';
+import { IProductsRepository } from '../../clean/communication/gateway/repositories/IProductsRepository';
+import { ICustomersRepository } from '../../clean/communication/gateway/repositories/ICustomersRepository';
+import { IOrdersRepository } from '../../clean/communication/gateway/repositories/IOrdersRepository';
+import { IPaymentsRepository } from '../../clean/communication/gateway/repositories/IPaymentsRepository';
 import { ICategoriesService } from '../../services/category/ICategoriesService';
 import { CategoriesService } from '../../services/category/impl/CategoriesService';
 import { IProductsService } from '../../services/product/IProductsService';
@@ -19,7 +19,7 @@ import { OrdersRepositoryPostgres } from '../../adapters/repositories/postgres/O
 import { PaymentsRepositoryPostgres } from '../../adapters/repositories/postgres/PaymentsRepositoryPostgres';
 import { IPaymentsService } from '../../services/payment/IPaymentsService';
 import { PaymentsService } from '../../services/payment/impl/PaymentsService';
-import { IOrderItemsRepository } from '../../ports/repositories/IOrderItemsRepository';
+import { IOrderItemsRepository } from '../../clean/communication/gateway/repositories/IOrderItemsRepository';
 import { OrderItemsRepositoryPostgres } from '../../adapters/repositories/postgres/OrderItemsRepositoryPostgres';
 
 //TODO: to use a real database implementation

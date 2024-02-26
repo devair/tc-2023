@@ -1,4 +1,4 @@
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository";
+import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
 import { Product } from "../../../core/entity/Product";
 import { FindByIdProductUseCase } from "../../../core/useCase/products/findByIdProduct/FindByIdProductUseCase";
 

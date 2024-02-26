@@ -1,6 +1,6 @@
 import { Repository, UpdateResult, getRepository } from "typeorm"
 import { Order } from "../../../clean/core/entity/Order"
-import { IOrdersRepository } from "../../../ports/repositories/IOrdersRepository"
+import { IOrdersRepository } from "../../../clean/communication/gateway/repositories/IOrdersRepository"
 import { OrderEntity } from "../../../shared/infra/typeorm/entities/OrderEntity"
 
 class OrdersRepositoryPostgres implements IOrdersRepository{

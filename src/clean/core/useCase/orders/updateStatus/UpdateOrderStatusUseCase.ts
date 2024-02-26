@@ -1,4 +1,4 @@
-import { IOrdersRepository } from "../../../../../ports/repositories/IOrdersRepository";
+import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository";
 import { Order, OrderStatus } from "../../../entity/Order";
 import { IUpdateOrderStatusDTO } from "../../../entity/dtos/IUpdateOrderStatusDTO";
 

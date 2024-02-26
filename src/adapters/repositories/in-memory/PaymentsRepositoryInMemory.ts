@@ -1,5 +1,5 @@
 import { Payment } from "../../../clean/core/entity/Payment";
-import { IPaymentsRepository } from "../../../ports/repositories/IPaymentsRepository";
+import { IPaymentsRepository } from "../../../clean/communication/gateway/repositories/IPaymentsRepository";
 import { genId } from "./Util";
 
 class PaymentsRepositoryInMemory implements IPaymentsRepository{

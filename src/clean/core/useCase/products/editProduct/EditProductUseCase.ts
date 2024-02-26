@@ -1,5 +1,5 @@
-import { ICategoriesRepository } from "../../../../../ports/repositories/ICategoriesRepository"
-import { IProductsRepository } from "../../../../../ports/repositories/IProductsRepository"
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
 import { Product } from "../../../entity/Product"
 import { IUpdateProductDTO } from "../../../entity/dtos/IUpdateProductDTO"
 

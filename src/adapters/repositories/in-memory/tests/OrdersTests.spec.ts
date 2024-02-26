@@ -5,10 +5,10 @@ import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Order } from "../../../../clean/core/entity/Order"
 import { OrderItem } from "../../../../clean/core/entity/OrderItem"
-import { IOrdersRepository } from "../../../../ports/repositories/IOrdersRepository"
-import { ICustomersRepository } from "../../../../ports/repositories/ICustomersRepository"
-import { IProductsRepository } from "../../../../ports/repositories/IProductsRepository"
-import { ICategoriesRepository } from "../../../../ports/repositories/ICategoriesRepository"
+import { IOrdersRepository } from "../../../../clean/communication/gateway/repositories/IOrdersRepository"
+import { ICustomersRepository } from "../../../../clean/communication/gateway/repositories/ICustomersRepository"
+import { IProductsRepository } from "../../../../clean/communication/gateway/repositories/IProductsRepository"
+import { ICategoriesRepository } from "../../../../clean/communication/gateway/repositories/ICategoriesRepository"
 
 let ordersRepository: IOrdersRepository
 let customersRepository: ICustomersRepository
