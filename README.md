@@ -7,13 +7,13 @@ Projeto exemplo de um sistema para gestão de pedidos de uma lanchonete utilizan
 Clone the project  
 
 ~~~bash
-  git clone https://link-to-project
+  git https://github.com/devair/tc-2023.git
 ~~~
 
 Go to the project directory  
 
 ~~~bash  
-  cd my-project
+  cd tc-2023
 ~~~
 
 Install dependencies  
