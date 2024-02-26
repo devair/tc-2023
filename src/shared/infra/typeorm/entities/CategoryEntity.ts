@@ -1,5 +1,5 @@
 import { EntitySchema } from "typeorm";
-import { Category } from "../../../../domain/Category";
+import { Category } from "../../../../clean/core/entity/Category";
 import { BaseColumnSchemaPart } from "./BaseColumnSchemaPart ";
 
 
