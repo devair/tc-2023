@@ -9,7 +9,7 @@ import { CreateCustomerUseCase } from "../../../customers/createCustomer/CreateC
 import { FindByCpfCustomerUseCase } from "../../../customers/findByCpfCustomer/FindByCpfCustomerUseCase"
 import { CreateProductUseCase } from "../../../products/createProduct/CreateProductUseCase"
 import { FindByCodeProductUseCase } from "../../../products/findByCodeProduct/FindByCodeProductUseCase"
-import { CreateOrderUseCase } from "../../createOrderUseCase/CresteOrderUseCase"
+import { CreateOrderUseCase } from "../../createOrderUseCase/CreateOrderUseCase"
 import { ListOrdersUseCase } from "../ListOrdersUseCase"
 
 let createCategoryUseCase: CreateCategoryUseCase
@@ -39,7 +39,7 @@ describe('Orders tests', () => {
         createProductUseCase = new CreateProductUseCase(productsRepository, categoriesRepository)
 
         createOrderUseCase = new CreateOrderUseCase(ordersRepository,orderItemsRepository, 
-            findByCpfCustomerUseCase,findByCodeProductUseCase )
+            customersRepository,productsRepository )
 
         listOrdersUseCase = new ListOrdersUseCase(ordersRepository)
 

@@ -28,8 +28,8 @@ class Order {
         return new Order(customer)
     }
 
-    addItem({ product, quantity, unitPrice}){
-        this.orderItems.push( new OrderItem( product, quantity, unitPrice ))
+    addItem({ order, product, quantity, unitPrice}){
+        this.orderItems.push( new OrderItem( order, product, quantity, unitPrice ))
         this.amount += quantity * unitPrice
     }
 

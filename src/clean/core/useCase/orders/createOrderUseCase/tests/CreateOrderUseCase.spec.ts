@@ -11,7 +11,7 @@ import { CreateCustomerUseCase } from "../../../customers/createCustomer/CreateC
 import { FindByCpfCustomerUseCase } from "../../../customers/findByCpfCustomer/FindByCpfCustomerUseCase"
 import { CreateProductUseCase } from "../../../products/createProduct/CreateProductUseCase"
 import { FindByCodeProductUseCase } from "../../../products/findByCodeProduct/FindByCodeProductUseCase"
-import { CreateOrderUseCase } from "../CresteOrderUseCase"
+import { CreateOrderUseCase } from "../CreateOrderUseCase"
 
 let createCategoryUseCase: CreateCategoryUseCase
 let createProductUseCase: CreateProductUseCase
@@ -39,7 +39,7 @@ describe('Orders tests', () => {
         createProductUseCase = new CreateProductUseCase(productsRepository, categoriesRepository)
 
         createOrderUseCase = new CreateOrderUseCase(ordersRepository,orderItemsRepository, 
-            findByCpfCustomerUseCase,findByCodeProductUseCase )
+            customersRepository, productsRepository )
         // creating a category
         const category = { name: 'Bebida', description: 'Bebida gelada' }
         const categoryCreated = await createCategoryUseCase.execute(category)

@@ -35,7 +35,7 @@ class OrdersService implements IOrdersService {
         const order = Order.place(customerFound)        
         const promiseArray = orderItems.map(async(item)=>{
             const productFound = await this.productsService.findByCode(item.product.code )
-            order.addItem( { product: productFound, quantity: item.quantity, unitPrice: item.unitPrice })
+            order.addItem( { order, product: productFound, quantity: item.quantity, unitPrice: item.unitPrice })
             
         })
         await Promise.all(promiseArray)

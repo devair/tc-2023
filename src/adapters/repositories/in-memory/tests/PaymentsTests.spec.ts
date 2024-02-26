@@ -51,6 +51,7 @@ describe('Payments tests', () => {
 
         const order = Order.place(customer) 
         order.addItem({
+            order,
             product: product,
             quantity: 2,
             unitPrice: 45.0

@@ -12,7 +12,8 @@ class OrderItem {
     unitPrice: number    
     createdAt: Date
 
-    constructor(product: Product, quantity: number, unitPrice: number){
+    constructor(order: Order, product: Product, quantity: number, unitPrice: number){
+        this.order = order
         this.product = product
         this.quantity = quantity
         this.unitPrice = unitPrice

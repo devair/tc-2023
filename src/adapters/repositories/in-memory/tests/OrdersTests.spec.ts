@@ -47,6 +47,7 @@ describe('Orders tests', () => {
         const customer = await customersRepository.findByCpf('35712606607')
         const order = Order.place(customer) 
         order.addItem({
+            order,
             product: product,
             quantity: 2,
             unitPrice: 45.0
