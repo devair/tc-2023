@@ -1,8 +1,8 @@
 import { Repository, getRepository } from "typeorm";
-import { Customer } from "../../../clean/core/entity/Customer";
-import { ICreateCustomerDTO } from "../../../clean/core/entity/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "../../../clean/communication/gateway/repositories/ICustomersRepository";
-import { CustomerEntity } from "../../../shared/infra/typeorm/entities/CustomerEntity";
+import { Customer } from "../../../core/entity/Customer";
+import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
+import { ICustomersRepository } from "../../../communication/gateway/repositories/ICustomersRepository";
+import { CustomerEntity } from "../../../../shared/infra/typeorm/entities/CustomerEntity";
 
 class CustomersRepositoryPostgres implements ICustomersRepository {
 

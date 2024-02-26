@@ -1,16 +1,13 @@
 import { Router } from 'express'
-import { PaymentsController } from '../api/PaymentsApi'
-
+import { PaymentsApi } from '../api/PaymentsApi'
 
 const paymentsRouter = Router()
 
-const paymentsController = new PaymentsController()
+paymentsRouter.get('/:id', PaymentsApi.findById.bind(PaymentsApi))
 
-paymentsRouter.get('/:id', paymentsController.findById.bind(paymentsController))
+paymentsRouter.get('/', PaymentsApi.list.bind(PaymentsApi))
 
-paymentsRouter.get('/', paymentsController.list.bind(paymentsController))
-
-paymentsRouter.post('/', paymentsController.create.bind(paymentsController))
+paymentsRouter.post('/', PaymentsApi.create.bind(PaymentsApi))
 
 
 

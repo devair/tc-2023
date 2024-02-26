@@ -1,4 +1,4 @@
-import { CustomersRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
+import { CustomersRepositoryInMemory } from "../../../../../external/datasource/in-memory/CustomersRepositoryInMemory"
 import { CreateCustomerUseCase } from "../../createCustomer/CreateCustomerUseCase"
 import { ListCustomersUseCase } from "../ListCustomersUseCase"
 

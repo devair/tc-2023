@@ -3,12 +3,12 @@ import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
 import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
-import { Order } from "../../../../clean/core/entity/Order"
-import { OrderItem } from "../../../../clean/core/entity/OrderItem"
-import { IOrdersRepository } from "../../../../clean/communication/gateway/repositories/IOrdersRepository"
-import { ICustomersRepository } from "../../../../clean/communication/gateway/repositories/ICustomersRepository"
-import { IProductsRepository } from "../../../../clean/communication/gateway/repositories/IProductsRepository"
-import { ICategoriesRepository } from "../../../../clean/communication/gateway/repositories/ICategoriesRepository"
+import { Order } from "../../../../core/entity/Order"
+import { OrderItem } from "../../../../core/entity/OrderItem"
+import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository"
+import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository"
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
 
 let ordersRepository: IOrdersRepository
 let customersRepository: ICustomersRepository

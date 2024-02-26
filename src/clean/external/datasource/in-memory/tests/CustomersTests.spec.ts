@@ -1,6 +1,6 @@
 import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
-import { Customer } from "../../../../clean/core/entity/Customer"
-import { ICustomersRepository } from "../../../../clean/communication/gateway/repositories/ICustomersRepository"
+import { Customer } from "../../../../core/entity/Customer"
+import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository"
 
 let customersRepository: ICustomersRepository
 

@@ -4,14 +4,14 @@ import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
 import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
 import { PaymentsRepositoryInMemory } from "../PaymentsRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
-import { Order, OrderStatus } from "../../../../clean/core/entity/Order"
-import { OrderItem } from "../../../../clean/core/entity/OrderItem"
-import { Payment } from "../../../../clean/core/entity/Payment"
-import { IOrdersRepository } from "../../../../clean/communication/gateway/repositories/IOrdersRepository"
-import { ICategoriesRepository } from "../../../../clean/communication/gateway/repositories/ICategoriesRepository"
-import { ICustomersRepository } from "../../../../clean/communication/gateway/repositories/ICustomersRepository"
-import { IPaymentsRepository } from "../../../../clean/communication/gateway/repositories/IPaymentsRepository"
-import { IProductsRepository } from "../../../../clean/communication/gateway/repositories/IProductsRepository"
+import { Order, OrderStatus } from "../../../../core/entity/Order"
+import { OrderItem } from "../../../../core/entity/OrderItem"
+import { Payment } from "../../../../core/entity/Payment"
+import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository"
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
+import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository"
+import { IPaymentsRepository } from "../../../../communication/gateway/repositories/IPaymentsRepository"
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
 
 let ordersRepository: IOrdersRepository
 let customersRepository: ICustomersRepository
@@ -63,16 +63,7 @@ describe('Payments tests', () => {
 
         const orderFound = await ordersRepository.findById(orderCreated.id)
 
-        
-
-        let payment = new Payment()
-
-        Object.assign(payment, {
-            order,
-            paymentUniqueNumber: 'UNQ-1',
-            paymentDate: new Date(),
-            amount: 90
-        })
+        let payment = new Payment(order, 90, new Date(), 'UNQ-1')
 
         const paymentCreated = await paymentsRepository.create(payment)
         

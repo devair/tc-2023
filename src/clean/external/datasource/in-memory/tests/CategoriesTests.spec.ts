@@ -1,5 +1,5 @@
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
-import { ICategoriesRepository } from "../../../../clean/communication/gateway/repositories/ICategoriesRepository"
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
 
 let categoriesRepository : ICategoriesRepository
 

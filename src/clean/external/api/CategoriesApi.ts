@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { CategoriesRepositoryPostgres } from "../../../adapters/repositories/postgres/CategoriesRepositoryPostgres";
+import { CategoriesRepositoryPostgres } from "../datasource/postgres/CategoriesRepositoryPostgres";
 import { FindByIdCategoryController } from "../../communication/controller/categories/FindByIdCategoryController";
 import { ListCategoriesController } from "../../communication/controller/categories/ListCategoriesController";
 import { CreateCategoryController } from "../../communication/controller/categories/CreateCategoryController";

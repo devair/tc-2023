@@ -1,8 +1,8 @@
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
-import { Product } from "../../../../clean/core/entity/Product"
-import { IProductsRepository } from "../../../../clean/communication/gateway/repositories/IProductsRepository"
-import { Category } from "../../../../clean/core/entity/Category"
-import { ICategoriesRepository } from "../../../../clean/communication/gateway/repositories/ICategoriesRepository"
+import { Product } from "../../../../core/entity/Product"
+import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
+import { Category } from "../../../../core/entity/Category"
+import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 
 let productsRepository : IProductsRepository

@@ -1,9 +1,9 @@
 import "reflect-metadata"
-import { CategoriesRepositoryInMemory } from "../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
-import { CustomersRepositoryInMemory } from "../../../adapters/repositories/in-memory/CustomersRepositoryInMemory"
-import { OrdersRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrdersRepositoryInMemory"
-import { PaymentsRepositoryInMemory } from "../../../adapters/repositories/in-memory/PaymentsRepositoryInMemory"
-import { ProductsRepositoryInMemory } from "../../../adapters/repositories/in-memory/ProductsRepositoryInMemory"
+import { CategoriesRepositoryInMemory } from "../../../clean/external/datasource/in-memory/CategoriesRepositoryInMemory"
+import { CustomersRepositoryInMemory } from "../../../clean/external/datasource/in-memory/CustomersRepositoryInMemory"
+import { OrdersRepositoryInMemory } from "../../../clean/external/datasource/in-memory/OrdersRepositoryInMemory"
+import { PaymentsRepositoryInMemory } from "../../../clean/external/datasource/in-memory/PaymentsRepositoryInMemory"
+import { ProductsRepositoryInMemory } from "../../../clean/external/datasource/in-memory/ProductsRepositoryInMemory"
 import { OrderStatus } from "../../../clean/core/entity/Order"
 import { ICategoriesService } from "../../category/ICategoriesService"
 import { CategoriesService } from "../../category/impl/CategoriesService"
@@ -14,7 +14,7 @@ import { IProductsService } from "../../product/IProductsService"
 import { ProductsService } from "../../product/impl/ProductsService"
 import { IPaymentsService } from "../IPaymentsService"
 import { PaymentsService } from "../impl/PaymentsService"
-import { OrderItemsRepositoryInMemory } from "../../../adapters/repositories/in-memory/OrderItemsRepositoryInMemory"
+import { OrderItemsRepositoryInMemory } from "../../../clean/external/datasource/in-memory/OrderItemsRepositoryInMemory"
 
 let ordersService: IOrdersService
 let customersService: ICustomersService

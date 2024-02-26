@@ -1,6 +1,6 @@
-import { Customer } from "../../../clean/core/entity/Customer";
-import { ICreateCustomerDTO } from "../../../clean/core/entity/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "../../../clean/communication/gateway/repositories/ICustomersRepository";
+import { Customer } from "../../../core/entity/Customer";
+import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
+import { ICustomersRepository } from "../../../communication/gateway/repositories/ICustomersRepository";
 import { genId } from "./Util";
 
 class CustomersRepositoryInMemory implements ICustomersRepository{

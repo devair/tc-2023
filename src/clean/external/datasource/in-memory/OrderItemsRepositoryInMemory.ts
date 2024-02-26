@@ -1,5 +1,5 @@
-import { OrderItem } from "../../../clean/core/entity/OrderItem"
-import { IOrderItemsRepository } from "../../../clean/communication/gateway/repositories/IOrderItemsRepository"
+import { OrderItem } from "../../../core/entity/OrderItem"
+import { IOrderItemsRepository } from "../../../communication/gateway/repositories/IOrderItemsRepository"
 
 
 class OrderItemsRepositoryInMemory implements IOrderItemsRepository {

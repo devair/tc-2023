@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { CreateCustomerController } from "../../communication/controller/customers/CreateCustomerController";
-import { CustomersRepositoryPostgres } from "../../../adapters/repositories/postgres/CustomersRepositoryPostgres";
+import { CustomersRepositoryPostgres } from "../datasource/postgres/CustomersRepositoryPostgres";
 import { ListCustomersController } from "../../communication/controller/customers/ListCustomersController";
 import { FindByIdCustomerController } from "../../communication/controller/customers/FindByIdCustomerController";
 import { SearchCustomersController } from "../../communication/controller/customers/SearchCustomersController";

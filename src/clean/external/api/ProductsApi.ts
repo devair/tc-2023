@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { ProductsService } from "../../../services/product/impl/ProductsService";
-import { ProductsRepositoryPostgres } from "../../../adapters/repositories/postgres/ProductsRepositoryPostgres";
-import { CategoriesRepositoryPostgres } from "../../../adapters/repositories/postgres/CategoriesRepositoryPostgres";
+import { ProductsRepositoryPostgres } from "../datasource/postgres/ProductsRepositoryPostgres";
+import { CategoriesRepositoryPostgres } from "../datasource/postgres/CategoriesRepositoryPostgres";
 import { CreateProductController } from "../../communication/controller/products/CreateProductController";
 import { ListProductsController } from "../../communication/controller/products/ListProductsController";
 import { FindByIdProductController } from "../../communication/controller/products/FindByIdProductController";

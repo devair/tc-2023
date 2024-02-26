@@ -1,4 +1,4 @@
-import { CategoriesRepositoryInMemory } from "../../../../../../adapters/repositories/in-memory/CategoriesRepositoryInMemory"
+import { CategoriesRepositoryInMemory } from "../../../../../external/datasource/in-memory/CategoriesRepositoryInMemory"
 import { CreateCategoryUseCase } from "../../createCategory/CreateCategoryUseCase"
 import { EditCategoryUseCase } from "../EditCategoryUseCase"
 

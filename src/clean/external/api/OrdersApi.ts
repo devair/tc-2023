@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { Order } from "../../core/entity/Order";
 import { CreateOrderController } from "../../communication/controller/orders/CreateOrderController";
-import { OrdersRepositoryPostgres } from "../../../adapters/repositories/postgres/OrdersRepositoryPostgres";
-import { OrderItemsRepositoryPostgres } from "../../../adapters/repositories/postgres/OrderItemsRepositoryPostgres";
-import { CustomersRepositoryPostgres } from "../../../adapters/repositories/postgres/CustomersRepositoryPostgres";
-import { ProductsRepositoryPostgres } from "../../../adapters/repositories/postgres/ProductsRepositoryPostgres";
+import { OrdersRepositoryPostgres } from "../datasource/postgres/OrdersRepositoryPostgres";
+import { OrderItemsRepositoryPostgres } from "../datasource/postgres/OrderItemsRepositoryPostgres";
+import { CustomersRepositoryPostgres } from "../datasource/postgres/CustomersRepositoryPostgres";
+import { ProductsRepositoryPostgres } from "../datasource/postgres/ProductsRepositoryPostgres";
 import { ListOrdersController } from "../../communication/controller/orders/ListOrdersController";
 import { FindByIdOrderController } from "../../communication/controller/orders/FindByIdOrderController";
 import { UpdateOrderStatusController } from "../../communication/controller/orders/UpdateOrderStatusController";

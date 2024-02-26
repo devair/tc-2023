@@ -1,7 +1,7 @@
-import { Product } from "../../../clean/core/entity/Product";
-import { ICreateProductDTO } from "../../../clean/core/entity/dtos/ICreateProductDTO";
-import { ICategoriesRepository } from "../../../clean/communication/gateway/repositories/ICategoriesRepository";
-import { IProductsRepository } from "../../../clean/communication/gateway/repositories/IProductsRepository";
+import { Product } from "../../../core/entity/Product";
+import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
+import { ICategoriesRepository } from "../../../communication/gateway/repositories/ICategoriesRepository";
+import { IProductsRepository } from "../../../communication/gateway/repositories/IProductsRepository";
 import { genId } from "./Util";
 
 

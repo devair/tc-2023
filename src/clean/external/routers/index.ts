@@ -11,6 +11,6 @@ router.use('/categories', categoriesRouter)
 router.use('/products', productsRouter)
 router.use('/customers', customersRouter)
 router.use('/orders', ordersRouter)
-//router.use('/payments', paymentsRouter)
+router.use('/payments', paymentsRouter)
 
 export { router }
