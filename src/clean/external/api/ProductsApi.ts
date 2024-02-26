@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { ProductsService } from "../../../services/product/impl/ProductsService";
 import { ProductsRepositoryPostgres } from "../datasource/postgres/ProductsRepositoryPostgres";
 import { CategoriesRepositoryPostgres } from "../datasource/postgres/CategoriesRepositoryPostgres";
 import { CreateProductController } from "../../communication/controller/products/CreateProductController";
@@ -7,9 +6,7 @@ import { ListProductsController } from "../../communication/controller/products/
 import { FindByIdProductController } from "../../communication/controller/products/FindByIdProductController";
 import { SearchProductsController } from "../../communication/controller/products/SearchProductsController";
 import { DeleteProductController } from "../../communication/controller/products/DeleteProductController";
-import { EditCategoryController } from "../../communication/controller/categories/EditCategoryController";
 import { EditProductController } from "../../communication/controller/products/EditProductController";
-import { IUpdateProductDTO } from "../../core/entity/dtos/IUpdateProductDTO";
 
 
 class ProductsApi {
