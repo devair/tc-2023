@@ -35,7 +35,7 @@ class CreateOrderUseCase {
                 throw new Error(`Product ${item.product.code} not found`)
             }
 
-            order.addItem({ order, product: productFound, quantity: item.quantity, unitPrice: item.unitPrice })
+            order.addItem({ product: productFound, quantity: item.quantity, unitPrice: item.unitPrice })
 
         })
 
