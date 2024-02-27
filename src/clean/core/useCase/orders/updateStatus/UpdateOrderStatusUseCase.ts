@@ -1,10 +1,10 @@
-import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository";
+import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway";
 import { Order, OrderStatus } from "../../../entity/Order";
 import { IUpdateOrderStatusDTO } from "../../../entity/dtos/IUpdateOrderStatusDTO";
 
 class UpdateOrderStatusUseCase{
     
-    constructor(private ordersRepository: IOrdersRepository ) {}
+    constructor(private ordersRepository: IOrdersGateway ) {}
     
     async execute({ id, status }: IUpdateOrderStatusDTO ): Promise<Order> {
 

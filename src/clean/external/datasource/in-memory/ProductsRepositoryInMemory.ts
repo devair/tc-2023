@@ -1,15 +1,15 @@
 import { Product } from "../../../core/entity/Product";
 import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
-import { ICategoriesRepository } from "../../../communication/gateway/repositories/ICategoriesRepository";
-import { IProductsRepository } from "../../../communication/gateway/repositories/IProductsRepository";
+import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
+import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway";
 import { genId } from "./Util";
 
 
-class ProductsRepositoryInMemory implements IProductsRepository {
+class ProductsRepositoryInMemory implements IProductsGateway {
 
     private products: Product[]
     
-    constructor(private categoriesRepository: ICategoriesRepository) {
+    constructor(private categoriesRepository: ICategoriesGateway) {
         this.products = []
     }
  

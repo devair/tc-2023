@@ -1,10 +1,10 @@
 import { Payment } from "../../../core/entity/Payment";
 import { ListPaymentsUseCase } from "../../../core/useCase/payments/listPayments/ListPaymentsUseCase";
-import { IPaymentsRepository } from "../../gateway/repositories/IPaymentsRepository";
+import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
 
 class ListPaymentsController {
     
-    constructor(private paymentsRepository: IPaymentsRepository){}
+    constructor(private paymentsRepository: IPaymentsGateway){}
 
     async handler(): Promise<Payment[]> {
 

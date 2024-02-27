@@ -1,12 +1,12 @@
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
-import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
 import { Product } from "../../../entity/Product"
 import { IUpdateProductDTO } from "../../../entity/dtos/IUpdateProductDTO"
 
 class EditProductUseCase {
 
-    constructor(private productsRepository: IProductsRepository,
-        private categoriesRepository: ICategoriesRepository){}
+    constructor(private productsRepository: IProductsGateway,
+        private categoriesRepository: ICategoriesGateway){}
 
     async execute( {id, code, name, description, categoryId, price, image }: IUpdateProductDTO ): Promise<Product>{        
         

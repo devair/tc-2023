@@ -1,9 +1,9 @@
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
 import { Category } from "../../../entity/Category";
 
 class FindByIdCategoryUseCase {
 
-    constructor(private categoriesRepository: ICategoriesRepository){}
+    constructor(private categoriesRepository: ICategoriesGateway){}
 
     async execute(id: number): Promise<Category> {
         const category = await this.categoriesRepository.findById(id)

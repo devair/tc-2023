@@ -1,4 +1,4 @@
-import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
+import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
 import { Product } from "../../../core/entity/Product";
 import { FindByCodeProductUseCase } from "../../../core/useCase/products/findByCodeProduct/FindByCodeProductUseCase";
 import { FindByNameProductUseCase } from "../../../core/useCase/products/findByNameProduct/FindByNameProductUseCase";
@@ -6,7 +6,7 @@ import { FindProductByCategoryNameUseCase } from "../../../core/useCase/products
 
 class SearchProductsController {
 
-    constructor(private productsRepository: IProductsRepository){}
+    constructor(private productsRepository: IProductsGateway){}
 
     async handler (name : string, categoryName: string, code: string): Promise<Product[]>{
         

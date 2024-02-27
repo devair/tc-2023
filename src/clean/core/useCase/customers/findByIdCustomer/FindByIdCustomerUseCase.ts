@@ -1,10 +1,10 @@
-import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository"
+import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
 import { Customer } from "../../../entity/Customer"
 
 
 class FindByIdCustomerUseCase {
 
-    constructor(private customersRepository: ICustomersRepository){}
+    constructor(private customersRepository: ICustomersGateway){}
 
     async execute(id: number): Promise<Customer> {
         const customer = await this.customersRepository.findById(id)

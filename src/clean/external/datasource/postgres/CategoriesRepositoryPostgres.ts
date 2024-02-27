@@ -2,9 +2,9 @@ import { Repository, getRepository } from "typeorm";
 import { Category } from "../../../core/entity/Category";
 import { ICreateCategoryDTO } from "../../../core/entity/dtos/ICreateCategoryDTO";
 import { IUpdateCategoryDTO } from "../../../core/entity/dtos/IUpdateCategoryDTO";
-import { ICategoriesRepository } from "../../../communication/gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
 import { CategoryEntity } from "../../../../shared/infra/typeorm/entities/CategoryEntity";
-class CategoriesRepositoryPostgres implements ICategoriesRepository{
+class CategoriesRepositoryPostgres implements ICategoriesGateway{
    
     private repository: Repository<Category>
 

@@ -1,7 +1,7 @@
 import { Customer } from '../../../core/entity/Customer'
 import { ICreateCustomerDTO } from '../../../core/entity/dtos/ICreateCustomerDTO'
 
-interface ICustomersRepository {
+interface ICustomersGateway {
 
     create({ name, email, cpf, phone }: ICreateCustomerDTO ): Promise<Customer>
 
@@ -14,4 +14,4 @@ interface ICustomersRepository {
     findByName(name: string): Promise<Customer[]>
 }
 
-export { ICustomersRepository }
+export { ICustomersGateway }

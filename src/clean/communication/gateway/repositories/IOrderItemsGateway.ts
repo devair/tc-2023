@@ -1,6 +1,6 @@
 import { OrderItem } from "../../../core/entity/OrderItem"
 
-interface IOrderItemsRepository {
+interface IOrderItemsGateway {
 
     create(orderItem: OrderItem): Promise<OrderItem>
     
@@ -11,4 +11,4 @@ interface IOrderItemsRepository {
     findById(id: number): Promise<OrderItem>
 }
 
-export { IOrderItemsRepository }
+export { IOrderItemsGateway }

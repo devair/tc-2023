@@ -1,9 +1,9 @@
 import { Repository, UpdateResult, getRepository } from "typeorm"
 import { Order } from "../../../core/entity/Order"
-import { IOrdersRepository } from "../../../communication/gateway/repositories/IOrdersRepository"
+import { IOrdersGateway } from "../../../communication/gateway/repositories/IOrdersGateway"
 import { OrderEntity } from "../../../../shared/infra/typeorm/entities/OrderEntity"
 
-class OrdersRepositoryPostgres implements IOrdersRepository{
+class OrdersRepositoryPostgres implements IOrdersGateway{
     
     private repository: Repository<Order>
 

@@ -1,10 +1,10 @@
 import { Payment } from "../../../core/entity/Payment";
 import { FindByIdPaymentUseCase } from "../../../core/useCase/payments/findByIdPayment/FindByIdPaymentUseCase";
-import { IPaymentsRepository } from "../../gateway/repositories/IPaymentsRepository";
+import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
 
 class FindByIdPaymentController {
     
-    constructor(private paymentsRepository: IPaymentsRepository){}
+    constructor(private paymentsRepository: IPaymentsGateway){}
 
     async handler(id: number): Promise<Payment> {
 

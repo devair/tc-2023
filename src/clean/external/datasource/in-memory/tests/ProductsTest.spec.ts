@@ -1,12 +1,12 @@
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Product } from "../../../../core/entity/Product"
-import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
 import { Category } from "../../../../core/entity/Category"
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 
-let productsRepository : IProductsRepository
-let categoriesRepository : ICategoriesRepository
+let productsRepository : IProductsGateway
+let categoriesRepository : ICategoriesGateway
 
 describe('Product tests',()=>{
     beforeEach(()=>{

@@ -1,7 +1,7 @@
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
 
-let categoriesRepository : ICategoriesRepository
+let categoriesRepository : ICategoriesGateway
 
 describe('Category testes', ()=>{
 

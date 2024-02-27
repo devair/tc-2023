@@ -1,11 +1,11 @@
-import { ICustomersRepository } from "../../gateway/repositories/ICustomersRepository";
+import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway";
 import { Customer } from "../../../core/entity/Customer";
 import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
 import { CreateCustomerUseCase } from "../../../core/useCase/customers/createCustomer/CreateCustomerUseCase";
 
 class CreateCustomerController {
 
-    constructor(private customersRepository: ICustomersRepository){}
+    constructor(private customersRepository: ICustomersGateway){}
 
     async handler({ name, email, cpf, phone }: ICreateCustomerDTO): Promise<Customer> {
 

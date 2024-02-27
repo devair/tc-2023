@@ -1,10 +1,10 @@
 import { Repository, getRepository } from "typeorm";
 import { Customer } from "../../../core/entity/Customer";
 import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "../../../communication/gateway/repositories/ICustomersRepository";
+import { ICustomersGateway } from "../../../communication/gateway/repositories/ICustomersGateway";
 import { CustomerEntity } from "../../../../shared/infra/typeorm/entities/CustomerEntity";
 
-class CustomersRepositoryPostgres implements ICustomersRepository {
+class CustomersRepositoryPostgres implements ICustomersGateway {
 
     private repository: Repository<Customer>
     

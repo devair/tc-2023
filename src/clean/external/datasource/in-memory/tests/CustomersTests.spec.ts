@@ -1,8 +1,8 @@
 import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
 import { Customer } from "../../../../core/entity/Customer"
-import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository"
+import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
 
-let customersRepository: ICustomersRepository
+let customersRepository: ICustomersGateway
 
 describe('Customers tests',()=>{
 

@@ -1,6 +1,6 @@
 import { Order } from '../../../core/entity/Order'
 
-interface IOrdersRepository {
+interface IOrdersGateway {
 
     create( order: Order ): Promise<Order>
 
@@ -11,4 +11,4 @@ interface IOrdersRepository {
     updateStatus(order: Order ): Promise<Order>
 }
 
-export { IOrdersRepository }
+export { IOrdersGateway }

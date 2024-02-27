@@ -1,10 +1,10 @@
-import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
+import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
 import { Product } from "../../../core/entity/Product";
 import { FindByIdProductUseCase } from "../../../core/useCase/products/findByIdProduct/FindByIdProductUseCase";
 
 class FindByIdProductController {
     
-    constructor(private productsRepository: IProductsRepository){}
+    constructor(private productsRepository: IProductsGateway){}
 
     async handler(id: number): Promise<Product> {
 

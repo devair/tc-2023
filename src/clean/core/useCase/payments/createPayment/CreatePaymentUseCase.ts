@@ -1,13 +1,13 @@
-import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository"
-import { IPaymentsRepository } from "../../../../communication/gateway/repositories/IPaymentsRepository"
+import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
+import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
 import { OrderStatus } from "../../../entity/Order"
 import { Payment } from "../../../entity/Payment"
 import { ICreatePaymentDTO } from "../../../entity/dtos/ICreatePaymentDTO"
 
 class CreatePaymentUseCase {
 
-    constructor(private paymentsRepository: IPaymentsRepository,
-        private ordersRepository: IOrdersRepository){}
+    constructor(private paymentsRepository: IPaymentsGateway,
+        private ordersRepository: IOrdersGateway){}
 
     async execute({ orderId, amount, paymentDate, paymentUniqueNumber }: ICreatePaymentDTO): Promise<Payment> {
 

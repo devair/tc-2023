@@ -1,9 +1,9 @@
-import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
 import { Product } from "../../../entity/Product"
 
 class FindByIdProductUseCase {
 
-    constructor(private productsRepository: IProductsRepository){}
+    constructor(private productsRepository: IProductsGateway){}
 
     async execute(id: number): Promise<Product> {
         const product = await this.productsRepository.findById(id)

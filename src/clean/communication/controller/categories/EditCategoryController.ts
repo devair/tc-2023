@@ -1,10 +1,10 @@
-import { ICategoriesRepository } from "../../gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
 import { IUpdateCategoryDTO } from "../../../core/entity/dtos/IUpdateCategoryDTO";
 import { EditCategoryUseCase } from "../../../core/useCase/categories/editCategory/EditCategoryUseCase";
 
 class EditCategoryController {
     
-    constructor(private categoriesRepository: ICategoriesRepository,){}
+    constructor(private categoriesRepository: ICategoriesGateway,){}
 
     async handler({ id, name, description }: IUpdateCategoryDTO): Promise<void> {
 

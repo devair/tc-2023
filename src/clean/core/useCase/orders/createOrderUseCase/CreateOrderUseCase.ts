@@ -1,16 +1,16 @@
-import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository";
-import { IOrderItemsRepository } from "../../../../communication/gateway/repositories/IOrderItemsRepository";
-import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository";
-import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository";
+import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway";
+import { IOrderItemsGateway } from "../../../../communication/gateway/repositories/IOrderItemsGateway";
+import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway";
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway";
 import { Order } from "../../../entity/Order";
 import { ICreateOrderDTO } from "../../../entity/dtos/ICreateOrderDTO";
 
 class CreateOrderUseCase {
 
-    constructor(private orderRepository: IOrdersRepository,
-        private orderItemsRepository: IOrderItemsRepository,
-        private customersRepository: ICustomersRepository,
-        private productsRepository: IProductsRepository
+    constructor(private orderRepository: IOrdersGateway,
+        private orderItemsRepository: IOrderItemsGateway,
+        private customersRepository: ICustomersGateway,
+        private productsRepository: IProductsGateway
     ) {
 
     }

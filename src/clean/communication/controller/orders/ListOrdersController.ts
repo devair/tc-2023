@@ -1,5 +1,5 @@
-import { ICustomersRepository } from "../../gateway/repositories/ICustomersRepository";
-import { IOrdersRepository } from "../../gateway/repositories/IOrdersRepository";
+import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway";
+import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
 import { Customer } from "../../../core/entity/Customer";
 import { Order } from "../../../core/entity/Order";
 import { ListCustomersUseCase } from "../../../core/useCase/customers/listCustomers/ListCustomersUseCase";
@@ -7,7 +7,7 @@ import { ListOrdersUseCase } from "../../../core/useCase/orders/listOrders/ListO
 
 class ListOrdersController {
 
-    constructor(private ordersRepository: IOrdersRepository){}
+    constructor(private ordersRepository: IOrdersGateway){}
 
     async handler(): Promise<Order[]>{
 

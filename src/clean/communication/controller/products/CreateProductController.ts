@@ -1,12 +1,12 @@
-import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
+import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
 import { CreateProductUseCase } from "../../../core/useCase/products/createProduct/CreateProductUseCase";
 import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
-import { ICategoriesRepository } from "../../gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
 
 class CreateProductController {
     
-    constructor(private productsRepository: IProductsRepository,
-        private categoriesRepository: ICategoriesRepository){}
+    constructor(private productsRepository: IProductsGateway,
+        private categoriesRepository: ICategoriesGateway){}
 
     async handler(createProduct: ICreateProductDTO){
 

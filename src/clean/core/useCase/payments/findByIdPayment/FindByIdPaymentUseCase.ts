@@ -1,9 +1,9 @@
-import { IPaymentsRepository } from "../../../../communication/gateway/repositories/IPaymentsRepository"
+import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
 import { Payment } from "../../../entity/Payment"
 
 class FindByIdPaymentUseCase {
 
-    constructor(private paymentsRepository: IPaymentsRepository){}
+    constructor(private paymentsRepository: IPaymentsGateway){}
 
     async execute(id: number): Promise<Payment> {
         const payment = await this.paymentsRepository.findById(id)
