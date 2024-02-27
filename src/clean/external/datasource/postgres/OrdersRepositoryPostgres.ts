@@ -1,5 +1,5 @@
 import { Repository, UpdateResult, getRepository } from "typeorm"
-import { Order } from "../../../core/entity/Order"
+import { Order, OrderStatus } from "../../../core/entity/Order"
 import { IOrdersGateway } from "../../../communication/gateway/repositories/IOrdersGateway"
 import { OrderEntity } from "../../../../shared/infra/typeorm/entities/OrderEntity"
 
@@ -17,7 +17,12 @@ class OrdersRepositoryPostgres implements IOrdersGateway{
     }
 
     async list(): Promise<Order[]> {
-        const all = await this.repository.find()
+        const all = await this.repository
+        .createQueryBuilder('order')
+        .where('status IN (:...status)', { status: [OrderStatus.DONE, OrderStatus.IN_PROGRESS, OrderStatus.RECEIVED ]})
+        .orderBy('created_at', 'ASC')
+        .getMany()
+
         return all
     }
 
