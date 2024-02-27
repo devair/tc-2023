@@ -1,7 +1,7 @@
 import { Payment } from "../../../core/entity/Payment"
 
 
-interface IPaymentsRepository {
+interface IPaymentsGateway {
 
     create(payment: Payment ): Promise<Payment>
 
@@ -10,4 +10,4 @@ interface IPaymentsRepository {
     findById(id: number): Promise<Payment>
 }
 
-export { IPaymentsRepository }
+export { IPaymentsGateway }

@@ -1,9 +1,9 @@
 import { Customer } from "../../../core/entity/Customer";
 import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
-import { ICustomersRepository } from "../../../communication/gateway/repositories/ICustomersRepository";
+import { ICustomersGateway } from "../../../communication/gateway/repositories/ICustomersGateway";
 import { genId } from "./Util";
 
-class CustomersRepositoryInMemory implements ICustomersRepository{
+class CustomersRepositoryInMemory implements ICustomersGateway{
 
     private customers: Customer[]
 

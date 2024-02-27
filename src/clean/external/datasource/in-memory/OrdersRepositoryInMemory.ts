@@ -1,8 +1,8 @@
 import { Order } from "../../../core/entity/Order";
-import { IOrdersRepository } from "../../../communication/gateway/repositories/IOrdersRepository";
+import { IOrdersGateway } from "../../../communication/gateway/repositories/IOrdersGateway";
 import { genId } from "./Util";
 
-class OrdersRepositoryInMemory implements IOrdersRepository{
+class OrdersRepositoryInMemory implements IOrdersGateway{
 
     private orders: Order[]
 

@@ -1,13 +1,13 @@
 import { ICreateProductDTO } from "../../../entity/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository";
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway";
 import { Product } from "../../../entity/Product";
 import { FindByIdCategoryUseCase } from "../../categories/findByIdCategory/FindByIdCategoryUseCase";
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
 
 class CreateProductUseCase {
 
-    constructor(private productsRepository: IProductsRepository,
-        private categoriesRepository: ICategoriesRepository){}
+    constructor(private productsRepository: IProductsGateway,
+        private categoriesRepository: ICategoriesGateway){}
 
     async execute ({code, name, description, categoryId, price, image }: ICreateProductDTO): Promise<Product>{
 

@@ -1,11 +1,11 @@
-import { ICustomersRepository } from "../../gateway/repositories/ICustomersRepository"
+import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway"
 import { Customer } from "../../../core/entity/Customer"
 import { FindByCpfCustomerUseCase } from "../../../core/useCase/customers/findByCpfCustomer/FindByCpfCustomerUseCase"
 import { FindByNameCustomerUseCase } from "../../../core/useCase/customers/findByNameCustomer/FindByNameCustomerUseCase"
 
 class SearchCustomersController {
 
-    constructor(private customersRepository: ICustomersRepository){}
+    constructor(private customersRepository: ICustomersGateway){}
 
     async handler( cpf: string , name: string ) : Promise<Customer[]>{
         

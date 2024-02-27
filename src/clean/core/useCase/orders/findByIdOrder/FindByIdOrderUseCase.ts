@@ -1,9 +1,9 @@
-import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository"
+import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
 import { Order } from "../../../entity/Order"
 
 class FindByIdOrderUseCase {
 
-    constructor(private ordersRepository: IOrdersRepository) {}
+    constructor(private ordersRepository: IOrdersGateway) {}
     
     async execute(id: number): Promise<Order> {
 

@@ -1,10 +1,10 @@
-import { IOrdersRepository } from "../../gateway/repositories/IOrdersRepository";
+import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
 import { Order } from "../../../core/entity/Order";
 import { FindByIdOrderUseCase } from "../../../core/useCase/orders/findByIdOrder/FindByIdOrderUseCase";
 
 class FindByIdOrderController {
     
-    constructor(private ordersRepository: IOrdersRepository){}
+    constructor(private ordersRepository: IOrdersGateway){}
 
     async handler(id: number): Promise<Order> {
 

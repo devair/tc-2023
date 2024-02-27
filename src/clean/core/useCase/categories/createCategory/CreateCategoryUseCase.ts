@@ -1,10 +1,10 @@
 import { ICreateCategoryDTO } from "../../../entity/dtos/ICreateCategoryDTO";
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
 import { Category } from "../../../entity/Category";
 
 class CreateCategoryUseCase {
 
-    constructor(private categoriesRepository: ICategoriesRepository){}
+    constructor(private categoriesRepository: ICategoriesGateway){}
 
     async execute({ name, description }: ICreateCategoryDTO): Promise<Category> {
 

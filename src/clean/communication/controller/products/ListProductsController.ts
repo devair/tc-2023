@@ -1,10 +1,10 @@
-import { IProductsRepository } from "../../gateway/repositories/IProductsRepository";
+import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
 import { Product } from "../../../core/entity/Product";
 import { ListProductsUseCase } from "../../../core/useCase/products/listProducts/ListProductsUseCase";
 
 class ListProductsController {
     
-    constructor(private productsRepository: IProductsRepository){}
+    constructor(private productsRepository: IProductsGateway){}
 
     async handler(): Promise<Product[]> {
 

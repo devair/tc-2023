@@ -7,17 +7,17 @@ import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Order, OrderStatus } from "../../../../core/entity/Order"
 import { OrderItem } from "../../../../core/entity/OrderItem"
 import { Payment } from "../../../../core/entity/Payment"
-import { IOrdersRepository } from "../../../../communication/gateway/repositories/IOrdersRepository"
-import { ICategoriesRepository } from "../../../../communication/gateway/repositories/ICategoriesRepository"
-import { ICustomersRepository } from "../../../../communication/gateway/repositories/ICustomersRepository"
-import { IPaymentsRepository } from "../../../../communication/gateway/repositories/IPaymentsRepository"
-import { IProductsRepository } from "../../../../communication/gateway/repositories/IProductsRepository"
+import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
+import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
+import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
 
-let ordersRepository: IOrdersRepository
-let customersRepository: ICustomersRepository
-let productsRepository: IProductsRepository
-let categoriesRepository: ICategoriesRepository
-let paymentsRepository: IPaymentsRepository
+let ordersRepository: IOrdersGateway
+let customersRepository: ICustomersGateway
+let productsRepository: IProductsGateway
+let categoriesRepository: ICategoriesGateway
+let paymentsRepository: IPaymentsGateway
 
 describe('Payments tests', () => {
     beforeAll(async ()=>{

@@ -1,13 +1,13 @@
 import { Payment } from "../../../core/entity/Payment";
 import { ICreatePaymentDTO } from "../../../core/entity/dtos/ICreatePaymentDTO";
 import { CreatePaymentUseCase } from "../../../core/useCase/payments/createPayment/CreatePaymentUseCase";
-import { IOrdersRepository } from "../../gateway/repositories/IOrdersRepository";
-import { IPaymentsRepository } from "../../gateway/repositories/IPaymentsRepository";
+import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
+import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
 
 class CreatePaymentController {
 
-    constructor(private paymentsRepository: IPaymentsRepository,
-        private ordersRepository: IOrdersRepository) { }
+    constructor(private paymentsRepository: IPaymentsGateway,
+        private ordersRepository: IOrdersGateway) { }
 
     async handler({ orderId, amount, paymentDate, paymentUniqueNumber }: ICreatePaymentDTO): Promise<Payment> {
 

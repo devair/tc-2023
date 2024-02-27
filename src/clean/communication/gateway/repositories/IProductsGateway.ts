@@ -1,7 +1,7 @@
 import { Product } from '../../../core/entity/Product'
 import { ICreateProductDTO } from '../../../core/entity/dtos/ICreateProductDTO'
 
-interface IProductsRepository{
+interface IProductsGateway{
     
     create( {code, name, description, categoryId, price, image }: ICreateProductDTO ): Promise<Product>
     
@@ -20,4 +20,4 @@ interface IProductsRepository{
     findByCategory(name: string): Promise<Product[]>
 }
 
-export { IProductsRepository }
+export { IProductsGateway }

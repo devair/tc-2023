@@ -1,10 +1,10 @@
-import { ICustomersRepository } from "../../gateway/repositories/ICustomersRepository";
+import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway";
 import { Customer } from "../../../core/entity/Customer";
 import { FindByIdCustomerUseCase } from "../../../core/useCase/customers/findByIdCustomer/FindByIdCustomerUseCase";
 
 class FindByIdCustomerController{
 
-    constructor(private customersRepository: ICustomersRepository){}
+    constructor(private customersRepository: ICustomersGateway){}
 
     async handler(id: number): Promise<Customer>{
         

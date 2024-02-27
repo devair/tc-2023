@@ -1,10 +1,10 @@
 import { Repository, getRepository } from "typeorm";
 import { Product } from "../../../core/entity/Product";
 import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
-import { IProductsRepository } from "../../../communication/gateway/repositories/IProductsRepository";
+import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway";
 import { ProductEntity } from "../../../../shared/infra/typeorm/entities/ProductEntity";
 
-class ProductsRepositoryPostgres implements IProductsRepository {
+class ProductsRepositoryPostgres implements IProductsGateway {
 
     private repository: Repository<Product>
 

@@ -2,10 +2,10 @@ import { injectable } from "tsyringe";
 import { Repository, getRepository } from "typeorm";
 import { OrderItem } from "../../../core/entity/OrderItem";
 import { OrderItemEntity } from "../../../../shared/infra/typeorm/entities/OrderItemEntity";
-import { IOrderItemsRepository } from "../../../communication/gateway/repositories/IOrderItemsRepository";
+import { IOrderItemsGateway } from "../../../communication/gateway/repositories/IOrderItemsGateway";
 
 @injectable()
-class OrderItemsRepositoryPostgres implements IOrderItemsRepository{
+class OrderItemsRepositoryPostgres implements IOrderItemsGateway{
 
     private repository: Repository<OrderItem>
 

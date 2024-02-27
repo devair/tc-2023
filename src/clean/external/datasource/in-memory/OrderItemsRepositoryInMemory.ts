@@ -1,8 +1,8 @@
 import { OrderItem } from "../../../core/entity/OrderItem"
-import { IOrderItemsRepository } from "../../../communication/gateway/repositories/IOrderItemsRepository"
+import { IOrderItemsGateway } from "../../../communication/gateway/repositories/IOrderItemsGateway"
 
 
-class OrderItemsRepositoryInMemory implements IOrderItemsRepository {
+class OrderItemsRepositoryInMemory implements IOrderItemsGateway {
     private orderItems: OrderItem[]
 
     constructor() {

@@ -1,10 +1,10 @@
 import { Category } from "../../../core/entity/Category";
 import { ICreateCategoryDTO } from "../../../core/entity/dtos/ICreateCategoryDTO";
-import { ICategoriesRepository } from "../../../communication/gateway/repositories/ICategoriesRepository";
+import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
 import { genId } from "./Util";
 import { IUpdateCategoryDTO } from "../../../core/entity/dtos/IUpdateCategoryDTO";
 
-class CategoriesRepositoryInMemory implements ICategoriesRepository {
+class CategoriesRepositoryInMemory implements ICategoriesGateway {
 
     private categories: Category[]
 

@@ -2,7 +2,7 @@ import { Category } from '../../../core/entity/Category'
 import { ICreateCategoryDTO } from '../../../core/entity/dtos/ICreateCategoryDTO'
 import { IUpdateCategoryDTO } from '../../../core/entity/dtos/IUpdateCategoryDTO'
 
-interface ICategoriesRepository{
+interface ICategoriesGateway{
 
     create( { name, description }: ICreateCategoryDTO ): Promise<Category>
     
@@ -15,4 +15,4 @@ interface ICategoriesRepository{
     update({ id, name, description }: IUpdateCategoryDTO): Promise<void>
 }
 
-export { ICategoriesRepository }
+export { ICategoriesGateway }
