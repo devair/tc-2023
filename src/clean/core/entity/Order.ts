@@ -40,7 +40,8 @@ enum OrderStatus {
     RECEIVED = 'Recebido',
     IN_PROGRESS = 'Em preparação',
     DONE = 'Pronto',
-    CLOSED = 'Finalizado'
+    CLOSED = 'Finalizado',
+    REJECTED = 'Rejeitado'
 }
 
 export { Order, OrderStatus }
