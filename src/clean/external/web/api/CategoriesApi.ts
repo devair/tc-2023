@@ -1,10 +1,10 @@
 import { Request, Response } from "express"
-import { CategoriesRepositoryPostgres } from "../datasource/postgres/CategoriesRepositoryPostgres";
-import { FindByIdCategoryController } from "../../communication/controller/categories/FindByIdCategoryController";
-import { ListCategoriesController } from "../../communication/controller/categories/ListCategoriesController";
-import { CreateCategoryController } from "../../communication/controller/categories/CreateCategoryController";
-import { EditCategoryController } from "../../communication/controller/categories/EditCategoryController";
-import { FindByNameCategoryController } from "../../communication/controller/categories/FindByNameCategoryController";
+import { CategoriesRepositoryPostgres } from "../../datasource/postgres/CategoriesRepositoryPostgres";
+import { FindByIdCategoryController } from "../../../communication/controller/categories/FindByIdCategoryController";
+import { ListCategoriesController } from "../../../communication/controller/categories/ListCategoriesController";
+import { CreateCategoryController } from "../../../communication/controller/categories/CreateCategoryController";
+import { EditCategoryController } from "../../../communication/controller/categories/EditCategoryController";
+import { FindByNameCategoryController } from "../../../communication/controller/categories/FindByNameCategoryController";
 
 class CategoriesApi {
 

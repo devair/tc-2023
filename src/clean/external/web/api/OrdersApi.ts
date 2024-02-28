@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { Order } from "../../core/entity/Order";
-import { CreateOrderController } from "../../communication/controller/orders/CreateOrderController";
-import { OrdersRepositoryPostgres } from "../datasource/postgres/OrdersRepositoryPostgres";
-import { OrderItemsRepositoryPostgres } from "../datasource/postgres/OrderItemsRepositoryPostgres";
-import { CustomersRepositoryPostgres } from "../datasource/postgres/CustomersRepositoryPostgres";
-import { ProductsRepositoryPostgres } from "../datasource/postgres/ProductsRepositoryPostgres";
-import { ListOrdersController } from "../../communication/controller/orders/ListOrdersController";
-import { FindByIdOrderController } from "../../communication/controller/orders/FindByIdOrderController";
-import { UpdateOrderStatusController } from "../../communication/controller/orders/UpdateOrderStatusController";
+import { Order } from "../../../core/entity/Order";
+import { CreateOrderController } from "../../../communication/controller/orders/CreateOrderController";
+import { OrdersRepositoryPostgres } from "../../datasource/postgres/OrdersRepositoryPostgres";
+import { OrderItemsRepositoryPostgres } from "../../datasource/postgres/OrderItemsRepositoryPostgres";
+import { CustomersRepositoryPostgres } from "../../datasource/postgres/CustomersRepositoryPostgres";
+import { ProductsRepositoryPostgres } from "../../datasource/postgres/ProductsRepositoryPostgres";
+import { ListOrdersController } from "../../../communication/controller/orders/ListOrdersController";
+import { FindByIdOrderController } from "../../../communication/controller/orders/FindByIdOrderController";
+import { UpdateOrderStatusController } from "../../../communication/controller/orders/UpdateOrderStatusController";
 
 class OrdersApi {
 

@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import express, { Router } from 'express'
 import "express-async-errors";
-import { router } from './clean/external/routers'
+import { router } from './clean/external/web/routers'
 import './shared/infra/typeorm';
 
 const app = express()
