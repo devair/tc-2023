@@ -1,12 +1,13 @@
-import { ICreateCategoryDTO } from "../../../entity/dtos/ICreateCategoryDTO";
+
 import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
 import { Category } from "../../../entity/Category";
+import { InputCreateCategoryDTO } from "./ICreateCategoryDTO";
 
 class CreateCategoryUseCase {
 
     constructor(private categoriesRepository: ICategoriesGateway){}
 
-    async execute({ name, description }: ICreateCategoryDTO): Promise<Category> {
+    async execute({ name, description }: InputCreateCategoryDTO): Promise<Category> {
 
         const categoryAlreadExists = await this.categoriesRepository.findByName(name)
 

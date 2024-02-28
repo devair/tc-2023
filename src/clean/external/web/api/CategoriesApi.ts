@@ -5,6 +5,7 @@ import { ListCategoriesController } from "../../../communication/controller/cate
 import { CreateCategoryController } from "../../../communication/controller/categories/CreateCategoryController";
 import { EditCategoryController } from "../../../communication/controller/categories/EditCategoryController";
 import { FindByNameCategoryController } from "../../../communication/controller/categories/FindByNameCategoryController";
+import { CategoryPresenter } from "../presenter/category/CategoryPresenter";
 
 class CategoriesApi {
 
@@ -31,12 +32,13 @@ class CategoriesApi {
         const createCategoryController = new CreateCategoryController(categoriesRepository)
        
         try {
-            await createCategoryController.handler({ name, description });
+            const data = await createCategoryController.handler({ name, description });
+
+            return response.status(201).json(CategoryPresenter.toJson(data))
         }
         catch (ex) {
-            return response.status(400).json({ error: ex.message });
-        }
-        return response.status(201).send();
+            return response.status(400).json({ error: ex.message })
+        }        
     }
 
     static async findById(request: Request, response: Response): Promise<Response>{
@@ -46,15 +48,14 @@ class CategoriesApi {
         const categoriesRepository = new CategoriesRepositoryPostgres()
         const findByIdCategoryController = new FindByIdCategoryController(categoriesRepository)
 
-        let category;
-
         try{
-            category = await findByIdCategoryController.handler( parseInt(id) )
+            const data = await findByIdCategoryController.handler( parseInt(id) )  
+
+            return response.status(201).json(CategoryPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
-        }
-        return response.status(200).json(category)
+        }        
     }
 
     static async update(request: Request, response: Response): Promise<Response>{
@@ -86,18 +87,18 @@ class CategoriesApi {
         const categoriesRepository = new CategoriesRepositoryPostgres()
         const findByNameCategoryController = new FindByNameCategoryController(categoriesRepository)
         
-
-        let categories = [];
-
         try{
             if(name){
-                categories = await findByNameCategoryController.handler( name.toString())
+                
+                const data = await findByNameCategoryController.handler( name.toString())
+                
+                return response.status(201).json(CategoryPresenter.toJson(data))
+
             }
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
-        }
-        return response.status(200).json(categories)
+        }        
     }
 }
 

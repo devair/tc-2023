@@ -1,9 +1,9 @@
 import { Repository, getRepository } from "typeorm";
 import { Category } from "../../../core/entity/Category";
-import { ICreateCategoryDTO } from "../../../core/entity/dtos/ICreateCategoryDTO";
-import { IUpdateCategoryDTO } from "../../../core/entity/dtos/IUpdateCategoryDTO";
 import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
 import { CategoryEntity } from "../../../../shared/infra/typeorm/entities/CategoryEntity";
+import { InputCreateCategoryDTO } from "../../../core/useCase/categories/createCategory/ICreateCategoryDTO";
+import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IUpdateCategoryDTO";
 class CategoriesRepositoryPostgres implements ICategoriesGateway{
    
     private repository: Repository<Category>
@@ -12,7 +12,7 @@ class CategoriesRepositoryPostgres implements ICategoriesGateway{
         this.repository = getRepository(CategoryEntity)
     }
 
-    async update({ id, name, description }: IUpdateCategoryDTO): Promise<void> {              
+    async update({ id, name, description }: InputUpdateCategoryDTO): Promise<void> {              
         await this.repository.update( id, { name, description })        
     }
     
@@ -21,7 +21,7 @@ class CategoriesRepositoryPostgres implements ICategoriesGateway{
         return category
     }
     
-    async create({ name, description }: ICreateCategoryDTO ): Promise<Category> {
+    async create({ name, description }: InputCreateCategoryDTO ): Promise<Category> {
         const category = this.repository.create({
             name, description
         });
