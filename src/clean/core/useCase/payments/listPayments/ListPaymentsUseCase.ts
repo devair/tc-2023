@@ -1,14 +1,22 @@
 import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
-import { Payment } from "../../../entity/Payment"
+import { OutputFindPaymentDTO } from "../findByIdPayment/IFindPaymentDTO"
 
 class ListPaymentsUseCase {
     
     constructor(private paymentsRepository: IPaymentsGateway){}
 
-    async execute(): Promise<Payment[]>{
+    async execute(): Promise<OutputFindPaymentDTO[]>{
         const payments = await this.paymentsRepository.list()
 
-        return payments
+        const output = payments.map((elem) => ({
+            id: elem.id,
+            orderId: elem.orderId,
+            amount: elem.amount,
+            paymentDate: elem.paymentDate,
+            paymentUniqueNumber: elem.paymentUniqueNumber       
+        }))
+
+        return output
     }
 }
 export { ListPaymentsUseCase }

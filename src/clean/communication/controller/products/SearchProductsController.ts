@@ -1,14 +1,14 @@
 import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
-import { Product } from "../../../core/entity/Product";
 import { FindByCodeProductUseCase } from "../../../core/useCase/products/findByCodeProduct/FindByCodeProductUseCase";
 import { FindByNameProductUseCase } from "../../../core/useCase/products/findByNameProduct/FindByNameProductUseCase";
 import { FindProductByCategoryNameUseCase } from "../../../core/useCase/products/findProductByCategoryName/FindProductByCategoryNameUseCase";
+import { OutputFindProductDTO } from "../../../core/useCase/products/findByIdProduct/IFindProductDTO";
 
 class SearchProductsController {
 
     constructor(private productsRepository: IProductsGateway){}
 
-    async handler (name : string, categoryName: string, code: string): Promise<Product[]>{
+    async handler (name : string, categoryName: string, code: string): Promise<OutputFindProductDTO[]>{
         
         const findByNameProductUseCase = new FindByNameProductUseCase(this.productsRepository)
         const findProductByCategoryNameUseCase = new FindProductByCategoryNameUseCase(this.productsRepository)

@@ -25,6 +25,18 @@ class PaymentsRepositoryPostgres implements IPaymentsGateway{
         const payment = this.repository.findOne({ id })
         return payment
     }
+
+    async findByOrder(orderId: number): Promise<Payment[]> {
+        const payments = await this.repository
+        .createQueryBuilder('payment')        
+        .innerJoinAndSelect('payment.order', 'order', 'order_id = :pattern', 
+        {
+            pattern : orderId
+        })        
+        .getMany()
+
+        return payments
+    }
 }
 
 export { PaymentsRepositoryPostgres}

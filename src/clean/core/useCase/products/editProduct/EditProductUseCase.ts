@@ -1,14 +1,13 @@
 import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
 import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
-import { Product } from "../../../entity/Product"
-import { IUpdateProductDTO } from "../../../entity/dtos/IUpdateProductDTO"
+import { InputUpdateProductDTO, OutputUpdateProductDTO } from "./IUpdateProductDTO"
 
 class EditProductUseCase {
 
     constructor(private productsRepository: IProductsGateway,
         private categoriesRepository: ICategoriesGateway){}
 
-    async execute( {id, code, name, description, categoryId, price, image }: IUpdateProductDTO ): Promise<Product>{        
+    async execute( {id, code, name, description, categoryId, price, image }: InputUpdateProductDTO ): Promise<OutputUpdateProductDTO>{        
         
         const product = await this.productsRepository.findById (id)
     
@@ -28,7 +27,17 @@ class EditProductUseCase {
         product.image = image
         product.category = categoryFound
         
-        return await this.productsRepository.update(product) 
+        const productUpdated = await this.productsRepository.update(product) 
+
+        return {
+            id : productUpdated.id,
+            name : productUpdated.name,
+            code : productUpdated.code,
+            description: productUpdated.description,    
+            categoryId: productUpdated.categoryId,
+            price: productUpdated.price,
+            image: productUpdated.image
+        }
     }
 }
 

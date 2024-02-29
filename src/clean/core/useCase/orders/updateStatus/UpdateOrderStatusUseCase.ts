@@ -1,12 +1,13 @@
 import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway";
 import { Order, OrderStatus } from "../../../entity/Order";
-import { IUpdateOrderStatusDTO } from "../../../entity/dtos/IUpdateOrderStatusDTO";
+import { InputUpdateOrderStatusDTO, OutputUpdateOrderStatusDTO } from "./IUpdateOrderStatusDTO";
+
 
 class UpdateOrderStatusUseCase{
     
     constructor(private ordersRepository: IOrdersGateway ) {}
     
-    async execute({ id, status }: IUpdateOrderStatusDTO ): Promise<Order> {
+    async execute({ id, status }: InputUpdateOrderStatusDTO ): Promise<OutputUpdateOrderStatusDTO> {
 
         await this.ordersRepository.findById(id)
         let orderUpdate = new Order();
@@ -21,12 +22,12 @@ class UpdateOrderStatusUseCase{
             status: orderStatus
         })
 
-        orderUpdate = await this.ordersRepository.updateStatus(orderUpdate)
-        
-        const orderReturn = new Order()
-        orderReturn.status = status
-
-        return orderUpdate
+        const orderUpdated = await this.ordersRepository.updateStatus(orderUpdate)
+            
+        return { 
+            id: orderUpdated.id,
+            status: orderUpdated.status
+        }
     }
 }
 

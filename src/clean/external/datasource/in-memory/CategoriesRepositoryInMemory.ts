@@ -1,8 +1,8 @@
 import { Category } from "../../../core/entity/Category";
-import { ICreateCategoryDTO } from "../../../core/entity/dtos/ICreateCategoryDTO";
 import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
 import { genId } from "./Util";
-import { IUpdateCategoryDTO } from "../../../core/entity/dtos/IUpdateCategoryDTO";
+import { InputCreateCategoryDTO } from "../../../core/useCase/categories/createCategory/ICreateCategoryDTO";
+import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IUpdateCategoryDTO";
 
 class CategoriesRepositoryInMemory implements ICategoriesGateway {
 
@@ -12,7 +12,7 @@ class CategoriesRepositoryInMemory implements ICategoriesGateway {
         this.categories = []
     }
 
-    async create({ name, description }: ICreateCategoryDTO): Promise<Category> {
+    async create({ name, description }: InputCreateCategoryDTO): Promise<Category> {
         const id = genId(this.categories)
 
         const category = new Category(id , name, description )
@@ -46,7 +46,7 @@ class CategoriesRepositoryInMemory implements ICategoriesGateway {
 
     }
 
-    async update({id, name, description }: IUpdateCategoryDTO): Promise<void> {        
+    async update({id, name, description }: InputUpdateCategoryDTO): Promise<void> {        
         const category = await this.findById( id )
         
         Object.assign(category, { name, description })

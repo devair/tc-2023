@@ -2,14 +2,16 @@ import { IOrdersGateway } from "../../../../communication/gateway/repositories/I
 import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
 import { OrderStatus } from "../../../entity/Order"
 import { Payment } from "../../../entity/Payment"
-import { ICreatePaymentDTO } from "../../../entity/dtos/ICreatePaymentDTO"
+import { InputCreatePaymentDTO, OutputCreatePaymentDTO } from "./ICreatePaymentDTO"
 
 class CreatePaymentUseCase {
 
     constructor(private paymentsRepository: IPaymentsGateway,
         private ordersRepository: IOrdersGateway){}
 
-    async execute({ orderId, amount, paymentDate, paymentUniqueNumber }: ICreatePaymentDTO): Promise<Payment> {
+    async execute({ orderId, amount, paymentDate, paymentUniqueNumber }: InputCreatePaymentDTO): 
+        Promise<OutputCreatePaymentDTO> 
+    {
 
         const orderFound = await this.ordersRepository.findById(orderId)
 
@@ -26,7 +28,13 @@ class CreatePaymentUseCase {
             await this.ordersRepository.updateStatus(orderFound)
         }
 
-        return paymentCreated
+        return {
+            id: paymentCreated.id,            
+            orderId: paymentCreated.orderId,
+            amount: paymentCreated.amount,
+            paymentDate: paymentCreated.paymentDate,
+            paymentUniqueNumber: paymentCreated.paymentUniqueNumber
+        }
     }
 
 }

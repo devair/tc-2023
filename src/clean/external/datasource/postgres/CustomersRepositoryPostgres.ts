@@ -1,8 +1,8 @@
 import { Repository, getRepository } from "typeorm";
 import { Customer } from "../../../core/entity/Customer";
-import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
 import { ICustomersGateway } from "../../../communication/gateway/repositories/ICustomersGateway";
 import { CustomerEntity } from "../../../../shared/infra/typeorm/entities/CustomerEntity";
+import { InputCreateCustomerDTO } from "../../../core/useCase/customers/createCustomer/ICreateCustomerDTO";
 
 class CustomersRepositoryPostgres implements ICustomersGateway {
 
@@ -12,7 +12,7 @@ class CustomersRepositoryPostgres implements ICustomersGateway {
         this.repository = getRepository(CustomerEntity)
     }
 
-    async create({ name, email, cpf, phone }: ICreateCustomerDTO): Promise<Customer> {
+    async create({ name, email, cpf, phone }: InputCreateCustomerDTO): Promise<Customer> {
         const customer = this.repository.create({
             name, email, cpf, phone
         });

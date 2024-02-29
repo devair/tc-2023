@@ -1,16 +1,16 @@
-import { Payment } from "../../../core/entity/Payment";
 import { FindByIdPaymentUseCase } from "../../../core/useCase/payments/findByIdPayment/FindByIdPaymentUseCase";
+import { OutputFindPaymentDTO } from "../../../core/useCase/payments/findByIdPayment/IFindPaymentDTO";
 import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
 
 class FindByIdPaymentController {
     
     constructor(private paymentsRepository: IPaymentsGateway){}
 
-    async handler(id: number): Promise<Payment> {
+    async handler(id: number): Promise<OutputFindPaymentDTO> {
 
-        const findByIdProductUseCase = new FindByIdPaymentUseCase(this.paymentsRepository)        
+        const findByIdPaymentUseCase = new FindByIdPaymentUseCase(this.paymentsRepository)        
 
-        return await findByIdProductUseCase.execute(id);       
+        return await findByIdPaymentUseCase.execute(id);       
 
     }
 }

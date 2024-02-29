@@ -1,13 +1,21 @@
 import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
 import { Category } from "../../../entity/Category";
+import { OutputFindCategoryDTO } from "../findByIdCategory/IFindCategoryDTO";
 
 class FindByNameCategoryUseCase {
 
-    constructor(private categoriesRepository: ICategoriesGateway){}
+    constructor(private categoriesRepository: ICategoriesGateway) { }
 
-    async execute(name: string): Promise<Category[]> {
+    async execute(name: string): Promise<OutputFindCategoryDTO[]> {
         const categories = await this.categoriesRepository.findByName(name)
-        return categories
+
+        const output = categories.map((elem) => ({
+            id: elem.id,
+            name: elem.name,        
+            description: elem.description
+        }))
+        
+        return output
     }
 }
 

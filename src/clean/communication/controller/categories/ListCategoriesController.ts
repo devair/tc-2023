@@ -1,12 +1,12 @@
 import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
-import { Category } from "../../../core/entity/Category";
 import { ListCategoriesUseCase } from "../../../core/useCase/categories/listCategories/ListCategoriesUseCase";
+import { OutputFindCategoryDTO } from "../../../core/useCase/categories/findByIdCategory/IFindCategoryDTO";
 
 class ListCategoriesController {
     
     constructor(private categoriesRepository: ICategoriesGateway){}
 
-    async handler(): Promise<Category[]> {
+    async handler(): Promise<OutputFindCategoryDTO[]> {
 
         const listCategoriesUseCase = new ListCategoriesUseCase(this.categoriesRepository)        
 

@@ -4,6 +4,7 @@ import { CustomersRepositoryPostgres } from "../../datasource/postgres/Customers
 import { ListCustomersController } from "../../../communication/controller/customers/ListCustomersController";
 import { FindByIdCustomerController } from "../../../communication/controller/customers/FindByIdCustomerController";
 import { SearchCustomersController } from "../../../communication/controller/customers/SearchCustomersController";
+import { CustomerPresenter } from "../presenter/customer/CustomerPresenter";
 
 class CustomersApi {
 
@@ -14,28 +15,28 @@ class CustomersApi {
         const createCustomerController = new CreateCustomerController(customersRepository)
 
         try {
-            await createCustomerController.handler({ name, email, cpf, phone });
+            const data = await createCustomerController.handler({ name, email, cpf, phone });
+            response.contentType('application/json')            
+            return response.status(201).send(CustomerPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-        return response.status(201).send();
+        }        
     }
 
     static async list(request: Request, response: Response): Promise<Response> {
 
         const customersRepository = new CustomersRepositoryPostgres()
         const listCustomersController = new ListCustomersController(customersRepository)
-
-        let all = []
-
+        
         try{
-            all = await listCustomersController.handler()
+            const data = await listCustomersController.handler()
+            response.contentType('application/json')
+            return response.status(200).send(CustomerPresenter.toJson(data))
+
         } catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-
-        return response.status(200).json(all)
+        }        
     }
 
     static async findById(request: Request, response: Response): Promise<Response>{
@@ -45,15 +46,14 @@ class CustomersApi {
         const customersRepository = new CustomersRepositoryPostgres()
         const findByIdCustomersController = new FindByIdCustomerController(customersRepository)
 
-        let customer;
-
         try{
-            customer = await findByIdCustomersController.handler( parseInt(id) )
+            const data = await findByIdCustomersController.handler( parseInt(id) )
+            response.contentType('application/json')
+            return response.status(200).send(CustomerPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(customer)
     }
 
     static async search (request: Request, response: Response): Promise<Response>{
@@ -63,15 +63,14 @@ class CustomersApi {
         const customersRepository = new CustomersRepositoryPostgres()
         const searchCustomersController = new SearchCustomersController(customersRepository)
 
-        let customers = [];
-        
         try{
-            customers = await searchCustomersController.handler(cpf, name)
+            const data = await searchCustomersController.handler(cpf, name)
+            response.contentType('application/json')
+            return response.status(200).send(CustomerPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
-        }
-        return response.status(200).json(customers)
+        }        
     }
 }
 

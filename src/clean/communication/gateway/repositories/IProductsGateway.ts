@@ -1,9 +1,9 @@
 import { Product } from '../../../core/entity/Product'
-import { ICreateProductDTO } from '../../../core/entity/dtos/ICreateProductDTO'
+import { InputCreateProductDTO } from '../../../core/useCase/products/createProduct/ICreateProductDTO'
 
 interface IProductsGateway{
     
-    create( {code, name, description, categoryId, price, image }: ICreateProductDTO ): Promise<Product>
+    create( {code, name, description, categoryId, price, image }: InputCreateProductDTO ): Promise<Product>
     
     list(): Promise<Product[]>   
     

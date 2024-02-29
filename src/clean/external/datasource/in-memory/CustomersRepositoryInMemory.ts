@@ -1,7 +1,7 @@
 import { Customer } from "../../../core/entity/Customer";
-import { ICreateCustomerDTO } from "../../../core/entity/dtos/ICreateCustomerDTO";
 import { ICustomersGateway } from "../../../communication/gateway/repositories/ICustomersGateway";
 import { genId } from "./Util";
+import { InputCreateCustomerDTO } from "../../../core/useCase/customers/createCustomer/ICreateCustomerDTO";
 
 class CustomersRepositoryInMemory implements ICustomersGateway{
 
@@ -11,7 +11,7 @@ class CustomersRepositoryInMemory implements ICustomersGateway{
         this.customers = []
     }
 
-    async create({ name, email, cpf, phone }: ICreateCustomerDTO ): Promise<Customer>  {
+    async create({ name, email, cpf, phone }: InputCreateCustomerDTO ): Promise<Customer>  {
         const customer = new Customer()
 
         const id = genId(this.customers)

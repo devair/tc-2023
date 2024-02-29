@@ -1,12 +1,12 @@
-import { ICreateCategoryDTO } from "../../../entity/dtos/ICreateCategoryDTO";
+
 import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
-import { Category } from "../../../entity/Category";
+import { InputCreateCategoryDTO, OutputCreateCategoryDTO } from "./ICreateCategoryDTO";
 
 class CreateCategoryUseCase {
 
     constructor(private categoriesRepository: ICategoriesGateway){}
 
-    async execute({ name, description }: ICreateCategoryDTO): Promise<Category> {
+    async execute({ name, description }: InputCreateCategoryDTO): Promise<OutputCreateCategoryDTO> {
 
         const categoryAlreadExists = await this.categoriesRepository.findByName(name)
 
@@ -16,7 +16,11 @@ class CreateCategoryUseCase {
 
         const category = await this.categoriesRepository.create({ name, description })
 
-        return category
+        return {
+            id: category.id,
+            name: category.name,
+            description: category.description
+        }
     }
 }
 

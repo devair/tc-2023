@@ -8,6 +8,8 @@ interface IPaymentsGateway {
     list(): Promise<Payment[]>
 
     findById(id: number): Promise<Payment>
+
+    findByOrder(orderId: number): Promise<Payment[]>
 }
 
 export { IPaymentsGateway }

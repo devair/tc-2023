@@ -1,8 +1,8 @@
-import { Repository, getRepository } from "typeorm";
-import { Product } from "../../../core/entity/Product";
-import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
-import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway";
-import { ProductEntity } from "../../../../shared/infra/typeorm/entities/ProductEntity";
+import { Repository, getRepository } from "typeorm"
+import { ProductEntity } from "../../../../shared/infra/typeorm/entities/ProductEntity"
+import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
+import { Product } from "../../../core/entity/Product"
+import { InputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO"
 
 class ProductsRepositoryPostgres implements IProductsGateway {
 
@@ -12,8 +12,7 @@ class ProductsRepositoryPostgres implements IProductsGateway {
         this.repository = getRepository(ProductEntity)
     }
 
-
-    async create({ code, name, description, categoryId, price, image }: ICreateProductDTO): Promise<Product> {
+    async create({ code, name, description, categoryId, price, image }: InputCreateProductDTO): Promise<Product> {
         const product = this.repository.create({ name, code, description, 
             categoryId, price, image })
 

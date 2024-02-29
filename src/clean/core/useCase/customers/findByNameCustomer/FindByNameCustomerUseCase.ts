@@ -1,19 +1,26 @@
 import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
-import { Customer } from "../../../entity/Customer"
+import { OutputFindCustomerDTO } from "../findByIdCustomer/IFindCustomerDTO"
 
 
 class FindByNameCustomerUseCase {
 
     constructor(private customersRepository: ICustomersGateway){}
 
-    async execute(name: string): Promise<Customer[]> {
-        const customer = await this.customersRepository.findByName(name)
+    async execute(name: string): Promise<OutputFindCustomerDTO[]> {
+        const customers = await this.customersRepository.findByName(name)
 
-        if(!customer){
+        if(!customers){
             throw new Error(`Customer's ${name} not found`)
         }
+        const output = customers.map((elem) => ({
+            id: elem.id,
+            name: elem.name,                    
+            cpf: elem.cpf,
+            email: elem.cpf,
+            phone: elem.phone
+        }))
 
-        return customer
+        return output
     }
 }
 

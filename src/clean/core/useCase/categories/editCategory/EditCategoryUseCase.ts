@@ -1,11 +1,11 @@
-import { IUpdateCategoryDTO } from "../../../entity/dtos/IUpdateCategoryDTO"
 import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { InputUpdateCategoryDTO } from "./IUpdateCategoryDTO"
 
 class EditCategoryUseCase {
 
     constructor(private categoriesRepository: ICategoriesGateway) { }
 
-    async execute({ id, name, description }: IUpdateCategoryDTO): Promise<void> {
+    async execute({ id, name, description }: InputUpdateCategoryDTO): Promise<void> {
 
         const categoryFound = await this.categoriesRepository.findById(id)
 
