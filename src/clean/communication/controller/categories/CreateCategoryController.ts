@@ -10,13 +10,7 @@ class CreateCategoryController {
 
         const categoryUseCase = new CreateCategoryUseCase(this.categoriesRepository)
         
-        const category = await categoryUseCase.execute(createCategory);
-        
-        return {
-            id: category.id,
-            name: category.name,
-            description: category.description
-        }
+        return await categoryUseCase.execute(createCategory);            
     }
 }
 

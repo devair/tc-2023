@@ -21,8 +21,7 @@ class CreateCustomerUseCase {
             name: customer.name,                    
             cpf: customer.cpf,
             email: customer.cpf,
-            phone: customer.phone
-        
+            phone: customer.phone        
         } 
     }       
 }
