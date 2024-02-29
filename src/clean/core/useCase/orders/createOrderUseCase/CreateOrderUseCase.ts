@@ -3,7 +3,7 @@ import { IOrderItemsGateway } from "../../../../communication/gateway/repositori
 import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway";
 import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway";
 import { Order } from "../../../entity/Order";
-import { ICreateOrderDTO } from "../../../entity/dtos/ICreateOrderDTO";
+import { InputCreateOrderDTO, OutputCreateOrderDTO } from "./ICreateOrderDTO";
 
 class CreateOrderUseCase {
 
@@ -14,7 +14,7 @@ class CreateOrderUseCase {
     ) {
 
     }
-    async execute({ customer, orderItems }: ICreateOrderDTO): Promise<Order> {
+    async execute({ customer, orderItems }: InputCreateOrderDTO): Promise<OutputCreateOrderDTO> {
 
         let customerFound
 
@@ -45,7 +45,11 @@ class CreateOrderUseCase {
 
         await this.orderItemsRepository.createAll(order.orderItems)
 
-        return orderCreated
+        return {
+            id: orderCreated.id,
+            status: orderCreated.status,
+            amount: orderCreated.amount
+        }
     }
 }
 
