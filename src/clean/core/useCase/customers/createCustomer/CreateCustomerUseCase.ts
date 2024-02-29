@@ -1,12 +1,12 @@
 import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway";
-import { Customer } from "../../../entity/Customer";
-import { ICreateCustomerDTO } from "../../../entity/dtos/ICreateCustomerDTO";
+import { InputCreateCustomerDTO, OutputCreateCustomerDTO } from "./ICreateCustomerDTO";
+
 
 class CreateCustomerUseCase {
     
     constructor(private customersRepository: ICustomersGateway){}
 
-    async execute({ name, email, cpf, phone }: ICreateCustomerDTO): Promise<Customer> {
+    async execute({ name, email, cpf, phone }: InputCreateCustomerDTO): Promise<OutputCreateCustomerDTO> {
 
         const customerAlreadyExists = await this.customersRepository.findByCpf(cpf)
 
@@ -14,9 +14,16 @@ class CreateCustomerUseCase {
             throw new Error(`Customer's cpf ${cpf} already exists`)
         }
 
-        const customer = { name, cpf, email, phone }
+        const customer = await this.customersRepository.create({ name, cpf, email, phone })
 
-        return await this.customersRepository.create(customer)
+        return { 
+            id: customer.id,
+            name: customer.name,                    
+            cpf: customer.cpf,
+            email: customer.cpf,
+            phone: customer.phone
+        
+        } 
     }       
 }
 

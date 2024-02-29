@@ -1,9 +1,9 @@
 import { Customer } from '../../../core/entity/Customer'
-import { ICreateCustomerDTO } from '../../../core/entity/dtos/ICreateCustomerDTO'
+import { InputCreateCustomerDTO } from '../../../core/useCase/customers/createCustomer/ICreateCustomerDTO'
 
 interface ICustomersGateway {
 
-    create({ name, email, cpf, phone }: ICreateCustomerDTO ): Promise<Customer>
+    create({ name, email, cpf, phone }: InputCreateCustomerDTO ): Promise<Customer>
 
     list(): Promise<Customer[]>
 
