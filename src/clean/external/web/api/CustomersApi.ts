@@ -16,13 +16,12 @@ class CustomersApi {
 
         try {
             const data = await createCustomerController.handler({ name, email, cpf, phone });
-
+            response.contentType('application/json')            
             return response.status(200).send(CustomerPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-        return response.status(201).send();
+        }        
     }
 
     static async list(request: Request, response: Response): Promise<Response> {
@@ -33,7 +32,6 @@ class CustomersApi {
         try{
             const data = await listCustomersController.handler()
             response.contentType('application/json')
-
             return response.status(200).send(CustomerPresenter.toJson(data))
 
         } catch (ex) {
@@ -50,7 +48,7 @@ class CustomersApi {
 
         try{
             const data = await findByIdCustomersController.handler( parseInt(id) )
-
+            response.contentType('application/json')
             return response.status(200).send(CustomerPresenter.toJson(data))
         }
         catch( ex ) {
@@ -65,11 +63,9 @@ class CustomersApi {
         const customersRepository = new CustomersRepositoryPostgres()
         const searchCustomersController = new SearchCustomersController(customersRepository)
 
-        let customers = [];
-        
         try{
             const data = await searchCustomersController.handler(cpf, name)
-
+            response.contentType('application/json')
             return response.status(200).send(CustomerPresenter.toJson(data))
         }
         catch( ex ) {

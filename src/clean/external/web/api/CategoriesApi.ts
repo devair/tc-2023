@@ -15,8 +15,8 @@ class CategoriesApi {
         const listCategoriesController = new ListCategoriesController(categoriesRepository)
         
         try{
-            const data  = await listCategoriesController.handler()
-            response.contentType('application/json')
+            const data  = await listCategoriesController.handler()    
+            response.contentType('application/json')       
             return response.status(200).send(CategoryPresenter.toJson(data))
 
         } catch (ex) {
@@ -72,8 +72,7 @@ class CategoriesApi {
         }
 
         try{
-            await editCategoryController.handler(object)
-            
+            await editCategoryController.handler(object)            
             return response.status(204).send()
         }
         catch( ex ) {

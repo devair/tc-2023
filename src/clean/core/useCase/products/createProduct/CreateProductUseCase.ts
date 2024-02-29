@@ -1,15 +1,13 @@
-import { ICreateProductDTO } from "../../../entity/dtos/ICreateProductDTO";
-import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway";
-import { Product } from "../../../entity/Product";
-import { FindByIdCategoryUseCase } from "../../categories/findByIdCategory/FindByIdCategoryUseCase";
 import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
+import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway";
+import { InputCreateProductDTO, OutputCreateProductDTO } from "../../../entity/dtos/ICreateProductDTO";
 
 class CreateProductUseCase {
 
     constructor(private productsRepository: IProductsGateway,
         private categoriesRepository: ICategoriesGateway){}
 
-    async execute ({code, name, description, categoryId, price, image }: ICreateProductDTO): Promise<Product>{
+    async execute ({code, name, description, categoryId, price, image }: InputCreateProductDTO): Promise<OutputCreateProductDTO>{
 
         const productAlreadyExists = await this.productsRepository.findByCode(code);
 
@@ -27,7 +25,19 @@ class CreateProductUseCase {
             code, name, description, categoryId: categoryFound.id, price, image
         })
 
-        return product
+        return {
+            id: product.id,
+            name: product.name,
+            code: product.code,
+            description: product.description,
+            price: product.price,
+            image: product.image,
+            category: {
+                id: categoryFound.id,
+                name: categoryFound.name,
+                description: categoryFound.description
+            }
+        }
     }
 }
 

@@ -1,9 +1,8 @@
-import { Product } from "../../../core/entity/Product";
-import { ICreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
-import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
-import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway";
-import { genId } from "./Util";
-
+import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway"
+import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
+import { Product } from "../../../core/entity/Product"
+import { InputCreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO"
+import { genId } from "./Util"
 
 class ProductsRepositoryInMemory implements IProductsGateway {
 
@@ -13,7 +12,7 @@ class ProductsRepositoryInMemory implements IProductsGateway {
         this.products = []
     }
  
-    async create({code, name, description, categoryId, price, image }: ICreateProductDTO ): Promise<Product> {
+    async create({code, name, description, categoryId, price, image }: InputCreateProductDTO ): Promise<Product> {
         
         const product = new Product()
         
