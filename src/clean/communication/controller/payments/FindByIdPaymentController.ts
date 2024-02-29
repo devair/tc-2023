@@ -8,9 +8,9 @@ class FindByIdPaymentController {
 
     async handler(id: number): Promise<OutputFindPaymentDTO> {
 
-        const findByIdProductUseCase = new FindByIdPaymentUseCase(this.paymentsRepository)        
+        const findByIdPaymentUseCase = new FindByIdPaymentUseCase(this.paymentsRepository)        
 
-        return await findByIdProductUseCase.execute(id);       
+        return await findByIdPaymentUseCase.execute(id);       
 
     }
 }

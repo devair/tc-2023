@@ -3,8 +3,9 @@ import { PaymentsRepositoryPostgres } from "../../datasource/postgres/PaymentsRe
 import { OrdersRepositoryPostgres } from "../../datasource/postgres/OrdersRepositoryPostgres";
 import { CreatePaymentController } from "../../../communication/controller/payments/CreatePaymentController";
 import { ListPaymentsController } from "../../../communication/controller/payments/ListPaymentsController";
-import { FindByIdPaymentController } from "../../../communication/controller/payments/FindByIdProductController";
+import { FindByIdPaymentController } from "../../../communication/controller/payments/FindByIdPaymentController";
 import { PaymentPresenter } from "../presenter/payment/PaymentPresenter";
+import { FindByOrderPaymentController } from "../../../communication/controller/payments/FindByOrderPaymentController";
 
 class PaymentsApi {
 
@@ -54,6 +55,20 @@ class PaymentsApi {
             return response.status(400).json({ message: ex.message })
         }
     }
+
+    static async findByOrder(request: Request, response: Response): Promise<Response> {
+        const { orderId } = request.params
+        const paymentsRepository = new PaymentsRepositoryPostgres()
+        const findByOrderPaymentController = new FindByOrderPaymentController(paymentsRepository)        
+
+        try{
+            const data = await findByOrderPaymentController.handler(parseInt(orderId))
+            response.contentType('application/json')
+            return response.status(200).send(PaymentPresenter.toJson(data))
+        } catch (ex) {
+            return response.status(400).json({ error: ex.message });
+        }        
+    }    
 }
 
 export { PaymentsApi }

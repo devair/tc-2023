@@ -24,6 +24,18 @@ class PaymentsRepositoryInMemory implements IPaymentsGateway{
 
         return payment
     }    
+
+    async findByOrder(orderId: number): Promise<Payment[]> {
+        let payments : Payment[] = []
+
+        this.payments.forEach((payment) => {
+            if(payment.orderId === orderId){
+                payments.push(payment)
+            }
+        })            
+
+        return payments
+    }
 }
 
 export { PaymentsRepositoryInMemory }
