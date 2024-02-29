@@ -2,8 +2,8 @@ import { OutputCreateCategoryDTO } from "../../../../core/useCase/categories/cre
 
 class CategoryPresenter {
 
-    public static toJson(data: any): any {
-        return data
+    public static toJson(data: any): string {
+        return JSON.stringify(data)
     }
 }
 

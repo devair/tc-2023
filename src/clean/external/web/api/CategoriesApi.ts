@@ -14,15 +14,15 @@ class CategoriesApi {
         const categoriesRepository = new CategoriesRepositoryPostgres()
         const listCategoriesController = new ListCategoriesController(categoriesRepository)
         
-        let all = []
-
         try{
-            all = await listCategoriesController.handler()
+            const data  = await listCategoriesController.handler()
+            response.contentType('application/json')
+            return response.status(200).send(CategoryPresenter.toJson(data))
+
         } catch (ex) {
             return response.status(400).json({ error: ex.message });
         }
 
-        return response.status(200).json(all)
     }
 
     static async create(request: Request, response: Response): Promise<Response> {
@@ -33,8 +33,8 @@ class CategoriesApi {
        
         try {
             const data = await createCategoryController.handler({ name, description });
-
-            return response.status(201).json(CategoryPresenter.toJson(data))
+            response.contentType('application/json')
+            return response.status(201).send(CategoryPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message })
@@ -50,8 +50,8 @@ class CategoriesApi {
 
         try{
             const data = await findByIdCategoryController.handler( parseInt(id) )  
-
-            return response.status(201).json(CategoryPresenter.toJson(data))
+            response.contentType('application/json')
+            return response.status(201).send(CategoryPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
@@ -72,12 +72,13 @@ class CategoriesApi {
         }
 
         try{
-            await editCategoryController.handler(object)            
+            await editCategoryController.handler(object)
+            
+            return response.status(204).send()
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
-        }
-        return response.status(204).send()
+        }        
     }
 
     static async search (request: Request, response: Response): Promise<Response>{
@@ -91,8 +92,8 @@ class CategoriesApi {
             if(name){
                 
                 const data = await findByNameCategoryController.handler( name.toString())
-                
-                return response.status(201).json(CategoryPresenter.toJson(data))
+                response.contentType('application/json')
+                return response.status(201).send(CategoryPresenter.toJson(data))
 
             }
         }
