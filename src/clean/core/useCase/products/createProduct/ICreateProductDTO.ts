@@ -1,4 +1,4 @@
-import { OutputFindCategoryDTO } from "../../useCase/categories/findByIdCategory/IFindCategoryDTO"
+import { OutputFindCategoryDTO } from "../../categories/findByIdCategory/IFindCategoryDTO"
 
 interface InputCreateProductDTO {
     name: string

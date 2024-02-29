@@ -1,7 +1,7 @@
 import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway"
 import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
 import { Product } from "../../../core/entity/Product"
-import { InputCreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO"
+import { InputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO"
 import { genId } from "./Util"
 
 class ProductsRepositoryInMemory implements IProductsGateway {

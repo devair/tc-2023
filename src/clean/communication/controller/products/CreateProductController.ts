@@ -2,7 +2,7 @@ import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
 import { CreateProductUseCase } from "../../../core/useCase/products/createProduct/CreateProductUseCase";
 
 import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
-import { InputCreateProductDTO, OutputCreateProductDTO } from "../../../core/entity/dtos/ICreateProductDTO";
+import { InputCreateProductDTO, OutputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO";
 
 class CreateProductController {
     
