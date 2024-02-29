@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { Order } from "../../../core/entity/Order";
 import { CreateOrderController } from "../../../communication/controller/orders/CreateOrderController";
 import { OrdersRepositoryPostgres } from "../../datasource/postgres/OrdersRepositoryPostgres";
 import { OrderItemsRepositoryPostgres } from "../../datasource/postgres/OrderItemsRepositoryPostgres";
@@ -8,6 +7,7 @@ import { ProductsRepositoryPostgres } from "../../datasource/postgres/ProductsRe
 import { ListOrdersController } from "../../../communication/controller/orders/ListOrdersController";
 import { FindByIdOrderController } from "../../../communication/controller/orders/FindByIdOrderController";
 import { UpdateOrderStatusController } from "../../../communication/controller/orders/UpdateOrderStatusController";
+import { OrderPresenter } from "../presenter/order/OrderPresenter";
 
 class OrdersApi {
 
@@ -21,49 +21,45 @@ class OrdersApi {
 
         const createOrderController = new CreateOrderController(ordersRepository,orderItemsRepository, 
             customersRepository, productsRepository)
-
-        let orderCreated: Order
         
         try {
-            orderCreated = await createOrderController.handler({ customer, orderItems })
+            const data = await createOrderController.handler({ customer, orderItems })
+            response.contentType('application/json')
+            return response.status(200).send(OrderPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-        return response.status(201).send({ order: orderCreated.id });
+        }        
     }
 
     static async list(request: Request, response: Response): Promise<Response> {
 
         const ordersRepository = new OrdersRepositoryPostgres()
         const listOrdersController = new ListOrdersController(ordersRepository)
-
-        let all = []
-
+        
         try{
-            all = await listOrdersController.handler()
+            const data = await listOrdersController.handler()
+            response.contentType('application/json')
+            return response.status(200).send(OrderPresenter.toJson(data))
         } catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-
-        return response.status(200).json(all)
+        }        
     }
 
     static async findById(request: Request, response: Response): Promise<Response> {
 
         const { id } = request.params
         const ordersRepository = new OrdersRepositoryPostgres()
-        const findByIdOrderController = new FindByIdOrderController(ordersRepository)
-        
-        let order: Order;
+        const findByIdOrderController = new FindByIdOrderController(ordersRepository)        
 
         try{
-            order = await findByIdOrderController.handler( parseInt(id) )
+            const data = await findByIdOrderController.handler( parseInt(id) )
+            response.contentType('application/json')
+            return response.status(200).send(OrderPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
-        }
-        return response.status(200).json(order)
+        }        
     }
 
     static async updateStatus(request: Request, response: Response): Promise<Response> {
@@ -75,14 +71,14 @@ class OrdersApi {
         const updateStatusOrderController = new UpdateOrderStatusController(ordersRepository)
         const orderToUpdate = { id: parseInt(id), status }
 
-        let order: Order
         try{
-            order =  await updateStatusOrderController.handler( orderToUpdate )            
+            const data =  await updateStatusOrderController.handler( orderToUpdate )     
+            response.contentType('application/json')
+            return response.status(200).send(OrderPresenter.toJson(data))       
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
-        }
-        return response.status(200).json({ id: order.id, status: order.status })
+        }        
     }
 }
 
