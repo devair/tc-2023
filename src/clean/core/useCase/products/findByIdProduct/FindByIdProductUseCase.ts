@@ -18,7 +18,8 @@ class FindByIdProductUseCase {
             code: product.code,
             description: product.description,
             price: product.price,
-            image: product.image                       
+            image: product.image,
+            categoryId: product.categoryId                       
         }
     }
 }

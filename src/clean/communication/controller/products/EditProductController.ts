@@ -1,14 +1,14 @@
+import { EditProductUseCase } from "../../../core/useCase/products/editProduct/EditProductUseCase";
+import { InputUpdateProductDTO } from "../../../core/useCase/products/editProduct/IUpdateProductDTO";
 import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
 import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
-import { IUpdateProductDTO } from "../../../core/entity/dtos/IUpdateProductDTO";
-import { EditProductUseCase } from "../../../core/useCase/products/editProduct/EditProductUseCase";
 
 class EditProductController {
     
     constructor(private productsRepository: IProductsGateway,
         private categoriesRepository: ICategoriesGateway){}
 
-    async handler({id, code, name, description, categoryId, price, image }: IUpdateProductDTO): Promise<void> {
+    async handler({id, code, name, description, categoryId, price, image }: InputUpdateProductDTO): Promise<void> {
 
         const editProductUseCase = new EditProductUseCase(this.productsRepository, this.categoriesRepository)        
 
