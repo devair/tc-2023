@@ -25,7 +25,7 @@ class OrdersApi {
         try {
             const data = await createOrderController.handler({ customer, orderItems })
             response.contentType('application/json')
-            return response.status(200).send(OrderPresenter.toJson(data))
+            return response.status(201).send(OrderPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });

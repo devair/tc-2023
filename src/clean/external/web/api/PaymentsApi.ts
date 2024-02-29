@@ -4,6 +4,7 @@ import { OrdersRepositoryPostgres } from "../../datasource/postgres/OrdersReposi
 import { CreatePaymentController } from "../../../communication/controller/payments/CreatePaymentController";
 import { ListPaymentsController } from "../../../communication/controller/payments/ListPaymentsController";
 import { FindByIdPaymentController } from "../../../communication/controller/payments/FindByIdProductController";
+import { PaymentPresenter } from "../presenter/payment/PaymentPresenter";
 
 class PaymentsApi {
 
@@ -15,28 +16,27 @@ class PaymentsApi {
         const createPaymentController = new CreatePaymentController(paymentsRepository, ordersRepository)
 
         try {
-            await createPaymentController.handler({ orderId, amount, paymentDate, paymentUniqueNumber });
+            const data = await createPaymentController.handler({ orderId, amount, paymentDate, paymentUniqueNumber });
+            response.contentType('application/json')
+            return response.status(201).send(PaymentPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-        return response.status(201).send();
+        }     
     }
 
     static async list(request: Request, response: Response): Promise<Response> {
 
         const paymentsRepository = new PaymentsRepositoryPostgres()
-        const listPaymentsController = new ListPaymentsController(paymentsRepository)
-
-        let all = []
+        const listPaymentsController = new ListPaymentsController(paymentsRepository)        
 
         try{
-            all = await listPaymentsController.handler()
+            const data = await listPaymentsController.handler()
+            response.contentType('application/json')
+            return response.status(200).send(PaymentPresenter.toJson(data))
         } catch (ex) {
             return response.status(400).json({ error: ex.message });
-        }
-
-        return response.status(200).json(all)
+        }        
     }
 
     static async findById(request: Request, response: Response): Promise<Response>{
@@ -45,15 +45,14 @@ class PaymentsApi {
         const paymentsRepository = new PaymentsRepositoryPostgres()
         const findByIdPaymentController = new FindByIdPaymentController(paymentsRepository)
 
-        let payment;
-
         try{
-            payment = await findByIdPaymentController.handler( parseInt(id) )
+            const data = await findByIdPaymentController.handler( parseInt(id) )
+            response.contentType('application/json')
+            return response.status(200).send(PaymentPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
         }
-        return response.status(200).json(payment)
     }
 }
 

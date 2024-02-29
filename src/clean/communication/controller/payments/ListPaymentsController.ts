@@ -1,4 +1,4 @@
-import { Payment } from "../../../core/entity/Payment";
+import { OutputFindPaymentDTO } from "../../../core/useCase/payments/findByIdPayment/IFindPaymentDTO";
 import { ListPaymentsUseCase } from "../../../core/useCase/payments/listPayments/ListPaymentsUseCase";
 import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
 
@@ -6,7 +6,7 @@ class ListPaymentsController {
     
     constructor(private paymentsRepository: IPaymentsGateway){}
 
-    async handler(): Promise<Payment[]> {
+    async handler(): Promise<OutputFindPaymentDTO[]> {
 
         const listPaymentsUseCase = new ListPaymentsUseCase(this.paymentsRepository)        
 

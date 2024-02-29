@@ -51,7 +51,7 @@ class CategoriesApi {
         try{
             const data = await findByIdCategoryController.handler( parseInt(id) )  
             response.contentType('application/json')
-            return response.status(201).send(CategoryPresenter.toJson(data))
+            return response.status(200).send(CategoryPresenter.toJson(data))
         }
         catch( ex ) {
             return response.status(400).json({ message: ex.message })
@@ -92,7 +92,7 @@ class CategoriesApi {
                 
                 const data = await findByNameCategoryController.handler( name.toString())
                 response.contentType('application/json')
-                return response.status(201).send(CategoryPresenter.toJson(data))
+                return response.status(200).send(CategoryPresenter.toJson(data))
 
             }
         }

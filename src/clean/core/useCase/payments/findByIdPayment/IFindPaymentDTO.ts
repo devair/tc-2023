@@ -1,10 +1,9 @@
-import { Order } from "../Order"
-
-interface ICreatePaymentDTO {    
+interface OutputFindPaymentDTO {
+    id: number
     orderId: number
     amount: number
     paymentDate: Date
     paymentUniqueNumber: string
 }
 
-export { ICreatePaymentDTO }
+export { OutputFindPaymentDTO  }

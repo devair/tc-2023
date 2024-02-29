@@ -24,7 +24,7 @@ class ProductsApi {
             const data = await createProductController.handler({ code, name, description, 
                 categoryId, price, image });
             response.contentType('application/json')
-            return response.status(200).send(ProductPresenter.toJson(data))
+            return response.status(201).send(ProductPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });

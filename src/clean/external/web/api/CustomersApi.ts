@@ -17,7 +17,7 @@ class CustomersApi {
         try {
             const data = await createCustomerController.handler({ name, email, cpf, phone });
             response.contentType('application/json')            
-            return response.status(200).send(CustomerPresenter.toJson(data))
+            return response.status(201).send(CustomerPresenter.toJson(data))
         }
         catch (ex) {
             return response.status(400).json({ error: ex.message });
