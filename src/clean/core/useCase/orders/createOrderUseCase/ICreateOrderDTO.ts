@@ -1,8 +1,8 @@
-import { ICreateOrderItemDTO } from "../../../entity/dtos/ICreateOrderItemDTO"
+import { InputCreateOrderItemDTO } from "./ICreateOrderItemDTO"
 
 interface InputCreateOrderDTO {
     customer: { cpf: string }
-    orderItems: ICreateOrderItemDTO[]
+    orderItems: InputCreateOrderItemDTO[]
 }
 
 interface OutputCreateOrderDTO {

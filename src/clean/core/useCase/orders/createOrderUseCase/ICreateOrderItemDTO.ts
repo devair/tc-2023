@@ -1,7 +1,7 @@
-interface ICreateOrderItemDTO {
+interface InputCreateOrderItemDTO {
     product: { code: string}
     quantity: number
     unitPrice: number
 }
 
-export { ICreateOrderItemDTO }
+export { InputCreateOrderItemDTO }
