@@ -1,15 +1,12 @@
-import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway";
 import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
-import { Customer } from "../../../core/entity/Customer";
-import { Order } from "../../../core/entity/Order";
-import { ListCustomersUseCase } from "../../../core/useCase/customers/listCustomers/ListCustomersUseCase";
 import { ListOrdersUseCase } from "../../../core/useCase/orders/listOrders/ListOrdersUseCase";
+import { OutputFindOrderDTO } from "../../../core/useCase/orders/findByIdOrder/IFindOrderDTO";
 
 class ListOrdersController {
 
     constructor(private ordersRepository: IOrdersGateway){}
 
-    async handler(): Promise<Order[]>{
+    async handler(): Promise<OutputFindOrderDTO[]>{
 
         const listOrdersUseCase = new ListOrdersUseCase(this.ordersRepository)
 

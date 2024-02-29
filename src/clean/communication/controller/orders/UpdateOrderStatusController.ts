@@ -1,13 +1,12 @@
 import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
-import { IUpdateOrderStatusDTO } from "../../../core/entity/dtos/IUpdateOrderStatusDTO";
-import { Order } from "../../../core/entity/Order";
 import { UpdateOrderStatusUseCase } from "../../../core/useCase/orders/updateStatus/UpdateOrderStatusUseCase";
+import { InputUpdateOrderStatusDTO, OutputUpdateOrderStatusDTO } from "../../../core/useCase/orders/updateStatus/IUpdateOrderStatusDTO";
 
 class UpdateOrderStatusController {
     
     constructor(private ordersRepository: IOrdersGateway ) {}
 
-    async handler({ id, status }: IUpdateOrderStatusDTO ): Promise<Order> {
+    async handler({ id, status }: InputUpdateOrderStatusDTO ): Promise<OutputUpdateOrderStatusDTO> {
 
         const updateOrderStatusUseCase = new UpdateOrderStatusUseCase(this.ordersRepository)        
 

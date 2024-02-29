@@ -69,10 +69,9 @@ class OrdersApi {
 
         const ordersRepository = new OrdersRepositoryPostgres()
         const updateStatusOrderController = new UpdateOrderStatusController(ordersRepository)
-        const orderToUpdate = { id: parseInt(id), status }
 
         try{
-            const data =  await updateStatusOrderController.handler( orderToUpdate )     
+            const data =  await updateStatusOrderController.handler( { id: parseInt(id), status } )     
             response.contentType('application/json')
             return response.status(200).send(OrderPresenter.toJson(data))       
         }
