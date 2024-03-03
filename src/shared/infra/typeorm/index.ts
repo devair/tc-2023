@@ -1,9 +1,9 @@
 import "reflect-metadata"
 import { DataSource } from 'typeorm'
 
-const dbname = process.env.DB_NAME || 'pedidos_db'
-const dbuser = process.env.DB_USER || 'docker'
-const dbpassword = process.env.DB_PASSWORD || 'docker'
+const dbname = process.env.POSTGRES_DB || 'pedidos_db'
+const dbuser = process.env.POSTGRES_USER || 'docker'
+const dbpassword = process.env.POSTGRES_PASSWORD || 'docker'
 const dbhost = process.env.DB_HOST || 'postgres-db'
     
 const AppDataSource = new DataSource({
