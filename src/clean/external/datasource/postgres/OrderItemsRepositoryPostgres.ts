@@ -1,16 +1,15 @@
-import { injectable } from "tsyringe";
-import { Repository, getRepository } from "typeorm";
+import { Repository } from "typeorm";
 import { OrderItem } from "../../../core/entity/OrderItem";
 import { OrderItemEntity } from "../../../../shared/infra/typeorm/entities/OrderItemEntity";
 import { IOrderItemsGateway } from "../../../communication/gateway/repositories/IOrderItemsGateway";
+import { AppDataSource } from "../../../../shared/infra/typeorm";
 
-@injectable()
 class OrderItemsRepositoryPostgres implements IOrderItemsGateway{
 
     private repository: Repository<OrderItem>
 
     constructor(){
-        this.repository = getRepository(OrderItemEntity)
+        this.repository = AppDataSource.getRepository(OrderItemEntity)
     }
 
     async create(orderItem: OrderItem): Promise<OrderItem> {
@@ -29,11 +28,9 @@ class OrderItemsRepositoryPostgres implements IOrderItemsGateway{
     }
     
     async findById(id: number): Promise<OrderItem> {
-        const orderItemFound = await this.repository.findOne( { id })
+        const orderItemFound = await this.repository.findOne( { where: { id }})
         return orderItemFound
     }
-
-
 }
 
 export { OrderItemsRepositoryPostgres }

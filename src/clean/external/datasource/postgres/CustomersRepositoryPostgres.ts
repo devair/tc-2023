@@ -1,15 +1,16 @@
-import { Repository, getRepository } from "typeorm";
+import { Repository } from "typeorm";
 import { Customer } from "../../../core/entity/Customer";
 import { ICustomersGateway } from "../../../communication/gateway/repositories/ICustomersGateway";
 import { CustomerEntity } from "../../../../shared/infra/typeorm/entities/CustomerEntity";
 import { InputCreateCustomerDTO } from "../../../core/useCase/customers/createCustomer/ICreateCustomerDTO";
+import { AppDataSource } from "../../../../shared/infra/typeorm";
 
 class CustomersRepositoryPostgres implements ICustomersGateway {
 
     private repository: Repository<Customer>
     
     constructor(){
-        this.repository = getRepository(CustomerEntity)
+        this.repository = AppDataSource.getRepository(CustomerEntity)
     }
 
     async create({ name, email, cpf, phone }: InputCreateCustomerDTO): Promise<Customer> {
@@ -29,12 +30,12 @@ class CustomersRepositoryPostgres implements ICustomersGateway {
     }
 
     async findByCpf(cpf: string): Promise<Customer> {
-        const customer = await this.repository.findOne( { cpf })
+        const customer = await this.repository.findOne( { where: { cpf }} )
         return customer
     }
     
     async findById(id: number): Promise<Customer> {
-        const customer = await this.repository.findOne( { id })
+        const customer = await this.repository.findOne( { where: { id }})
         return customer
     }
 

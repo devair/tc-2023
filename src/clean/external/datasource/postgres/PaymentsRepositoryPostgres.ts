@@ -1,14 +1,15 @@
-import { Repository, getRepository } from "typeorm";
+import { Repository } from "typeorm";
 import { Payment } from "../../../core/entity/Payment";
 import { IPaymentsGateway } from "../../../communication/gateway/repositories/IPaymentsGateway";
 import { PaymentEntity } from "../../../../shared/infra/typeorm/entities/PaymentEntity";
+import { AppDataSource } from "../../../../shared/infra/typeorm";
 
 class PaymentsRepositoryPostgres implements IPaymentsGateway{
     
     private repository: Repository<Payment>
 
     constructor(){
-        this.repository = getRepository(PaymentEntity)
+        this.repository = AppDataSource.getRepository(PaymentEntity)
     }
 
     async create(payment: Payment): Promise<Payment> {
@@ -22,7 +23,7 @@ class PaymentsRepositoryPostgres implements IPaymentsGateway{
     }
     
     async findById(id: number): Promise<Payment> {
-        const payment = this.repository.findOne({ id })
+        const payment = this.repository.findOne({where:{ id }})
         return payment
     }
 

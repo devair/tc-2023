@@ -1,14 +1,15 @@
-import { Repository, UpdateResult, getRepository } from "typeorm"
+import { Repository } from "typeorm"
 import { Order, OrderStatus } from "../../../core/entity/Order"
 import { IOrdersGateway } from "../../../communication/gateway/repositories/IOrdersGateway"
 import { OrderEntity } from "../../../../shared/infra/typeorm/entities/OrderEntity"
+import { AppDataSource } from "../../../../shared/infra/typeorm"
 
 class OrdersRepositoryPostgres implements IOrdersGateway{
     
     private repository: Repository<Order>
 
     constructor(){
-        this.repository = getRepository(OrderEntity)
+        this.repository = AppDataSource.getRepository(OrderEntity)
     }
 
     async create(order: Order): Promise<Order> {        
@@ -27,7 +28,7 @@ class OrdersRepositoryPostgres implements IOrdersGateway{
     }
 
     async findById(id: number): Promise<Order> {
-        const order = this.repository.findOne( { id })
+        const order = this.repository.findOne({where: { id }})
         return order
     }
 

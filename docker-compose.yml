@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  database_pedidos:
+  postgres-db:
     image: postgres
-    container_name: database_pedidos
+    container_name: postgres-db
     restart: always
     ports:
       - 5432:5432
@@ -25,10 +25,10 @@ services:
       - ./src:/usr/src/app/src 
 
     links:
-      - database_pedidos
+      - postgres-db
 
     depends_on:
-      - database_pedidos  
+      - postgres-db  
 
 volumes:
   pgdata:

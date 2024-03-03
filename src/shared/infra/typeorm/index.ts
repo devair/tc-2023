@@ -1,16 +1,31 @@
-import { createConnection, getConnectionOptions } from 'typeorm';
+import "reflect-metadata"
+import { DataSource } from 'typeorm'
 
-interface IOptions {
-    host: string;
-}
+const dbname = process.env.POSTGRES_DB || 'pedidos_db'
+const dbuser = process.env.POSTGRES_USER || 'docker'
+const dbpassword = process.env.POSTGRES_PASSWORD || 'docker'
+const dbhost = process.env.DB_HOST || 'postgres-db'
+    
+const AppDataSource = new DataSource({
+    type: "postgres",
+    host: dbhost,
+    port: 5432,
+    username: dbuser,
+    password: dbpassword,
+    database: dbname,
+    synchronize: true,
+    logging: true,
+    entities: ["./dist/shared/infra/typeorm/entities/*.js"],
+    subscribers: [],
+    migrations: [],
+})
 
-getConnectionOptions().then(options=>{
-    const newOptions = options as IOptions;
-    newOptions.host = 'database_pedidos';
+AppDataSource.initialize()
+    .then(() => {
+        console.log("Data Source has been initialized!")
+    })
+    .catch((err) => {
+        console.error("Error during Data Source initialization", err)
+    })
 
-    createConnection({
-        ...options,
-    });
-});
-
-
+export { AppDataSource } 
