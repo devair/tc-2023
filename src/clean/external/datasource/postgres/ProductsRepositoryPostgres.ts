@@ -1,15 +1,16 @@
-import { Repository, getRepository } from "typeorm"
+import { Repository } from "typeorm"
 import { ProductEntity } from "../../../../shared/infra/typeorm/entities/ProductEntity"
 import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
 import { Product } from "../../../core/entity/Product"
 import { InputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO"
+import { AppDataSource } from "../../../../shared/infra/typeorm"
 
 class ProductsRepositoryPostgres implements IProductsGateway {
 
     private repository: Repository<Product>
 
     constructor(){
-        this.repository = getRepository(ProductEntity)
+        this.repository = AppDataSource.getRepository(ProductEntity)
     }
 
     async create({ code, name, description, categoryId, price, image }: InputCreateProductDTO): Promise<Product> {
@@ -28,12 +29,12 @@ class ProductsRepositoryPostgres implements IProductsGateway {
     }
 
     async findById(id: number): Promise<Product> {
-        const product = await this.repository.findOne( { id })
+        const product = await this.repository.findOne( {where: { id }})
         return product
     }
 
     async findByCode(code: string): Promise<Product> {
-        const product = await this.repository.findOne( { code })
+        const product = await this.repository.findOne({where: { code }})
         return product
     }
 

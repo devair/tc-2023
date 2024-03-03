@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "author": "devair fanchiotti tonon",
   "license": "MIT",
-  "scripts": {    
+  "scripts": {
     "start": "tsc && node dist/server.js",
     "build": "tsc -p .",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
@@ -21,9 +21,9 @@
     "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
     "strip-bom-stream": "^5.0.0",
-    "swagger-ui-express": "^4.6.2",    
+    "swagger-ui-express": "^4.6.2",
     "tsyringe": "^4.7.0",
-    "typeorm": "0.2.45",
+    "typeorm": "^0.3.20",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
