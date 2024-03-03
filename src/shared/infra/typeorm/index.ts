@@ -1,13 +1,18 @@
 import "reflect-metadata"
 import { DataSource } from 'typeorm'
 
+const dbname = process.env.DB_NAME || 'pedidos_db'
+const dbuser = process.env.DB_USER || 'docker'
+const dbpassword = process.env.DB_PASSWORD || 'docker'
+const dbhost = process.env.DB_HOST || 'database_pedidos'
+    
 const AppDataSource = new DataSource({
     type: "postgres",
-    host: 'database_pedidos',
+    host: dbhost,
     port: 5432,
-    username: "docker",
-    password: "docker",
-    database: "pedidos_db",
+    username: dbuser,
+    password: dbpassword,
+    database: dbname,
     synchronize: true,
     logging: true,
     entities: ["./dist/shared/infra/typeorm/entities/*.js"],

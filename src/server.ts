@@ -5,6 +5,7 @@ import { router } from './clean/external/web/routers'
 import './shared/infra/typeorm';
 
 const app = express()
+const port = process.env.PORT || 3333;
 
 app.use(express.json())
 
@@ -14,4 +15,4 @@ app.get('/health', (request, response) => {
 
 app.use('/api/v1', router)
 
-app.listen(3333, () => console.log("Server is running"))
+app.listen(port, () => console.log(`Server is running at port ${port}`))
