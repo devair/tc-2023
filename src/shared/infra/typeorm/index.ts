@@ -4,7 +4,7 @@ import { DataSource } from 'typeorm'
 const dbname = process.env.DB_NAME || 'pedidos_db'
 const dbuser = process.env.DB_USER || 'docker'
 const dbpassword = process.env.DB_PASSWORD || 'docker'
-const dbhost = process.env.DB_HOST || 'database_pedidos'
+const dbhost = process.env.DB_HOST || 'postgres-db'
     
 const AppDataSource = new DataSource({
     type: "postgres",
