@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-app-node
+  name: svc-app
 spec:
   type: NodePort
   selector:
-    app: app-node
+    app: pod-app
   ports: 
     - port: 80     
       targetPort: 3333      

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cm-app
 data:  
-  DB_HOST: svc-postgres-db
+  DB_HOST: svc-postgres
   DB_PORT: "5432"
   DB_USER: docker
   DB_PASS: docker

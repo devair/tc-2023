@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: svc-postgres-db
+  name: svc-postgres
 spec:
   type: NodePort
   selector:
