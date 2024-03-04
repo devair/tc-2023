@@ -79,3 +79,13 @@ kubectl apply -f ./kubernetes/svc-postgres.yaml
 ~~~bash       
 kubectl apply -f ./kubernetes/svc-app.yaml
 ~~~
+
+
+### c) Redirecionar portas para acesso via localhost
+
+Para acessar a aplicação via local host na porta 3333, executar o comando abaixo:
+
+~~~
+bash
+kubectl port-forward service/svc-app 3333:80
+~~~
