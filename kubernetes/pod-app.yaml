@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app-tc-2023
+  name: app-node
   labels:
-    app: app-tc-2023
+    app: app-node
 spec:
   containers:
-    - name: app-tc-2023
+    - name: app-node
       image: devatron/tc-2023-repo:latest
       ports:
         - containerPort: 3333
