@@ -42,40 +42,40 @@ Acessar a pasta kubernetes e executar para cada arquivo o seguinte comando
 
 Implantar ConfigMaps
 ~~~bash
-kubectl apply ./kubernetes/cm-app.yaml        
+kubectl apply -f ./kubernetes/cm-app.yaml        
 ~~~
 
 ~~~bash
-kubectl apply ./kubernetes/cm-postgres.yaml   
+kubectl apply -f ./kubernetes/cm-postgres.yaml   
 ~~~
 
 Implantar Volume
 
 ~~~bash
-kubectl apply ./kubernetes/pv-postgres.yaml   
+kubectl apply -f ./kubernetes/pv-postgres.yaml   
 ~~~
 
 ~~~bash
-kubectl apply ./kubernetes/vc-postgres.yaml
+kubectl apply -f ./kubernetes/vc-postgres.yaml
 ~~~
 
 
 Implantar Pods
 
 ~~~bash
-kubectl apply ./kubernetes/pod-app.yaml
+kubectl apply -f ./kubernetes/pod-app.yaml
 ~~~
 
 ~~~bash
-kubectl apply ./kubernetes/pod-postgres.yml   
+kubectl apply -f ./kubernetes/pod-postgres.yml   
 ~~~
 
 Implantar Services
 
 ~~~bash
-kubectl apply ./kubernetes/svc-postgres.yaml
+kubectl apply -f ./kubernetes/svc-postgres.yaml
 ~~~
 
 ~~~bash       
-kubectl apply ./kubernetes/svc-app.yaml
+kubectl apply -f ./kubernetes/svc-app.yaml
 ~~~
