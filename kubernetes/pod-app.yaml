@@ -10,3 +10,7 @@ spec:
       image: devatron/tc-2023-repo:latest
       ports:
         - containerPort: 3333
+
+      envFrom:
+        - configMapRef:
+            name: cm-app
