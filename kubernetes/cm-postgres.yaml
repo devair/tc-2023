@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cm-postgres
+  labels:
+    app: cm-postgres
+data:
+  POSTGRES_USER: docker
+  POSTGRES_DB: pedidos_db
+  POSTGRES_PASSWORD: docker  
+  

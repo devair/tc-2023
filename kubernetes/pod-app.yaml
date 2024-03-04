@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-app
+  labels:
+    app: pod-app
+spec:
+  containers:
+    - name: pod-app
+      image: devatron/tc-2023-repo:latest
+      ports:
+        - containerPort: 3333
+
+      envFrom:
+        - configMapRef:
+            name: cm-app

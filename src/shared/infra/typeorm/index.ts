@@ -1,15 +1,19 @@
 import "reflect-metadata"
 import { DataSource } from 'typeorm'
+import * as dotenv from 'dotenv'
 
-const dbname = process.env.POSTGRES_DB || 'pedidos_db'
-const dbuser = process.env.POSTGRES_USER || 'docker'
-const dbpassword = process.env.POSTGRES_PASSWORD || 'docker'
-const dbhost = process.env.DB_HOST || 'postgres-db'
+dotenv.config()
+
+const dbname = process.env.DB_DATABASE //|| 'pedidos_db'
+const dbuser = process.env.DB_USER //|| 'docker'
+const dbpassword = process.env.DB_PASS //|| 'docker'
+const dbhost = process.env.DB_HOST // || 'postgres-db'
+const dbport = process.env.DB_PORT // || 'postgres-db'
     
 const AppDataSource = new DataSource({
     type: "postgres",
     host: dbhost,
-    port: 5432,
+    port: parseInt(dbport),
     username: dbuser,
     password: dbpassword,
     database: dbname,
