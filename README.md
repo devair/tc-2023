@@ -3,7 +3,7 @@
   
 Projeto exemplo de um sistema para gestão de pedidos de uma lanchonete utilizando os conceitos de Arquitetura Limpa (Clean Architecture)
   
-## 1) Rodar localmente no Docker 
+## 1) Rodar localmente no Docker for Windows
 
 Para executar a aplicação é necesssário ter o Docker instalado localmente
 
@@ -30,7 +30,7 @@ docker compose up
 
 Ter o Minikube instalado localmente
 
-### a) Iniciar o cluster do Minikube
+### a) Iniciar o cluster do Minikube para Windows
 
 ###
 ~~~bash
