@@ -85,7 +85,6 @@ kubectl apply -f ./kubernetes/svc-app.yaml
 
 Para acessar a aplicação via local host na porta 3333, executar o comando abaixo:
 
-~~~
-bash
+~~~bash
 kubectl port-forward service/svc-app 3333:80
 ~~~
