@@ -5,7 +5,7 @@ Projeto exemplo de um sistema para gestão de pedidos de uma lanchonete utilizan
   
 ## 1) Rodar localmente no Docker for Windows
 
-Para executar a aplicação é necesssário ter o Docker instalado localmente
+Para executar a aplicação é necesssário ter o Docker instalado localmente com o Kubernetes ativado
 
 ### a) Clonar o projeto 
 
