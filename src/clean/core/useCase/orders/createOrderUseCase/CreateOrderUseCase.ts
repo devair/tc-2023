@@ -1,7 +1,7 @@
-import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway";
-import { IOrderItemsGateway } from "../../../../communication/gateway/repositories/IOrderItemsGateway";
-import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway";
-import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway";
+import { ICustomersGateway } from "../../../../communication/gateway/ICustomersGateway";
+import { IOrderItemsGateway } from "../../../../communication/gateway/IOrderItemsGateway";
+import { IOrdersGateway } from "../../../../communication/gateway/IOrdersGateway";
+import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway";
 import { Order } from "../../../entity/Order";
 import { InputCreateOrderDTO, OutputCreateOrderDTO } from "./ICreateOrderDTO";
 

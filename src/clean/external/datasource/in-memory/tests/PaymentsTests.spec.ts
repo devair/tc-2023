@@ -7,11 +7,11 @@ import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Order, OrderStatus } from "../../../../core/entity/Order"
 import { OrderItem } from "../../../../core/entity/OrderItem"
 import { Payment } from "../../../../core/entity/Payment"
-import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
-import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
-import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
-import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
-import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
+import { IOrdersGateway } from "../../../../communication/gateway/IOrdersGateway"
+import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway"
+import { ICustomersGateway } from "../../../../communication/gateway/ICustomersGateway"
+import { IPaymentsGateway } from "../../../../communication/gateway/IPaymentsGateway"
+import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway"
 
 let ordersRepository: IOrdersGateway
 let customersRepository: ICustomersGateway

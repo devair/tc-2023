@@ -1,4 +1,4 @@
-import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
+import { IPaymentsGateway } from "../../../../communication/gateway/IPaymentsGateway"
 import { OutputFindPaymentDTO } from "./IFindPaymentDTO"
 
 class FindByIdPaymentUseCase {

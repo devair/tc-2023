@@ -1,5 +1,5 @@
-import { Customer } from '../../../core/entity/Customer'
-import { InputCreateCustomerDTO } from '../../../core/useCase/customers/createCustomer/ICreateCustomerDTO'
+import { Customer } from '../../core/entity/Customer'
+import { InputCreateCustomerDTO } from '../../core/useCase/customers/createCustomer/ICreateCustomerDTO'
 
 interface ICustomersGateway {
 

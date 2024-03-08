@@ -1,4 +1,4 @@
-import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway"
 import { InputUpdateCategoryDTO } from "./IUpdateCategoryDTO"
 
 class EditCategoryUseCase {

@@ -1,5 +1,5 @@
 import { Category } from "../../../core/entity/Category";
-import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway";
+import { ICategoriesGateway } from "../../../communication/gateway/ICategoriesGateway";
 import { genId } from "./Util";
 import { InputCreateCategoryDTO } from "../../../core/useCase/categories/createCategory/ICreateCategoryDTO";
 import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IUpdateCategoryDTO";

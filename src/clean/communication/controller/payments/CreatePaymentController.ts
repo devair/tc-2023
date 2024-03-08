@@ -1,7 +1,7 @@
 import { CreatePaymentUseCase } from "../../../core/useCase/payments/createPayment/CreatePaymentUseCase";
 import { InputCreatePaymentDTO, OutputCreatePaymentDTO } from "../../../core/useCase/payments/createPayment/ICreatePaymentDTO";
-import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
-import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
+import { IOrdersGateway } from "../../gateway/IOrdersGateway";
+import { IPaymentsGateway } from "../../gateway/IPaymentsGateway";
 
 class CreatePaymentController {
 

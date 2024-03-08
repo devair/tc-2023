@@ -1,5 +1,5 @@
 import { OrderItem } from "../../../core/entity/OrderItem"
-import { IOrderItemsGateway } from "../../../communication/gateway/repositories/IOrderItemsGateway"
+import { IOrderItemsGateway } from "../../../communication/gateway/IOrderItemsGateway"
 
 
 class OrderItemsRepositoryInMemory implements IOrderItemsGateway {

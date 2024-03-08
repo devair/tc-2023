@@ -1,7 +1,7 @@
-import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
+import { IProductsGateway } from "../../gateway/IProductsGateway";
 import { CreateProductUseCase } from "../../../core/useCase/products/createProduct/CreateProductUseCase";
 
-import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
+import { ICategoriesGateway } from "../../gateway/ICategoriesGateway";
 import { InputCreateProductDTO, OutputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO";
 
 class CreateProductController {

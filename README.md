@@ -88,3 +88,12 @@ Para acessar a aplicação via local host na porta 3333, executar o comando abai
 ~~~bash
 kubectl port-forward service/svc-app 3333:80
 ~~~
+
+### d) Verificar o estado da aplicação
+Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplicação está em execução
+
+~~~bash
+curl http://localhost:3333/health
+~~~
+
+

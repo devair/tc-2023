@@ -1,4 +1,4 @@
-import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway";
+import { ICustomersGateway } from "../../../../communication/gateway/ICustomersGateway";
 import { InputCreateCustomerDTO, OutputCreateCustomerDTO } from "./ICreateCustomerDTO";
 
 

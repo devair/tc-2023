@@ -1,6 +1,6 @@
 import { Repository } from "typeorm"
 import { ProductEntity } from "../../../../shared/infra/typeorm/entities/ProductEntity"
-import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
+import { IProductsGateway } from "../../../communication/gateway/IProductsGateway"
 import { Product } from "../../../core/entity/Product"
 import { InputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO"
 import { AppDataSource } from "../../../../shared/infra/typeorm"

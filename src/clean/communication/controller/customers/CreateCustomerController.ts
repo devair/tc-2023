@@ -1,4 +1,4 @@
-import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway";
+import { ICustomersGateway } from "../../gateway/ICustomersGateway";
 import { CreateCustomerUseCase } from "../../../core/useCase/customers/createCustomer/CreateCustomerUseCase";
 import { InputCreateCustomerDTO, OutputCreateCustomerDTO } from "../../../core/useCase/customers/createCustomer/ICreateCustomerDTO";
 

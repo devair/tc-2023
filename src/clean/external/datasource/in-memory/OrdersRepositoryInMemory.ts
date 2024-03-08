@@ -1,5 +1,5 @@
 import { Order } from "../../../core/entity/Order";
-import { IOrdersGateway } from "../../../communication/gateway/repositories/IOrdersGateway";
+import { IOrdersGateway } from "../../../communication/gateway/IOrdersGateway";
 import { genId } from "./Util";
 
 class OrdersRepositoryInMemory implements IOrdersGateway{

@@ -1,6 +1,6 @@
 import { Repository } from "typeorm";
 import { Customer } from "../../../core/entity/Customer";
-import { ICustomersGateway } from "../../../communication/gateway/repositories/ICustomersGateway";
+import { ICustomersGateway } from "../../../communication/gateway/ICustomersGateway";
 import { CustomerEntity } from "../../../../shared/infra/typeorm/entities/CustomerEntity";
 import { InputCreateCustomerDTO } from "../../../core/useCase/customers/createCustomer/ICreateCustomerDTO";
 import { AppDataSource } from "../../../../shared/infra/typeorm";
