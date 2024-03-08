@@ -1,5 +1,5 @@
 import { EditProductUseCase } from "../../../core/useCase/products/editProduct/EditProductUseCase";
-import { InputUpdateProductDTO } from "../../../core/useCase/products/editProduct/IUpdateProductDTO";
+import { InputUpdateProductDTO } from "../../../core/useCase/products/editProduct/IEditProductDTO";
 import { ICategoriesGateway } from "../../gateway/ICategoriesGateway";
 import { IProductsGateway } from "../../gateway/IProductsGateway";
 

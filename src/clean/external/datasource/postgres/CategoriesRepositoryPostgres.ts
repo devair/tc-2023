@@ -3,7 +3,7 @@ import { Category } from "../../../core/entity/Category";
 import { ICategoriesGateway } from "../../../communication/gateway/ICategoriesGateway";
 import { CategoryEntity } from "../../../../shared/infra/typeorm/entities/CategoryEntity";
 import { InputCreateCategoryDTO } from "../../../core/useCase/categories/createCategory/ICreateCategoryDTO";
-import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IUpdateCategoryDTO";
+import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IEditCategoryDTO";
 import { AppDataSource } from "../../../../shared/infra/typeorm";
 class CategoriesRepositoryPostgres implements ICategoriesGateway{
    

@@ -1,6 +1,6 @@
 import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway"
 import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway"
-import { InputUpdateProductDTO, OutputUpdateProductDTO } from "./IUpdateProductDTO"
+import { InputUpdateProductDTO, OutputUpdateProductDTO } from "./IEditProductDTO"
 
 class EditProductUseCase {
 
