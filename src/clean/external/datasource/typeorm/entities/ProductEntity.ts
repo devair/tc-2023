@@ -1,5 +1,5 @@
 import { EntitySchema } from 'typeorm';
-import { Product } from '../../../../clean/core/entity/Product';
+import { Product } from '../../../../core/entity/Product';
 import { BaseColumnSchemaPart } from './BaseColumnSchemaPart ';
 
 

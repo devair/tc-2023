@@ -1,8 +1,8 @@
 import { Repository } from "typeorm";
-import { OrderItem } from "../../../core/entity/OrderItem";
-import { OrderItemEntity } from "../../../../shared/infra/typeorm/entities/OrderItemEntity";
-import { IOrderItemsGateway } from "../../../communication/gateway/IOrderItemsGateway";
-import { AppDataSource } from "../../../../shared/infra/typeorm";
+import { OrderItem } from "../../../../core/entity/OrderItem";
+import { OrderItemEntity } from "../entities/OrderItemEntity";
+import { IOrderItemsGateway } from "../../../../communication/gateway/IOrderItemsGateway";
+import { AppDataSource } from "..";
 
 class OrderItemsRepositoryPostgres implements IOrderItemsGateway{
 

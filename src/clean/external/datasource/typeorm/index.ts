@@ -19,7 +19,7 @@ const AppDataSource = new DataSource({
     database: dbname,
     synchronize: true,
     logging: true,
-    entities: ["./dist/shared/infra/typeorm/entities/*.js"],
+    entities: ["./dist/clean/external/datasource/typeorm/entities/*.js"],
     subscribers: [],
     migrations: [],
 })
