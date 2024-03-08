@@ -7,7 +7,7 @@ import { FindByIdProductController } from "../../../communication/controller/pro
 import { SearchProductsController } from "../../../communication/controller/products/SearchProductsController";
 import { DeleteProductController } from "../../../communication/controller/products/DeleteProductController";
 import { EditProductController } from "../../../communication/controller/products/EditProductController";
-import { ProductPresenter } from "../presenter/product/ProductPresenter";
+import { ProductPresenter } from "../../../communication/presenter/ProductPresenter";
 
 
 class ProductsApi {

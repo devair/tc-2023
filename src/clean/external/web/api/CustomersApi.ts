@@ -4,7 +4,7 @@ import { CustomersRepositoryPostgres } from "../../datasource/postgres/Customers
 import { ListCustomersController } from "../../../communication/controller/customers/ListCustomersController";
 import { FindByIdCustomerController } from "../../../communication/controller/customers/FindByIdCustomerController";
 import { SearchCustomersController } from "../../../communication/controller/customers/SearchCustomersController";
-import { CustomerPresenter } from "../presenter/customer/CustomerPresenter";
+import { CustomerPresenter } from "../../../communication/presenter/CustomerPresenter";
 
 class CustomersApi {
 

@@ -7,7 +7,7 @@ import { ProductsRepositoryPostgres } from "../../datasource/postgres/ProductsRe
 import { ListOrdersController } from "../../../communication/controller/orders/ListOrdersController";
 import { FindByIdOrderController } from "../../../communication/controller/orders/FindByIdOrderController";
 import { UpdateOrderStatusController } from "../../../communication/controller/orders/UpdateOrderStatusController";
-import { OrderPresenter } from "../presenter/order/OrderPresenter";
+import { OrderPresenter } from "../../../communication/presenter/OrderPresenter";
 
 class OrdersApi {
 

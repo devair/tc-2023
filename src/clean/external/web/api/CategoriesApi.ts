@@ -5,7 +5,7 @@ import { ListCategoriesController } from "../../../communication/controller/cate
 import { CreateCategoryController } from "../../../communication/controller/categories/CreateCategoryController";
 import { EditCategoryController } from "../../../communication/controller/categories/EditCategoryController";
 import { FindByNameCategoryController } from "../../../communication/controller/categories/FindByNameCategoryController";
-import { CategoryPresenter } from "../presenter/category/CategoryPresenter";
+import { CategoryPresenter } from "../../../communication/presenter/CategoryPresenter";
 
 class CategoriesApi {
 
