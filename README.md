@@ -96,7 +96,7 @@ Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplic
 curl http://localhost:3333/health
 ~~~
 
-## 3) Utilizaçãp da aplicação
+## 3) Utilização da aplicação
 
 Para utilizar a aplicação precisa-se seguir a sequência de chamadas de APIs abaixo.
 
