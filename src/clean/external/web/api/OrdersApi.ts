@@ -28,7 +28,7 @@ class OrdersApi {
             return response.status(201).send(OrderPresenter.toJson(data))
         }
         catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 
@@ -42,7 +42,7 @@ class OrdersApi {
             response.contentType('application/json')
             return response.status(200).send(OrderPresenter.toJson(data))
         } catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 

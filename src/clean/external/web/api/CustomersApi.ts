@@ -20,7 +20,7 @@ class CustomersApi {
             return response.status(201).send(CustomerPresenter.toJson(data))
         }
         catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 
@@ -35,7 +35,7 @@ class CustomersApi {
             return response.status(200).send(CustomerPresenter.toJson(data))
 
         } catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 
