@@ -1669,11 +1669,87 @@
   },
   "components": {
     "schemas": {
-      "BadRequest": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string"
+      "Categories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "example": "drik"
+            },
+            "description": {
+              "type": "string",
+              "example": "cold drik"
+            }
+          }
+        }
+      },
+      "Products": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "example": "beer"
+            },
+            "code": {
+              "type": "string",
+              "example": "bear-1"
+            },
+            "categoryId": {
+              "type": "integer",
+              "example": 1
+            },
+            "price": {
+              "type": "number",
+              "example": 10
+            },
+            "image": {
+              "type": "string",
+              "example": "ssssss"
+            },
+            "description": {
+              "type": "string",
+              "example": "cold beer"
+            }
+          }
+        }
+      },
+      "Customers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "example": "John Snow"
+            },
+            "email": {
+              "type": "string",
+              "example": "test@example.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "77899933"
+            },
+            "cpf": {
+              "type": "string",
+              "example": "12345678901"
+            }
           }
         }
       },
@@ -1729,51 +1805,11 @@
           }
         }
       },
-      "Customers": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer",
-              "example": 1
-            },
-            "name": {
-              "type": "string",
-              "example": "John Snow"
-            },
-            "email": {
-              "type": "string",
-              "example": "test@example.com"
-            },
-            "phone": {
-              "type": "string",
-              "example": "77899933"
-            },
-            "cpf": {
-              "type": "string",
-              "example": "12345678901"
-            }
-          }
-        }
-      },
-      "Categories": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer",
-              "example": 1
-            },
-            "name": {
-              "type": "string",
-              "example": "drik"
-            },
-            "description": {
-              "type": "string",
-              "example": "cold drik"
-            }
+      "BadRequest": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
           }
         }
       },
@@ -1877,42 +1913,6 @@
           "description": {
             "type": "string",
             "example": "cold beer"
-          }
-        }
-      },
-      "Products": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer",
-              "example": 1
-            },
-            "name": {
-              "type": "string",
-              "example": "beer"
-            },
-            "code": {
-              "type": "string",
-              "example": "bear-1"
-            },
-            "categoryId": {
-              "type": "integer",
-              "example": 1
-            },
-            "price": {
-              "type": "number",
-              "example": 10
-            },
-            "image": {
-              "type": "string",
-              "example": "ssssss"
-            },
-            "description": {
-              "type": "string",
-              "example": "cold beer"
-            }
           }
         }
       },

@@ -267,3 +267,7 @@ Body Response:
     "paymentUniqueNumber": "<PAYMENT UNIQUE NUMBER>"
 }
 ~~~
+
+## 4) Documentação Swagger
+
+http://localhost:3333/api-docs
