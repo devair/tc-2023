@@ -35,4 +35,14 @@ describe('Category testes', ()=>{
 
     })
 
+    it('Should be able to find by name', async ()=>{
+
+        const category = await categoriesRepository.create( {name: 'Bebida', description: 'Bebidas'})
+
+        const categoryFound = await categoriesRepository.findByName(category.name)
+
+        expect(categoryFound).not.toBeUndefined()
+
+    })
+
 })
