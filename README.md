@@ -96,4 +96,24 @@ Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplic
 curl http://localhost:3333/health
 ~~~
 
+## 3) Utilizaçãp da aplicação
+
+Para utilizar a aplicação precisa-se seguir a sequência de chamadas de APIs abaixo.
+
+### a) Cadastro de Categorias
+
+Utilizar a API abaixo para inclusão de categorias.
+
+POST http://localhost:333/api/v1/categories
+
+Content-Type: application/json
+
+Body:
+~~~json
+{
+    "name": "<Category Name>",
+    "description": "<Category description>"
+}
+~~~
+
 
