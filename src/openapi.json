@@ -11,7 +11,23 @@
   "tags": [
     {
       "name": "categories",
-      "description": "Everything about categoriess"
+      "description": "Everything about categories"
+    },
+    {
+      "name": "products",
+      "description": "Everything about products"
+    },
+    {
+      "name": "customers",
+      "description": "Everything about customers"
+    },
+    {
+      "name": "orders",
+      "description": "Everything about orders"
+    },
+    {
+      "name": "payments",
+      "description": "Everything about payments"
     }
   ],
   "paths": {
@@ -205,7 +221,7 @@
           {
             "name": "categoryId",
             "in": "path",
-            "description": "ID of categories to update",
+            "description": "ID of category to update",
             "required": true,
             "schema": {
               "type": "string"
@@ -213,7 +229,7 @@
           }
         ],
         "requestBody": {
-          "description": "Update an existent user in the store",
+          "description": "Update an existent category",
           "content": {
             "application/json": {
               "schema": {
@@ -241,7 +257,19 @@
             "description": "No content"
           },
           "400": {
-            "description": "Bad request"
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "Server error"
@@ -254,13 +282,13 @@
         "tags": [
           "categories"
         ],
-        "summary": "Find categories by Name",
-        "description": "Returns a single categories",
+        "summary": "Search categories",
+        "description": "Returns categories",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "Name of categories to return",
+            "description": "Name of category to return",
             "required": true,
             "schema": {
               "type": "string"
@@ -480,6 +508,1163 @@
           }
         }
       }
+    },
+    "/api/v1/products/{productId}": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Find product by ID",
+        "description": "Returns a single product",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of product to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "beer"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "bear-1"
+                    },
+                    "categoryId": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "price": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "image": {
+                      "type": "string",
+                      "example": "ssssss"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "cold beer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Update product",
+        "description": "Update product.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of product to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent product",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name",
+                  "code",
+                  "description",
+                  "categoryId",
+                  "price"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "beer"
+                  },
+                  "code": {
+                    "type": "string",
+                    "example": "bear-1"
+                  },
+                  "categoryId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "price": {
+                    "type": "number",
+                    "example": 10
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "ssssss"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "cold beer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Delete product",
+        "description": "Delete product.",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID of product to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/products/search": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Search products",
+        "description": "Returns products",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of product to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryName",
+            "in": "query",
+            "description": "Name of category to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "Code of product to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "beer"
+                      },
+                      "code": {
+                        "type": "string",
+                        "example": "bear-1"
+                      },
+                      "categoryId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "price": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "ssssss"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "cold beer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/customers": {
+      "post": {
+        "tags": [
+          "customers"
+        ],
+        "summary": "Add a new customer",
+        "description": "Add a new customer",
+        "requestBody": {
+          "description": "Create a new customer",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "John Snow"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "test@example.com"
+                  },
+                  "phone": {
+                    "type": "string",
+                    "example": "77899933"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "example": "12345678901"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "John Snow"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "test@example.com"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "77899933"
+                    },
+                    "cpf": {
+                      "type": "string",
+                      "example": "12345678901"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "customers"
+        ],
+        "summary": "List customers",
+        "description": "List customers",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "John Snow"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "test@example.com"
+                      },
+                      "phone": {
+                        "type": "string",
+                        "example": "77899933"
+                      },
+                      "cpf": {
+                        "type": "string",
+                        "example": "12345678901"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/customers/{customerId}": {
+      "get": {
+        "tags": [
+          "customers"
+        ],
+        "summary": "Find customer by ID",
+        "description": "Returns a single customer",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "description": "ID of customer to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "John Snow"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "test@example.com"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "77899933"
+                    },
+                    "cpf": {
+                      "type": "string",
+                      "example": "12345678901"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/customers/search": {
+      "get": {
+        "tags": [
+          "customers"
+        ],
+        "summary": "Search customers",
+        "description": "Returns customers",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of customer to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cpf",
+            "in": "query",
+            "description": "CPF of customer to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "John Snow"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "test@example.com"
+                      },
+                      "phone": {
+                        "type": "string",
+                        "example": "77899933"
+                      },
+                      "cpf": {
+                        "type": "string",
+                        "example": "12345678901"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/orders": {
+      "post": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Add a new order",
+        "description": "Add a new order",
+        "requestBody": {
+          "description": "Create a new order",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customer": {
+                    "type": "object",
+                    "properties": {
+                      "cpf": {
+                        "type": "string",
+                        "example": "12345678901"
+                      }
+                    }
+                  },
+                  "orderItems": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "product": {
+                          "type": "object",
+                          "properties": {
+                            "code": {
+                              "type": "string",
+                              "example": "prod-1"
+                            }
+                          }
+                        },
+                        "quantity": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "unitPrice": {
+                          "type": "number",
+                          "example": 10
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "Aguardando pagamento"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "example": 10
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "List orders",
+        "description": "List orders",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "status": {
+                        "type": "string",
+                        "example": "Recebido"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2024-03-01T00:00:00.359Z"
+                      },
+                      "amount": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "customerId": {
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/{orderId}": {
+      "get": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Find order by ID",
+        "description": "Returns a single order",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of order to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "Recebido"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "example": "2024-03-01T00:00:00.359Z"
+                    },
+                    "amount": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "customerId": {
+                      "type": "integer",
+                      "example": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/orders/{orderId}/status": {
+      "patch": {
+        "tags": [
+          "orders"
+        ],
+        "summary": "Update order status",
+        "description": "Update order status.",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of order to update",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Update an existent order",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "example": "Pronto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "Pronto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/payments": {
+      "post": {
+        "tags": [
+          "payments"
+        ],
+        "summary": "Add a new payment to an order",
+        "description": "Add a new payment to an order",
+        "requestBody": {
+          "description": "Create a new order",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "orderId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "amount": {
+                    "type": "number",
+                    "example": 10
+                  },
+                  "paymentDate": {
+                    "type": "string",
+                    "example": "2024-03-01T00:00:00"
+                  },
+                  "paymentUniqueNumber": {
+                    "type": "string",
+                    "example": "a1sdf13a1sd3"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "orderId": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "amount": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "paymentDate": {
+                      "type": "string",
+                      "example": "2024-03-01T00:00:00"
+                    },
+                    "paymentUniqueNumber": {
+                      "type": "string",
+                      "example": "a1sdf13a1sd3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "summary": "List payments",
+        "description": "List payments",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "orderId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "amount": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "paymentDate": {
+                        "type": "string",
+                        "example": "2024-03-01T00:00:00"
+                      },
+                      "paymentUniqueNumber": {
+                        "type": "string",
+                        "example": "a1sdf13a1sd3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/payments/{paymentId}": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "summary": "Find payment by ID",
+        "description": "Returns a single payment",
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "description": "ID of payment to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "orderId": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "amount": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "paymentDate": {
+                      "type": "string",
+                      "example": "2024-03-01T00:00:00"
+                    },
+                    "paymentUniqueNumber": {
+                      "type": "string",
+                      "example": "a1sdf13a1sd3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
+    },
+    "/api/v1/payments/order/{orderId}": {
+      "get": {
+        "tags": [
+          "payments"
+        ],
+        "summary": "Find payment by order ID",
+        "description": "Returns payments",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of order to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "orderId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "amount": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "paymentDate": {
+                        "type": "string",
+                        "example": "2024-03-01T00:00:00"
+                      },
+                      "paymentUniqueNumber": {
+                        "type": "string",
+                        "example": "a1sdf13a1sd3"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -492,57 +1677,83 @@
           }
         }
       },
-      "Order": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 10
-          },
-          "categoriesId": {
-            "type": "integer",
-            "format": "int64",
-            "example": 198772
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "example": 7
-          },
-          "shipDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "string",
-            "description": "Order Status",
-            "example": "approved",
-            "enum": [
-              "placed",
-              "approved",
-              "delivered"
-            ]
-          },
-          "complete": {
-            "type": "boolean"
+      "Orders": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "status": {
+              "type": "string",
+              "example": "Recebido"
+            },
+            "createdAt": {
+              "type": "string",
+              "example": "2024-03-01T00:00:00.359Z"
+            },
+            "amount": {
+              "type": "number",
+              "example": 10
+            },
+            "customerId": {
+              "type": "integer",
+              "example": 1
+            }
           }
-        },
-        "xml": {
-          "name": "order"
         }
       },
-      "Customer": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 100000
-          },
-          "username": {
-            "type": "string",
-            "example": "fehguy"
+      "Payments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "orderId": {
+              "type": "integer",
+              "example": 1
+            },
+            "amount": {
+              "type": "number",
+              "example": 10
+            },
+            "paymentDate": {
+              "type": "string",
+              "example": "2024-03-01T00:00:00"
+            },
+            "paymentUniqueNumber": {
+              "type": "string",
+              "example": "a1sdf13a1sd3"
+            }
+          }
+        }
+      },
+      "Customers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "example": "John Snow"
+            },
+            "email": {
+              "type": "string",
+              "example": "test@example.com"
+            },
+            "phone": {
+              "type": "string",
+              "example": "77899933"
+            },
+            "cpf": {
+              "type": "string",
+              "example": "12345678901"
+            }
           }
         }
       },
@@ -702,6 +1913,196 @@
               "type": "string",
               "example": "cold beer"
             }
+          }
+        }
+      },
+      "customerCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John Snow"
+          },
+          "email": {
+            "type": "string",
+            "example": "test@example.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "77899933"
+          },
+          "cpf": {
+            "type": "string",
+            "example": "12345678901"
+          }
+        }
+      },
+      "customerCreated": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "John Snow"
+          },
+          "email": {
+            "type": "string",
+            "example": "test@example.com"
+          },
+          "phone": {
+            "type": "string",
+            "example": "77899933"
+          },
+          "cpf": {
+            "type": "string",
+            "example": "12345678901"
+          }
+        }
+      },
+      "orderCreate": {
+        "type": "object",
+        "properties": {
+          "customer": {
+            "type": "object",
+            "properties": {
+              "cpf": {
+                "type": "string",
+                "example": "12345678901"
+              }
+            }
+          },
+          "orderItems": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "example": "prod-1"
+                    }
+                  }
+                },
+                "quantity": {
+                  "type": "number",
+                  "example": 1
+                },
+                "unitPrice": {
+                  "type": "number",
+                  "example": 10
+                }
+              }
+            }
+          }
+        }
+      },
+      "orderCreated": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "status": {
+            "type": "string",
+            "example": "Aguardando pagamento"
+          },
+          "amount": {
+            "type": "number",
+            "example": 10
+          }
+        }
+      },
+      "orderItemList": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "status": {
+            "type": "string",
+            "example": "Recebido"
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "2024-03-01T00:00:00.359Z"
+          },
+          "amount": {
+            "type": "number",
+            "example": 10
+          },
+          "customerId": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "orderStatusUpdate": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "example": "Pronto"
+          }
+        }
+      },
+      "orderStatusUpdated": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "status": {
+            "type": "string",
+            "example": "Pronto"
+          }
+        }
+      },
+      "paymentCreate": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "example": 1
+          },
+          "amount": {
+            "type": "number",
+            "example": 10
+          },
+          "paymentDate": {
+            "type": "string",
+            "example": "2024-03-01T00:00:00"
+          },
+          "paymentUniqueNumber": {
+            "type": "string",
+            "example": "a1sdf13a1sd3"
+          }
+        }
+      },
+      "paymentCreated": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "example": 1
+          },
+          "amount": {
+            "type": "number",
+            "example": 10
+          },
+          "paymentDate": {
+            "type": "string",
+            "example": "2024-03-01T00:00:00"
+          },
+          "paymentUniqueNumber": {
+            "type": "string",
+            "example": "a1sdf13a1sd3"
           }
         }
       }
