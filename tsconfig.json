@@ -12,7 +12,8 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "sourceMap": true,
-    "outDir": "./dist"    
+    "outDir": "./dist",
+    "resolveJsonModule": true    
   },
   "include": ["./src/**/*.ts"],
   "exclude": [

@@ -8,9 +8,9 @@ class FindByNameCategoryController {
 
     async handler(name: string): Promise<OutputFindCategoryDTO[]> {
 
-        const findByIdCategoryUseCase = new FindByNameCategoryUseCase(this.categoriesRepository)        
+        const findByNameCategoryUseCase = new FindByNameCategoryUseCase(this.categoriesRepository)        
 
-        return await findByIdCategoryUseCase.execute(name);       
+        return await findByNameCategoryUseCase.execute(name);       
 
     }
 }

@@ -27,7 +27,7 @@ class ProductsApi {
             return response.status(201).send(ProductPresenter.toJson(data))
         }
         catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 
@@ -42,7 +42,7 @@ class ProductsApi {
             return response.status(200).send(ProductPresenter.toJson(data))
 
         } catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 

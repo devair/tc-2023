@@ -22,7 +22,7 @@ class PaymentsApi {
             return response.status(201).send(PaymentPresenter.toJson(data))
         }
         catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }     
     }
 
@@ -36,7 +36,7 @@ class PaymentsApi {
             response.contentType('application/json')
             return response.status(200).send(PaymentPresenter.toJson(data))
         } catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }
 
@@ -66,7 +66,7 @@ class PaymentsApi {
             response.contentType('application/json')
             return response.status(200).send(PaymentPresenter.toJson(data))
         } catch (ex) {
-            return response.status(400).json({ error: ex.message });
+            return response.status(400).json({ message: ex.message });
         }        
     }    
 }

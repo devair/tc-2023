@@ -96,4 +96,178 @@ Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplic
 curl http://localhost:3333/health
 ~~~
 
+## 3) Utilização da aplicação
 
+Para utilizar a aplicação precisa-se seguir a sequência de chamadas de APIs abaixo.
+
+### a) Cadastro de Categorias
+
+Utilizar a API abaixo para cadastro de categorias.
+
+POST http://localhost:3333/api/v1/categories
+
+Content-Type: application/json
+
+Body Request:
+~~~json
+{
+    "name": "<CATEGORY NAME>",
+    "description": "<CATEGORY DESCRIPTION>"
+}
+~~~
+
+Response Status Code: 201
+
+Body Response:
+~~~json
+{
+    "id": <CATEGORY ID>,
+    "name": "<CATEGORY NAME>",
+    "description": "<CATEGORY DESCRIPTION>"
+}
+~~~
+
+
+### b) Cadastro de Produtos
+
+Utilizar a API abaixo para cadastro de produtos.
+
+POST http://localhost:3333/api/v1/products
+
+Content-Type: application/json
+
+Body Request:
+~~~json
+{
+    "name": "<PRODUCT NAME>",
+    "code": "<PRODUCT CODE>",
+    "categoryId": <CATEGORY ID>,
+    "image": "<PRODUCT IMAGE>",
+    "price": <PRODUCT PRICE>,
+    "description": "<PRODUCT DESCRIPTION>"
+}
+~~~
+
+Response Status Code: 201
+
+Body Response:
+~~~json
+{
+    "name": "<PRODUCT NAME>",
+    "code": "<PRODUCT CODE>",    
+    "image": "<PRODUCT IMAGE>",
+    "price": <PRODUCT PRICE>,
+    "description": "<PRODUCT DESCRIPTION>"
+    "category": {
+        "id": <CATEGORY ID>,
+        "name": "<CATEGORY NAME>",
+        "description": "<CATEGORY DESCRIPTION>"
+    }
+}
+~~~
+
+### c) Cadastro de Clientes
+
+Opcionalmente um cliente pode ser cadastado, neste caso, utilizar a API abaixo para cadastro de clientes.
+
+POST http://localhost:3333/api/v1/customers
+
+Content-Type: application/json
+
+Body Request:
+~~~json
+{
+    "name": "<CUSTOMER NAME>",
+    "email": "<CUSTOMER EMAIL>",
+    "phone": "<CUSTOMER MOBILE>",
+    "cpf": "<CUSTOMER CPF>"
+}
+~~~
+
+Response Status Code: 201
+
+Body Response:
+~~~json
+{
+    "id": <CUSTOMER ID>,
+    "name": "<CUSTOMER NAME>",
+    "email": "<CUSTOMER EMAIL>",
+    "phone": "<CUSTOMER MOBILE>",
+    "cpf": "<CUSTOMER CPF>"
+}
+~~~
+
+### d) Inclusão de pedidos
+
+Utilizar a API abaixo para inclusão de pedidos.
+O atributo customer é opcional.
+
+POST http://localhost:3333/api/v1/orders
+
+Content-Type: application/json
+
+Body Request:
+~~~json
+{
+    "customer": {
+        "cpf": "<CUSTOMER CPF>"
+    },
+    "orderItems": [
+        {
+            "product": {
+                "code": "<PRODUCT CODE>"
+            },
+            "quantity": <REQUESTED QUANTITY>,
+            "unitPrice": <SOLD PRICE>
+        }
+    ]
+}
+~~~
+
+Response Status Code: 201
+
+Body Response:
+~~~json
+{
+    "id": <ORDER ID>,
+    "status": "<ORDER STATUS>",
+    "amount": <ORDER AMOUNT>
+}
+~~~
+
+### e) Inclusão de pagamento para um pedido
+
+Utilizar a API abaixo para inclusão de pagamento para um pedido.
+
+Utilizar a data no formato: "yyyy-MM-ddThh:mm:ss"
+
+
+POST http://localhost:3333/api/v1/payments
+
+Content-Type: application/json
+
+Body Request:
+~~~json
+{
+    "orderId": <ORDER ID>,
+    "paymentDate": "<PAYMENT DATE>",
+    "paymentUniqueNumber": "<PAYMENT UNIQUE NUMBER>"
+}
+~~~
+
+Response Status Code: 201
+
+Body Response:
+~~~json
+{
+    "id": <PAYMENT ID>,
+    "orderId": <ORDER ID>,
+    "amount": <PAID AMOUNT>,
+    "paymentDate": "<PAYMENT DATE>",
+    "paymentUniqueNumber": "<PAYMENT UNIQUE NUMBER>"
+}
+~~~
+
+## 4) Documentação Swagger
+
+http://localhost:3333/api-docs

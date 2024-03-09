@@ -1,5 +1,4 @@
 import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway";
-import { Category } from "../../../entity/Category";
 import { OutputFindCategoryDTO } from "../findByIdCategory/IFindCategoryDTO";
 
 class FindByNameCategoryUseCase {
