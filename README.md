@@ -250,7 +250,6 @@ Body Request:
 ~~~json
 {
     "orderId": <ORDER ID>,
-    "amount": <AMOUNT PAID>,
     "paymentDate": "<PAYMENT DATE>",
     "paymentUniqueNumber": "<PAYMENT UNIQUE NUMBER>"
 }
@@ -263,7 +262,7 @@ Body Response:
 {
     "id": <PAYMENT ID>,
     "orderId": <ORDER ID>,
-    "amount": <AMOUNT PAID>,
+    "amount": <PAID AMOUNT>,
     "paymentDate": "<PAYMENT DATE>",
     "paymentUniqueNumber": "<PAYMENT UNIQUE NUMBER>"
 }
