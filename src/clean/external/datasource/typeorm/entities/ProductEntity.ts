@@ -23,6 +23,7 @@ export const ProductEntity = new EntitySchema<Product>({
         },
         image: {
             type: 'varchar',
+            nullable: true
         },
         categoryId: {
             name: 'category_id',

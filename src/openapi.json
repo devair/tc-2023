@@ -123,13 +123,13 @@
         "tags": [
           "categories"
         ],
-        "summary": "Find categories by ID",
-        "description": "Returns a single categories",
+        "summary": "Find category by ID",
+        "description": "Returns a single category",
         "parameters": [
           {
             "name": "categoryId",
             "in": "path",
-            "description": "ID of categories to return",
+            "description": "ID of category to return",
             "required": true,
             "schema": {
               "type": "integer",
@@ -279,6 +279,159 @@
           }
         }
       }
+    },
+    "/api/v1/products": {
+      "post": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Add a new product",
+        "description": "Add a new product",
+        "requestBody": {
+          "description": "Create a new product",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "name",
+                  "code",
+                  "description",
+                  "categoryId",
+                  "price"
+                ],
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "beer"
+                  },
+                  "code": {
+                    "type": "string",
+                    "example": "bear-1"
+                  },
+                  "categoryId": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "price": {
+                    "type": "number",
+                    "example": 10
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "ssssss"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "cold beer"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "beer"
+                    },
+                    "code": {
+                      "type": "string",
+                      "example": "bear-1"
+                    },
+                    "categoryId": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "price": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "image": {
+                      "type": "string",
+                      "example": "ssssss"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "cold beer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "List products",
+        "description": "List categories",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "beer"
+                      },
+                      "code": {
+                        "type": "string",
+                        "example": "bear-1"
+                      },
+                      "categoryId": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "price": {
+                        "type": "number",
+                        "example": 10
+                      },
+                      "image": {
+                        "type": "string",
+                        "example": "ssssss"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "cold beer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -388,6 +541,111 @@
           "description": {
             "type": "string",
             "example": "cold drik"
+          }
+        }
+      },
+      "productCreate": {
+        "required": [
+          "name",
+          "code",
+          "description",
+          "categoryId",
+          "price"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "beer"
+          },
+          "code": {
+            "type": "string",
+            "example": "bear-1"
+          },
+          "categoryId": {
+            "type": "integer",
+            "example": 1
+          },
+          "price": {
+            "type": "number",
+            "example": 10
+          },
+          "image": {
+            "type": "string",
+            "example": "ssssss"
+          },
+          "description": {
+            "type": "string",
+            "example": "cold beer"
+          }
+        }
+      },
+      "productCreated": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "beer"
+          },
+          "code": {
+            "type": "string",
+            "example": "bear-1"
+          },
+          "categoryId": {
+            "type": "integer",
+            "example": 1
+          },
+          "price": {
+            "type": "number",
+            "example": 10
+          },
+          "image": {
+            "type": "string",
+            "example": "ssssss"
+          },
+          "description": {
+            "type": "string",
+            "example": "cold beer"
+          }
+        }
+      },
+      "Products": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "example": "beer"
+            },
+            "code": {
+              "type": "string",
+              "example": "bear-1"
+            },
+            "categoryId": {
+              "type": "integer",
+              "example": 1
+            },
+            "price": {
+              "type": "number",
+              "example": 10
+            },
+            "image": {
+              "type": "string",
+              "example": "ssssss"
+            },
+            "description": {
+              "type": "string",
+              "example": "cold beer"
+            }
           }
         }
       }

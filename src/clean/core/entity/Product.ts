@@ -11,7 +11,7 @@ class Product {
     orderItems: OrderItem[]
     orders: Order []
     categoryId: number
-    price: number
+    price?: number
     image: string
     createdAt: Date    
 }
