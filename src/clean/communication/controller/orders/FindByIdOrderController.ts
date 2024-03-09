@@ -1,4 +1,4 @@
-import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
+import { IOrdersGateway } from "../../gateway/IOrdersGateway";
 import { FindByIdOrderUseCase } from "../../../core/useCase/orders/findByIdOrder/FindByIdOrderUseCase";
 import { OutputFindOrderDTO } from "../../../core/useCase/orders/findByIdOrder/IFindOrderDTO";
 

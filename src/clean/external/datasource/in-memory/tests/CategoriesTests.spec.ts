@@ -1,5 +1,5 @@
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
-import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway"
 
 let categoriesRepository : ICategoriesGateway
 

@@ -1,5 +1,5 @@
 
-import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway";
+import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway";
 import { InputCreateCategoryDTO, OutputCreateCategoryDTO } from "./ICreateCategoryDTO";
 
 class CreateCategoryUseCase {

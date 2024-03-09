@@ -1,4 +1,4 @@
-import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
+import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway"
 import { Product } from "../../../entity/Product"
 import { OutputFindProductDTO } from "../findByIdProduct/IFindProductDTO"
 

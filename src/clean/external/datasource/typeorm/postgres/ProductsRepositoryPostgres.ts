@@ -1,9 +1,9 @@
 import { Repository } from "typeorm"
-import { ProductEntity } from "../../../../shared/infra/typeorm/entities/ProductEntity"
-import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
-import { Product } from "../../../core/entity/Product"
-import { InputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO"
-import { AppDataSource } from "../../../../shared/infra/typeorm"
+import { ProductEntity } from "../entities/ProductEntity"
+import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway"
+import { Product } from "../../../../core/entity/Product"
+import { InputCreateProductDTO } from "../../../../core/useCase/products/createProduct/ICreateProductDTO"
+import { AppDataSource } from ".."
 
 class ProductsRepositoryPostgres implements IProductsGateway {
 

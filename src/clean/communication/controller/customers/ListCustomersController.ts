@@ -1,4 +1,4 @@
-import { ICustomersGateway } from "../../gateway/repositories/ICustomersGateway";
+import { ICustomersGateway } from "../../gateway/ICustomersGateway";
 import { ListCustomersUseCase } from "../../../core/useCase/customers/listCustomers/ListCustomersUseCase";
 import { OutputFindCustomerDTO } from "../../../core/useCase/customers/findByIdCustomer/IFindCustomerDTO";
 

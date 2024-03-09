@@ -1,4 +1,4 @@
-import { Payment } from "../../../core/entity/Payment"
+import { Payment } from "../../core/entity/Payment"
 
 
 interface IPaymentsGateway {

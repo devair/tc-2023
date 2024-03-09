@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { PaymentsRepositoryPostgres } from "../../datasource/postgres/PaymentsRepositoryPostgres";
-import { OrdersRepositoryPostgres } from "../../datasource/postgres/OrdersRepositoryPostgres";
+import { PaymentsRepositoryPostgres } from "../../datasource/typeorm/postgres/PaymentsRepositoryPostgres";
+import { OrdersRepositoryPostgres } from "../../datasource/typeorm/postgres/OrdersRepositoryPostgres";
 import { CreatePaymentController } from "../../../communication/controller/payments/CreatePaymentController";
 import { ListPaymentsController } from "../../../communication/controller/payments/ListPaymentsController";
 import { FindByIdPaymentController } from "../../../communication/controller/payments/FindByIdPaymentController";
-import { PaymentPresenter } from "../presenter/payment/PaymentPresenter";
+import { PaymentPresenter } from "../../../communication/presenter/PaymentPresenter";
 import { FindByOrderPaymentController } from "../../../communication/controller/payments/FindByOrderPaymentController";
 
 class PaymentsApi {

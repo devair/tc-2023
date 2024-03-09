@@ -1,8 +1,8 @@
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Product } from "../../../../core/entity/Product"
-import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
+import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway"
 import { Category } from "../../../../core/entity/Category"
-import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway"
 import { CategoriesRepositoryInMemory } from "../CategoriesRepositoryInMemory"
 
 let productsRepository : IProductsGateway

@@ -1,7 +1,7 @@
 import { EditProductUseCase } from "../../../core/useCase/products/editProduct/EditProductUseCase";
-import { InputUpdateProductDTO } from "../../../core/useCase/products/editProduct/IUpdateProductDTO";
-import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
-import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
+import { InputUpdateProductDTO } from "../../../core/useCase/products/editProduct/IEditProductDTO";
+import { ICategoriesGateway } from "../../gateway/ICategoriesGateway";
+import { IProductsGateway } from "../../gateway/IProductsGateway";
 
 class EditProductController {
     

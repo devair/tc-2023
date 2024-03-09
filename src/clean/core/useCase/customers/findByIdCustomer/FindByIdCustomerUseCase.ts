@@ -1,5 +1,4 @@
-import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
-import { Customer } from "../../../entity/Customer"
+import { ICustomersGateway } from "../../../../communication/gateway/ICustomersGateway"
 import { OutputFindCustomerDTO } from "./IFindCustomerDTO"
 
 

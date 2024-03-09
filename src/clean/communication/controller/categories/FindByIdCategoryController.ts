@@ -1,4 +1,4 @@
-import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
+import { ICategoriesGateway } from "../../gateway/ICategoriesGateway";
 import { FindByIdCategoryUseCase } from "../../../core/useCase/categories/findByIdCategory/FindByIdCategoryUseCase";
 import { OutputFindCategoryDTO } from "../../../core/useCase/categories/findByIdCategory/IFindCategoryDTO";
 

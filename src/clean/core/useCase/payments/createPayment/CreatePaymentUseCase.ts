@@ -1,5 +1,5 @@
-import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
-import { IPaymentsGateway } from "../../../../communication/gateway/repositories/IPaymentsGateway"
+import { IOrdersGateway } from "../../../../communication/gateway/IOrdersGateway"
+import { IPaymentsGateway } from "../../../../communication/gateway/IPaymentsGateway"
 import { OrderStatus } from "../../../entity/Order"
 import { Payment } from "../../../entity/Payment"
 import { InputCreatePaymentDTO, OutputCreatePaymentDTO } from "./ICreatePaymentDTO"

@@ -1,6 +1,6 @@
 import { OutputFindPaymentDTO } from "../../../core/useCase/payments/findByIdPayment/IFindPaymentDTO";
 import { ListPaymentsUseCase } from "../../../core/useCase/payments/listPayments/ListPaymentsUseCase";
-import { IPaymentsGateway } from "../../gateway/repositories/IPaymentsGateway";
+import { IPaymentsGateway } from "../../gateway/IPaymentsGateway";
 
 class ListPaymentsController {
     

@@ -1,4 +1,4 @@
-import { OrderItem } from "../../../core/entity/OrderItem"
+import { OrderItem } from "../../core/entity/OrderItem"
 
 interface IOrderItemsGateway {
 

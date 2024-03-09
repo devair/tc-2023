@@ -1,4 +1,4 @@
-import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
+import { IOrdersGateway } from "../../../../communication/gateway/IOrdersGateway"
 import { OutputFindOrderDTO } from "./IFindOrderDTO";
 
 class FindByIdOrderUseCase {

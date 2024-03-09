@@ -1,5 +1,5 @@
-import { ICategoriesGateway } from "../../../communication/gateway/repositories/ICategoriesGateway"
-import { IProductsGateway } from "../../../communication/gateway/repositories/IProductsGateway"
+import { ICategoriesGateway } from "../../../communication/gateway/ICategoriesGateway"
+import { IProductsGateway } from "../../../communication/gateway/IProductsGateway"
 import { Product } from "../../../core/entity/Product"
 import { InputCreateProductDTO } from "../../../core/useCase/products/createProduct/ICreateProductDTO"
 import { genId } from "./Util"

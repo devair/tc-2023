@@ -1,6 +1,6 @@
-import { ICategoriesGateway } from "../../gateway/repositories/ICategoriesGateway";
+import { ICategoriesGateway } from "../../gateway/ICategoriesGateway";
 import { EditCategoryUseCase } from "../../../core/useCase/categories/editCategory/EditCategoryUseCase";
-import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IUpdateCategoryDTO";
+import { InputUpdateCategoryDTO } from "../../../core/useCase/categories/editCategory/IEditCategoryDTO";
 
 class EditCategoryController {
     

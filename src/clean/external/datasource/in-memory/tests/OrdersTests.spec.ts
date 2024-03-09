@@ -5,10 +5,10 @@ import { OrdersRepositoryInMemory } from "../OrdersRepositoryInMemory"
 import { ProductsRepositoryInMemory } from "../ProductsRepositoryInMemory"
 import { Order } from "../../../../core/entity/Order"
 import { OrderItem } from "../../../../core/entity/OrderItem"
-import { IOrdersGateway } from "../../../../communication/gateway/repositories/IOrdersGateway"
-import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
-import { IProductsGateway } from "../../../../communication/gateway/repositories/IProductsGateway"
-import { ICategoriesGateway } from "../../../../communication/gateway/repositories/ICategoriesGateway"
+import { IOrdersGateway } from "../../../../communication/gateway/IOrdersGateway"
+import { ICustomersGateway } from "../../../../communication/gateway/ICustomersGateway"
+import { IProductsGateway } from "../../../../communication/gateway/IProductsGateway"
+import { ICategoriesGateway } from "../../../../communication/gateway/ICategoriesGateway"
 
 let ordersRepository: IOrdersGateway
 let customersRepository: ICustomersGateway

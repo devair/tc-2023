@@ -1,16 +1,19 @@
-echo "Implantar ConfigMaps"
+echo "Cleaning old Pods"
+kubectl delete pods --all
+
+echo "Deploying ConfigMaps"
 kubectl apply -f cm-app.yaml        
 kubectl apply -f cm-postgres.yaml   
 
-echo "Implantar Volume"
+echo "Deploying Volume"
 kubectl apply -f pv-postgres.yaml   
 kubectl apply -f vc-postgres.yaml
 
-echo "Implantar Pods"
+echo "Deploying Pods"
 kubectl apply -f pod-app.yaml
 kubectl apply -f pod-postgres.yml   
 
-echo "Implantar Services"
+echo "Deploying Services"
 
 kubectl apply -f svc-postgres.yaml
 kubectl apply -f svc-app.yaml

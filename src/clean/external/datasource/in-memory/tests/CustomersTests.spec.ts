@@ -1,5 +1,5 @@
 import { CustomersRepositoryInMemory } from "../CustomersRepositoryInMemory"
-import { ICustomersGateway } from "../../../../communication/gateway/repositories/ICustomersGateway"
+import { ICustomersGateway } from "../../../../communication/gateway/ICustomersGateway"
 
 let customersRepository: ICustomersGateway
 

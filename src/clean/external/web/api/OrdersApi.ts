@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import { CreateOrderController } from "../../../communication/controller/orders/CreateOrderController";
-import { OrdersRepositoryPostgres } from "../../datasource/postgres/OrdersRepositoryPostgres";
-import { OrderItemsRepositoryPostgres } from "../../datasource/postgres/OrderItemsRepositoryPostgres";
-import { CustomersRepositoryPostgres } from "../../datasource/postgres/CustomersRepositoryPostgres";
-import { ProductsRepositoryPostgres } from "../../datasource/postgres/ProductsRepositoryPostgres";
+import { OrdersRepositoryPostgres } from "../../datasource/typeorm/postgres/OrdersRepositoryPostgres";
+import { OrderItemsRepositoryPostgres } from "../../datasource/typeorm/postgres/OrderItemsRepositoryPostgres";
+import { CustomersRepositoryPostgres } from "../../datasource/typeorm/postgres/CustomersRepositoryPostgres";
+import { ProductsRepositoryPostgres } from "../../datasource/typeorm/postgres/ProductsRepositoryPostgres";
 import { ListOrdersController } from "../../../communication/controller/orders/ListOrdersController";
 import { FindByIdOrderController } from "../../../communication/controller/orders/FindByIdOrderController";
 import { UpdateOrderStatusController } from "../../../communication/controller/orders/UpdateOrderStatusController";
-import { OrderPresenter } from "../presenter/order/OrderPresenter";
+import { OrderPresenter } from "../../../communication/presenter/OrderPresenter";
 
 class OrdersApi {
 

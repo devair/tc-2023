@@ -1,4 +1,4 @@
-import { IOrdersGateway } from "../../gateway/repositories/IOrdersGateway";
+import { IOrdersGateway } from "../../gateway/IOrdersGateway";
 import { UpdateOrderStatusUseCase } from "../../../core/useCase/orders/updateStatus/UpdateOrderStatusUseCase";
 import { InputUpdateOrderStatusDTO, OutputUpdateOrderStatusDTO } from "../../../core/useCase/orders/updateStatus/IUpdateOrderStatusDTO";
 

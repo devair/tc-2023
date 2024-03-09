@@ -1,4 +1,4 @@
-import { IProductsGateway } from "../../gateway/repositories/IProductsGateway";
+import { IProductsGateway } from "../../gateway/IProductsGateway";
 import { FindByCodeProductUseCase } from "../../../core/useCase/products/findByCodeProduct/FindByCodeProductUseCase";
 import { FindByNameProductUseCase } from "../../../core/useCase/products/findByNameProduct/FindByNameProductUseCase";
 import { FindProductByCategoryNameUseCase } from "../../../core/useCase/products/findProductByCategoryName/FindProductByCategoryNameUseCase";

@@ -1,6 +1,6 @@
-import { Category } from '../../../core/entity/Category'
-import { InputCreateCategoryDTO, OutputCreateCategoryDTO } from '../../../core/useCase/categories/createCategory/ICreateCategoryDTO'
-import { InputUpdateCategoryDTO } from '../../../core/useCase/categories/editCategory/IUpdateCategoryDTO'
+import { Category } from '../../core/entity/Category'
+import { InputCreateCategoryDTO } from '../../core/useCase/categories/createCategory/ICreateCategoryDTO'
+import { InputUpdateCategoryDTO } from '../../core/useCase/categories/editCategory/IEditCategoryDTO'
 interface ICategoriesGateway{
 
     create( { name, description }: InputCreateCategoryDTO ): Promise<Category>

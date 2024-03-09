@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { ProductsRepositoryPostgres } from "../../datasource/postgres/ProductsRepositoryPostgres";
-import { CategoriesRepositoryPostgres } from "../../datasource/postgres/CategoriesRepositoryPostgres";
+import { ProductsRepositoryPostgres } from "../../datasource/typeorm/postgres/ProductsRepositoryPostgres";
+import { CategoriesRepositoryPostgres } from "../../datasource/typeorm/postgres/CategoriesRepositoryPostgres";
 import { CreateProductController } from "../../../communication/controller/products/CreateProductController";
 import { ListProductsController } from "../../../communication/controller/products/ListProductsController";
 import { FindByIdProductController } from "../../../communication/controller/products/FindByIdProductController";
 import { SearchProductsController } from "../../../communication/controller/products/SearchProductsController";
 import { DeleteProductController } from "../../../communication/controller/products/DeleteProductController";
 import { EditProductController } from "../../../communication/controller/products/EditProductController";
-import { ProductPresenter } from "../presenter/product/ProductPresenter";
+import { ProductPresenter } from "../../../communication/presenter/ProductPresenter";
 
 
 class ProductsApi {
