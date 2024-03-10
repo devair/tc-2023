@@ -83,7 +83,12 @@ Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplic
 curl http://localhost:3333/health
 ~~~
 
-## 4) Utilização da aplicação
+## 4) Documentação Swagger
+
+http://localhost:3333/api-docs
+
+
+## 5) Utilização da aplicação
 
 Para utilizar a aplicação precisa-se seguir a sequência de chamadas de APIs abaixo.
 
@@ -255,10 +260,8 @@ Body Response:
 }
 ~~~
 
-## 5) Documentação Swagger
 
-http://localhost:3333/api-docs
-## Documentos
+## 6) Documentos
 
 ### Domain Storytelling
 <img src="./documents/fase1/domain storytelling.png" alt="domain storytelling diagram"/>
