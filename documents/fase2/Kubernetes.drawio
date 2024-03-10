@@ -1,0 +1,64 @@
+<mxfile host="app.diagrams.net" modified="2024-03-10T00:46:00.771Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="eUdjK7kkUYGYL-UQDLK-" version="24.0.4" type="google">
+  <diagram name="Página-1" id="hIfcBWfHlECoJOijEC_K">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-10" value="pod-app" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-1520" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="J3_Q4X4Bh5R-BNru6nFg-11" target="J3_Q4X4Bh5R-BNru6nFg-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="610" y="-1159" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-11" value="pod-postgres-db" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-1339" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-12" value="&lt;div&gt;vp-postgres-db&lt;/div&gt;(volume&lt;div&gt;persistence)&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="740" y="-1178" width="130" height="108" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="J3_Q4X4Bh5R-BNru6nFg-27" target="J3_Q4X4Bh5R-BNru6nFg-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="-1134" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="J3_Q4X4Bh5R-BNru6nFg-19" target="J3_Q4X4Bh5R-BNru6nFg-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-19" value="cm-postgres-db&lt;div&gt;(config map)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="730" y="-1304" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-25" value="svc-app&lt;div&gt;port: 3333&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="470" y="-1449" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-26" value="svc-postgres&lt;div&gt;port: 5432&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="470" y="-1259" width="113" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-27" value="vc-postgres&lt;div&gt;(volume claim)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-1154" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="J3_Q4X4Bh5R-BNru6nFg-29" target="J3_Q4X4Bh5R-BNru6nFg-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-29" value="&lt;div&gt;cm-app&lt;/div&gt;&lt;div&gt;(config map)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="720" y="-1490" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="J3_Q4X4Bh5R-BNru6nFg-31" target="J3_Q4X4Bh5R-BNru6nFg-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-31" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="-1462" width="30" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="J3_Q4X4Bh5R-BNru6nFg-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.399;entryY=-0.021;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="J3_Q4X4Bh5R-BNru6nFg-10" target="J3_Q4X4Bh5R-BNru6nFg-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="-1369" />
+              <mxPoint x="515" y="-1369" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -271,3 +271,17 @@ Body Response:
 ## 4) Documentação Swagger
 
 http://localhost:3333/api-docs
+## Documentos
+
+### Domain Storytelling
+<img src="./documents/fase1/domain storytelling.png" alt="domain storytelling diagram"/>
+
+### Arquitetura de software
+<img src="./documents/fase2/Application Clean Architecture.png" alt="Architeture software diagram"/>
+<img src="./documents/fase2/Application Clean Architecture.drawio" alt="Architeture software diagram"/>
+
+
+### Kubernetes
+<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/> 
+<img src="./documents/fase2/Kubernetes.drawio" alt="Kubernetes"/>
+  
