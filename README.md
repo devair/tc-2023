@@ -282,5 +282,6 @@ http://localhost:3333/api-docs
 
 
 ### Kubernetes
-<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/>
+<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/> 
+<img src="./documents/fase2/Kubernetes.drawio" alt="Kubernetes"/>
   
