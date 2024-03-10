@@ -44,7 +44,7 @@ Para executar a aplicação é necesssário ter o Docker instalado localmente co
 ### a) Clonar o projeto 
 
 ~~~bash
-  git https://github.com/devair/tc-2023.git
+  git clone https://github.com/devair/tc-2023.git
 ~~~
 
 ### b) Acessar o diretório do projeto
