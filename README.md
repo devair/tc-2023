@@ -274,8 +274,8 @@ http://localhost:3333/api-docs
 ## Documentos
 
 ### Domain Storytelling
-![Domain storytelling](./documents/fase1/domain storytelling.png)  
+<img src="./documents/fase1/domain storytelling.png" alt="domain storytelling diagram"/>
 
 ### Arquitetura de software
-
-![Domain storytelling](./documents/fase2/Application Clean Architecture.drawio)  
+<img src="./documents/fase1/./documents/fase2/Application Clean Architecture.drawio" alt="Architeture software diagram"/>
+  
