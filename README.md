@@ -25,7 +25,19 @@ O estabelecimento pode gerenciar as informações dos produtos visualizados pelo
 O estabelecimento pode gerenciar o pedido à medida que ele segue em preparação, utilizando suas informações ao longo das etapas e atualizando o status do pedido para Aguardando pagamento, Recebido, Em preparação, Pronto, Finalizado e Rejeitado.
 
 
-## 2) Rodar localmente no Docker for Windows
+## 2) Documentos
+
+### Arquitetura de software
+<img src="./documents/fase2/Application Clean Architecture.png" alt="Architeture software diagram"/>
+<img src="./documents/fase2/Application Clean Architecture.drawio" alt="Architeture software diagram"/>
+
+
+### Kubernetes
+<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/> 
+<img src="./documents/fase2/Kubernetes.drawio" alt="Kubernetes"/>
+  
+
+## 3) Rodar localmente no Docker for Windows
 
 Para executar a aplicação é necesssário ter o Docker instalado localmente com o Kubernetes ativado
 
@@ -48,7 +60,7 @@ Para executar a aplicação é necesssário ter o Docker instalado localmente co
 docker compose up
 ~~~  
 
-## 3) Rodar aplicação em Kubernetes
+## 4) Rodar aplicação em Kubernetes
 
 Ter o Minikube instalado localmente
 
@@ -83,12 +95,12 @@ Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplic
 curl http://localhost:3333/health
 ~~~
 
-## 4) Documentação Swagger
+## 5) Documentação Swagger
 
 http://localhost:3333/api-docs
 
 
-## 5) Utilização da aplicação
+## 6) Utilização da aplicação
 
 Para utilizar a aplicação precisa-se seguir a sequência de chamadas de APIs abaixo.
 
@@ -260,18 +272,3 @@ Body Response:
 }
 ~~~
 
-
-## 6) Documentos
-
-### Domain Storytelling
-<img src="./documents/fase1/domain storytelling.png" alt="domain storytelling diagram"/>
-
-### Arquitetura de software
-<img src="./documents/fase2/Application Clean Architecture.png" alt="Architeture software diagram"/>
-<img src="./documents/fase2/Application Clean Architecture.drawio" alt="Architeture software diagram"/>
-
-
-### Kubernetes
-<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/> 
-<img src="./documents/fase2/Kubernetes.drawio" alt="Kubernetes"/>
-  
