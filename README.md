@@ -57,7 +57,7 @@ Para executar a aplicação é necesssário ter o Docker instalado localmente co
 
 ### 
 ~~~bash  
-docker compose up
+docker compose build && docker compose up
 ~~~  
 
 ## 4) Rodar aplicação em Kubernetes
