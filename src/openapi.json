@@ -1210,7 +1210,7 @@
           "orders"
         ],
         "summary": "List orders",
-        "description": "List orders",
+        "description": "List orders with the follow status: Em preparação, Pronto, Recebido",
         "responses": {
           "200": {
             "description": "successful operation",
