@@ -2,8 +2,42 @@
 # Sistema de Pedidos 📝  
   
 Projeto exemplo de um sistema para gestão de pedidos de uma lanchonete utilizando os conceitos de Arquitetura Limpa (Clean Architecture)
+
+
+## 1) Contexto da aplicação
+
+### Jornada do cliente
+
+O cliente interage com o sistema primeiramente e de forma opcional informando os dados cadastrais NOME, CPF, E-MAIL e TELEFONE. O cliente pode seguir o atendimento sem informar esses dados.
+
+Em seguida ele visualiza uma lista de produtos à venda pela lanchonete e que estão agrupados pelas categorias: LANCHES, BEBIDAS, ACOMPANHAMENTOS e SOBREMESAS.
+
+Após selecionar os produtos desejados, o cliente tem a opção de continuar a compra realizando o pagamento.
+
+O pedido, após confirmado o pagamento, segue para produção e quando estiver pronto o cliente é avisado para retirada do pedido, finalizando assim a jornada do cliente.
+
+### Jornada do estabelecimento
+
+O estabelecimento pode trabalhar com campanhas promocionais utilizando os dados cadastrais informados pelo cliente no processo de compra.
+
+O estabelecimento pode gerenciar as informações dos produtos visualizados pelo cliente, tais como nome, categoria, preço, descrição e imagem, utilizando para isso as funcionalidades de cadastro e edição de categorias e produtos.
+
+O estabelecimento pode gerenciar o pedido à medida que ele segue em preparação, utilizando suas informações ao longo das etapas e atualizando o status do pedido para Aguardando pagamento, Recebido, Em preparação, Pronto, Finalizado e Rejeitado.
+
+
+## 2) Documentos
+
+### Arquitetura de software
+<img src="./documents/fase2/Application Clean Architecture.png" alt="Architeture software diagram"/>
+<img src="./documents/fase2/Application Clean Architecture.drawio" alt="Architeture software diagram"/>
+
+
+### Kubernetes
+<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/> 
+<img src="./documents/fase2/Kubernetes.drawio" alt="Kubernetes"/>
   
-## 1) Rodar localmente no Docker for Windows
+
+## 3) Rodar localmente no Docker for Windows
 
 Para executar a aplicação é necesssário ter o Docker instalado localmente com o Kubernetes ativado
 
@@ -26,7 +60,7 @@ Para executar a aplicação é necesssário ter o Docker instalado localmente co
 docker compose up
 ~~~  
 
-## 2) Rodar aplicação em Kubernetes
+## 4) Rodar aplicação em Kubernetes
 
 Ter o Minikube instalado localmente
 
@@ -37,49 +71,14 @@ Ter o Minikube instalado localmente
 minikube start
 ~~~
 
-### b) Implantar Pods, Services, ConfigMaps
+### b) Implantar Pods, Services, ConfigMaps e Volumes
 Acessar a pasta kubernetes e executar para cada arquivo o seguinte comando
 
-Implantar ConfigMaps
-~~~bash
-kubectl apply -f ./kubernetes/cm-app.yaml        
-~~~
+Utilizar um dos arquivos abaixo, conforme o sistema operacional:
 
-~~~bash
-kubectl apply -f ./kubernetes/cm-postgres.yaml   
-~~~
+[run.bat](./kubernetes/run.bat) (Windows) 
 
-Implantar Volume
-
-~~~bash
-kubectl apply -f ./kubernetes/pv-postgres.yaml   
-~~~
-
-~~~bash
-kubectl apply -f ./kubernetes/vc-postgres.yaml
-~~~
-
-
-Implantar Pods
-
-~~~bash
-kubectl apply -f ./kubernetes/pod-app.yaml
-~~~
-
-~~~bash
-kubectl apply -f ./kubernetes/pod-postgres.yml   
-~~~
-
-Implantar Services
-
-~~~bash
-kubectl apply -f ./kubernetes/svc-postgres.yaml
-~~~
-
-~~~bash       
-kubectl apply -f ./kubernetes/svc-app.yaml
-~~~
-
+[run.sh](./kubernetes/run.sh)  (Linux)
 
 ### c) Redirecionar portas para acesso via localhost
 
@@ -96,7 +95,12 @@ Executar o comando abaixo no prompt e obter o retorno 'Ok' indicando que a aplic
 curl http://localhost:3333/health
 ~~~
 
-## 3) Utilização da aplicação
+## 5) Documentação Swagger
+
+http://localhost:3333/api-docs
+
+
+## 6) Utilização da aplicação
 
 Para utilizar a aplicação precisa-se seguir a sequência de chamadas de APIs abaixo.
 
@@ -268,20 +272,3 @@ Body Response:
 }
 ~~~
 
-## 4) Documentação Swagger
-
-http://localhost:3333/api-docs
-## Documentos
-
-### Domain Storytelling
-<img src="./documents/fase1/domain storytelling.png" alt="domain storytelling diagram"/>
-
-### Arquitetura de software
-<img src="./documents/fase2/Application Clean Architecture.png" alt="Architeture software diagram"/>
-<img src="./documents/fase2/Application Clean Architecture.drawio" alt="Architeture software diagram"/>
-
-
-### Kubernetes
-<img src="./documents/fase2/Kubernetes.png" alt="Kubernetes"/> 
-<img src="./documents/fase2/Kubernetes.drawio" alt="Kubernetes"/>
-  
