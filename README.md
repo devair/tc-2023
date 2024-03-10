@@ -271,3 +271,5 @@ Body Response:
 ## 4) Documentação Swagger
 
 http://localhost:3333/api-docs
+## Arquitetura da aplicação  
+<img src="documents/fase1/domain storytelling.png" width="128"/>
