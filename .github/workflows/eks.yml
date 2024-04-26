@@ -7,8 +7,14 @@ jobs:
 
   EKS:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+      
     steps:
-    - uses: actions/checkout@v3
+    
+    - name: Checkout Code
+      uses: actions/checkout@v3
     
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
