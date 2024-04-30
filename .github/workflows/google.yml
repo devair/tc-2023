@@ -66,4 +66,5 @@ jobs:
       with:
         cluster_name: primary
         location: us-central1-a
-    
+        
+    - run: kubectl get namespaces
