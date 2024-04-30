@@ -18,8 +18,8 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GAR_LOCATION: us-central1 # TODO: update region of the Artifact Registry
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
+  GKE_CLUSTER: primary    # TODO: update to cluster name
+  GKE_ZONE: us-central1-a   # TODO: update to cluster zone
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: samples # TODO: update to Artifact Registry docker repository
   IMAGE: static-site
@@ -57,4 +57,14 @@ jobs:
     - run: echo "$(terraform -chdir=gke-infra output -raw database_ip)"
       id: db_ip
 
-    
+    - uses: "google-github-actions/setup-gcloud@v2"
+      with:
+        install_components: "gke-gcloud-auth-plugin"
+
+    - name: Authenticate to GKE cluster
+      uses: google-github-actions/get-gke-credentials@v2
+      with:
+        cluster_name: primary
+        location: us-central1-a
+        
+    - run: kubectl get namespaces
