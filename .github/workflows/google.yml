@@ -45,6 +45,8 @@ jobs:
       with:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
+    - run: gcloud auth application-default login --project $PROJECT_ID
+
     - run: git clone https://github.com/devair/gke-infra.git
      
     - name: HashiCorp - Setup Terraform
