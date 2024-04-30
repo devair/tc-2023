@@ -52,7 +52,7 @@ jobs:
 
     - run: terraform -chdir=gke-infra init -reconfigure
 
-    - run: terraform -chdir=gke-infra -auto-approve
+    - run: terraform -chdir=gke-infra apply -auto-approve
 
     - run: echo "$(terraform -chdir=gke-infra output -raw database_ip)"
       id: db_ip
