@@ -44,15 +44,13 @@ jobs:
       uses: 'google-github-actions/auth@v2'
       with:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
-
-    - run: gcloud auth application-default login --project $PROJECT_ID -quiet 
-
+        
     - run: git clone https://github.com/devair/gke-infra.git
      
     - name: HashiCorp - Setup Terraform
       uses: hashicorp/setup-terraform@v2.0.3
 
-    - run: terraform -chdir=gke-infra init
+    - run: terraform -chdir=gke-infra init -reconfigure
 
     - run: terraform -chdir=gke-infra -auto-approve
 
