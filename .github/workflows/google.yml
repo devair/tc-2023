@@ -25,8 +25,8 @@ env:
   IMAGE: static-site
 
 jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+  setup-gke:
+    name: Setup GKE
     runs-on: ubuntu-latest
     environment: production
 
@@ -68,3 +68,5 @@ jobs:
         location: us-central1-a
         
     - run: kubectl get namespaces
+
+    
