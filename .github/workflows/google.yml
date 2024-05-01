@@ -91,5 +91,5 @@ jobs:
       run: kubectl apply -f app-kubernetes/app-deploy.yaml
 
     - name: Kubernetes App Service
-      run: kubectl apply -f app-kubernetes/app-svc.yaml
+      run: kubectl apply -f app-kubernetes/.
     
