@@ -74,22 +74,7 @@ jobs:
 
     - name: Kubernetes Project
       run: git clone https://github.com/devair/app-kubernetes.git
-
-    - name: Kubernetes Postgres Config Map
-      run: kubectl apply -f app-kubernetes/postgres-cm.yaml
-    
-    - name: Kubernetes Postgres Persistent Volume
-      run: kubectl apply -f app-kubernetes/postgres-pv.yaml
-
-    - name: Kubernetes Postgres Deploy
-      run: kubectl apply -f app-kubernetes/postgres-statefulset.yaml
-
-    - name: Kubernetes Postgres Service
-      run: kubectl apply -f app-kubernetes/postgres-svc.yaml
-    
-    - name: Kubernetes App Deploy
-      run: kubectl apply -f app-kubernetes/app-deploy.yaml
-
-    - name: Kubernetes App Service
+      
+    - name: Kubernetes Deploy
       run: kubectl apply -f app-kubernetes/.
     
