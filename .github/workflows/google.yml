@@ -10,7 +10,7 @@
 #
 # For more support on how to run the workflow, please visit https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke-kustomize
 
-name: Build and Deploy to GKE
+name: Build Infra GKE
 
 on:
   workflow_dispatch:
@@ -25,8 +25,8 @@ env:
   IMAGE: static-site
 
 jobs:
-  setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+  setup-gke:
+    name: Setup GKE
     runs-on: ubuntu-latest
     environment: production
 
@@ -44,20 +44,25 @@ jobs:
       uses: 'google-github-actions/auth@v2'
       with:
         credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
-        
-    - run: git clone https://github.com/devair/gke-infra.git
      
-    - name: HashiCorp - Setup Terraform
+    - name: Get GKE Project
+      run: git clone https://github.com/devair/gke-infra.git
+      
+    - name: Terraform install
       uses: hashicorp/setup-terraform@v2.0.3
 
-    - run: terraform -chdir=gke-infra init -reconfigure
+    - name: Terraform configure
+      run: terraform -chdir=gke-infra init -reconfigure
 
-    - run: terraform -chdir=gke-infra apply -auto-approve
+    - name: Terraform apply
+      run: terraform -chdir=gke-infra apply -auto-approve
 
-    - run: echo "$(terraform -chdir=gke-infra output -raw database_ip)"
+    - name: Database Ip
+      run: echo "$(terraform -chdir=gke-infra output -raw database_ip)"
       id: db_ip
 
-    - uses: "google-github-actions/setup-gcloud@v2"
+    - name: GKE Install
+      uses: "google-github-actions/setup-gcloud@v2"
       with:
         install_components: "gke-gcloud-auth-plugin"
 
@@ -66,5 +71,10 @@ jobs:
       with:
         cluster_name: primary
         location: us-central1-a
-        
-    - run: kubectl get namespaces
+
+    - name: Kubernetes Project
+      run: git clone https://github.com/devair/app-kubernetes.git
+      
+    - name: Kubernetes Deploy
+      run: kubectl apply -f app-kubernetes/.
+    
