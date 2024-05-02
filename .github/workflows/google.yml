@@ -71,8 +71,7 @@ jobs:
       with:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GAR_LOCATION }}
-
-    - run: kubectl delete secret postgres-secret --ignore-not-found
+    
     - run: kubectl delete secret postgres-private-ip --ignore-not-found
     - run: kubectl create secret generic postgres-private-ip --from-literal=db_host=${{ steps.URL.outputs.stdout }}
     
@@ -86,7 +85,7 @@ jobs:
     - run: kubectl create secret generic dbname --from-literal=database=${{secrets.DBNAME}}
 
     - run: kubectl delete secret dbport --ignore-not-found
-    - run: kubectl create secret generic dbport --from-literal=dbport=${{secrets.DBPORT}}
+    - run: kubectl create secret generic dbport --from-literal=port=${{secrets.DBPORT}}
     
     - name: Kubernetes Project
       run: git clone https://github.com/devair/app-kubernetes.git
