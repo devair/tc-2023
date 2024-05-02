@@ -58,7 +58,7 @@ jobs:
       run: terraform -chdir=gke-autopilot apply -auto-approve
 
     - name: Database Ip
-      run: echo "$(terraform -chdir=gke-autopilot output -raw database_ip)"
+      run: echo "$(terraform -chdir=gke-autopilot output -raw postgres_ip_address)"
       id: DB_IP
 
     - name: GKE Install
@@ -70,7 +70,7 @@ jobs:
       uses: google-github-actions/get-gke-credentials@v2
       with:
         cluster_name: ${{ env.GKE_CLUSTER }}
-        location: ${{ env.GKE_ZONE }}
+        location: ${{ env.GAR_LOCATION }}
 
     - run: kubectl delete secret postgres-secret --ignore-not-found
     - run: kubectl delete secret postgres-private-ip --ignore-not-found
