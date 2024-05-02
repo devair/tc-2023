@@ -86,7 +86,7 @@ jobs:
     - run: kubectl create secret generic dbname --from-literal=database=${{secrets.DBNAME}}
 
     - run: kubectl delete secret dbport --ignore-not-found
-    - run: kubectl create secret generic dbname --from-literal=dbport=${{secrets.DBPORT}}
+    - run: kubectl create secret generic dbport --from-literal=dbport=${{secrets.DBPORT}}
     
     - name: Kubernetes Project
       run: git clone https://github.com/devair/app-kubernetes.git
