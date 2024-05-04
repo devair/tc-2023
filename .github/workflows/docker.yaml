@@ -23,10 +23,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: user/app:latest
+          tags: devatron/tc-2023-repo:latest
       - name: Update repo description
         uses: peter-evans/dockerhub-description@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: user/app
+          repository: devatron/tc-2023-repo
