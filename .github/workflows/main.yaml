@@ -1,0 +1,11 @@
+name: Main
+
+on:  
+  workflow_dispatch:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  docker:    
+    uses: ./.github/workflows/docker.yaml
+    secrets: inherit
