@@ -1,0 +1,10 @@
+name: Main
+
+on:  
+  pull_request:
+    branches: ['main']
+
+jobs:
+  docker:    
+    uses: ./.github/workflows/docker.yml
+    secrets: inherit
