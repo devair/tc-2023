@@ -55,7 +55,7 @@ jobs:
       run: terraform -chdir=gke-autopilot init -reconfigure
 
     - name: Terraform apply
-      run: terraform -chdir=gke-autopilot apply -auto-approve
+      run: terraform -chdir=gke-autopilot apply -var="project_id=${{ secrets.GKE_PROJECT }}" -var="region=${{ secrets.GKE_ZONE }}" -var="postgres_database=${{ secrets.DBNAME }}" -var="postgres_root_password=${{ secrets.DBROOTPASSWORD }}" -var="postgres_username=${{ secrets.DBUSER }}" -var="postgres_password=${{ secrets.DBPASSWORD }}"  -no-color -input=false -auto-approve
 
     - name: Database Ip
       run: echo "$(terraform -chdir=gke-autopilot output -raw postgres_ip_address)"
