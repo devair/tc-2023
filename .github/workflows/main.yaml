@@ -9,3 +9,7 @@ jobs:
   docker:    
     uses: ./.github/workflows/docker.yaml
     secrets: inherit
+
+  infra:    
+    uses: ./.github/workflows/infra-google.yml
+    secrets: inherit
