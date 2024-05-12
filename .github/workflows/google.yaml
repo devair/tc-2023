@@ -16,10 +16,10 @@ on:
   workflow_dispatch:
 
 env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GAR_LOCATION: us-central1 # TODO: update region of the Artifact Registry
-  GKE_CLUSTER: k8s-fiap-gke    # TODO: update to cluster name
-  GKE_ZONE: us-central1-a   # TODO: update to cluster zone
+  PROJECT_ID: ${{ vars.GKE_PROJECT }}
+  GAR_LOCATION: ${{ vars.GAR_LOCATION }}
+  GKE_CLUSTER: ${{ vars.GKE_CLUSTER }}
+  GKE_ZONE: ${{ vars.GKE_ZONE }}
   DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
   REPOSITORY: samples # TODO: update to Artifact Registry docker repository
   IMAGE: static-site
@@ -55,7 +55,7 @@ jobs:
       run: terraform -chdir=gke-autopilot init -reconfigure
 
     - name: Terraform apply
-      run: terraform -chdir=gke-autopilot apply -var="project_id=${{ secrets.GKE_PROJECT }}" -var="region=${{ secrets.GKE_ZONE }}" -var="postgres_database=${{ secrets.DBNAME }}" -var="postgres_root_password=${{ secrets.DBROOTPASSWORD }}" -var="postgres_username=${{ secrets.DBUSER }}" -var="postgres_password=${{ secrets.DBPASSWORD }}"  -no-color -input=false -auto-approve
+      run: terraform -chdir=gke-autopilot apply -var="project_id=${{ env.PROJECT_ID }}" -var="region=${{ env.GAR_LOCATION }}" -var="postgres_database=${{ secrets.DBNAME }}" -var="postgres_root_password=${{ secrets.DBROOTPASSWORD }}" -var="postgres_username=${{ secrets.DBUSER }}" -var="postgres_password=${{ secrets.DBPASSWORD }}"  -no-color -input=false -auto-approve
 
     - name: Database Ip
       run: echo "$(terraform -chdir=gke-autopilot output -raw postgres_ip_address)"
@@ -92,4 +92,9 @@ jobs:
       
     - name: Kubernetes Deploy
       run: kubectl apply -f app-kubernetes/.
-    
+	  
+	- name: Loadbalancer
+      run: kubectl get service/pedidos-svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+      id: loadBalancerIp
+
+    - run: ${{ steps.loadBalancerIp.outputs.stdout }}
