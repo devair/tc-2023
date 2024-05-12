@@ -13,8 +13,8 @@
 name: Build Infra Google
 
 on:
+  workflow_call:  
   workflow_dispatch:
-
 env:
   PROJECT_ID: ${{ vars.GKE_PROJECT }}
   GAR_LOCATION: ${{ vars.GAR_LOCATION }}
