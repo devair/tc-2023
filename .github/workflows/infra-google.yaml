@@ -30,8 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    permissions:
-      contents: 'read'
+    permissions:      
       id-token: 'write'
 
     steps:
