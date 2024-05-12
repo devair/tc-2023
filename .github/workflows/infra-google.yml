@@ -92,9 +92,10 @@ jobs:
       
     - name: Kubernetes Deploy
       run: kubectl apply -f app-kubernetes/.
-	  
-	- name: Loadbalancer
+
+    - name: Loadbalancer
       run: kubectl get service/pedidos-svc -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
       id: loadBalancerIp
+    
+    - run: echo ${{ steps.loadBalancerIp.outputs.stdout }}
 
-    - run: ${{ steps.loadBalancerIp.outputs.stdout }}
